@@ -1,0 +1,766 @@
+exports[`autocomplete autocomplete for \`input\` show only InputType for field 1`] = `
+Array [
+  Object {
+    "description": "",
+    "text": "PlayerCreateInput",
+    "type": "GraphQLInputObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "CustomScalar",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`String\` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+    "text": "String",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+    "text": "Int",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Float\` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+    "text": "Float",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "text": "Boolean",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`"4"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+    "text": "ID",
+    "type": "GraphQLScalarType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`input\` show only InputType for field of ListType 1`] = `
+Array [
+  Object {
+    "description": "",
+    "text": "PlayerCreateInput",
+    "type": "GraphQLInputObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "CustomScalar",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`String\` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+    "text": "String",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+    "text": "Int",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Float\` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+    "text": "Float",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "text": "Boolean",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`"4"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+    "text": "ID",
+    "type": "GraphQLScalarType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`type\` show \`implements\` && \`{\` after typename 1`] = `
+Array [
+  Object {
+    "text": "implements",
+    "type": "Implements",
+  },
+  Object {
+    "text": "{",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`type\` show all \`GraphQLInterfaceType\` types after \`implements\` keyword 1`] = `
+Array [
+  Object {
+    "description": "",
+    "text": "Node",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "Edge",
+    "type": "GraphQLInterfaceType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`type\` show all \`GraphQLInterfaceType\` types after multiple InterfaceTypes 1`] = `
+Array [
+  Object {
+    "description": "",
+    "text": "Node",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "Edge",
+    "type": "GraphQLInterfaceType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`type\` show all output types for Field if cursor on ! and of the form [T!] 1`] = `
+Array [
+  Object {
+    "description": "Mutation contains all allowed mutations",
+    "text": "Mutation",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "PlayerCreatePayload",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "Query is the root query object",
+    "text": "Query",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Node",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "Player",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Team",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Viewer",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Edge",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "CustomScalar",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`String\` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+    "text": "String",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+    "text": "Int",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Float\` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+    "text": "Float",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "text": "Boolean",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`\"4\"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+    "text": "ID",
+    "type": "GraphQLScalarType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`type\` show all output types for Field if cursor on ! and of the form T! 1`] = `
+Array [
+  Object {
+    "description": "Mutation contains all allowed mutations",
+    "text": "Mutation",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "PlayerCreatePayload",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "Query is the root query object",
+    "text": "Query",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Node",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "Player",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Team",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Viewer",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Edge",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "CustomScalar",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`String\` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+    "text": "String",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+    "text": "Int",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Float\` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+    "text": "Float",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "text": "Boolean",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`\"4\"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+    "text": "ID",
+    "type": "GraphQLScalarType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`type\` show all output types for Field if cursor on ] and of type [T] 1`] = `
+Array [
+  Object {
+    "description": "Mutation contains all allowed mutations",
+    "text": "Mutation",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "PlayerCreatePayload",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "Query is the root query object",
+    "text": "Query",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Node",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "Player",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Team",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Viewer",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Edge",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "CustomScalar",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`String\` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+    "text": "String",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+    "text": "Int",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Float\` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+    "text": "Float",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "text": "Boolean",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`\"4\"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+    "text": "ID",
+    "type": "GraphQLScalarType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`type\` show all types for Field 1`] = `
+Array [
+  Object {
+    "description": "Mutation contains all allowed mutations",
+    "text": "Mutation",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "PlayerCreatePayload",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "Query is the root query object",
+    "text": "Query",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Node",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "Player",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Team",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Viewer",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Edge",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "CustomScalar",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`String\` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+    "text": "String",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+    "text": "Int",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Float\` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+    "text": "Float",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "text": "Boolean",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`"4"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+    "text": "ID",
+    "type": "GraphQLScalarType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`type\` show all types for Field ListType 1`] = `
+Array [
+  Object {
+    "description": "Mutation contains all allowed mutations",
+    "text": "Mutation",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "PlayerCreatePayload",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "Query is the root query object",
+    "text": "Query",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Node",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "Player",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Team",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Viewer",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Edge",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "CustomScalar",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`String\` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+    "text": "String",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+    "text": "Int",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Float\` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+    "text": "Float",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "text": "Boolean",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`"4"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+    "text": "ID",
+    "type": "GraphQLScalarType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`type\` show all types for Field even after typing few chars 1`] = `
+Array [
+  Object {
+    "description": "Mutation contains all allowed mutations",
+    "text": "Mutation",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "PlayerCreatePayload",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "Query is the root query object",
+    "text": "Query",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Node",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "Player",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Team",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Viewer",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Edge",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "CustomScalar",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`String\` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+    "text": "String",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+    "text": "Int",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Float\` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+    "text": "Float",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "text": "Boolean",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`\"4\"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+    "text": "ID",
+    "type": "GraphQLScalarType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`type\` show all types for Field with args 1`] = `
+Array [
+  Object {
+    "description": "Mutation contains all allowed mutations",
+    "text": "Mutation",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "PlayerCreatePayload",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "Query is the root query object",
+    "text": "Query",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Node",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "Player",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Team",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Viewer",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Edge",
+    "type": "GraphQLInterfaceType",
+  },
+  Object {
+    "description": "",
+    "text": "CustomScalar",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`String\` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+    "text": "String",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+    "text": "Int",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Float\` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+    "text": "Float",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "text": "Boolean",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`"4"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+    "text": "ID",
+    "type": "GraphQLScalarType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`type\` show only InputType for Field input args  1`] = `
+Array [
+  Object {
+    "description": "",
+    "text": "PlayerCreateInput",
+    "type": "GraphQLInputObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "CustomScalar",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`String\` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.",
+    "text": "String",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+    "text": "Int",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Float\` scalar type represents signed double-precision fractional values as specified by [IEEE 754](http://en.wikipedia.org/wiki/IEEE_floating_point). ",
+    "text": "Float",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "text": "Boolean",
+    "type": "GraphQLScalarType",
+  },
+  Object {
+    "description": "The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`"4"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+    "text": "ID",
+    "type": "GraphQLScalarType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`union\` show \`|\` after Type(unionMember) 1`] = `
+Array [
+  Object {
+    "description": "OR symbol",
+    "text": "|",
+    "type": "OR",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`union\` show all GrahQLObjectType after \`|\` 1`] = `
+Array [
+  Object {
+    "description": "Mutation contains all allowed mutations",
+    "text": "Mutation",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "PlayerCreatePayload",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "Query is the root query object",
+    "text": "Query",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Player",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Team",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Viewer",
+    "type": "GraphQLObjectType",
+  },
+]
+`;
+
+exports[`autocomplete autocomplete for \`union\` show only GrahQLObjectType for field 1`] = `
+Array [
+  Object {
+    "description": "Mutation contains all allowed mutations",
+    "text": "Mutation",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "PlayerCreatePayload",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "Query is the root query object",
+    "text": "Query",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Player",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Team",
+    "type": "GraphQLObjectType",
+  },
+  Object {
+    "description": "",
+    "text": "Viewer",
+    "type": "GraphQLObjectType",
+  },
+]
+`;

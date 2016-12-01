@@ -1,0 +1,78 @@
+{
+  "name": "@playlyfe/gql",
+  "version": "0.0.0-auto-generate-by-semantic-release",
+  "description": "tools for gql",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Mayank1791989/gql.git"
+  },
+  "scripts": {
+    "test": "npm run check-code && npm run testonly -- --coverage",
+    "testonly": "cross-env NODE_ENV=test jest",
+    "check-code": "npm run flow-check",
+    "flow-check": "flow check",
+    "lint": "eslint src",
+    "flow-typed-update": "flow-typed update",
+    "build": "npm run clean && babel ./src --out-dir ./lib --ignore '**/__**__/**,**/node_modules/**'",
+    "report-coverage": "codecov",
+    "semantic-release": "semantic-release pre && npm publish --access public && semantic-release post",
+    "clean": "rm -rf lib",
+    "commit": "git-cz"
+  },
+  "author": "Mayank Agarwal <mayank1791989@gmail.com>",
+  "license": "MIT",
+  "files": [
+    "lib",
+    "README.md"
+  ],
+  "dependencies": {
+    "ajv": "4.9.0",
+    "babel-runtime": "6.18.0",
+    "codemirror-graphql": "0.5.8",
+    "fb-watchman": "1.9.0",
+    "find-config": "1.0.0",
+    "graphql": "0.8.2",
+    "json5": "0.5.1",
+    "keymirror": "0.1.1",
+    "leven": "2.0.0",
+    "node-ipc": "8.9.2",
+    "promise-retry": "1.1.1"
+  },
+  "devDependencies": {
+    "babel-cli": "6.18.0",
+    "babel-eslint": "7.1.1",
+    "babel-jest": "17.0.2",
+    "babel-polyfill": "6.16.0",
+    "babel-preset-playlyfe": "1.1.1",
+    "codecov": "^1.0.1",
+    "commitizen": "^2.8.6",
+    "cross-env": "3.1.3",
+    "cz-conventional-changelog": "1.2.0",
+    "eslint": "3.11.1",
+    "eslint-config-airbnb-base": "10.0.1",
+    "flow-bin": "0.36.0",
+    "flow-typed": "2.0.0",
+    "ghooks": "1.3.2",
+    "jest": "17.0.3",
+    "semantic-release": "6.3.2"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    },
+    "ghooks": {
+      "pre-commit": "npm run test"
+    }
+  },
+  "jest": {
+    "testRegex": "__tests__/.*.test.js$",
+    "testEnvironment": "node",
+    "testPathDirs": [
+      "src/"
+    ]
+  },
+  "bin": {
+    "gql": "lib/cli.js"
+  }
+}

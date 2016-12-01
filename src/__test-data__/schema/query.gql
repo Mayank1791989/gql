@@ -1,0 +1,30 @@
+# Query is the root query object
+type Query {
+	node(id: String!): Node
+	nodes(ids: [String!]): [Node]
+	viewer: Viewer!
+}
+
+interface Node {
+  id: ID!
+}
+
+type Player implements Node {
+  id: ID!
+  name: String!
+}
+
+type Team implements Node {
+  id: ID!
+  name: String!
+}
+
+type Viewer {
+  me: Player!
+  xme: XPlayer! # validation error
+}
+
+interface Edge {
+  cursor: String!
+  node: Node!
+}

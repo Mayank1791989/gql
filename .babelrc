@@ -1,0 +1,5 @@
+{
+  presets: [
+    ["playlyfe", { react: false, asyncAwait: true }],
+  ],
+}
