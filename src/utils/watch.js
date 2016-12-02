@@ -40,7 +40,7 @@ export default function watch(
       console.log(`Watch established on ${_watch} relative_path ${relativePath}`);
 
       const gqlFilesWatchSubscription = 'gqlFilesWatch';
-      client.command(['subscribe', watch, gqlFilesWatchSubscription, sub], (subscribeError, resp) => {
+      client.command(['subscribe', _watch, gqlFilesWatchSubscription, sub], (subscribeError, resp) => {
         if (subscribeError) {
           console.error('failed to subscribe: ', subscribeError);
           return;
