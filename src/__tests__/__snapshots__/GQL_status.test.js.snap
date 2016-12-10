@@ -151,12 +151,12 @@ Array [
   Object {
     "locations": Array [
       Object {
-        "column": 15,
+        "column": 16,
         "line": 3,
         "path": "schema.gql",
       },
       Object {
-        "column": 16,
+        "column": 15,
         "line": 4,
         "path": "schema.gql",
       },

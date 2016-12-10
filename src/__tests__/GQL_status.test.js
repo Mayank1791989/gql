@@ -33,7 +33,10 @@ function runGQL(files): GQL {
 describe('Global Schema errors', () => {
   it('should report error when `Query` type is missing', () => {
     expect(runGQL({
-      'test.gql': 'type Test { name: String }',
+      'test.gql': `
+        type Test { name: String }
+        type Mutation { x: Test }
+      `,
     }).status()).toMatchSnapshot();
   });
 });
@@ -123,7 +126,7 @@ describe('Multiple definition for same type', () => {
   it('should report for same type (ObjectType)', () => {
     expect(runGQL({
       'schema.gql': `
-        type Query { name: String }
+        type Query { name: Test }
         type Test { name: String }
         type Test { name: String }
       `,
@@ -133,7 +136,7 @@ describe('Multiple definition for same type', () => {
   it('should report for different type (ObjectType and InputType)', () => {
     expect(runGQL({
       'schema.gql': `
-        type Query { name: String }
+        type Query { name: Test }
         type Test { name: String }
         input Test { name: String }
       `,
@@ -143,7 +146,7 @@ describe('Multiple definition for same type', () => {
   it('should report for different type (Object and Scalar)', () => {
     expect(runGQL({
       'schema.gql': `
-        type Query { name: String }
+        type Query { name: Test }
         type Test { name: String }
         scalar Test
       `,
@@ -153,9 +156,9 @@ describe('Multiple definition for same type', () => {
   it('should report for input type (Input and Scalar)', () => {
     expect(runGQL({
       'schema.gql': `
-        type Query { name: String }
-        input Test { name: String }
+        type Query { name: Test }
         scalar Test
+        input Test { name: String }
       `,
     }).status()).toMatchSnapshot();
   });
@@ -163,8 +166,8 @@ describe('Multiple definition for same type', () => {
   it('should report if same named types in different files', () => {
     expect(runGQL({
       'file1.gql': `
-        type Query { name: String }
-        input Test { name: String }
+        type Query { name: Test }
+         type Test { name: String }
       `,
       'file2.gql': `
         scalar Test

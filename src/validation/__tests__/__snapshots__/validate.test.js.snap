@@ -1,0 +1,26 @@
+exports[`test Report unused type definition 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 6,
+        "path": "GraphQL",
+      },
+    ],
+    "message": "Unused type definition \'X\'",
+    "severity": "warn",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 10,
+        "path": "GraphQL",
+      },
+    ],
+    "message": "Unused type definition \'B\'",
+    "severity": "warn",
+  },
+]
+`;

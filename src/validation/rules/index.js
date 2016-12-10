@@ -1,8 +1,8 @@
 /* @flow */
-import { KnownTypeNames } from './KnownTypeNames';
+import { NoUnusedTypeDefinition } from './NoUnusedTypeDefinition';
 
 const allRules = [
-  KnownTypeNames,
+  NoUnusedTypeDefinition,
 ];
 
 export { allRules };

@@ -10,6 +10,7 @@ import { SEVERITY } from '../constants';
 
 import { Source } from 'graphql/language/source';
 import { parse } from 'graphql/language/parser';
+import { validate } from '../validation/validate';
 
 import type {
   ParsedFilesMap,
@@ -46,9 +47,9 @@ export default class GraphQLSchemaBuilder {
     // console.timeEnd('updating files');
 
     //  build merged ast
-    // console.time('buildAST')
+    // console.time('buildAST');
     const { ast, errors: parseErrors } = this._buildASTFromParsedFiles(this._parsedFilesMap);
-    // console.timeEnd('buildAST')
+    // console.timeEnd('buildAST');
 
     // build GraphQLSchema from ast
     // console.time('buildASTSchema');
@@ -57,14 +58,15 @@ export default class GraphQLSchemaBuilder {
 
     // validate
     // console.time('validate');
-    // this._errors = validate(this._schema, this._ast);
+    const validationErrors = validate(schema, ast);
     // console.timeEnd('validate');
+
     this._ast = ast;
     this._schema = schema;
     this._errors = [
       ...parseErrors,
       ...buildErrors,
-      // ...validationErrors,
+      ...validationErrors,
     ];
   }
 
