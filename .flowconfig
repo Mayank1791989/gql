@@ -2,6 +2,8 @@
 .*/node_modules/config-chain/.*
 .*/node_modules/findup/.*
 .*/node_modules/npmconf/.*
+.*/node_modules/flow-runtime/.*
+.*/node_modules/babel-plugin-flow-runtime/.*
 
 [include]
 
@@ -13,4 +15,4 @@ suppress_comment=\\(.\\|\n\\)*\\$FlowIssue
 suppress_comment=\\(.\\|\n\\)*\\$FlowDisableNextLine
 
 [version]
-^0.36.0
+^0.38.0

@@ -2,4 +2,7 @@
   presets: [
     ["playlyfe", { react: false, asyncAwait: true }],
   ],
+  plugins: [
+    ['./scripts/flow-runtime', { decorate: true, assert: true }],
+  ],
 }

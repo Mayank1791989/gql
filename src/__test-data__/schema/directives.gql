@@ -1,0 +1,7 @@
+# some custom directive
+directive @customDirective(
+  # description for arg
+  if: Boolean!
+)
+  on FIELD
+   | FRAGMENT_DEFINITION
