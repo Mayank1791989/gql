@@ -1,0 +1,61 @@
+exports[`test arguments 1`] = `
+Object {
+  "contents": Array [
+    "scalar CustomScalar",
+  ],
+}
+`;
+
+exports[`test field type: CustomScalar 1`] = `
+Object {
+  "contents": Array [
+    "scalar CustomScalar",
+  ],
+}
+`;
+
+exports[`test field type: Enum 1`] = `
+Object {
+  "contents": Array [
+    "enum Role {
+  roleA
+  roleB
+  roleC
+}",
+  ],
+}
+`;
+
+exports[`test field type: ObjectType 1`] = `
+Object {
+  "contents": Array [
+    "type Player implements Node {
+  id: ID!
+  name: String!
+  image(size: Int!): String!
+}",
+  ],
+}
+`;
+
+exports[`test implements 1`] = `
+Object {
+  "contents": Array [
+    "interface Node {
+  id: ID!
+}",
+  ],
+}
+`;
+
+exports[`test union type 1`] = `
+Object {
+  "contents": Array [
+    "type Player implements Node {
+  id: ID!
+  name: String!
+  image(size: Int!): String!
+}",
+  ],
+}
+`;

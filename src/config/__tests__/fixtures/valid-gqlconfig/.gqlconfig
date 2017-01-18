@@ -1,0 +1,19 @@
+{
+  schema: {
+    files: 'schema/**/*.gql',
+  },
+  query: {
+    files: [
+      // relay files (embedded query)
+      {
+        match: { include: 'query/**/*.js', ignore: '**/ignore/**/*.js' },
+        parser: [ 'EmbeddedQueryParser', { startTag: 'Relay.QL`', endTag: '`' } ],
+      },
+      // query gql files
+      {
+        match: 'query/**/*.gql',
+        parser: 'QueryParser',
+      }
+    ]
+  }
+}

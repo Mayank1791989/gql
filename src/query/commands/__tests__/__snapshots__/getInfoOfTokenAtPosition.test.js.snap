@@ -1,0 +1,172 @@
+exports[`directives args 1`] = `
+Object {
+  "contents": Array [
+    "# Included when true.
+if: Boolean!",
+    "# The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+  ],
+}
+`;
+
+exports[`directives core: args 1`] = `
+Object {
+  "contents": Array [
+    "# Included when true.
+if: Boolean!",
+    "# The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+  ],
+}
+`;
+
+exports[`directives core: name 1`] = `
+Object {
+  "contents": Array [
+    "# Directs the executor to include this field or fragment only when the \`if\` argument is true.
+directive @include(
+  # Included when true.
+  if: Boolean!
+)
+  on FIELD
+   | FRAGMENT_SPREAD
+   | INLINE_FRAGMENT",
+  ],
+}
+`;
+
+exports[`directives name info 1`] = `
+Object {
+  "contents": Array [
+    "# Directs the executor to include this field or fragment only when the \`if\` argument is true.
+directive @include(
+  # Included when true.
+  if: Boolean!
+)
+  on FIELD
+   | FRAGMENT_SPREAD
+   | INLINE_FRAGMENT",
+  ],
+}
+`;
+
+exports[`directives user defined: args 1`] = `
+Object {
+  "contents": Array [
+    "# description for arg
+if: Boolean!",
+    "# The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+  ],
+}
+`;
+
+exports[`directives user defined: name 1`] = `
+Object {
+  "contents": Array [
+    "# some custom directive
+directive @customDirective(
+  # description for arg
+  if: Boolean!
+)
+  on FIELD
+   | FRAGMENT_DEFINITION",
+  ],
+}
+`;
+
+exports[`fragments field arguments 1`] = `
+Object {
+  "contents": Array [
+    "(argument) size: Int!",
+    "# The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+  ],
+}
+`;
+
+exports[`fragments field: Should Include description, fieldDefn and output Type 1`] = `
+Object {
+  "contents": Array [
+    "(field) friend: Node!",
+    "interface Node {
+  id: ID!
+}",
+  ],
+}
+`;
+
+exports[`fragments on Type 1`] = `
+Object {
+  "contents": Array [
+    "type Player implements Node {
+  id: ID!
+  name: String!
+  image(size: Int!): String!
+}",
+  ],
+}
+`;
+
+exports[`mutations field: Include both input and output type 1`] = `
+Object {
+  "contents": Array [
+    "# Player Create contains all allowed mutations
+(field) PlayerCreate(input: PlayerCreateInput!): PlayerCreatePayload",
+    "input PlayerCreateInput {
+  id: ID!
+  name: String!
+  role: Role!
+}",
+    "type PlayerCreatePayload {
+  player: Player!
+}",
+  ],
+}
+`;
+
+exports[`mutations input object fields 1`] = `
+Object {
+  "contents": Array [
+    "(field) role: Role!",
+    "enum Role {
+  roleA
+  roleB
+  roleC
+}",
+  ],
+}
+`;
+
+exports[`mutations type: include description 1`] = `
+Object {
+  "contents": Array [
+    "# Mutation contains all allowed mutations
+type Mutation {
+  # Player Create contains all allowed mutations
+  PlayerCreate(input: PlayerCreateInput!): PlayerCreatePayload
+}",
+  ],
+}
+`;
+
+exports[`query field 1`] = `
+Object {
+  "contents": Array [
+    "(field) viewer: Viewer!",
+    "type Viewer {
+  me: Player!
+  xme: XPlayer! # validation error
+}",
+  ],
+}
+`;
+
+exports[`query query keyword 1`] = `
+Object {
+  "contents": Array [
+    "# Query is the root query object
+type Query {
+  node(id: String!): Node
+  nodes(ids: [String!]): [Node]
+  viewer: Viewer!
+}",
+  ],
+}
+`;

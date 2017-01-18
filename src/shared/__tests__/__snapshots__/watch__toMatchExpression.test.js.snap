@@ -1,0 +1,109 @@
+exports[`test Array<string> 1`] = `
+Array [
+  "anyof",
+  Array [
+    "match",
+    "files/**/*.gql",
+    "wholename",
+  ],
+  Array [
+    "match",
+    "files2/**/*.gql",
+    "wholename",
+  ],
+]
+`;
+
+exports[`test Object<include: Array<string>, ignore: string> 1`] = `
+Array [
+  "allof",
+  Array [
+    "anyof",
+    Array [
+      "match",
+      "files/**/*.gql",
+      "wholename",
+    ],
+    Array [
+      "match",
+      "files2/**/*gql",
+      "wholename",
+    ],
+  ],
+  Array [
+    "not",
+    Array [
+      "match",
+      "**/test/**/*.gql",
+      "wholename",
+    ],
+  ],
+]
+`;
+
+exports[`test Object<include: Array<string>>: single 1`] = `
+Array [
+  "match",
+  "files/**/*.gql",
+  "wholename",
+]
+`;
+
+exports[`test Object<include: string> 1`] = `
+Array [
+  "match",
+  "files/**/*.gql",
+  "wholename",
+]
+`;
+
+exports[`test Object<match: Array<string>, ignore: Array<string>> 1`] = `
+Array [
+  "allof",
+  Array [
+    "anyof",
+    Array [
+      "match",
+      "files/**/*.gql",
+      "wholename",
+    ],
+    Array [
+      "match",
+      "files2/**/*gql",
+      "wholename",
+    ],
+  ],
+  Array [
+    "not",
+    Array [
+      "match",
+      "**/test/**/*.gql",
+      "wholename",
+    ],
+  ],
+]
+`;
+
+exports[`test Object<match: Array<string>> 1`] = `
+Array [
+  "anyof",
+  Array [
+    "match",
+    "files/**/*.gql",
+    "wholename",
+  ],
+  Array [
+    "match",
+    "files2/**/*gql",
+    "wholename",
+  ],
+]
+`;
+
+exports[`test string 1`] = `
+Array [
+  "match",
+  "files/**/*.gql",
+  "wholename",
+]
+`;

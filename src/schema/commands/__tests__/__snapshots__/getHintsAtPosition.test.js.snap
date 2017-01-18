@@ -1,0 +1,21 @@
+exports[`autocomplete for \`type\` show \`implements\` && \`{\` after typename 1`] = `
+Array [
+  Object {
+    "text": "implements",
+    "type": "Implements",
+  },
+  Object {
+    "text": "{",
+  },
+]
+`;
+
+exports[`autocomplete for \`union\` show \`|\` after Type(unionMember) 1`] = `
+Array [
+  Object {
+    "description": "OR symbol",
+    "text": "|",
+    "type": "OR",
+  },
+]
+`;

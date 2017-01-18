@@ -1,6 +1,168 @@
 [![Travis](https://img.shields.io/travis/Mayank1791989/gql.svg?style=flat-square)](https://travis-ci.org/Mayank1791989/gql)
 [![Codecov](https://img.shields.io/codecov/c/github/Mayank1791989/gql.svg?style=flat-square)](https://codecov.io/gh/Mayank1791989/gql)
 [![npm](https://img.shields.io/npm/v/@playlyfe/gql.svg?style=flat-square)](https://www.npmjs.com/package/@playlyfe/gql)
-[![npm](https://img.shields.io/npm/dt/@playlyfe/gql.svg?style=flat-square)](https://www.npmjs.com/package/@playlyfe/gql)
 
 # gql
+> Graphql sevice which watches project files and provides useful information.
+
+## Installation
+
+1. Install node package
+  ```yarn add @playlyfe/gql --dev``` or ```npm install @playlyfe/gql --dev```
+2. Make sure [watchman](https://facebook.github.io/watchman/docs/install.html) is installed.
+3. Create [.gqlconfig](#gqlconfig) file in project root.
+
+## .gqlconfig
+> Configuration file in [json5](http://json5.org/) format.
+
+```javascript
+type GQLConfig = {
+  schema: {
+    files: FileMatchConfig,
+  },
+  query?: { // query optional
+    files: Array<{
+      match: FileMatchConfig, // match files
+      parser: QueryParser, 
+      isRelay?: boolean,
+    }>
+  }
+};
+
+type FileMatchConfig = Globs | { include: Globs, ignore?: Globs };
+type Globs = string | Array<string>; // eg **/*.js  **/*.gql
+
+type QueryParser = (
+  'QueryParser'
+  | ['EmbeddedQueryParser', { startTag: regexpStr, endTag: regexpStr }];
+)
+```
+
+```javascript
+// .gqlconfig (only schema)
+{
+  schema: {
+    files: 'schema/**/*.gql'
+  }
+}
+```
+
+```javascript
+// .gqlconfig (with query)
+{
+  schema: {
+    files: 'schema/**/*.gql',
+  },
+  query: {
+    files: [
+      // query gql files
+      {
+        match: 'path/to/files/**/*.gql',
+        parser: 'QueryParser',
+      },
+      // [Embedded queries] relay files
+      {
+        match: { include: 'path/to/code/**/*.js', ignore: '**/tests/**/*.js' },
+        parser: [ 'EmbeddedQueryParser', { startTag: 'Relay\\.QL`', endTag: '`' } ],
+        isRelay: true,
+      },
+      // [Embedded queries] gql tag files
+      {
+        match: { include: 'path/to/code/**/*.js', ignore: '**/tests/**/*.js' },
+        parser: [ 'EmbeddedQueryParser', { startTag: 'gql`', endTag: '`' } ],
+      },
+      // [Embedded queries] some other tags 
+      {
+        match: 'path/to/code/**/*.xyz',
+        parser: [ 'EmbeddedQueryParser', { startTag: '"""' endTag: '"""' } ],
+      },
+    ]
+  }
+}
+```
+
+## Plugins
+* vscode: [graphql-for-vscode](https://github.com/kumarharsh/graphql-for-vscode)
+* SublimeText: @TODO
+* cli: @TODO
+
+## Features
+
+#### Schema
+- [x] Validation
+- [x] Autocompletion
+- [x] Get Defintion
+- [x] Find References
+- [x] Get Info of symbol at position.
+- [x] Watch files and auto update
+
+#### Query
+- [x] Validation
+- [x] Autocompletion
+- [x] Get Definition
+- [x] Support Embedded queries (Relay.QL, gql, others)
+- [x] Get Info of symbol
+- [ ] Find References
+- [ ] Provide query schema dependency graph.
+
+## API
+```javascript
+class GQLService {
+  constructor(options: ?Options)
+  
+  /*** List of supported commands ***/
+  
+  // query errors
+  status(): Array<GQLError>
+  
+  // autocomplete suggestion at position
+  autocomplete(params: CommandParams): Array<GQLHint>
+
+  // Gets the definition location
+  getDef(params: CommandParams): ?DefLocation
+
+  // Find all refs of symbol at position
+  findRefs(params: CommandParams): Array<DefLocation>
+
+  // gets the info of symbol at position
+  getInfo(params: CommandParams): ?GQLInfo
+
+  /*** Helpers ***/
+
+  // return different file extensions found in .gqlconfig
+  getFileExtensions(): Array<string>
+}
+
+type Options = {
+  cwd?: string,
+  onChange?: () => void // called when something changes
+};
+
+type CommandParams = {
+  sourceText: string,
+  sourcePath: string,
+  position: { 
+    line: number, // starts with 1
+    column: number, // starts with 1
+  }
+};
+
+type DefLocation = {
+  start: { line: number, column: number },
+  end: { line: number, column: number },
+  path: AbsoluteFilePath,
+};
+
+type GQLError = {
+  message: string,
+  severity: 'warn' | 'error',
+  locations: ?Array<{ line: number, column: number, path: AbsolutePath }>
+};
+
+type GQLHint = {
+  text: string,
+  type?: string,
+  description?: string,
+};
+
+```
