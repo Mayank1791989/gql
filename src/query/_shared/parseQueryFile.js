@@ -1,22 +1,19 @@
 /* @flow */
 import newParser from './Parsers/newParser';
 
-import splitLines, { joinLines } from '../../shared/splitLines';
-import CharacterStream from 'codemirror-graphql/utils/CharacterStream';
 import { Source } from 'graphql/language/source';
 import type { DocumentNode } from 'graphql/language/ast';
 import { parse } from 'graphql/language/parser';
 import whileSafe from '../../shared/whileSafe';
+import debug from '../../shared/debug';
 
-const replaceWithSpace = (text: string, start: number, end: number): string => (
-  text.substring(0, start) +
-  text.substring(start, end).replace(/\S/g, ' ') +
-  text.substring(end)
-);
+import MultilineCharacterStream from '../../shared/MultilineCharacterStream';
 
-function replaceWithPlaceholderFragment(text: string, start: number, end: number) {
+const whiteSpaceString = text => text.replace(/\S/g, ' ');
+
+function placeholderFragment(text: string) {
   const fragmentName = 'F'; // dummy frag name
-  const str = text.substring(start, end).replace(/[^\s]/g, ',');
+  const str = text.replace(/[^\s]/g, ',');
   const fragmentStr = `...${fragmentName}`;
   if (/^.{2}\n/.test(str)) {
     // ${
@@ -24,39 +21,7 @@ function replaceWithPlaceholderFragment(text: string, start: number, end: number
     //  }
     return str.replace(/^.{2}/, fragmentStr);
   }
-  const fragStr = str.replace(new RegExp(`^.{${fragmentStr.length}}`), fragmentStr);
-
-  return text.substring(0, start) + fragStr + text.substring(end);
-}
-
-
-const FRAGMENT_NAME_EXTRACT_REGEXP = /fragment(.*?\s+)on/;
-function setFragmentName(
-  fragment: string,
-  getName: () => string,
-  forceReplace?: boolean,
-): { fragment: string, name: string } {
-  let newName = '';
-  const withNewNameFragment = fragment.replace(FRAGMENT_NAME_EXTRACT_REGEXP, (match, p1) => {
-    newName = p1.trim();
-    const isNameSet = Boolean(p1.trim());
-    if (isNameSet && !forceReplace) {
-      return match;
-    }
-    newName = getName();
-    const _name = ` ${newName} `;
-    const minLength = Math.min(_name.length, p1.length);
-    const nameStr = p1.replace(/\w/g, ' ').replace(
-      new RegExp(`^.{${minLength}}`),
-      _name,
-    );
-    return `fragment${nameStr}on`;
-  });
-
-  return {
-    fragment: withNewNameFragment,
-    name: newName,
-  };
+  return str.replace(new RegExp(`^.{${fragmentStr.length}}`), fragmentStr);
 }
 
 type Config = {
@@ -64,65 +29,69 @@ type Config = {
   isRelay?: boolean,
 };
 
+export function toQueryDocument(source: Source, config: Config): string {
+  debug.time('toQueryDocument');
+  const parser = newParser(config.parser);
+  const state = parser.startState();
+
+  const stream = new MultilineCharacterStream(source.body);
+  let queryDocument = '';
+
+  whileSafe({
+    condition: () => stream.getCurrentPosition() < source.body.length,
+    call: () => {
+      const style = parser.token(stream, state);
+      // console.log('current', stream.current(), style);
+      if ( // add fragment name is missing
+        config.isRelay &&
+        state.kind === 'TypeCondition' &&
+        state.prevState.kind === 'FragmentDefinition' &&
+        stream.current() === 'on' &&
+        !state.prevState.name
+      ) {
+        queryDocument += '_ on';
+        return;
+      }
+
+      if (style === 'ws-2') {
+        queryDocument += whiteSpaceString(stream.current());
+        return;
+      }
+
+      if (style === 'js-frag') {
+        queryDocument += placeholderFragment(stream.current());
+        return;
+      }
+
+      if (style) {
+        queryDocument += stream.current();
+      }
+    },
+  }, source.body.length);
+  debug.timeEnd('toQueryDocument');
+  // console.log(queryDocument);
+  return queryDocument;
+}
+
 export default function parserQueryFile(
   source: Source,
   config: Config,
 ): { ast: ?DocumentNode, isEmpty: boolean } {
-  // console.time('start');
-  const parser = newParser(config.parser);
-  const state = parser.startState();
-  const lines = splitLines(source.body);
-  let fragCount = 0;
-  const genFragName = () => {
-    fragCount += 1;
-    return `f${fragCount}`;
-  };
+  const queryDocument = toQueryDocument(source, config);
+  // console.log(queryDocument);
 
-  const modifiedLines = lines.map((line) => {
-    const stream = new CharacterStream(line);
-    let modifiedLine = line;
-    whileSafe({
-      condition: () => !stream.eol(),
-      call: () => {
-        const style = parser.token(stream, state);
-
-        if (config.isRelay && stream.current() === 'fragment') {
-          modifiedLine = setFragmentName(line, genFragName).fragment;
-        }
-
-        if (style === 'ws-2') {
-          modifiedLine = replaceWithSpace(
-            modifiedLine,
-            stream.getStartOfToken(),
-            stream.getCurrentPosition(),
-          );
-        }
-
-        if (style === 'js-frag') {
-          // todo
-          modifiedLine = replaceWithPlaceholderFragment(
-            modifiedLine,
-            stream.getStartOfToken(),
-            stream.getCurrentPosition(),
-          );
-        }
-      },
-    });
-    return modifiedLine;
-  });
-
-  const modifiedSourceText = `${joinLines(modifiedLines)}`;
-  // console.log(modifiedSourceText);
-  if (!modifiedSourceText.trim()) {
+  if (!queryDocument.trim()) {
     return {
       ast: null,
       isEmpty: true,
+      queryDocument,
     };
   }
 
-  const ast = parse(new Source(modifiedSourceText, source.name));
+  const ast = parse(new Source(queryDocument, source.name));
   return {
     ast,
     isEmpty: false,
+    document: queryDocument,
   };
 }

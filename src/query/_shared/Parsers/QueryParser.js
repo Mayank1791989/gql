@@ -6,7 +6,7 @@ import invariant from 'invariant';
 
 function JSInlineFragment() {
   return {
-    style: 'ws-2',
+    style: '',
     match(token) { return token.value === '${'; },
     update(state) {
       state.jsInlineFragment = { count: 1 }; // count is number of open curly braces
@@ -38,7 +38,7 @@ function eatJSInlineFragment(stream, state) {
 const parserOptions = {
   eatWhitespace: stream => stream.eatWhile(ch => isIgnored(ch) || ch === ';'),
   LexRules: {
-    JSInlineFragment: /\$\{/,
+    JSInlineFragment: /^\$\{/,
     ...LexRules,
   },
 
@@ -59,7 +59,9 @@ const parserOptions = {
     },
 
     Selection(token, stream) {
-      if (token.value === '${') { return 'JSInlineFragment'; }
+      if (token.value === '${') {
+        return 'JSInlineFragment';
+      }
       return ParseRules.Selection(token, stream);
     },
 
@@ -81,6 +83,7 @@ export default class QueryParser {
   token(stream: Stream, state: TokenState) {
     if (state.jsInlineFragment) {
       eatJSInlineFragment(stream, state);
+      stream._start -= 2; // to include '${' in token
       return 'js-frag';
     }
 

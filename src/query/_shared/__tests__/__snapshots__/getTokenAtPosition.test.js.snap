@@ -1,59 +1,53 @@
 exports[`should able to parse Relay.QL queries with interpolation multi line 1`] = `
 Object {
-  "end": 15,
+  "end": 82,
   "prevChar": "a",
-  "start": 11,
+  "start": 78,
   "state": Object {
-    "indentLevel": 5,
     "jsInlineFragment": null,
     "kind": "Field",
     "level": 0,
     "levels": Array [
-      5,
+      NaN,
     ],
     "name": "name",
     "needsAdvance": true,
     "needsSeperator": false,
     "prevState": Object {
-      "indentLevel": 5,
       "jsInlineFragment": null,
       "kind": "Selection",
       "level": 0,
       "levels": Array [
-        5,
+        NaN,
       ],
       "name": null,
       "needsAdvance": false,
       "needsSeperator": false,
       "prevState": Object {
-        "indentLevel": 5,
         "jsInlineFragment": null,
         "kind": "SelectionSet",
         "level": 0,
         "levels": Array [
-          5,
+          NaN,
         ],
         "name": null,
         "needsAdvance": false,
         "needsSeperator": false,
         "prevState": Object {
-          "indentLevel": 4,
           "kind": "FragmentDefinition",
           "level": 0,
           "levels": Array [
-            5,
+            NaN,
           ],
           "name": "Name",
           "needsAdvance": false,
           "needsSeperator": false,
           "prevState": Object {
-            "indentLevel": 4,
             "kind": "Definition",
             "level": 0,
             "name": null,
             "needsSeperator": false,
             "prevState": Object {
-              "indentLevel": 4,
               "kind": "Document",
               "level": 0,
               "name": null,
@@ -62,7 +56,11 @@ Object {
                 "level": 0,
               },
               "rule": Array [
-                "Definition",
+                Object {
+                  "isList": true,
+                  "ofRule": "Definition",
+                  "separator": undefined,
+                },
               ],
               "step": 0,
               "type": null,
@@ -144,60 +142,54 @@ Object {
 
 exports[`should able to parse Relay.QL queries with interpolation single line 1`] = `
 Object {
-  "end": 14,
-  "prevChar": "n",
-  "start": 10,
+  "end": 66,
+  "prevChar": "a",
+  "start": 62,
   "state": Object {
-    "indentLevel": 5,
     "jsInlineFragment": null,
     "kind": "Field",
     "level": 0,
     "levels": Array [
-      5,
+      NaN,
     ],
     "name": "name",
     "needsAdvance": true,
     "needsSeperator": false,
     "prevState": Object {
-      "indentLevel": 5,
       "jsInlineFragment": null,
       "kind": "Selection",
       "level": 0,
       "levels": Array [
-        5,
+        NaN,
       ],
       "name": null,
       "needsAdvance": false,
       "needsSeperator": false,
       "prevState": Object {
-        "indentLevel": 5,
         "jsInlineFragment": null,
         "kind": "SelectionSet",
         "level": 0,
         "levels": Array [
-          5,
+          NaN,
         ],
         "name": null,
         "needsAdvance": false,
         "needsSeperator": false,
         "prevState": Object {
-          "indentLevel": 4,
           "kind": "FragmentDefinition",
           "level": 0,
           "levels": Array [
-            5,
+            NaN,
           ],
           "name": "Name",
           "needsAdvance": false,
           "needsSeperator": false,
           "prevState": Object {
-            "indentLevel": 4,
             "kind": "Definition",
             "level": 0,
             "name": null,
             "needsSeperator": false,
             "prevState": Object {
-              "indentLevel": 4,
               "kind": "Document",
               "level": 0,
               "name": null,
@@ -206,7 +198,11 @@ Object {
                 "level": 0,
               },
               "rule": Array [
-                "Definition",
+                Object {
+                  "isList": true,
+                  "ofRule": "Definition",
+                  "separator": undefined,
+                },
               ],
               "step": 0,
               "type": null,
@@ -288,60 +284,54 @@ Object {
 
 exports[`should able to parse Relay.QL queries with interpolation with curly braces inside interpolation 1`] = `
 Object {
-  "end": 14,
-  "prevChar": "m",
-  "start": 10,
+  "end": 115,
+  "prevChar": "a",
+  "start": 111,
   "state": Object {
-    "indentLevel": 5,
     "jsInlineFragment": null,
     "kind": "Field",
     "level": 0,
     "levels": Array [
-      5,
+      NaN,
     ],
     "name": "name",
     "needsAdvance": true,
     "needsSeperator": false,
     "prevState": Object {
-      "indentLevel": 5,
       "jsInlineFragment": null,
       "kind": "Selection",
       "level": 0,
       "levels": Array [
-        5,
+        NaN,
       ],
       "name": null,
       "needsAdvance": false,
       "needsSeperator": false,
       "prevState": Object {
-        "indentLevel": 5,
         "jsInlineFragment": null,
         "kind": "SelectionSet",
         "level": 0,
         "levels": Array [
-          5,
+          NaN,
         ],
         "name": null,
         "needsAdvance": false,
         "needsSeperator": false,
         "prevState": Object {
-          "indentLevel": 4,
           "kind": "FragmentDefinition",
           "level": 0,
           "levels": Array [
-            5,
+            NaN,
           ],
           "name": "Name",
           "needsAdvance": false,
           "needsSeperator": false,
           "prevState": Object {
-            "indentLevel": 4,
             "kind": "Definition",
             "level": 0,
             "name": null,
             "needsSeperator": false,
             "prevState": Object {
-              "indentLevel": 4,
               "kind": "Document",
               "level": 0,
               "name": null,
@@ -350,7 +340,11 @@ Object {
                 "level": 0,
               },
               "rule": Array [
-                "Definition",
+                Object {
+                  "isList": true,
+                  "ofRule": "Definition",
+                  "separator": undefined,
+                },
               ],
               "step": 0,
               "type": null,
@@ -432,57 +426,51 @@ Object {
 
 exports[`test should able to parse Relay.QL tags 1`] = `
 Object {
-  "end": 12,
-  "prevChar": "e",
-  "start": 8,
+  "end": 59,
+  "prevChar": "i",
+  "start": 54,
   "state": Object {
-    "indentLevel": 4,
     "kind": "Field",
     "level": 0,
     "levels": Array [
-      4,
+      NaN,
     ],
-    "name": "name",
+    "name": "image",
     "needsAdvance": true,
     "needsSeperator": false,
     "prevState": Object {
-      "indentLevel": 4,
       "kind": "Selection",
       "level": 0,
       "levels": Array [
-        4,
+        NaN,
       ],
       "name": null,
       "needsAdvance": false,
       "needsSeperator": false,
       "prevState": Object {
-        "indentLevel": 4,
         "kind": "SelectionSet",
         "level": 0,
         "levels": Array [
-          4,
+          NaN,
         ],
         "name": null,
         "needsAdvance": false,
         "needsSeperator": false,
         "prevState": Object {
-          "indentLevel": 3,
           "kind": "FragmentDefinition",
           "level": 0,
           "levels": Array [
-            4,
+            NaN,
           ],
           "name": null,
           "needsAdvance": false,
           "needsSeperator": false,
           "prevState": Object {
-            "indentLevel": 3,
             "kind": "Definition",
             "level": 0,
             "name": null,
             "needsSeperator": false,
             "prevState": Object {
-              "indentLevel": 3,
               "kind": "Document",
               "level": 0,
               "name": null,
@@ -491,7 +479,11 @@ Object {
                 "level": 0,
               },
               "rule": Array [
-                "Definition",
+                Object {
+                  "isList": true,
+                  "ofRule": "Definition",
+                  "separator": undefined,
+                },
               ],
               "step": 0,
               "type": null,
@@ -566,93 +558,105 @@ Object {
     "step": 0,
     "type": null,
   },
-  "string": "name",
+  "string": "image",
   "style": "property",
 }
 `;
 
 exports[`test should able to parse multiple Relay.QL tags in single file 1`] = `
 Object {
-  "end": 22,
-  "prevChar": "e",
-  "start": 18,
+  "end": 95,
+  "prevChar": "T",
+  "start": 90,
   "state": Object {
-    "indentLevel": 3,
-    "kind": "TypeCondition",
+    "kind": "NamedType",
     "level": 0,
-    "name": null,
+    "name": "Test2",
     "needsAdvance": true,
     "needsSeperator": false,
     "prevState": Object {
-      "indentLevel": 3,
-      "kind": "FragmentDefinition",
+      "kind": "TypeCondition",
       "level": 0,
       "name": null,
       "needsAdvance": false,
       "needsSeperator": false,
       "prevState": Object {
-        "indentLevel": 3,
-        "kind": "Definition",
+        "kind": "FragmentDefinition",
         "level": 0,
         "name": null,
+        "needsAdvance": false,
         "needsSeperator": false,
         "prevState": Object {
-          "indentLevel": 3,
-          "kind": "Document",
+          "kind": "Definition",
           "level": 0,
           "name": null,
           "needsSeperator": false,
           "prevState": Object {
+            "kind": "Document",
             "level": 0,
+            "name": null,
+            "needsSeperator": false,
+            "prevState": Object {
+              "level": 0,
+            },
+            "rule": Array [
+              Object {
+                "isList": true,
+                "ofRule": "Definition",
+                "separator": undefined,
+              },
+            ],
+            "step": 0,
+            "type": null,
           },
-          "rule": Array [
-            "Definition",
-          ],
+          "rule": [Function],
           "step": 0,
           "type": null,
         },
-        "rule": [Function],
-        "step": 0,
-        "type": null,
+        "rule": Array [
+          Object {
+            "match": [Function],
+            "style": "keyword",
+          },
+          Object {
+            "ofRule": Object {
+              "match": [Function],
+              "style": "def",
+              "update": [Function],
+            },
+          },
+          "TypeCondition",
+          Object {
+            "isList": true,
+            "ofRule": "Directive",
+            "separator": undefined,
+          },
+          "SelectionSet",
+        ],
+        "step": 2,
+        "type": "Test2",
       },
       "rule": Array [
         Object {
           "match": [Function],
           "style": "keyword",
         },
-        Object {
-          "ofRule": Object {
-            "match": [Function],
-            "style": "def",
-            "update": [Function],
-          },
-        },
-        "TypeCondition",
-        Object {
-          "isList": true,
-          "ofRule": "Directive",
-          "separator": undefined,
-        },
-        "SelectionSet",
+        "NamedType",
       ],
-      "step": 2,
-      "type": "Test",
+      "step": 1,
+      "type": null,
     },
     "rule": Array [
-      Object {
-        "match": [Function],
-        "style": "keyword",
-      },
       Object {
         "match": [Function],
         "style": "atom",
         "update": [Function],
       },
     ],
-    "step": 1,
+    "step": 0,
     "type": null,
   },
-  "string": "Test",
+  "string": "Test2",
   "style": "atom",
 }
 `;
