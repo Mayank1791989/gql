@@ -1108,9 +1108,9 @@ codecov@1.0.1:
     request ">=2.42.0"
     urlgrey ">=0.4.0"
 
-codemirror-graphql@0.5.9:
-  version "0.5.9"
-  resolved "https://registry.yarnpkg.com/codemirror-graphql/-/codemirror-graphql-0.5.9.tgz#b5ca2a84bd0deae7660c726f7feba15149bac8fd"
+codemirror-graphql@0.6.1:
+  version "0.6.1"
+  resolved "https://registry.yarnpkg.com/codemirror-graphql/-/codemirror-graphql-0.6.1.tgz#eead37a698ffc49e63feb7de1f8b2eabacab7b61"
 
 colors@*, colors@^1.1.2:
   version "1.1.2"

@@ -30,6 +30,7 @@ function getHintsForTokenState(
   if (!state) { return []; }
 
   const { kind, step } = state;
+  // console.log(kind, step);
 
   if (kind === 'Document' && step === 0) {
     return [
@@ -134,7 +135,7 @@ function getHintsForTokenState(
     (kind === 'NamedType' && step === 0) ||
     (kind === 'NamedType' && step === 1 && isAlphabet(token.prevChar))
   ) {
-    return getHintsForTokenState(schema, state.prevState.prevState, token);
+    return getHintsForTokenState(schema, state.prevState.prevState.prevState, token);
   }
   /** **********************************************
 
@@ -156,14 +157,6 @@ function getHintsForTokenState(
     }, []);
   }
 
-  // union Type = Type1 <--------
-  if ((kind === 'UnionDef' && step === 5)) {
-    return [{
-      text: '|',
-      type: 'OR',
-      description: 'OR symbol',
-    }];
-  }
   /** ************** Union ******************/
 
   return [];

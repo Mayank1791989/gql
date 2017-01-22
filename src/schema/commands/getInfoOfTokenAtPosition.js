@@ -17,6 +17,8 @@ function getInfoOfTokenAtPosition(
   if (!token) { return null; }
 
   const { state } = token;
+  // console.log(state, token);
+  // console.log(state.kind, state.step);
   if (
     state.kind === 'NamedType' ||
     (state.kind === 'UnionDef' && state.step === 4) || // union Type = Type1<-----

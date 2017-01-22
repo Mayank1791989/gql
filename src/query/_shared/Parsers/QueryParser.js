@@ -46,7 +46,7 @@ const parserOptions = {
     ...ParseRules,
 
     // relay only one definition per Relay.QL
-    Document: ['Definition'],
+    // Document: ['Definition'],
 
     // only query, mutation and fragment possible in Relay.QL
     Definition(token) {

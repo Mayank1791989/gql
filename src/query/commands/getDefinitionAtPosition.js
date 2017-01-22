@@ -32,6 +32,7 @@ function getDefinitionAtPosition(
   // console.log(state.kind, state.step, typeInfo);
 
   if (
+    (state.kind === 'NamedType' && state.step === 0) ||
     (state.kind === 'TypeCondition' && state.step === 1) || // fragment on TypeName <----
     (state.kind === 'Mutation' && state.step === 0) || // ----> mutation { }
     (state.kind === 'Query' && state.step === 0) // ----> query xyz { xyz }

@@ -31,9 +31,10 @@ function getInfoOfTokenAtPosition(
   const schema = config.isRelay ? createRelaySchema(_schema) : _schema;
   const typeInfo = getTypeInfo(schema, state);
 
-  // console.log(kind, step, typeInfo);
+  // console.log(kind, step, typeInfo, 'state\n\n', state);
 
   if (
+    (kind === 'NamedType' && step === 0) ||
     (kind === 'TypeCondition' && step === 1) || // fragment on TypeName <----
     (kind === 'Mutation' && step === 0) || // ----> mutation { }
     (kind === 'Query' && step === 0) // ----> query xyz { xyz }

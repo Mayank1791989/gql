@@ -9,13 +9,3 @@ Array [
   },
 ]
 `;
-
-exports[`autocomplete for \`union\` show \`|\` after Type(unionMember) 1`] = `
-Array [
-  Object {
-    "description": "OR symbol",
-    "text": "|",
-    "type": "OR",
-  },
-]
-`;

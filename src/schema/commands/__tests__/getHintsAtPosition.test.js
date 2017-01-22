@@ -157,14 +157,6 @@ describe('autocomplete for `union`', () => {
     expect(hints).toEqual(allHints.ObjectTypes);
   });
 
-  it('show `|` after Type(unionMember)', () => {
-    const hints = getHintsAt(`
-      union TestUnionType =  TestType   #
-                  #-------------------^
-    `);
-    expect(hints).toMatchSnapshot();
-  });
-
   it('show all GrahQLObjectType after `|`', () => {
     const hints = getHintsAt(`
       union TestUnionType =  TestType |   #
