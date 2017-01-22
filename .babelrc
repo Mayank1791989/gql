@@ -3,6 +3,6 @@
     ["playlyfe", { react: false, asyncAwait: true }],
   ],
   plugins: [
-    ['./scripts/flow-runtime', { decorate: true, assert: true }],
+    ['./scripts/flow-runtime', { annotate: true, assert: true }],
   ],
 }
