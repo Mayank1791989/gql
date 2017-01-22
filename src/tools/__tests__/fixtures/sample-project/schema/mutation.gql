@@ -1,0 +1,15 @@
+# Mutation contains all allowed mutations
+type Mutation {
+  # Player Create contains all allowed mutations
+  PlayerCreate(input: PlayerCreateInput!): PlayerCreatePayload
+}
+
+input PlayerCreateInput {
+  id: ID!
+  name: String!
+  role: Role!
+}
+
+type PlayerCreatePayload {
+  player: Player!
+}

@@ -1,0 +1,37 @@
+# Query is the root query object
+type Query {
+  node(id: String!): Node
+  nodes(ids: [String!]): [Node]
+  viewer: Viewer!
+}
+
+interface Node {
+  id: ID!
+}
+
+type Player implements Node {
+  id: ID!
+  name: String!
+  image(size: Int!): String!
+}
+
+type Team implements Node {
+  id: ID!
+  name: String!
+}
+
+type Viewer {
+  me: Player!
+}
+
+interface Edge {
+  cursor: String!
+  node: Node!
+}
+
+type NewPlayer {
+  role: Role
+  value: CustomScalar
+  image(role: Role): String
+  friend: Node!
+}

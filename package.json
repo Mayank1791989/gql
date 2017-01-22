@@ -28,6 +28,7 @@
     "README.md"
   ],
   "dependencies": {
+    "apollo-codegen": "0.9.8",
     "babel-relay-plugin": "0.10.0",
     "babel-runtime": "6.20.0",
     "codemirror-graphql": "0.6.1",

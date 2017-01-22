@@ -37,7 +37,7 @@ export default class GQLSchemaBuilder {
   constructor(options: {
     config: GQLConfig,
     onChange?: () => void,
-    onInit?: () => void,
+    onInit?: Function,
     watch: boolean,
   }) {
     const { config, onChange, onInit } = options;
@@ -45,6 +45,7 @@ export default class GQLSchemaBuilder {
     this._config = config;
 
     // watch schema files and rebuild schema
+    // console.log(config.getDir());
     const watchClient = watch({
       rootPath: config.getDir(),
       files: config.getSchema().files,
@@ -54,7 +55,10 @@ export default class GQLSchemaBuilder {
         // console.log('init done');
         if (!this._isInitialized) {
           this._isInitialized = true;
-          if (onInit) { onInit(); }
+          // console.log(this._isInitialized);
+          if (onInit) {
+            onInit();
+          }
         }
 
         if (onChange) { onChange(); }

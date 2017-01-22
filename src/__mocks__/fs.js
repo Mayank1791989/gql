@@ -15,7 +15,12 @@ function readFileSync(filePath) {
   return mockFiles[filePath];
 }
 
+function writeFileSync(filePath, content) {
+  mockFiles[filePath] = content;
+}
+
 fs.__setMockFiles = __setMockFiles;
 fs.readFileSync = readFileSync;
+fs.writeFileSync = writeFileSync;
 
 module.exports = fs;

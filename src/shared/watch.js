@@ -84,7 +84,7 @@ export default function watch(options: WatchOptions) {
         }
 
         // $FlowDisableNextLine
-        console.log(`[Watch established (${resp.subscribe})] \n\tbasePath: ${_watch} \n\tFiles: ${JSON.stringify(files, 2, 2)}`);
+        console.log(`[Watch established (${resp.subscribe})] \n\tbasePath: ${_watch} \n\tRelativePath: ${relativePath} \n\tFiles: ${JSON.stringify(files, 2, 2)}`);
       });
 
       client.on('subscription', (resp) => {
