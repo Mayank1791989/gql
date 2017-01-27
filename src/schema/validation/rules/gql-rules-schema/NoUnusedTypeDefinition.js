@@ -1,6 +1,5 @@
 /* @flow */
 import { GraphQLError } from 'graphql/error';
-import { SEVERITY } from '../../../shared/GQLError';
 
 export function NoUnusedTypeDefinition(context: any) {
   let usedTypes = {};
@@ -29,7 +28,6 @@ export function NoUnusedTypeDefinition(context: any) {
               `Unused type definition '${typeName}'`,
               [schema.getTypeNode(typeName)],
             ),
-            SEVERITY.warn,
           );
         });
       },

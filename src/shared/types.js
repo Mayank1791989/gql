@@ -1,6 +1,5 @@
 /* @flow */
 export type ParsedFilesMap = Map<string, Object>;
-
 export type WatchFile = $Exact<{
   name: string,
   exists: bool,
@@ -53,4 +52,14 @@ export type GQLHint = $Exact<{
 export type GQLInfo = {
   contents: string | Array<string>,
   // description: string,
+};
+
+// validation
+import { ValidationContext } from 'graphql/validation/validate';
+export type ValidationRule = (context: ValidationContext) => any;
+export type ValidationRulesPackage = {
+  rules: Array<ValidationRule>,
+  config: {
+    [ruleName: string]: 'off' | 'warn' | 'error',
+  }
 };

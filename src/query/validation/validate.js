@@ -1,26 +1,32 @@
 /* @flow */
 import { type DocumentNode } from 'graphql/language/ast';
 import { type GQLSchema } from '../../shared/GQLTypes';
-import {
-  SEVERITY,
-  toGQLError,
-  type GQLError,
-} from '../../shared/GQLError';
-
+import { type ValidateConfig } from '../../config/GQLConfig';
+import { type GQLError } from '../../shared/GQLError';
+import createValidate from '../../shared/createValidate';
+import _memoize from 'lodash/memoize';
 import createRelaySchema from '../_shared/createRelaySchema';
-import { visitUsingRules } from 'graphql/validation/validate';
-import { TypeInfo } from 'graphql/utilities/TypeInfo';
 
-import { allRules, relayRules } from './rules';
+const getDefaultValidateConfig = _memoize(isRelay => (
+  { extends: isRelay ? 'gql-rules-query-relay' : 'gql-rules-query' }
+));
+
+const _validate = createValidate({
+  'gql-rules-query-relay': require('./rules/gql-rules-query-relay').default,
+  'gql-rules-query': require('./rules/gql-rules-query').default,
+});
 
 export default function validate(
   schema: GQLSchema,
   ast: DocumentNode,
-  relay: boolean,
+  options: {
+    isRelay?: boolean,
+    validate?: ValidateConfig,
+  },
 ): Array<GQLError> {
-  const queryRules = relay ? relayRules : allRules;
-  const _schema: any = relay ? createRelaySchema(schema) : schema; // HACK to disable flow errros
-  const typeInfo = new TypeInfo(_schema);
-  const errors = visitUsingRules(_schema, typeInfo, ast, queryRules);
-  return errors.map(error => toGQLError(error, SEVERITY.error));
+  return _validate(
+    options.isRelay ? createRelaySchema(schema) : schema,
+    ast,
+    options.validate || getDefaultValidateConfig(options.isRelay),
+  );
 }

@@ -8,7 +8,7 @@ Array [
         "path": "GraphQL",
       },
     ],
-    "message": "Unused type definition \'X\'",
+    "message": "Unused type definition \'X\' (NoUnusedTypeDefinition)",
     "severity": "warn",
   },
   Object {
@@ -19,8 +19,10 @@ Array [
         "path": "GraphQL",
       },
     ],
-    "message": "Unused type definition \'B\'",
+    "message": "Unused type definition \'B\' (NoUnusedTypeDefinition)",
     "severity": "warn",
   },
 ]
 `;
+
+exports[`test throw error if rules packages is unknown 1`] = `"unknown validate extends \'some_unknown_package\' available [gql-rules-schema]"`;

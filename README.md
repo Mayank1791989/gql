@@ -19,12 +19,14 @@
 type GQLConfig = {
   schema: {
     files: FileMatchConfig,
+    validate?: ValidateConfig
   },
   query?: { // query optional
     files: Array<{
       match: FileMatchConfig, // match files
       parser: QueryParser, 
       isRelay?: boolean,
+      validate?: ValidateConfig,
     }>
   }
 };
@@ -35,7 +37,14 @@ type Globs = string | Array<string>; // eg **/*.js  **/*.gql
 type QueryParser = (
   'QueryParser'
   | ['EmbeddedQueryParser', { startTag: regexpStr, endTag: regexpStr }];
-)
+);
+
+type ValidateConfig = {
+  extends: 'gql-rules-schema' | 'gql-rules-query' | 'gql-rules-query-relay',
+  rules: {
+    [ruleName: string]: 'off' | 'warn' | 'error',
+  },
+};
 ```
 
 ```javascript
@@ -75,6 +84,18 @@ type QueryParser = (
       {
         match: 'path/to/code/**/*.xyz',
         parser: [ 'EmbeddedQueryParser', { startTag: '"""' endTag: '"""' } ],
+      },
+      // [Embedded queries] some other tags and modify validation rules
+      {
+        match: 'path/to/code/**/*.xyz',
+        parser: [ 'EmbeddedQueryParser', { startTag: '"""' endTag: '"""' } ],
+        validate: {
+          extends: 'gql-rules-query',
+          rules: {
+            LoneAnonymousOperation: 'off',
+            NoUnusedVariables: 'warn',
+          },
+        }
       },
     ]
   }

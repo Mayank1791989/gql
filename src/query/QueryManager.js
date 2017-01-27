@@ -100,7 +100,7 @@ export class QueryManager {
       if (parsedFile.error) {
         errors.push(parsedFile.error);
       } else {
-        const validationErrors = validate(schema, parsedFile.ast, parsedFile.config.isRelay);
+        const validationErrors = validate(schema, parsedFile.ast, parsedFile.config);
         if (validationErrors) {
           errors.push(...validationErrors);
         }

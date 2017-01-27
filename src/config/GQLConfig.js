@@ -20,15 +20,23 @@ export type QueryParser = (
 );
 export type Globs = string | Array<string>;
 export type FileMatchConfig = Globs | { include: Globs, ignore?: Globs };
+export type ValidateConfig = {
+  extends: string,
+  rules?: {
+    [ruleName: string]: 'off' | 'warn' | 'error',
+  },
+};
 export type QueryConfig = {
   match: FileMatchConfig,
   parser: QueryParser,
   isRelay?: boolean,
+  validate?: ValidateConfig,
 };
 
 type GQLConfigFile = {
   schema: {
     files: FileMatchConfig,
+    validate?: ValidateConfig,
   },
   query?: { // query optional
     files: Array<QueryConfig>,
