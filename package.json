@@ -28,12 +28,12 @@
     "README.md"
   ],
   "dependencies": {
-    "apollo-codegen": "0.9.8",
+    "apollo-codegen": "0.10.3",
     "babel-relay-plugin": "0.10.0",
     "babel-runtime": "6.22.0",
     "codemirror-graphql": "0.6.1",
     "dentist": "1.0.3",
-    "fb-watchman": "1.9.0",
+    "fb-watchman": "1.9.2",
     "find-config": "1.0.0",
     "flow-runtime": "0.2.1",
     "graphql": "0.8.2",
@@ -57,11 +57,11 @@
     "commitizen": "2.9.5",
     "cross-env": "3.1.4",
     "cz-conventional-changelog": "1.2.0",
-    "eslint": "3.14.0",
+    "eslint": "3.14.1",
     "eslint-config-airbnb-base": "11.0.1",
     "flow-bin": "0.38.0",
     "flow-typed": "2.0.0",
-    "husky": "0.13.0",
+    "husky": "0.13.1",
     "jest": "18.1.0",
     "semantic-release": "6.3.6"
   },
