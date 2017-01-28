@@ -1,6 +1,6 @@
 /* @flow */
-import type { DefLocation } from './types';
-import type { ASTNode } from 'graphql/language/ast';
+import { type DefLocation } from './types';
+import { type ASTNode } from 'graphql/language/ast';
 
 function getDefLocationForNode(node?: ?ASTNode): ?DefLocation {
   if (node && node.loc) {

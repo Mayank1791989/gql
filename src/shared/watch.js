@@ -1,7 +1,10 @@
 /* @flow */
 import watchman from 'fb-watchman';
-import type { WatchFile } from './types';
-import type { FileMatchConfig, Globs } from '../config/GQLConfig';
+import { type WatchFile } from './types';
+import {
+  type FileMatchConfig,
+  type Globs,
+} from '../config/GQLConfig';
 
 const globToMatchExpr = (glob: Globs): Array<any> => {
   if (typeof glob === 'string') {

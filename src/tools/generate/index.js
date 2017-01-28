@@ -1,8 +1,7 @@
 /* @flow */
 
-import type { GQLConfigOptions } from '../../config/GQLConfig';
+import GQLConfig, { type GQLConfigOptions } from '../../config/GQLConfig';
 
-import GQLConfig from '../../config/GQLConfig';
 import { SchemaBuilder } from '../../schema';
 
 import generateFlowTypes from './generateFlowTypes';

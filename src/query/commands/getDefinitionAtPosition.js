@@ -1,13 +1,18 @@
 /* @flow */
-import type { Position, DefLocation } from '../../shared/types';
+import {
+  type Position,
+  type DefLocation,
+} from '../../shared/types';
 import { getTokenAtPosition } from '../_shared/getTokenAtPosition';
 import getDefLocationForNode from '../../shared/getDefLocationForNode';
 // import printTokenState from '../shared/printTokenState';
 import getTypeInfo from '../_shared/getTypeInfo';
-import type { ParserConfig } from '../_shared/types';
+import { type ParserConfig } from '../_shared/types';
 
-import type { GQLSchema } from '../../shared/GQLTypes';
-import { getNamedType } from '../../shared/GQLTypes';
+import {
+  getNamedType,
+  type GQLSchema,
+} from '../../shared/GQLTypes';
 
 function getDefinitionAtPosition(
   schema: GQLSchema,

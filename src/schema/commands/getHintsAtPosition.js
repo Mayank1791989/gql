@@ -5,9 +5,18 @@ import {
 } from 'graphql/type/definition';
 
 import { getTokenAtPosition } from './../_shared/getTokenAtPosition';
-import type { Position, Token, TokenState, GQLHint } from '../../shared/types';
-import type { GQLSchema } from '../../shared/GQLTypes';
-import { GQLInterfaceType, GQLObjectType, typeName } from '../../shared/GQLTypes';
+import {
+  type Position,
+  type Token,
+  type TokenState,
+  type GQLHint,
+} from '../../shared/types';
+import {
+  typeName,
+  GQLObjectType,
+  GQLInterfaceType,
+  type GQLSchema,
+} from '../../shared/GQLTypes';
 import debug from '../../shared/debug';
 
 function convertTypeToHint(type): GQLHint {

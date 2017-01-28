@@ -1,14 +1,18 @@
 /* @flow */
-import type { Position, GQLInfo } from '../../shared/types';
-import type { GQLSchema } from '../../shared/GQLTypes';
+import {
+  type Position,
+  type GQLInfo,
+} from '../../shared/types';
+import {
+  getNamedType,
+  type GQLSchema,
+} from '../../shared/GQLTypes';
 import getTypeInfo from '../_shared/getTypeInfo';
 
-import type { QueryParser } from '../../config/GQLConfig';
+import { type QueryParser } from '../../config/GQLConfig';
 import { getTokenAtPosition } from '../_shared/getTokenAtPosition';
 import createRelaySchema from '../_shared/createRelaySchema';
 import debug from '../../shared/debug';
-
-import { getNamedType } from '../../shared/GQLTypes';
 
 function getInfoOfTokenAtPosition(
   _schema: GQLSchema,

@@ -1,5 +1,5 @@
 /* @flow */
-import type { Position } from './types';
+import { type Position } from './types';
 import splitLines from './splitLines';
 
 export default function toOffset(sourceText: string, position: Position): number {

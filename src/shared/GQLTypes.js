@@ -2,35 +2,30 @@
 /* eslint-disable no-use-before-define */
 
 import {
-  GraphQLScalarType,
-  GraphQLObjectType,
-  GraphQLInterfaceType,
-  GraphQLEnumType,
-  GraphQLInputObjectType,
-  GraphQLUnionType,
-
-  GraphQLDirective,
-  GraphQLSkipDirective,
   GraphQLIncludeDirective,
+  getNamedType as _getNamedType,
   GraphQLDeprecatedDirective,
-
+  GraphQLScalarType,
   GraphQLInt,
-  GraphQLString,
-  GraphQLFloat,
-  GraphQLBoolean,
+  GraphQLInterfaceType,
+  GraphQLInputObjectType,
   GraphQLID,
+  GraphQLBoolean,
+  GraphQLFloat,
+  GraphQLString,
+  GraphQLUnionType,
+  GraphQLEnumType,
+  GraphQLObjectType,
+  GraphQLSkipDirective,
+  GraphQLDirective,
 } from 'graphql/type';
 
 import {
-  getNamedType as _getNamedType,
-} from 'graphql/type';
-
-import type {
-  TypeDefinitionNode,
-  FieldDefinitionNode,
-  ASTNode,
-  InputValueDefinitionNode,
-  DirectiveDefinitionNode,
+  type TypeDefinitionNode,
+  type FieldDefinitionNode,
+  type ASTNode,
+  type InputValueDefinitionNode,
+  type DirectiveDefinitionNode,
 } from 'graphql/language/ast';
 
 export type GQLArgument = {

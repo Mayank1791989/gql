@@ -1,9 +1,12 @@
 /* @flow */
-import type { DocumentNode } from 'graphql/language/ast';
-import type { GQLSchema } from '../../shared/GQLTypes';
-import type { GQLError } from '../../shared/GQLError';
+import { type DocumentNode } from 'graphql/language/ast';
+import { type GQLSchema } from '../../shared/GQLTypes';
+import {
+  SEVERITY,
+  toGQLError,
+  type GQLError,
+} from '../../shared/GQLError';
 
-import { toGQLError, SEVERITY } from '../../shared/GQLError';
 import createRelaySchema from '../_shared/createRelaySchema';
 import { visitUsingRules } from 'graphql/validation/validate';
 import { TypeInfo } from 'graphql/utilities/TypeInfo';

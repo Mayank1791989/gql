@@ -1,6 +1,6 @@
 /* @flow */
 /* eslint-disable no-use-before-define, no-nested-ternary */
-import type { TokenState } from '../../shared/types';
+import { type TokenState } from '../../shared/types';
 import forEachState from 'codemirror-graphql/utils/forEachState';
 import {
   getNullableType,
@@ -12,8 +12,17 @@ import {
   TypeNameMetaFieldDef,
 } from 'graphql/type';
 
-import type { GQLSchema, GQLNamedType, GQLType, GQLField, GQLInputField, GQLArgument } from '../../shared/GQLTypes';
-import { getNamedType, GQLInputObjectType, GQLDirective } from '../../shared/GQLTypes';
+import {
+  GQLDirective,
+  GQLInputObjectType,
+  getNamedType,
+  type GQLArgument,
+  type GQLInputField,
+  type GQLField,
+  type GQLType,
+  type GQLNamedType,
+  type GQLSchema,
+} from '../../shared/GQLTypes';
 
 type Info = {
   type: ?GQLType,

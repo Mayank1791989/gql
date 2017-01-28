@@ -1,8 +1,16 @@
 /* @flow */
 /* eslint-disable no-use-before-define */
-import type { Position, GQLHint } from '../../shared/types';
-import type { GQLSchema } from '../../shared/GQLTypes';
-import type { QueryParser } from '../../config/GQLConfig';
+import {
+  type Position,
+  type GQLHint,
+} from '../../shared/types';
+import {
+  typeName,
+  GQLEnumType,
+  getNamedType,
+  type GQLSchema,
+} from '../../shared/GQLTypes';
+import { type QueryParser } from '../../config/GQLConfig';
 import getTokenAtPosition from '../_shared/getTokenAtPosition';
 import objectValues from 'codemirror-graphql/utils/objectValues';
 import {
@@ -16,8 +24,6 @@ import {
   TypeMetaFieldDef,
   TypeNameMetaFieldDef,
 } from 'graphql/type';
-
-import { getNamedType, GQLEnumType, typeName } from '../../shared/GQLTypes';
 
 import getTypeInfo from '../_shared/getTypeInfo';
 import createRelaySchema from '../_shared/createRelaySchema';

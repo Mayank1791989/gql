@@ -1,6 +1,10 @@
 /* @flow */
 /* eslint-disable no-loop-func */
-import type { Position, Token, IParser } from './types';
+import {
+  type Position,
+  type Token,
+  type IParser,
+} from './types';
 import invariant from 'graphql/jsutils/invariant';
 import whileSafe from './whileSafe';
 

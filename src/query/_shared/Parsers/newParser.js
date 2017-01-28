@@ -1,6 +1,6 @@
 /* @flow */
-import type { QueryParser } from '../../../config/GQLConfig';
-import type { IParser } from '../../../shared/types';
+import { type QueryParser } from '../../../config/GQLConfig';
+import { type IParser } from '../../../shared/types';
 
 export default function newParser(parser: QueryParser): IParser {
   const _parserConfig = typeof parser === 'string' ? [parser] : parser;

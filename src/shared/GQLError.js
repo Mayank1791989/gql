@@ -1,6 +1,6 @@
 /* @flow */
 import { GraphQLError } from 'graphql/error';
-import type { Location } from './types';
+import { type Location } from './types';
 import keymirror from 'keymirror';
 
 export const SEVERITY = keymirror({

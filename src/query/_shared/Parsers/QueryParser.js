@@ -1,7 +1,10 @@
 /* @flow */
 import { LexRules, ParseRules, isIgnored } from 'codemirror-graphql/utils/Rules';
 import onlineParser from 'codemirror-graphql/utils/onlineParser';
-import type { Stream, TokenState } from '../../../shared/types';
+import {
+  type Stream,
+  type TokenState,
+} from '../../../shared/types';
 import invariant from 'invariant';
 
 function JSInlineFragment() {

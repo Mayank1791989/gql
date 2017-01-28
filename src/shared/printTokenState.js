@@ -1,5 +1,5 @@
 /* @flow */
-import type { TokenState } from './types';
+import { type TokenState } from './types';
 
 function printTokenState(state: TokenState): string {
   if (!state) { return ''; }

@@ -4,9 +4,9 @@ import {
   NON_NULL_TYPE,
 } from 'graphql/language/kinds';
 
-import type {
-  TypeNode,
-  NamedTypeNode,
+import {
+  type TypeNode,
+  type NamedTypeNode,
 } from 'graphql/language/ast';
 
 export default function getNamedTypeNode(typeNode: TypeNode): NamedTypeNode {

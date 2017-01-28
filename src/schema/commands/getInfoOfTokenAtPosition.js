@@ -1,6 +1,9 @@
 /* @flow */
-import type { Position, GQLInfo } from '../../shared/types';
-import type { GQLSchema } from '../../shared/GQLTypes';
+import {
+  type Position,
+  type GQLInfo,
+} from '../../shared/types';
+import { type GQLSchema } from '../../shared/GQLTypes';
 import { getTokenAtPosition } from '../_shared/getTokenAtPosition';
 
 function getInfoOfTokenAtPosition(

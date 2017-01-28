@@ -23,68 +23,62 @@ import {
   DIRECTIVE_DEFINITION,
 } from 'graphql/language/kinds';
 
-import type {
-  Location,
-  ASTNode,
-  DocumentNode,
-  DirectiveNode,
-  TypeNode,
-  SchemaDefinitionNode,
-  TypeDefinitionNode,
-  ScalarTypeDefinitionNode,
-  ObjectTypeDefinitionNode,
-  InputValueDefinitionNode,
-  InterfaceTypeDefinitionNode,
-  UnionTypeDefinitionNode,
-  EnumTypeDefinitionNode,
-  InputObjectTypeDefinitionNode,
-  DirectiveDefinitionNode,
+import {
+  type Location,
+  type ASTNode,
+  type DocumentNode,
+  type DirectiveNode,
+  type TypeNode,
+  type SchemaDefinitionNode,
+  type TypeDefinitionNode,
+  type ScalarTypeDefinitionNode,
+  type ObjectTypeDefinitionNode,
+  type InputValueDefinitionNode,
+  type InterfaceTypeDefinitionNode,
+  type UnionTypeDefinitionNode,
+  type EnumTypeDefinitionNode,
+  type InputObjectTypeDefinitionNode,
+  type DirectiveDefinitionNode,
 } from 'graphql/language/ast';
 
 import GQLSchema from './GQLSchema';
 import getNamedTypeNode from './getNamedTypeNode';
 
 import {
-  GQLString,
-  GQLInt,
-  GQLFloat,
-  GQLBoolean,
-  GQLID,
-} from '../../shared/GQLTypes';
-
-import {
-  GraphQLObjectType,
-  GraphQLInterfaceType,
-  GraphQLNonNull,
-  GraphQLList,
-  isInputType,
-  isOutputType,
-} from 'graphql/type/definition';
-
-import type { // eslint-disable-line no-duplicate-imports
-  GraphQLType,
-  GraphQLInputType,
-  GraphQLOutputType,
-} from 'graphql/type/definition';
-
-import {
-  GQLObjectType,
-  GQLInputObjectType,
-  GQLInterfaceType,
-  GQLEnumType,
-  GQLScalarType,
-  GQLUnionType,
-  GQLDirective,
   GQLSkipDirective,
+  type GQLType,
+  GQLDirective,
+  GQLInterfaceType,
+  GQLUnionType,
+  GQLEnumType,
+  GQLObjectType,
+  GQLScalarType,
+  GQLID,
+  type GQLNamedType,
+  GQLInputObjectType,
+  GQLInt,
+  GQLBoolean,
   GQLIncludeDirective,
+  GQLFloat,
+  GQLString,
   GQLDeprecatedDirective,
 } from '../../shared/GQLTypes';
 
-import type { GQLNamedType, GQLType } from '../../shared/GQLTypes';
+import {
+  type GraphQLOutputType,
+  type GraphQLInputType,
+  // eslint-disable-line no-duplicate-imports
+  type GraphQLType,
+  isOutputType,
+  isInputType,
+  GraphQLList,
+  GraphQLNonNull,
+  GraphQLInterfaceType,
+  GraphQLObjectType,
+} from 'graphql/type/definition';
 
-import type { // eslint-disable-line no-duplicate-imports
-  DirectiveLocationEnum,
-} from 'graphql/type/directives';
+import { // eslint-disable-line no-duplicate-imports
+type DirectiveLocationEnum } from 'graphql/type/directives';
 
 // import {
 //   __Schema,
@@ -97,8 +91,11 @@ import type { // eslint-disable-line no-duplicate-imports
 //   __TypeKind,
 // } from 'graphql/type/introspection';
 
-import { newGQLError, SEVERITY } from '../../shared/GQLError';
-import type { GQLError } from '../../shared/GQLError';
+import {
+  type GQLError,
+  SEVERITY,
+  newGQLError,
+} from '../../shared/GQLError';
 
 import { PLACEHOLDER_TYPES } from './PlaceholderTypes';
 

@@ -1,13 +1,16 @@
 /* @flow */
 /* eslint-disable no-use-before-define */
 import { visitInParallel, visit, GraphQLError } from 'graphql';
-import type { DocumentNode } from 'graphql/language/ast';
+import { type DocumentNode } from 'graphql/language/ast';
 import schemaRules from './rules';
 
-import type { GQLSchema } from '../../shared/GQLTypes';
+import { type GQLSchema } from '../../shared/GQLTypes';
 
-import { toGQLError, SEVERITY } from '../../shared/GQLError';
-import type { GQLError } from '../../shared/GQLError';
+import {
+  type GQLError,
+  SEVERITY,
+  toGQLError,
+} from '../../shared/GQLError';
 
 export function validate(
   schema: GQLSchema,

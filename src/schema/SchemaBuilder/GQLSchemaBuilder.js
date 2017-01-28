@@ -10,21 +10,24 @@ import { buildASTSchema } from './buildASTSchema';
 import { buildASTSchema as buildASTGraphQLSchema } from 'graphql/utilities';
 
 
-import { toGQLError, SEVERITY } from '../../shared/GQLError';
+import {
+  type GQLError,
+  SEVERITY,
+  toGQLError,
+} from '../../shared/GQLError';
 
 import { validate } from '../../schema';
 import GQLConfig from '../../config/GQLConfig';
 
 import watch from '../../shared/watch';
 
-import type {
-  ParsedFilesMap,
-  WatchFile,
+import {
+  type ParsedFilesMap,
+  type WatchFile,
 } from '../../shared/types';
 
-import type { GQLSchema } from '../../shared/GQLTypes';
-import type { GQLError } from '../../shared/GQLError';
-import type { DocumentNode } from 'graphql/language/ast';
+import { type GQLSchema } from '../../shared/GQLTypes';
+import { type DocumentNode } from 'graphql/language/ast';
 
 export default class GQLSchemaBuilder {
   _config: GQLConfig;

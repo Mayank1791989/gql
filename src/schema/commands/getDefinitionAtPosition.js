@@ -1,6 +1,9 @@
 /* @flow */
-import type { Position, DefLocation } from '../../shared/types';
-import type { GQLSchema } from '../../shared/GQLTypes';
+import {
+  type Position,
+  type DefLocation,
+} from '../../shared/types';
+import { type GQLSchema } from '../../shared/GQLTypes';
 import { getTokenAtPosition } from '../_shared/getTokenAtPosition';
 import getDefLocationForNode from '../../shared/getDefLocationForNode';
 

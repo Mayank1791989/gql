@@ -4,7 +4,11 @@ import fs from 'fs';
 
 import { Source } from 'graphql/language/source';
 
-import { toGQLError, SEVERITY } from '../shared/GQLError';
+import {
+  type GQLError,
+  SEVERITY,
+  toGQLError,
+} from '../shared/GQLError';
 
 import validate from './validation/validate';
 import parseQueryFile from './_shared/parseQueryFile';
@@ -12,13 +16,12 @@ import GQLConfig from '../config/GQLConfig';
 
 import watch from '../shared/watch';
 
-import type {
-  ParsedFilesMap,
-  WatchFile,
+import {
+  type ParsedFilesMap,
+  type WatchFile,
 } from '../shared/types';
 
-import type { GQLError } from '../shared/GQLError';
-import type { GQLSchema } from '../shared/GQLTypes';
+import { type GQLSchema } from '../shared/GQLTypes';
 
 type Options = {
   config: GQLConfig,

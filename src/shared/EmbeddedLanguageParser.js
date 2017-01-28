@@ -1,6 +1,9 @@
 /* @flow */
 /* global Class */
-import type { IParser, Stream } from './types';
+import {
+  type IParser,
+  type Stream,
+} from './types';
 
 type RegExpStr = string;
 type Options = $Exact<{

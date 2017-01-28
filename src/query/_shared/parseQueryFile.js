@@ -2,7 +2,7 @@
 import newParser from './Parsers/newParser';
 
 import { Source } from 'graphql/language/source';
-import type { DocumentNode } from 'graphql/language/ast';
+import { type DocumentNode } from 'graphql/language/ast';
 import { parse } from 'graphql/language/parser';
 import whileSafe from '../../shared/whileSafe';
 import debug from '../../shared/debug';

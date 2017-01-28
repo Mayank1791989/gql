@@ -1,8 +1,11 @@
 /* @flow */
 import _getTokenAtPosition from '../../shared/getTokenAtPosition';
 // import RelayQLParser from './shared/Parser';
-import type { ParserConfig } from '../_shared/types';
-import type { Position, IParser } from '../../shared/types';
+import { type ParserConfig } from '../_shared/types';
+import {
+  type Position,
+  type IParser,
+} from '../../shared/types';
 
 function newParser(parserConfig: ParserConfig): IParser {
   const _parserConfig = typeof parserConfig === 'string' ? [parserConfig] : parserConfig;

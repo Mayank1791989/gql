@@ -5,30 +5,37 @@
  */
 
 import {
-  GraphQLObjectType,
+  // eslint-disable-line no-duplicate-imports
+  type GraphQLAbstractType,
   GraphQLNonNull,
+  GraphQLObjectType,
 } from 'graphql/type/definition';
 
-import type { // eslint-disable-line no-duplicate-imports
-  GraphQLAbstractType,
-} from 'graphql/type/definition';
-
-import type {
-  TypeDefinitionNode,
-  ASTNode,
+import {
+  type TypeDefinitionNode,
+  type ASTNode,
 } from 'graphql/language/ast';
 
 import { specifiedDirectives } from 'graphql/type/directives';
 import find from 'graphql/jsutils/find';
 import invariant from 'graphql/jsutils/invariant';
 import { isEqualType, isTypeSubTypeOf } from 'graphql/utilities/typeComparators';
-import { newGQLError, SEVERITY } from '../../shared/GQLError';
+import {
+  type GQLError,
+  SEVERITY,
+  newGQLError,
+} from '../../shared/GQLError';
 import { PLACEHOLDER_TYPES } from './PlaceholderTypes';
 import getNamedTypeNode from './getNamedTypeNode';
 
-import type { GQLError } from '../../shared/GQLError';
-import type { GQLSchema, GQLNamedType } from '../../shared/GQLTypes';
-import { GQLObjectType, GQLInterfaceType, GQLUnionType, GQLDirective } from '../../shared/GQLTypes';
+import {
+  GQLDirective,
+  GQLUnionType,
+  GQLInterfaceType,
+  GQLObjectType,
+  type GQLNamedType,
+  type GQLSchema,
+} from '../../shared/GQLTypes';
 
 type GQLSchemaConfig = {
   query: ?GQLObjectType;
