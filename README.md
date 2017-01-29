@@ -41,7 +41,7 @@ type QueryParser = (
 
 type ValidateConfig = {
   extends: 'gql-rules-schema' | 'gql-rules-query' | 'gql-rules-query-relay',
-  rules: {
+  rules?: {
     [ruleName: string]: 'off' | 'warn' | 'error',
   },
 };
