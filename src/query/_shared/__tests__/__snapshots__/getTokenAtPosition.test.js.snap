@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`should able to parse Relay.QL queries with interpolation multi line 1`] = `
 Object {
   "end": 82,
@@ -424,7 +426,7 @@ Object {
 }
 `;
 
-exports[`test should able to parse Relay.QL tags 1`] = `
+exports[`should able to parse Relay.QL tags 1`] = `
 Object {
   "end": 59,
   "prevChar": "i",
@@ -563,7 +565,7 @@ Object {
 }
 `;
 
-exports[`test should able to parse multiple Relay.QL tags in single file 1`] = `
+exports[`should able to parse multiple Relay.QL tags in single file 1`] = `
 Object {
   "end": 95,
   "prevChar": "T",

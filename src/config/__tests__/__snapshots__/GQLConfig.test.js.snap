@@ -1,3 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
 exports[`config.match match query files 1`] = `
 Object {
   "opts": Object {
@@ -15,7 +17,7 @@ Object {
 }
 `;
 
-exports[`test invalid-gqlconfig: validate .gqlconfig file content 1`] = `
+exports[`invalid-gqlconfig: validate .gqlconfig file content 1`] = `
 "
 Error parsing .gqlconfig. 
 
@@ -35,4 +37,4 @@ Actual: {
 "
 `;
 
-exports[`test missing-gqlConfig: Report error if gqlconfig not found 1`] = `"Could not find a .gqlconfig file. Create a .gqlconfig file in project root directory."`;
+exports[`missing-gqlConfig: Report error if gqlconfig not found 1`] = `"Could not find a .gqlconfig file. Create a .gqlconfig file in project root directory."`;

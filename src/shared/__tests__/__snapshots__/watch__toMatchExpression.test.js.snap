@@ -1,4 +1,6 @@
-exports[`test Array<string> 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Array<string> 1`] = `
 Array [
   "anyof",
   Array [
@@ -14,7 +16,7 @@ Array [
 ]
 `;
 
-exports[`test Object<include: Array<string>, ignore: string> 1`] = `
+exports[`Object<include: Array<string>, ignore: string> 1`] = `
 Array [
   "allof",
   Array [
@@ -41,7 +43,7 @@ Array [
 ]
 `;
 
-exports[`test Object<include: Array<string>>: single 1`] = `
+exports[`Object<include: Array<string>>: single 1`] = `
 Array [
   "match",
   "files/**/*.gql",
@@ -49,7 +51,7 @@ Array [
 ]
 `;
 
-exports[`test Object<include: string> 1`] = `
+exports[`Object<include: string> 1`] = `
 Array [
   "match",
   "files/**/*.gql",
@@ -57,7 +59,7 @@ Array [
 ]
 `;
 
-exports[`test Object<match: Array<string>, ignore: Array<string>> 1`] = `
+exports[`Object<match: Array<string>, ignore: Array<string>> 1`] = `
 Array [
   "allof",
   Array [
@@ -84,7 +86,7 @@ Array [
 ]
 `;
 
-exports[`test Object<match: Array<string>> 1`] = `
+exports[`Object<match: Array<string>> 1`] = `
 Array [
   "anyof",
   Array [
@@ -100,7 +102,7 @@ Array [
 ]
 `;
 
-exports[`test string 1`] = `
+exports[`string 1`] = `
 Array [
   "match",
   "files/**/*.gql",

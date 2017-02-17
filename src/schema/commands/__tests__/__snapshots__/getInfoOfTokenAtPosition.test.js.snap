@@ -1,4 +1,6 @@
-exports[`test arguments 1`] = `
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`arguments 1`] = `
 Object {
   "contents": Array [
     "scalar CustomScalar",
@@ -6,7 +8,7 @@ Object {
 }
 `;
 
-exports[`test field type: CustomScalar 1`] = `
+exports[`field type: CustomScalar 1`] = `
 Object {
   "contents": Array [
     "scalar CustomScalar",
@@ -14,7 +16,7 @@ Object {
 }
 `;
 
-exports[`test field type: Enum 1`] = `
+exports[`field type: Enum 1`] = `
 Object {
   "contents": Array [
     "enum Role {
@@ -26,7 +28,7 @@ Object {
 }
 `;
 
-exports[`test field type: ObjectType 1`] = `
+exports[`field type: ObjectType 1`] = `
 Object {
   "contents": Array [
     "type Player implements Node {
@@ -38,7 +40,7 @@ Object {
 }
 `;
 
-exports[`test implements 1`] = `
+exports[`implements 1`] = `
 Object {
   "contents": Array [
     "interface Node {
@@ -48,7 +50,7 @@ Object {
 }
 `;
 
-exports[`test union type 1`] = `
+exports[`union type 1`] = `
 Object {
   "contents": Array [
     "type Player implements Node {

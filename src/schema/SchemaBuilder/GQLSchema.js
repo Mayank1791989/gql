@@ -149,7 +149,8 @@ export default class _GQLSchema {
   ): boolean {
     let possibleTypeMap = this._possibleTypeMap;
     if (!possibleTypeMap) {
-      this._possibleTypeMap = possibleTypeMap = Object.create(null);
+      possibleTypeMap = Object.create(null);
+      this._possibleTypeMap = possibleTypeMap;
     }
 
     if (!possibleTypeMap[abstractType.name]) {
