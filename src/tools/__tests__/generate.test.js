@@ -23,3 +23,25 @@ test('generate: schemaJSON', (done) => {
 
   watch.__triggerChange();
 });
+
+test('generate: should handle graphql parse errors', (done) => {
+  jest.mock('../../shared/watch');
+  const watch = require('../../shared/watch').default;
+  const generate = require('../generate').default;
+
+  generate({
+    configOptions: {
+      cwd: path.resolve(__dirname, './fixtures/error-sample-project/'),
+    },
+    targets: [
+      { type: 'schemaJSON' },
+    ],
+    callback: (err) => {
+      expect(err).toMatchSnapshot();
+      done();
+    },
+  });
+
+  watch.__triggerChange();
+});
+

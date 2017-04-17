@@ -1,0 +1,14 @@
+# Query is the root query object
+type Query {
+  node(id: String!): Node
+  nodes(ids: [String!]): [Node]
+  viewer: Viewer!
+}
+
+interface Node {
+  id: ID!
+}
+
+type Viewer {
+  me: XPlayer! # XPlayer not present
+}

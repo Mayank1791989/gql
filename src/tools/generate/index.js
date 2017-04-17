@@ -48,8 +48,8 @@ function generate(params: Params) {
     config,
     watch: false,
     onInit: async () => {
-      const schema = schemaBuilder.getGraphQLSchema();
       try {
+        const schema = schemaBuilder.getGraphQLSchema();
         const targetContent = await Promise.all(params.targets.map(target => (
           generateFile(schema, target)
         )));

@@ -1666,3 +1666,5 @@ type Viewer {
 }",
 ]
 `;
+
+exports[`generate: should handle graphql parse errors 1`] = `[Error: Type "XPlayer" not found in document.]`;
