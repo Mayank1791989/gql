@@ -1,0 +1,60 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Rule: ArgumentsOfCorrectType report error for wrong type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 23,
+        "line": 4,
+        "path": "GraphQL",
+      },
+    ],
+    "message": "Argument \\"size\\" has invalid value 
+Expected type \\"Int\\", found \\"some_string_value\\". (ArgumentsOfCorrectType)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ProvidedNonNullArguments allow mutation field without arguments 1`] = `Array []`;
+
+exports[`Rule: ProvidedNonNullArguments report error if field arguments missing 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 4,
+        "path": "GraphQL",
+      },
+    ],
+    "message": "Field \\"image\\" argument \\"size\\" of type \\"Int!\\" is required but not provided. (ProvidedNonNullArguments)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ScalarLeafs allow field without subselection in fragments if @relay(pattern: true) is present 1`] = `Array []`;
+
+exports[`Rule: ScalarLeafs allow mutation without subselection 1`] = `Array []`;
+
+exports[`Rule: ScalarLeafs allow query without subselection 1`] = `Array []`;
+
+exports[`Rule: ScalarLeafs report error for missing subselection in fragments 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 4,
+        "path": "GraphQL",
+      },
+    ],
+    "message": "Field \\"me\\" of type \\"Player!\\" must have a selection of subfields. Did you mean \\"me { ... }\\"? (ScalarLeafs)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`should not report errors for valid query 1`] = `Array []`;

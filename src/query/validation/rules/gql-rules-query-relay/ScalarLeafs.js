@@ -1,13 +1,9 @@
 /* @flow */
 // patched ScalarLeaf
 import {
-  isLeafType,
-  GraphQLError,
-} from 'graphql';
-
-import {
   noSubselectionAllowedMessage,
   requiredSubselectionMessage,
+  ScalarLeafs as GraphqlScalarLeafs,
 } from 'graphql/validation/rules/ScalarLeafs';
 
 import { ValidationContext } from 'graphql/validation';
@@ -45,27 +41,23 @@ function ignore(node, ancestors) {
     (_node.kind === 'FragmentDefinition' && isFragmentPattern(_node))
   ));
   return Boolean(found);
-  // return false;
 }
 
 export function ScalarLeafs(context: ValidationContext): any {
+  const origScalarLeafs = GraphqlScalarLeafs(context);
   return {
-    Field(node, key, parent, path, ancestors) {
+    ...origScalarLeafs,
+    Field(...args) {
+      const [
+        node,
+        key, // eslint-disable-line
+        parent, // eslint-disable-line
+        path, // eslint-disable-line
+        ancestors,
+      ] = args;
       const type = context.getType();
       if (type && !ignore(node, ancestors)) {
-        if (isLeafType(type)) {
-          if (node.selectionSet) {
-            context.reportError(new GraphQLError(
-              noSubselectionAllowedMessage(node.name.value, type),
-              [node.selectionSet],
-            ));
-          }
-        } else if (!node.selectionSet) {
-          context.reportError(new GraphQLError(
-            requiredSubselectionMessage(node.name.value, type),
-            [node],
-          ));
-        }
+        origScalarLeafs.Field(...args);
       }
     },
   };
