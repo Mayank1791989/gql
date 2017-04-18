@@ -11,7 +11,7 @@ import {
 } from '../shared/GQLError';
 
 import validate from './validation/validate';
-import parseQueryFile from './_shared/parseQueryFile';
+import parseQuery from './_shared/parseQuery';
 import GQLConfig from '../config/GQLConfig';
 
 import watch from '../shared/watch';
@@ -113,7 +113,7 @@ export class QueryManager {
     const content = fs.readFileSync(absPath, 'utf8');
     const source = new Source(content, absPath);
     try {
-      const { ast, isEmpty } = parseQueryFile(source, config);
+      const { ast, isEmpty } = parseQuery(source, config);
       return {
         ast,
         error: null,

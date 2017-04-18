@@ -1,5 +1,5 @@
 /* @flow */
-import { toQueryDocument } from '../parseQueryFile';
+import { toQueryDocument } from '../parseQuery';
 import { Source } from 'graphql/language/source';
 
 const relayParser = ['EmbeddedQueryParser', { startTag: 'Relay\\.QL`', endTag: '`' }];

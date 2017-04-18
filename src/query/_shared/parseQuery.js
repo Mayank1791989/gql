@@ -73,7 +73,7 @@ export function toQueryDocument(source: Source, config: Config): string {
   return queryDocument;
 }
 
-export default function parserQueryFile(
+export default function parserQuery(
   source: Source,
   config: Config,
 ): { ast: ?DocumentNode, isEmpty: boolean } {
