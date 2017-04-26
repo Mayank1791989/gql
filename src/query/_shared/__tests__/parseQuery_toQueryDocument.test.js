@@ -191,3 +191,24 @@ describe('replace inline js fragment with dummy fragment', () => {
   });
 });
 
+test('replace all irregular whitespace with space', () => {
+  // NOTE between '©' and '2017' there is thin space '\u2009' not regular space ' '
+  /* eslint-disable no-irregular-whitespace */
+  const text = `
+    //  © 2017
+
+    Relay.QL\`
+      fragment on Viewer {
+        me
+      }
+    \`,
+  `;
+  /* eslint-enable no-irregular-whitespace */
+
+  const qd = toQueryDocument(
+    new Source(text, 'query.js'),
+    { parser: relayParser, isRelay: true },
+  );
+
+  expect(qd).toMatchSnapshot();
+});

@@ -82,6 +82,18 @@ exports[`plain queries 1`] = `
   "
 `;
 
+exports[`replace all irregular whitespace with space 1`] = `
+"
+              
+
+             
+      fragment _ on Viewer {
+        me
+      }
+      
+  "
+`;
+
 exports[`replace inline js fragment with dummy fragment multiline 1`] = `
 "
                   
