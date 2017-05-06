@@ -3,6 +3,8 @@
 [![npm](https://img.shields.io/npm/v/@playlyfe/gql.svg?style=flat-square)](https://www.npmjs.com/package/@playlyfe/gql)
 
 # gql
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/Mayank1791989/gql.svg)](https://greenkeeper.io/)
 > Graphql sevice which watches project files and provides useful information.
 
 ## Installation
