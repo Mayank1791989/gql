@@ -1,6 +1,10 @@
 /* @flow */
-import { LexRules, ParseRules, isIgnored } from 'codemirror-graphql/utils/Rules';
-import onlineParser from 'codemirror-graphql/utils/onlineParser';
+import {
+  LexRules,
+  ParseRules,
+  isIgnored,
+  onlineParser,
+} from 'graphql-language-service-parser';
 
 class SchemaParser {
   _parser: any;
@@ -8,8 +12,8 @@ class SchemaParser {
   constructor() {
     this._parser = onlineParser({
       eatWhitespace: stream => stream.eatWhile(isIgnored),
-      LexRules,
-      ParseRules,
+      lexRules: LexRules,
+      parseRules: ParseRules,
     });
   }
 

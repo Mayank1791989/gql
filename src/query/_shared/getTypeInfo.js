@@ -1,7 +1,7 @@
 /* @flow */
 /* eslint-disable no-use-before-define, no-nested-ternary */
 import { type TokenState } from '../../shared/types';
-import forEachState from 'codemirror-graphql/utils/forEachState';
+import { forEachState } from 'graphql-language-service-interface/dist/autocompleteUtils';
 import {
   getNullableType,
   GraphQLList,

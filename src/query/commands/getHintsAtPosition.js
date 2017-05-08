@@ -12,7 +12,7 @@ import {
 } from '../../shared/GQLTypes';
 import { type QueryParser } from '../../config/GQLConfig';
 import getTokenAtPosition from '../_shared/getTokenAtPosition';
-import objectValues from 'codemirror-graphql/utils/objectValues';
+import { objectValues } from 'graphql-language-service-interface/dist/autocompleteUtils';
 import {
   isAbstractType,
   GraphQLBoolean,

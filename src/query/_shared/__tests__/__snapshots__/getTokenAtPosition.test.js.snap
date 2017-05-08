@@ -55,7 +55,14 @@ Object {
               "name": null,
               "needsSeperator": false,
               "prevState": Object {
+                "kind": null,
                 "level": 0,
+                "name": null,
+                "needsSeperator": false,
+                "prevState": null,
+                "rule": null,
+                "step": 0,
+                "type": null,
               },
               "rule": Array [
                 Object {
@@ -197,7 +204,14 @@ Object {
               "name": null,
               "needsSeperator": false,
               "prevState": Object {
+                "kind": null,
                 "level": 0,
+                "name": null,
+                "needsSeperator": false,
+                "prevState": null,
+                "rule": null,
+                "step": 0,
+                "type": null,
               },
               "rule": Array [
                 Object {
@@ -339,7 +353,14 @@ Object {
               "name": null,
               "needsSeperator": false,
               "prevState": Object {
+                "kind": null,
                 "level": 0,
+                "name": null,
+                "needsSeperator": false,
+                "prevState": null,
+                "rule": null,
+                "step": 0,
+                "type": null,
               },
               "rule": Array [
                 Object {
@@ -478,7 +499,14 @@ Object {
               "name": null,
               "needsSeperator": false,
               "prevState": Object {
+                "kind": null,
                 "level": 0,
+                "name": null,
+                "needsSeperator": false,
+                "prevState": null,
+                "rule": null,
+                "step": 0,
+                "type": null,
               },
               "rule": Array [
                 Object {
@@ -599,7 +627,14 @@ Object {
             "name": null,
             "needsSeperator": false,
             "prevState": Object {
+              "kind": null,
               "level": 0,
+              "name": null,
+              "needsSeperator": false,
+              "prevState": null,
+              "rule": null,
+              "step": 0,
+              "type": null,
             },
             "rule": Array [
               Object {

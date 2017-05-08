@@ -28,5 +28,6 @@ module.exports = {
     'no-param-reassign': ['error', { 'props': false }],
     'no-underscore-dangle': 'off',
     'global-require': 'off',
+    'arrow-parens': 'off',
   },
 };
