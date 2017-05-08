@@ -28,6 +28,72 @@ describe('Schema', () => {
       },
     );
   });
+
+  it('can modify validation rule severity', (done) => {
+    const gql = runGQLService(
+      {
+        '/test/schema/schema.gql': `
+          type Query {
+            name: String
+          }
+          type Hello {
+            name: String
+          }
+        `,
+        '/test/.gqlconfig': `{
+          schema: {
+            files: 'schema/*.gql',
+            validate: {
+              extends: 'gql-rules-schema',
+              rules: {
+                NoUnusedTypeDefinition: 'error',
+              },
+            }
+          }
+        }`,
+      },
+      {
+        cwd: '/test',
+        onInit: () => {
+          expect(gql.status()).toMatchSnapshot();
+          done();
+        },
+      },
+    );
+  });
+
+  it('can turn off validation rules', (done) => {
+    const gql = runGQLService(
+      {
+        '/test/schema/schema.gql': `
+          type Query {
+            name: String
+          }
+          type Hello {
+            name: String
+          }
+        `,
+        '/test/.gqlconfig': `{
+          schema: {
+            files: 'schema/*.gql',
+            validate: {
+              extends: 'gql-rules-schema',
+              rules: {
+                NoUnusedTypeDefinition: 'off',
+              },
+            }
+          }
+        }`,
+      },
+      {
+        cwd: '/test',
+        onInit: () => {
+          expect(gql.status()).toMatchSnapshot();
+          done();
+        },
+      },
+    );
+  });
 });
 
 describe('Query', () => {
