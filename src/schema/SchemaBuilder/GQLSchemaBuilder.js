@@ -54,7 +54,7 @@ export default class GQLSchemaBuilder {
       files: config.getSchema().files,
       name: 'gqlSchemaFiles',
       onChange: (files: Array<WatchFile>) => {
-        this._updateFiles(files);
+        this._updateFiles(files, config.getSchema());
         // console.log('init done');
         if (!this._isInitialized) {
           this._isInitialized = true;
@@ -85,7 +85,7 @@ export default class GQLSchemaBuilder {
   }
 
   // private methods
-  _updateFiles(files: Array<WatchFile>) {
+  _updateFiles(files: Array<WatchFile>, config: any) {
     if (files.length === 0) { return; }
 
     // console.time('updating files');
@@ -112,7 +112,8 @@ export default class GQLSchemaBuilder {
 
     // validate
     // console.time('validate');
-    const validationErrors = validate(schema, ast);
+    // console.log(config.validate);
+    const validationErrors = validate(schema, ast, config.validate);
     // console.timeEnd('validate');
 
     this._ast = ast;

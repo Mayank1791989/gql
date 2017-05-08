@@ -16,6 +16,24 @@ Array [
 ]
 `;
 
+exports[`Schema can modify validation rule severity 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 5,
+        "path": "/test/schema/schema.gql",
+      },
+    ],
+    "message": "Unused type definition 'Hello' (NoUnusedTypeDefinition)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema can turn off validation rules 1`] = `Array []`;
+
 exports[`Schema should report errors in schema 1`] = `
 Array [
   Object {
