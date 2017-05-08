@@ -158,7 +158,9 @@ class GQLService {
 
 type Options = {
   cwd?: string,
-  onChange?: () => void // called when something changes
+  onChange?: () => void, // called when something changes
+  onInit?: () => void, // called once after initialization
+  debug?: boolean, // enable debug logs
 };
 
 type CommandParams = {
