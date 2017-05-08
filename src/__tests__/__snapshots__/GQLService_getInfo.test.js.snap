@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Query: getDef works in query files 1`] = `
+Object {
+  "contents": Array [
+    "type Viewer {
+            name: string
+          }",
+  ],
+}
+`;
+
+exports[`Schema: getDef works in schema files 1`] = `
+Object {
+  "contents": Array [
+    "type Viewer {
+            name: string
+          }",
+  ],
+}
+`;

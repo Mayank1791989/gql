@@ -7,7 +7,6 @@ export function getSchema() {
   jest.mock('../shared/watch');
   const watch = require('../shared/watch').default;
   const GQLService = require('../').GQLService;
-
   const gql = new GQLService({ cwd: path.resolve('src/__test-data__/') });
   // $FlowDisableNextLine
   watch.__triggerChange();
