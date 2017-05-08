@@ -17,6 +17,7 @@ import type { GQLError } from './shared/GQLError';
 type Options = $Exact<{
   cwd?: string,
   onChange?: () => void,
+  onInit?: () => void,
   debug?: true,
 }>;
 
@@ -26,15 +27,17 @@ type CommandParams = $Exact<{
   position: Position,
 }>;
 
+export type { Options as GQLServiceOptions };
+
 export class GQLService {
   _isInitialized: boolean = false;
   _schemaBuilder: schema.SchemaBuilder;
-  _queryManager: query.QueryManager;
+  _queryManager: ?query.QueryManager;
 
   _config: GQLConfig;
 
   constructor(options: ?Options) {
-    const { onChange, debug: enableDebug, ...configOptions } = options || {};
+    const { onChange, onInit, debug: enableDebug, ...configOptions } = options || {};
     if (enableDebug) { (debug: any).enable(); }
     this._config = new GQLConfig(configOptions);
     this._schemaBuilder = new schema.SchemaBuilder({
@@ -42,12 +45,20 @@ export class GQLService {
       watch: true,
       onChange,
       onInit: () => {
-        this._isInitialized = true;
-        this._queryManager = new query.QueryManager({
-          config: this._config,
-          getSchema: () => this._schemaBuilder.getSchema(),
-          onChange,
-        });
+        if (this._config.getQuery()) {
+          this._queryManager = new query.QueryManager({
+            config: this._config,
+            getSchema: () => this._schemaBuilder.getSchema(),
+            onInit: () => {
+              this._isInitialized = true;
+              if (onInit) { onInit(); }
+            },
+            onChange,
+          });
+        } else {
+          this._isInitialized = true;
+          if (onInit) { onInit(); }
+        }
       },
     });
   }
@@ -60,7 +71,7 @@ export class GQLService {
   status(): Array<GQLError> {
     if (!this._isInitialized) { return []; }
     const schemaErrors = this._schemaBuilder.getSchemaErrors();
-    const queryErrors = this._queryManager.getErrors();
+    const queryErrors = this._queryManager ? this._queryManager.getErrors() : [];
     return schemaErrors.concat(queryErrors.filter(err => Boolean(err)));
   }
 
