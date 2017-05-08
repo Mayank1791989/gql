@@ -42,6 +42,45 @@ describe('Schema: getDef', () => {
       },
     );
   });
+
+  it('works in schema files', () => {
+    const gql = runGQLService(
+      {
+        '/test/.gqlconfig': `
+          {
+            schema: {
+              files: 'schema/*.gql',
+            }
+          }
+        `,
+        '/test/schema/schema.gql': `
+          type Query {
+            viewer: Viewer
+          }
+
+          type Viewer {
+            name: string
+          }
+      `,
+      },
+      {
+        cwd: '/test',
+      },
+    );
+
+    const run = () =>
+      gql.getDef({
+        sourcePath: '/test/schema/user.gql',
+        ...code(`
+          type User {
+            viewer: Viewer
+            #---------^
+          }
+        `),
+      });
+    expect(run).not.toThrow();
+    expect(run()).toBeUndefined();
+  });
 });
 
 describe('Query: getDef', () => {

@@ -62,6 +62,30 @@ describe('Schema', () => {
     );
   });
 
+  it('calling status before onInit should not throw', () => {
+    const gql = runGQLService(
+      {
+        '/test/.gqlconfig': `
+          {
+            schema: {
+              files: 'schema/*.gql',
+            }
+          }
+        `,
+        '/test/schema/schema.gql': `
+          type Query {
+            viewer: xViewer # missing viewer
+          }
+      `,
+      },
+      {
+        cwd: '/test',
+      },
+    );
+    expect(() => gql.status()).not.toThrow();
+    expect(gql.status()).toEqual([]);
+  });
+
   it('can turn off validation rules', (done) => {
     const gql = runGQLService(
       {
