@@ -42,6 +42,46 @@ describe('Schema: autocomplete', () => {
       },
     );
   });
+
+  it('should not throw if called before initialization', () => {
+    const gql = runGQLService(
+      {
+        '/test/.gqlconfig': `
+          {
+            schema: {
+              files: 'schema/*.gql',
+            }
+          }
+        `,
+        '/test/schema/schema.gql': `
+          type Query {
+            viewer: Viewer
+          }
+
+          type Viewer {
+            name: string
+          }
+      `,
+      },
+      {
+        cwd: '/test',
+      },
+    );
+
+    const run = () =>
+      gql.autocomplete({
+        sourcePath: '/test/schema/user.gql',
+        ...code(`
+        type User {
+          viewer: Vi
+          #---------^
+        }
+      `),
+      });
+
+    expect(run).not.toThrow();
+    expect(run()).toEqual([]);
+  });
 });
 
 describe('Query: autocomplete', () => {
