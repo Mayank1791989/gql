@@ -117,7 +117,7 @@ class GQLConfig {
   }
 
   _readConfig(filePath: string) { // eslint-disable-line class-methods-use-this
-    const fileData = fs.readFileSync(filePath, { encoding: 'utf8' });
+    const fileData = fs.readFileSync(filePath, 'utf8');
     try {
       return (JSON5.parse(fileData): GQLConfigFile); // using flow-runtime it will be validated also
     } catch (err) {

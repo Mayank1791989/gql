@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Query: getDef works in query files 1`] = `
+Object {
+  "end": Object {
+    "column": 12,
+    "line": 8,
+  },
+  "path": "/test/schema/schema.gql",
+  "start": Object {
+    "column": 11,
+    "line": 6,
+  },
+}
+`;
+
+exports[`Schema: getDef works in schema files 1`] = `
+Object {
+  "end": Object {
+    "column": 12,
+    "line": 8,
+  },
+  "path": "/test/schema/schema.gql",
+  "start": Object {
+    "column": 11,
+    "line": 6,
+  },
+}
+`;

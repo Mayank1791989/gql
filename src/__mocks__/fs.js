@@ -1,26 +1,34 @@
 /* @flow */
-const fs = jest.genMockFromModule('fs');
+import MemoryFileSystem from 'memory-fs';
+import path from 'path';
 
-// This is a custom function that our tests can use during setup to specify
-// what the files on the "mock" filesystem should look like when any of the
-// `fs` APIs are used.
-let mockFiles = Object.create(null);
+function createNewMemoryFileSystem(): MemoryFileSystem {
+  const _fs = new MemoryFileSystem();
+  // Note: binding all methods of _fs
+  // some libs use individual fs method
+  // e.g const writeFileSync = fs.writeFileSync
+  //  writeFileSync() // this will call method with wrong this
+  // happening in find-config package
+  Object.keys(MemoryFileSystem.prototype).forEach((key) => {
+    if (typeof _fs[key] === 'function') {
+      _fs[key] = _fs[key].bind(_fs);
+    }
+  });
+  return _fs;
+}
+
+const fs = createNewMemoryFileSystem();
+
+// This is a custom function that our tests can use during setup to create
+// files in memory
 function __setMockFiles(newMockFiles) {
-  mockFiles = newMockFiles;
-}
-
-// A custom version of `readdirSync` that reads from the special mocked out
-// file list set via __setMockFiles
-function readFileSync(filePath) {
-  return mockFiles[filePath];
-}
-
-function writeFileSync(filePath, content) {
-  mockFiles[filePath] = content;
+  Object.keys(newMockFiles).forEach((file) => {
+    const dirname = path.dirname(file);
+    fs.mkdirpSync(dirname);
+    fs.writeFileSync(file, newMockFiles[file], 'utf8');
+  });
 }
 
 fs.__setMockFiles = __setMockFiles;
-fs.readFileSync = readFileSync;
-fs.writeFileSync = writeFileSync;
 
 module.exports = fs;

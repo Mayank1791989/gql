@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`correctly find all file extensions used in .gqlconfig 1`] = `
+Array [
+  "gql",
+  "graphql",
+  "js",
+  "xyz",
+]
+`;

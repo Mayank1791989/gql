@@ -2,11 +2,35 @@
 import glob from 'glob';
 
 export default function watch({ rootPath, files, onChange }: any) {
-  watch.__files = glob.sync(files, { cwd: rootPath }).map(_name => ({ name: _name, exists: true }));
-  watch.__onChangeCallback = onChange;
+  const request = {
+    rootPath,
+    files: glob
+      .sync(files, { cwd: rootPath })
+      .map(_name => ({ name: _name, exists: true })),
+
+    trigger() {
+      if (!request.pending) {
+        return;
+      }
+      request.pending = false;
+      onChange(request.files);
+    },
+
+    pending: true,
+  };
+  watch.__requests.push(request);
+
+  setImmediate(() => {
+    request.trigger();
+  });
   return { end: () => {} };
 }
 
-watch.__triggerChange = (files) => {
-  watch.__onChangeCallback(files || watch.__files);
+watch.__requests = [];
+
+// force call change
+watch.__triggerChange = () => {
+  watch.__requests.forEach((request) => {
+    request.trigger();
+  });
 };
