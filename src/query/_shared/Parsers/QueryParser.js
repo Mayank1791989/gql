@@ -1,16 +1,19 @@
 /* @flow */
-import { LexRules, ParseRules, isIgnored } from 'codemirror-graphql/utils/Rules';
-import onlineParser from 'codemirror-graphql/utils/onlineParser';
 import {
-  type Stream,
-  type TokenState,
-} from '../../../shared/types';
+  LexRules,
+  ParseRules,
+  isIgnored,
+  onlineParser,
+} from 'graphql-language-service-parser';
+import { type Stream, type TokenState } from '../../../shared/types';
 import invariant from 'invariant';
 
 function JSInlineFragment() {
   return {
     style: '',
-    match(token) { return token.value === '${'; },
+    match(token) {
+      return token.value === '${';
+    },
     update(state) {
       state.jsInlineFragment = { count: 1 }; // count is number of open curly braces
     },
@@ -20,7 +23,7 @@ function JSInlineFragment() {
 function eatJSInlineFragment(stream, state) {
   const { jsInlineFragment: frag } = state;
   invariant(frag, 'missing JSInlineFragment');
-  stream.eatWhile((ch) => {
+  stream.eatWhile(ch => {
     if (frag.count === 0) {
       state.jsInlineFragment = null;
       return false;
@@ -40,12 +43,12 @@ function eatJSInlineFragment(stream, state) {
 
 const parserOptions = {
   eatWhitespace: stream => stream.eatWhile(ch => isIgnored(ch) || ch === ';'),
-  LexRules: {
+  lexRules: {
     JSInlineFragment: /^\$\{/,
     ...LexRules,
   },
 
-  ParseRules: {
+  parseRules: {
     ...ParseRules,
 
     // relay only one definition per Relay.QL
@@ -54,10 +57,14 @@ const parserOptions = {
     // only query, mutation and fragment possible in Relay.QL
     Definition(token) {
       switch (token.value) {
-        case 'query': return 'Query';
-        case 'mutation': return 'Mutation';
-        case 'fragment': return 'FragmentDefinition';
-        default: return null;
+        case 'query':
+          return 'Query';
+        case 'mutation':
+          return 'Mutation';
+        case 'fragment':
+          return 'FragmentDefinition';
+        default:
+          return null;
       }
     },
 
@@ -93,4 +100,3 @@ export default class QueryParser {
     return this._parser.token(stream, state);
   }
 }
-
