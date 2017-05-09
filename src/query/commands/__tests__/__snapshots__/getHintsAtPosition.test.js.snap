@@ -104,3 +104,28 @@ Array [
   },
 ]
 `;
+
+exports[`show meta field __typename in abstract types interface type 1`] = `
+Array [
+  Object {
+    "description": "",
+    "text": "id",
+    "type": "ID!",
+  },
+  Object {
+    "description": "The name of the current Object type at runtime.",
+    "text": "__typename",
+    "type": "String!",
+  },
+]
+`;
+
+exports[`show meta field __typename in abstract types union type 1`] = `
+Array [
+  Object {
+    "description": "The name of the current Object type at runtime.",
+    "text": "__typename",
+    "type": "String!",
+  },
+]
+`;

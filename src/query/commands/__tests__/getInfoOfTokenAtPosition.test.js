@@ -252,3 +252,74 @@ describe('query', () => {
     ).toMatchSnapshot();
   });
 });
+
+describe('meta field __typename', () => {
+  it('when inside Object Type', () => {
+    const { sourceText, position } = code(`
+      const a = Relay.QL\`
+        fragment on Viewer {
+          __typename
+          #----^
+        }
+      \`
+    `);
+    expect(
+      getInfoOfTokenAtPosition(schema, sourceText, position, relayQLParser),
+    ).toMatchSnapshot();
+  });
+  it('when inside Interface Type', () => {
+    const { sourceText, position } = code(`
+      const a = Relay.QL\`
+        fragment on Node {
+          __typename
+          #----^
+        }
+      \`
+    `);
+    expect(
+      getInfoOfTokenAtPosition(schema, sourceText, position, relayQLParser),
+    ).toMatchSnapshot();
+  });
+  it('when inside Union Type', () => {
+    const { sourceText, position } = code(`
+      const a = Relay.QL\`
+        fragment on Entity {
+          __typename
+          #----^
+        }
+      \`
+    `);
+    expect(
+      getInfoOfTokenAtPosition(schema, sourceText, position, relayQLParser),
+    ).toMatchSnapshot();
+  });
+});
+
+test('meta field __schema', () => {
+  const { sourceText, position } = code(`
+    const a = Relay.QL\`
+      query Viewer {
+        __schema
+        #----^
+      }
+    \`
+  `);
+  expect(
+    getInfoOfTokenAtPosition(schema, sourceText, position, relayQLParser),
+  ).toMatchSnapshot();
+});
+
+test('meta field __type', () => {
+  const { sourceText, position } = code(`
+    const a = Relay.QL\`
+      query Viewer {
+        __type
+        #--^
+      }
+    \`
+  `);
+  expect(
+    getInfoOfTokenAtPosition(schema, sourceText, position, relayQLParser),
+  ).toMatchSnapshot();
+});
+

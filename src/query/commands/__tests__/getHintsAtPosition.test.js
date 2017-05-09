@@ -259,3 +259,35 @@ describe('directives', () => {
     ).toMatchSnapshot();
   });
 });
+
+
+describe('show meta field __typename in abstract types', () => {
+  it('interface type', () => {
+    const { sourceText, position } = code(`
+      const a = Relay.QL\`
+        fragment on Node {
+          id
+          __type
+        #-------^
+        }
+      \`
+    `);
+    expect(
+      getHintsAtPosition(schema, sourceText, position, relayConfig),
+    ).toMatchSnapshot();
+  });
+
+  it('union type', () => {
+    const { sourceText, position } = code(`
+      const a = Relay.QL\`
+        fragment on Entity {
+          __type
+        #-------^
+        }
+      \`
+    `);
+    expect(
+      getHintsAtPosition(schema, sourceText, position, relayConfig),
+    ).toMatchSnapshot();
+  });
+});

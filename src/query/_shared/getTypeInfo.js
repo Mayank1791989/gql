@@ -6,10 +6,6 @@ import {
   getNullableType,
   GraphQLList,
   isCompositeType,
-
-  SchemaMetaFieldDef,
-  TypeMetaFieldDef,
-  TypeNameMetaFieldDef,
 } from 'graphql/type';
 
 import {
@@ -22,6 +18,10 @@ import {
   type GQLType,
   type GQLNamedType,
   type GQLSchema,
+
+  SchemaMetaFieldDef,
+  TypeMetaFieldDef,
+  TypeNameMetaFieldDef,
 } from '../../shared/GQLTypes';
 
 type Info = {

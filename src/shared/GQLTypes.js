@@ -18,7 +18,16 @@ import {
   GraphQLObjectType,
   GraphQLSkipDirective,
   GraphQLDirective,
+  GraphqlField,
+
+  SchemaMetaFieldDef as _SchemaMetaFieldDef,
+  TypeMetaFieldDef as _TypeMetaFieldDef,
+  TypeNameMetaFieldDef as _TypeNameMetaFieldDef,
 } from 'graphql/type';
+
+import { printType } from 'graphql/utilities/schemaPrinter';
+
+import _keyBy from 'lodash/keyBy';
 
 import {
   type TypeDefinitionNode,
@@ -48,7 +57,7 @@ export type GQLField = {
   resolve?: any,
   isDeprecated?: boolean,
   deprecationReason?: ?string,
-  node: FieldDefinitionNode,
+  node: ?FieldDefinitionNode,
   print: () => string,
 };
 
@@ -132,8 +141,8 @@ function print(node: ?ASTNode, description: ?string, type: ?string): string {
   ].filter(Boolean).join('\n');
 }
 
-function patchFields(fields) {
-  Object.keys(fields).forEach((name) => {
+function patchFields(fields: Array<GraphqlField>): Array<GQLField> {
+  return Object.keys(fields).map((name) => {
     const field = fields[name];
     field.print = memoize(() => print(field.node, field.description, 'field'));
     field.args = field.args.map((arg, index) => ({
@@ -141,6 +150,7 @@ function patchFields(fields) {
       node: field.node.arguments[index],
       print: memoize(() => print(field.node.arguments[index], arg.description, 'argument')),
     }));
+    return field;
   });
 }
 
@@ -165,6 +175,44 @@ GQLFloat.print = () => printDescription(GQLFloat.description);
 
 export const GQLBoolean: GQLScalarType = GraphQLBoolean;
 GQLBoolean.print = () => printDescription(GQLBoolean.description);
+
+const [SchemaMetaFieldDef, TypeMetaFieldDef, TypeNameMetaFieldDef] = [
+  _SchemaMetaFieldDef,
+  _TypeMetaFieldDef,
+  _TypeNameMetaFieldDef,
+].map(field => {
+  const type = getNamedType(field.type);
+  type.print = memoize(() => printType(type));
+
+  return {
+    ...field,
+    print: memoize(() => {
+      // HACK: graphql doesnt expose printField method
+      // so creating fake type and printing it and extracting field string
+      const printedType = printType(
+        new GraphQLObjectType({
+          name: 'Demo',
+          fields: {
+            FIELD_NAME: {
+              ...field,
+              args: Array.isArray(field.args)
+                ? _keyBy(field.args, 'name')
+                : field.args,
+            },
+          },
+        }),
+      ).replace('FIELD_NAME', `(meta-field) ${field.name}`);
+
+      const lines = printedType.split('\n');
+      return lines
+        .slice(1, lines.length - 1) // remove first and last line which is type we need field only
+        .map(line => line.trim())
+        .join('\n');
+    }),
+  };
+});
+
+export { SchemaMetaFieldDef, TypeMetaFieldDef, TypeNameMetaFieldDef };
 
 function printArg(arg, indentation = '') {
   return [

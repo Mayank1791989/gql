@@ -9,6 +9,10 @@ import {
   GQLEnumType,
   getNamedType,
   type GQLSchema,
+
+  SchemaMetaFieldDef,
+  TypeMetaFieldDef,
+  TypeNameMetaFieldDef,
 } from '../../shared/GQLTypes';
 import { type QueryParser } from '../../config/GQLConfig';
 import getTokenAtPosition from '../_shared/getTokenAtPosition';
@@ -19,10 +23,6 @@ import {
 
   isInputType,
   isCompositeType,
-
-  SchemaMetaFieldDef,
-  TypeMetaFieldDef,
-  TypeNameMetaFieldDef,
 } from 'graphql/type';
 
 import getTypeInfo from '../_shared/getTypeInfo';
