@@ -108,6 +108,11 @@ export function getRefLocations() {
   return {
     Player: [
       {
+        start: { line: 40, column: 23 },
+        end: { line: 40, column: 29 },
+        path: path.resolve('src/__test-data__/schema/query.gql'),
+      },
+      {
         start: { line: 14, column: 11 },
         end: { line: 14, column: 17 },
         path: path.resolve('src/__test-data__/schema/mutation.gql'),
@@ -263,6 +268,11 @@ export function getHints() {
       },
       {
         description: '',
+        text: 'Entity',
+        type: 'Union',
+      },
+      {
+        description: '',
         text: 'CustomScalar',
         type: 'Scalar',
       },
@@ -338,6 +348,11 @@ export function getHints() {
         description: '',
         text: 'NewPlayer',
         type: 'Object',
+      },
+      {
+        description: '',
+        text: 'Entity',
+        type: 'Union',
       },
     ],
 

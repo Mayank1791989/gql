@@ -36,3 +36,5 @@ type NewPlayer {
   image(role: Role): string
   friend: Node!
 }
+
+union Entity = Team | Player
