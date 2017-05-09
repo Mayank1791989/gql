@@ -99,6 +99,7 @@ export const typeName = {
   GraphQLScalarType: 'Scalar', // native scalar types
 
   GQLInterfaceType: 'Interface',
+  GQLUnionType: 'Union',
 };
 
 function memoize<T>(fn: T): T {
