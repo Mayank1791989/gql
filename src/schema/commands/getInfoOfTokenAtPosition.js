@@ -1,8 +1,5 @@
 /* @flow */
-import {
-  type Position,
-  type GQLInfo,
-} from '../../shared/types';
+import { type Position, type GQLInfo } from '../../shared/types';
 import { type GQLSchema } from '../../shared/GQLTypes';
 import { getTokenAtPosition } from '../_shared/getTokenAtPosition';
 
@@ -17,7 +14,9 @@ function getInfoOfTokenAtPosition(
   const token = getTokenAtPosition(sourceText, position);
   // console.timeEnd('getTokenAtPosition');
   // console.log('token', token);
-  if (!token) { return null; }
+  if (!token) {
+    return null;
+  }
 
   const { state } = token;
   // console.log(state, token);
@@ -28,7 +27,7 @@ function getInfoOfTokenAtPosition(
     (state.kind === 'UnionMember' && state.step === 1) || // union Type = Type1 | Type2<------
     (state.kind === 'Implements' && state.step === 1)
   ) {
-    const name = state.name;
+    const { name } = state;
     const type = schema.getType(name);
     if (type) {
       return { contents: [type.print()] };

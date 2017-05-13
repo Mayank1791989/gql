@@ -3,7 +3,7 @@ import { code } from '../__test-data__/utils';
 import runGQLService from './runGQLService';
 
 describe('Schema: getDef', () => {
-  it('works in schema files', done => {
+  it('works in schema files', (done) => {
     const gql = runGQLService(
       {
         '/test/.gqlconfig': `
@@ -84,7 +84,7 @@ describe('Schema: getDef', () => {
 });
 
 describe('Query: getDef', () => {
-  it('works in query files', done => {
+  it('works in query files', (done) => {
     const gql = runGQLService(
       {
         '/test/.gqlconfig': `

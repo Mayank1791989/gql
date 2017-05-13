@@ -6,7 +6,7 @@ export default function watch({ rootPath, files, onChange }: any) {
     rootPath,
     files: glob
       .sync(files, { cwd: rootPath })
-      .map(_name => ({ name: _name, exists: true })),
+      .map((_name) => ({ name: _name, exists: true })),
 
     trigger() {
       if (!request.pending) {
@@ -23,7 +23,7 @@ export default function watch({ rootPath, files, onChange }: any) {
   setImmediate(() => {
     request.trigger();
   });
-  return { end: () => {} };
+  return { end: () => {} }; // eslint-disable-line no-empty-function
 }
 
 watch.__requests = [];

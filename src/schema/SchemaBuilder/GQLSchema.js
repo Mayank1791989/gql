@@ -38,12 +38,12 @@ import {
 } from '../../shared/GQLTypes';
 
 type GQLSchemaConfig = {
-  query: ?GQLObjectType;
-  mutation?: ?GQLObjectType;
-  subscription?: ?GQLObjectType;
-  types?: ?Array<GQLNamedType>;
-  directives?: ?Array<GQLDirective>;
-  nodeMap: { [name: string]: TypeDefinitionNode };
+  query: ?GQLObjectType,
+  mutation?: ?GQLObjectType,
+  subscription?: ?GQLObjectType,
+  types?: ?Array<GQLNamedType>,
+  directives?: ?Array<GQLDirective>,
+  nodeMap: { [name: string]: TypeDefinitionNode },
 };
 
 export default class _GQLSchema {
@@ -54,7 +54,7 @@ export default class _GQLSchema {
   _typeMap: { [typeName: string]: GQLNamedType } = {};
   _implementations: { [interfaceName: string]: Array<GQLObjectType> };
   _possibleTypeMap: ?{
-    [abstractName: string]: { [possibleName: string]: boolean }
+    [abstractName: string]: { [possibleName: string]: boolean },
   };
 
   _nodeMap: { [name: string]: TypeDefinitionNode };
@@ -176,7 +176,7 @@ export default class _GQLSchema {
   }
 
   getDirective(name: string): ?GQLDirective {
-    return find(this.getDirectives(), directive => directive.name === name);
+    return find(this.getDirectives(), (directive) => directive.name === name);
   }
 }
 
@@ -221,7 +221,7 @@ function assertObjectImplementsInterface(
     // Assert each interface field arg is implemented.
     ifaceField.args.forEach((ifaceArg) => {
       const argName = ifaceArg.name;
-      const objectArg = find(objectField.args, arg => arg.name === argName);
+      const objectArg = find(objectField.args, (arg) => arg.name === argName);
 
       // Assert interface field arg exists on object field.
       if (!objectArg) {
@@ -251,7 +251,7 @@ function assertObjectImplementsInterface(
     // Assert additional arguments must not be required.
     objectField.args.forEach((objectArg) => {
       const argName = objectArg.name;
-      const ifaceArg = find(ifaceField.args, arg => arg.name === argName);
+      const ifaceArg = find(ifaceField.args, (arg) => arg.name === argName);
       if (!ifaceArg && objectArg.type instanceof GraphQLNonNull) {
         errors.push(newGQLError(
           `${object.name}.${fieldName}(${argName}:) is of required type ` +
@@ -266,7 +266,7 @@ function assertObjectImplementsInterface(
 
   if (missingFields.length > 0) {
     errors.push(newGQLError(
-      `Missing interface fields [${missingFields.map(field => field.name).join(', ')}]`,
+      `Missing interface fields [${missingFields.map((field) => field.name).join(', ')}]`,
       [object.node],
       SEVERITY.error,
     ));

@@ -2,7 +2,7 @@
 export type ParsedFilesMap = Map<string, Object>;
 export type WatchFile = $Exact<{
   name: string,
-  exists: bool,
+  exists: boolean,
 }>;
 
 export type AbsoluteFilePath = string;
@@ -61,5 +61,5 @@ export type ValidationRulesPackage = {
   rules: Array<ValidationRule>,
   config: {
     [ruleName: string]: 'off' | 'warn' | 'error',
-  }
+  },
 };

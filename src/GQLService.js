@@ -72,7 +72,7 @@ export class GQLService {
     if (!this._isInitialized) { return []; }
     const schemaErrors = this._schemaBuilder.getSchemaErrors();
     const queryErrors = this._queryManager ? this._queryManager.getErrors() : [];
-    return schemaErrors.concat(queryErrors.filter(err => Boolean(err)));
+    return schemaErrors.concat(queryErrors.filter((err) => Boolean(err)));
   }
 
   autocomplete(params: CommandParams): Array<GQLHint> {

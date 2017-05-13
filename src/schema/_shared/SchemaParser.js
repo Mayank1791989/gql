@@ -11,7 +11,7 @@ class SchemaParser {
 
   constructor() {
     this._parser = onlineParser({
-      eatWhitespace: stream => stream.eatWhile(isIgnored),
+      eatWhitespace: (stream) => stream.eatWhile(isIgnored),
       lexRules: LexRules,
       parseRules: ParseRules,
     });

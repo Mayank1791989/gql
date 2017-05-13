@@ -1,12 +1,6 @@
 /* @flow */
-import {
-  type Position,
-  type GQLInfo,
-} from '../../shared/types';
-import {
-  getNamedType,
-  type GQLSchema,
-} from '../../shared/GQLTypes';
+import { type Position, type GQLInfo } from '../../shared/types';
+import { getNamedType, type GQLSchema } from '../../shared/GQLTypes';
 import getTypeInfo from '../_shared/getTypeInfo';
 
 import { type QueryParser } from '../../config/GQLConfig';
@@ -14,7 +8,7 @@ import { getTokenAtPosition } from '../_shared/getTokenAtPosition';
 import createRelaySchema from '../_shared/createRelaySchema';
 import debug from '../../shared/debug';
 
-function getInfoOfTokenAtPosition(
+function getInfoOfTokenAtPosition( // eslint-disable-line complexity
   _schema: GQLSchema,
   sourceText: string,
   position: Position,
@@ -28,7 +22,9 @@ function getInfoOfTokenAtPosition(
   const token = getTokenAtPosition(sourceText, position, config.parser);
   debug.timeEnd('getTokenAtPosition');
 
-  if (!token) { return null; }
+  if (!token) {
+    return null;
+  }
 
   const { state } = token;
   const { kind, step } = state;
@@ -53,13 +49,16 @@ function getInfoOfTokenAtPosition(
   }
 
   if (kind === 'Field' || kind === 'AliasedField') {
-    if (!typeInfo.fieldDef) { return null; }
-    const fieldDef = typeInfo.fieldDef;
+    if (!typeInfo.fieldDef) {
+      return null;
+    }
+    const { fieldDef } = typeInfo;
     const contents = [];
 
     contents.push(fieldDef.print());
 
-    if (typeInfo.parentType && typeInfo.parentType.name === 'Mutation') { // include input args type
+    if (typeInfo.parentType && typeInfo.parentType.name === 'Mutation') {
+      // include input args type
       fieldDef.args.forEach((arg) => {
         const argType = getNamedType(arg.type);
         if (argType) {
@@ -83,7 +82,9 @@ function getInfoOfTokenAtPosition(
       const contents = [];
       contents.push(argDef.print());
       const type = getNamedType(argDef.type);
-      if (type) { contents.push(type.print()); }
+      if (type) {
+        contents.push(type.print());
+      }
 
       return { contents };
     }
@@ -96,7 +97,9 @@ function getInfoOfTokenAtPosition(
       if (objectField) {
         contents.push(objectField.print());
         const type = getNamedType(objectField.type);
-        if (type) { contents.push(type.print()); }
+        if (type) {
+          contents.push(type.print());
+        }
       }
       return { contents };
     }

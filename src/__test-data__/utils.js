@@ -6,7 +6,7 @@ import splitLines from '../shared/splitLines';
 export function getSchema() {
   jest.mock('../shared/watch');
   const watch = require('../shared/watch').default;
-  const GQLService = require('../').GQLService;
+  const { GQLService } = require('../');
   const gql = new GQLService({ cwd: path.resolve('src/__test-data__/') });
   // $FlowDisableNextLine
   watch.__triggerChange();
@@ -20,12 +20,12 @@ export function getDefLocations() {
       end: { line: 16, column: 2 },
       path: path.resolve('src/__test-data__/schema/query.gql'),
     },
-    Player_id: {
+    Player_id: { // eslint-disable-line camelcase
       start: { line: 13, column: 3 },
       end: { line: 13, column: 10 },
       path: path.resolve('src/__test-data__/schema/query.gql'),
     },
-    Player_image_arg_size: {
+    Player_image_arg_size: { // eslint-disable-line camelcase
       start: { line: 15, column: 9 },
       end: { line: 15, column: 19 },
       path: path.resolve('src/__test-data__/schema/query.gql'),
@@ -52,17 +52,17 @@ export function getDefLocations() {
       end: { line: 5, column: 2 },
       path: path.resolve('src/__test-data__/schema/mutation.gql'),
     },
-    Mutation_PlayerCreate: {
+    Mutation_PlayerCreate: { // eslint-disable-line camelcase
       start: { line: 4, column: 3 },
       end: { line: 4, column: 63 },
       path: path.resolve('src/__test-data__/schema/mutation.gql'),
     },
-    Mutation_PlayerCreateInput: {
+    Mutation_PlayerCreateInput: { // eslint-disable-line camelcase
       start: { line: 6, column: 1 },
       end: { line: 9, column: 2 },
       path: path.resolve('src/__test-data__/schema/mutation.gql'),
     },
-    Mutation_PlayerCreateInput_id: {
+    Mutation_PlayerCreateInput_id: { // eslint-disable-line camelcase
       start: { line: 8, column: 3 },
       end: { line: 8, column: 10 },
       path: path.resolve('src/__test-data__/schema/mutation.gql'),
@@ -73,7 +73,7 @@ export function getDefLocations() {
       end: { line: 6, column: 2 },
       path: path.resolve('src/__test-data__/schema/query.gql'),
     },
-    Query_viewer: {
+    Query_viewer: { // eslint-disable-line camelcase
       start: { line: 5, column: 3 },
       end: { line: 5, column: 18 },
       path: path.resolve('src/__test-data__/schema/query.gql'),
@@ -96,7 +96,7 @@ export function getDefLocations() {
       end: { line: 7, column: 25 },
       path: path.resolve('src/__test-data__/schema/directives.gql'),
     },
-    customDirective_argIf: {
+    customDirective_argIf: { // eslint-disable-line camelcase
       start: { line: 4, column: 3 },
       end: { line: 4, column: 15 },
       path: path.resolve('src/__test-data__/schema/directives.gql'),

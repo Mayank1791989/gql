@@ -62,37 +62,36 @@ export type GQLField = {
 };
 
 export type GQLInputField = {
-  name: string;
+  name: string,
   // $FlowDisableNextLine
-  type: GQLInputType;
-  defaultValue?: mixed;
-  description?: ?string;
+  type: GQLInputType,
+  defaultValue?: mixed,
+  description?: ?string,
   node: InputValueDefinitionNode,
   print: () => string,
 };
 
 type GQLInputFieldMap = {
   // $FlowDisableNextLine
-  [fieldname: string]: GQLInputField;
+  [fieldname: string]: GQLInputField,
 };
 
 type GQLFieldMap = {
   // $FlowDisableNextLine
-  [fieldname: string]: GQLField;
+  [fieldname: string]: GQLField,
 };
 
 export interface GQLSchema { // eslint-disable-line
-  getQueryType(): ?GQLObjectType;
-  getMutationType(): ?GQLObjectType;
-  getSubscriptionType(): ?GQLObjectType;
+  getQueryType(): ?GQLObjectType,
+  getMutationType(): ?GQLObjectType,
+  getSubscriptionType(): ?GQLObjectType,
 
-  getType(name: string): ?GQLNamedType;
-  getTypeMap(): { [name: string]: GQLNamedType };
-  getType(name: string): GQLNamedType;
+  getType(name: string): ?GQLNamedType,
+  getTypeMap(): { [name: string]: GQLNamedType },
 
-  getDirective(name: string): ?GraphQLDirective;
-  getDirectives(): Array<GQLDirective>;
-  getPossibleTypes(type: any): Array<GQLObjectType>;
+  getDirective(name: string): ?GraphQLDirective,
+  getDirectives(): Array<GQLDirective>,
+  getPossibleTypes(type: any): Array<GQLObjectType>,
 
   // NOTE: not available in graphql-js (npm) [added in our custom GraphqlSchema]
   // getTypeNode(name: string): ?TypeDefinitionNode;
@@ -180,7 +179,7 @@ const [SchemaMetaFieldDef, TypeMetaFieldDef, TypeNameMetaFieldDef] = [
   _SchemaMetaFieldDef,
   _TypeMetaFieldDef,
   _TypeNameMetaFieldDef,
-].map(field => {
+].map((field) => {
   const type = getNamedType(field.type);
   type.print = memoize(() => printType(type));
 
@@ -206,7 +205,7 @@ const [SchemaMetaFieldDef, TypeMetaFieldDef, TypeNameMetaFieldDef] = [
       const lines = printedType.split('\n');
       return lines
         .slice(1, lines.length - 1) // remove first and last line which is type we need field only
-        .map(line => line.trim())
+        .map((line) => line.trim())
         .join('\n');
     }),
   };
@@ -218,7 +217,7 @@ function printArg(arg, indentation = '') {
   return [
     `${indentation}${printDescription(arg.description)}`,
     `${indentation}${arg.name}: ${arg.type.toString()}`,
-  ].filter(val => val && val.trim()).join('\n');
+  ].filter((val) => val && val.trim()).join('\n');
 }
 
 function printArgs(args) {
@@ -226,7 +225,7 @@ function printArgs(args) {
     return '';
   }
 
-  const argsStr = args.map(arg => printArg(arg, '  ')).join('\n');
+  const argsStr = args.map((arg) => printArg(arg, '  ')).join('\n');
 
   return `(\n${argsStr}\n)`;
 }
@@ -254,8 +253,8 @@ export class GQLDirective extends GraphQLDirective {
       printDescription(this.description),
       `directive @${this.name}${printArgs(this.args)}`,
       `  on ${this.locations.join('\n   | ')}`,
-    ].filter(val => val).join('\n');
-  })
+    ].filter((val) => val).join('\n');
+  });
 }
 
 function reduceArgs(args) {
@@ -293,7 +292,7 @@ export class GQLScalarType extends GraphQLScalarType {
     this.node = node;
   }
 
-  print = memoize((): string => print(this.node, this.description))
+  print = memoize((): string => print(this.node, this.description));
 }
 
 export class GQLObjectType extends GraphQLObjectType {
@@ -316,7 +315,7 @@ export class GQLObjectType extends GraphQLObjectType {
     return (_fields: any);
   }
 
-  print = memoize((): string => print(this.node, this.description))
+  print = memoize((): string => print(this.node, this.description));
 }
 
 export class GQLInterfaceType extends GraphQLInterfaceType {
@@ -335,7 +334,7 @@ export class GQLInterfaceType extends GraphQLInterfaceType {
     return (_fields: any);
   }
 
-  print = memoize((): string => print(this.node, this.description))
+  print = memoize((): string => print(this.node, this.description));
 }
 
 export class GQLUnionType extends GraphQLUnionType {
@@ -347,7 +346,7 @@ export class GQLUnionType extends GraphQLUnionType {
     this.node = node;
   }
 
-  print = memoize((): string => print(this.node, this.description))
+  print = memoize((): string => print(this.node, this.description));
 }
 
 export class GQLEnumType extends GraphQLEnumType {
@@ -359,7 +358,7 @@ export class GQLEnumType extends GraphQLEnumType {
     this.node = node;
   }
 
-  print = memoize((): string => print(this.node, this.description))
+  print = memoize((): string => print(this.node, this.description));
 }
 
 export class GQLInputObjectType extends GraphQLInputObjectType {
@@ -371,7 +370,7 @@ export class GQLInputObjectType extends GraphQLInputObjectType {
     this.node = node;
   }
 
-  print = memoize((): string => print(this.node, this.description))
+  print = memoize((): string => print(this.node, this.description));
 
   getFields(): GQLInputFieldMap {
     if (this._fields) { return this._fields; }
@@ -409,23 +408,19 @@ export type GQLOutputType =
   GQLUnionType |
   GQLEnumType |
   GQLList<GQLOutputType> |
-  GQLNonNull<
-    GQLScalarType |
+  GQLNonNull<GQLScalarType |
     GQLObjectType |
     GQLInterfaceType |
     GQLUnionType |
     GQLEnumType |
-    GQLList<GQLOutputType>
-  >;
+    GQLList<GQLOutputType>>;
 
 export type GQLInputType =
   GQLScalarType |
   GQLEnumType |
   GQLInputObjectType |
   GQLList<GQLInputType> |
-  GQLNonNull<
-    GQLScalarType |
+  GQLNonNull<GQLScalarType |
     GQLEnumType |
     GQLInputObjectType |
-    GQLList<GQLInputType>
-  >;
+    GQLList<GQLInputType>>;

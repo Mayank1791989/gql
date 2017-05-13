@@ -14,7 +14,7 @@ export type GQLError = {
   severity: string,
   // if locations is missing then error is not in single file
   // e.g Schema needs 'query' defined in some file
-  locations: ?Array<Location>
+  locations: ?Array<Location>,
 };
 
 function patchLocation({ line, column }, source): Location {
@@ -35,7 +35,7 @@ function cleanMessage(message) {
 
 // NOTE: patched error locations to add file path
 function patchLocationsUsingNodes(locations, nodes): Array<Location> {
-  const errorNodes = nodes.filter(node => node.loc);
+  const errorNodes = nodes.filter((node) => node.loc);
   if (locations) {
     return locations.reduce((acc, location, index) => {
       const errorNode = errorNodes[index];
@@ -53,7 +53,7 @@ function patchLocationsUsingSource(locations, source): Array<Location> {
 }
 
 function patchLocations(error: GraphQLError) {
-  let locations;
+  let locations = null;
   if (error.nodes && error.nodes.length > 0) {
     // NOTE: here nodes can be in differenct files
     locations = patchLocationsUsingNodes(error.locations, error.nodes);

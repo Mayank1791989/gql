@@ -1,12 +1,10 @@
 /* @flow */
 /* eslint-disable no-use-before-define, no-nested-ternary */
 import { type TokenState } from '../../shared/types';
-import { forEachState } from 'graphql-language-service-interface/dist/autocompleteUtils';
 import {
-  getNullableType,
-  GraphQLList,
-  isCompositeType,
-} from 'graphql/type';
+  forEachState,
+} from 'graphql-language-service-interface/dist/autocompleteUtils';
+import { getNullableType, GraphQLList, isCompositeType } from 'graphql/type';
 
 import {
   GQLDirective,
@@ -18,7 +16,6 @@ import {
   type GQLType,
   type GQLNamedType,
   type GQLSchema,
-
   SchemaMetaFieldDef,
   TypeMetaFieldDef,
   TypeNameMetaFieldDef,
@@ -38,7 +35,10 @@ type Info = {
 
 // Utility for collecting rich type information given any token's state
 // from the graphql-mode parser.
-export default function getTypeInfo(schema: GQLSchema, tokenState: TokenState): Info {
+export default function getTypeInfo(
+  schema: GQLSchema,
+  tokenState: TokenState,
+): Info {
   const info: Info = {
     type: null,
     parentType: null,
@@ -51,7 +51,7 @@ export default function getTypeInfo(schema: GQLSchema, tokenState: TokenState): 
     objectFieldDef: null,
   };
 
-  forEachState(tokenState, (state) => {
+  forEachState(tokenState, (state) => { // eslint-disable-line complexity
     switch (state.kind) {
       case 'Query':
       case 'ShortQuery':
@@ -71,11 +71,9 @@ export default function getTypeInfo(schema: GQLSchema, tokenState: TokenState): 
         break;
       case 'Field':
       case 'AliasedField':
-        info.fieldDef = (
-          info.type && state.name && info.parentType
+        info.fieldDef = info.type && state.name && info.parentType
           ? getFieldDef(schema, info.parentType, state.name)
-          : null
-        );
+          : null;
         info.type = info.fieldDef && info.fieldDef.type;
         break;
       case 'SelectionSet':
@@ -85,15 +83,18 @@ export default function getTypeInfo(schema: GQLSchema, tokenState: TokenState): 
         info.directiveDef = state.name && schema.getDirective(state.name);
         break;
       case 'Arguments':
-        info.argDefs =
-          state.prevState.kind === 'Field' ?
-            info.fieldDef && info.fieldDef.args :
-          state.prevState.kind === 'Directive' ?
-            info.directiveDef && info.directiveDef.args :
-          state.prevState.kind === 'AliasedField' ?
-            state.prevState.name &&
-            (getFieldDef(schema, (info.parentType: any), state.prevState.name): any).args :
-            null;
+        info.argDefs = state.prevState.kind === 'Field'
+          ? info.fieldDef && info.fieldDef.args
+          : state.prevState.kind === 'Directive'
+              ? info.directiveDef && info.directiveDef.args
+              : state.prevState.kind === 'AliasedField'
+                  ? state.prevState.name &&
+                      (getFieldDef(
+                        schema,
+                        (info.parentType: any),
+                        state.prevState.name,
+                      ): any).args
+                  : null;
         break;
       case 'Argument':
         info.argDef = null;
@@ -109,24 +110,22 @@ export default function getTypeInfo(schema: GQLSchema, tokenState: TokenState): 
         break;
       case 'ListValue': {
         const nullableType = getNullableType((info.inputType: any));
-        info.inputType = nullableType instanceof GraphQLList ?
-          nullableType.ofType :
-          null;
+        info.inputType = nullableType instanceof GraphQLList
+          ? nullableType.ofType
+          : null;
         break;
       }
       case 'ObjectValue': {
         const objectType = getNamedType(info.inputType);
-        info.objectFieldDefs = (
-          objectType instanceof GQLInputObjectType
+        info.objectFieldDefs = objectType instanceof GQLInputObjectType
           ? objectType.getFields()
-          : null
-        );
+          : null;
         break;
       }
       case 'ObjectField': {
-        info.objectFieldDef = state.name && info.objectFieldDefs ?
-          info.objectFieldDefs[state.name] :
-          null;
+        info.objectFieldDef = state.name && info.objectFieldDefs
+          ? info.objectFieldDefs[state.name]
+          : null;
         info.inputType = info.objectFieldDef && info.objectFieldDef.type;
         break;
       }

@@ -77,8 +77,10 @@ import {
   GraphQLObjectType,
 } from 'graphql/type/definition';
 
-import { // eslint-disable-line no-duplicate-imports
-type DirectiveLocationEnum } from 'graphql/type/directives';
+import {
+  // eslint-disable-line no-duplicate-imports
+  type DirectiveLocationEnum,
+} from 'graphql/type/directives';
 
 // import {
 //   __Schema,
@@ -91,11 +93,7 @@ type DirectiveLocationEnum } from 'graphql/type/directives';
 //   __TypeKind,
 // } from 'graphql/type/introspection';
 
-import {
-  type GQLError,
-  SEVERITY,
-  newGQLError,
-} from '../../shared/GQLError';
+import { type GQLError, SEVERITY, newGQLError } from '../../shared/GQLError';
 
 import { PLACEHOLDER_TYPES } from './PlaceholderTypes';
 
@@ -104,7 +102,9 @@ function buildWrappedType(
   inputTypeAST: TypeNode,
 ): GQLType {
   if (inputTypeAST.kind === LIST_TYPE) {
-    return new GraphQLList((buildWrappedType(innerType, inputTypeAST.type): any));
+    return new GraphQLList(
+      (buildWrappedType(innerType, inputTypeAST.type): any),
+    );
   }
   if (inputTypeAST.kind === NON_NULL_TYPE) {
     const wrappedType = buildWrappedType(innerType, inputTypeAST.type);
@@ -114,13 +114,16 @@ function buildWrappedType(
   return (innerType: any);
 }
 
-export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: Array<GQLError> } {
-  let schemaDef: ?SchemaDefinitionNode;
-
+export function buildASTSchema( // eslint-disable-line complexity
+  ast: DocumentNode,
+): { schema: GQLSchema, errors: Array<GQLError> } {
+  let schemaDef: ?SchemaDefinitionNode = null;
   const errors: Array<GQLError> = [];
   const typeDefs: Array<TypeDefinitionNode> = [];
-  const nodeMap: {[name: string]: TypeDefinitionNode} = Object.create(null);
-  const nodeMapWithAllReferences: {[name: string]: Array<TypeDefinitionNode>} = Object.create(null);
+  const nodeMap: { [name: string]: TypeDefinitionNode } = Object.create(null);
+  const nodeMapWithAllReferences: {
+    [name: string]: Array<TypeDefinitionNode>,
+  } = Object.create(null);
   const directiveDefs: Array<DirectiveDefinitionNode> = [];
 
   for (let i = 0; i < ast.definitions.length; i += 1) {
@@ -128,11 +131,13 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
     switch (d.kind) {
       case SCHEMA_DEFINITION:
         if (schemaDef) {
-          errors.push(newGQLError(
-            'Must provide only one schema definition.',
-            [schemaDef, d],
-            SEVERITY.error,
-          ));
+          errors.push(
+            newGQLError(
+              'Must provide only one schema definition.',
+              [schemaDef, d],
+              SEVERITY.error,
+            ),
+          );
         }
         schemaDef = d;
         break;
@@ -148,7 +153,9 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
           nodeMap[name] = d;
         }
         //  storing all reference to detect multiple defintition with same name
-        if (!nodeMapWithAllReferences[name]) { nodeMapWithAllReferences[name] = []; }
+        if (!nodeMapWithAllReferences[name]) {
+          nodeMapWithAllReferences[name] = [];
+        }
         nodeMapWithAllReferences[name].push(d);
         break;
       }
@@ -162,17 +169,19 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
   // error for multi same name typeDef
   Object.keys(nodeMapWithAllReferences).forEach((name) => {
     if (nodeMapWithAllReferences[name].length > 1) {
-      errors.push(newGQLError(
-        `Schema must contain unique named types but contains multiple types named "${name}".`,
-        nodeMapWithAllReferences[name].map(typeDefAST => typeDefAST.name),
-        SEVERITY.error,
-      ));
+      errors.push(
+        newGQLError(
+          `Schema must contain unique named types but contains multiple types named "${name}".`,
+          nodeMapWithAllReferences[name].map((typeDefAST) => typeDefAST.name),
+          SEVERITY.error,
+        ),
+      );
     }
   });
 
-  let queryTypeName;
-  let mutationTypeName;
-  let subscriptionTypeName;
+  let queryTypeName = null;
+  let mutationTypeName = null;
+  let subscriptionTypeName = null;
 
   if (schemaDef) {
     schemaDef.operationTypes.forEach((operationType) => {
@@ -198,11 +207,13 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
   }
 
   if (!queryTypeName) {
-    errors.push(newGQLError(
-      'Must provide schema definition with query type or a type named Query.',
-      null,
-      SEVERITY.error,
-    ));
+    errors.push(
+      newGQLError(
+        'Must provide schema definition with query type or a type named Query.',
+        null,
+        SEVERITY.error,
+      ),
+    );
   }
 
   const innerTypeMap = {
@@ -213,7 +224,9 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
     ID: GQLID,
   };
 
-  const types = typeDefs.map(def => typeDefNamed(def.name.value, def)).filter(Boolean);
+  const types = typeDefs
+    .map((def) => typeDefNamed(def.name.value, def))
+    .filter(Boolean);
 
   // Adding default types
   types.push(
@@ -228,22 +241,26 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
   const directives = directiveDefs.map(getDirective);
 
   // If specified directives were not explicitly declared, add them.
-  if (!directives.some(directive => directive.name === 'skip')) {
+  if (!directives.some((directive) => directive.name === 'skip')) {
     directives.push(GQLSkipDirective);
   }
 
-  if (!directives.some(directive => directive.name === 'include')) {
+  if (!directives.some((directive) => directive.name === 'include')) {
     directives.push(GQLIncludeDirective);
   }
 
-  if (!directives.some(directive => directive.name === 'deprecated')) {
+  if (!directives.some((directive) => directive.name === 'deprecated')) {
     directives.push(GQLDeprecatedDirective);
   }
 
   const schema = new GQLSchema({
     query: queryTypeName ? getObjectType(nodeMap[queryTypeName]) : null,
-    mutation: mutationTypeName ? getObjectType(nodeMap[mutationTypeName]) : null,
-    subscription: subscriptionTypeName ? getObjectType(nodeMap[subscriptionTypeName]) : null,
+    mutation: mutationTypeName
+      ? getObjectType(nodeMap[mutationTypeName])
+      : null,
+    subscription: subscriptionTypeName
+      ? getObjectType(nodeMap[subscriptionTypeName])
+      : null,
     types,
     directives,
     nodeMap,
@@ -256,7 +273,7 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
       name: directiveNode.name.value,
       description: getDescription(directiveNode),
       locations: directiveNode.locations.map(
-        node => ((node.value: any): DirectiveLocationEnum),
+        (node) => ((node.value: any): DirectiveLocationEnum),
       ),
       args: directiveNode.arguments && makeInputValues(directiveNode.arguments),
     });
@@ -266,11 +283,13 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
     const type = typeDefNamed(typeNode.name.value, typeNode);
 
     if (!(type instanceof GraphQLObjectType)) {
-      errors.push(newGQLError(
-        'AST must provide object type.',
-        [typeNode],
-        SEVERITY.error,
-      ));
+      errors.push(
+        newGQLError(
+          'AST must provide object type.',
+          [typeNode],
+          SEVERITY.error,
+        ),
+      );
     }
 
     return (type: any);
@@ -286,11 +305,9 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
 
     if (!nodeMap[typeName]) {
       // NOT found
-      errors.push(newGQLError(
-        `Type "${typeName}" not found.`,
-        [node],
-        SEVERITY.error,
-      ));
+      errors.push(
+        newGQLError(`Type "${typeName}" not found.`, [node], SEVERITY.error),
+      );
       return null;
     }
 
@@ -304,21 +321,27 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
   //   return Boolean(innerTypeMap[getNamedTypeNode(typeNode).name.value]);
   // }
 
-  function produceType(typeNode: TypeNode, defaultValue: (name: string) => GraphQLType): GQLType {
+  function produceType(
+    typeNode: TypeNode,
+    defaultValue: (name: string) => GraphQLType,
+  ): GQLType {
     const namedTypeNode = getNamedTypeNode(typeNode);
     const typeName = namedTypeNode.name.value;
-    const typeDef = typeDefNamed(typeName, namedTypeNode) || defaultValue(typeName);
+    const typeDef =
+      typeDefNamed(typeName, namedTypeNode) || defaultValue(typeName);
     return buildWrappedType(typeDef, typeNode);
   }
 
   function produceInputType(typeNode: TypeNode): GraphQLInputType {
     const type = produceType(typeNode, PLACEHOLDER_TYPES.inputType);
     if (!isInputType((type: any))) {
-      errors.push(newGQLError(
-        'Expected Input type.',
-        [getNamedTypeNode(typeNode)],
-        SEVERITY.error,
-      ));
+      errors.push(
+        newGQLError(
+          'Expected Input type.',
+          [getNamedTypeNode(typeNode)],
+          SEVERITY.error,
+        ),
+      );
     }
     return (type: any);
   }
@@ -326,11 +349,13 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
   function produceOutputType(typeNode: TypeNode): GraphQLOutputType {
     const type = produceType(typeNode, PLACEHOLDER_TYPES.outputType);
     if (!isOutputType((type: any))) {
-      errors.push(newGQLError(
-        'Expected Output type.',
-        [getNamedTypeNode(typeNode)],
-        SEVERITY.error,
-      ));
+      errors.push(
+        newGQLError(
+          'Expected Output type.',
+          [getNamedTypeNode(typeNode)],
+          SEVERITY.error,
+        ),
+      );
     }
     return (type: any);
   }
@@ -338,11 +363,13 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
   function produceObjectType(typeNode: TypeNode): GQLObjectType {
     const type = produceType(typeNode, PLACEHOLDER_TYPES.objectType);
     if (!(type instanceof GraphQLObjectType)) {
-      errors.push(newGQLError(
-        'Expected Object type.',
-        [getNamedTypeNode(typeNode)],
-        SEVERITY.error,
-      ));
+      errors.push(
+        newGQLError(
+          'Expected Object type.',
+          [getNamedTypeNode(typeNode)],
+          SEVERITY.error,
+        ),
+      );
     }
     return (type: any);
   }
@@ -350,11 +377,13 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
   function produceInterfaceType(typeNode: TypeNode): GQLInterfaceType {
     const type = produceType(typeNode, PLACEHOLDER_TYPES.interfaceType);
     if (!(type instanceof GraphQLInterfaceType)) {
-      errors.push(newGQLError(
-        'Expected Interface type.',
-        [getNamedTypeNode(typeNode)],
-        SEVERITY.error,
-      ));
+      errors.push(
+        newGQLError(
+          'Expected Interface type.',
+          [getNamedTypeNode(typeNode)],
+          SEVERITY.error,
+        ),
+      );
     }
     return (type: any);
   }
@@ -396,8 +425,8 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
   ) {
     return keyValMap(
       def.fields,
-      field => field.name.value,
-      field => ({
+      (field) => field.name.value,
+      (field) => ({
         type: produceOutputType(field.type),
         node: field,
         description: getDescription(field),
@@ -408,13 +437,15 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
   }
 
   function makeImplementedInterfaces(def: ObjectTypeDefinitionNode) {
-    return def.interfaces && def.interfaces.map(iface => produceInterfaceType(iface));
+    return (
+      def.interfaces && def.interfaces.map((iface) => produceInterfaceType(iface))
+    );
   }
 
   function makeInputValues(values: Array<InputValueDefinitionNode>) {
     return keyValMap(
       values,
-      value => value.name.value,
+      (value) => value.name.value,
       (value) => {
         const type = produceInputType(value.type);
         return {
@@ -443,8 +474,8 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
       description: getDescription(def),
       values: keyValMap(
         def.values,
-        enumValue => enumValue.name.value,
-        enumValue => ({
+        (enumValue) => enumValue.name.value,
+        (enumValue) => ({
           description: getDescription(enumValue),
           deprecationReason: getDeprecationReason(enumValue.directives),
           node: enumValue,
@@ -459,7 +490,7 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
     return new GQLUnionType(def, {
       name: def.name.value,
       description: getDescription(def),
-      types: def.types.map(t => produceObjectType(t)),
+      types: def.types.map((t) => produceObjectType(t)),
       resolveType: cannotExecuteSchema,
     });
   }
@@ -488,17 +519,16 @@ export function buildASTSchema(ast: DocumentNode): { schema: GQLSchema, errors: 
 }
 
 function getDeprecationReason(directives: ?Array<DirectiveNode>): ?string {
-  const deprecatedAST = directives && find(
-    directives,
-    directive => directive.name.value === GQLDeprecatedDirective.name,
-  );
+  const deprecatedAST =
+    directives &&
+    find(
+      directives,
+      (directive) => directive.name.value === GQLDeprecatedDirective.name,
+    );
   if (!deprecatedAST) {
     return null;
   }
-  const { reason } = getArgumentValues(
-    GQLDeprecatedDirective,
-    deprecatedAST,
-  );
+  const { reason } = getArgumentValues(GQLDeprecatedDirective, deprecatedAST);
   return (reason: any);
 }
 
@@ -507,30 +537,35 @@ function getDeprecationReason(directives: ?Array<DirectiveNode>): ?string {
  * block full-line of comments preceding it.
  */
 export function getDescription(node: { loc?: Location }): ?string {
-  const loc = node.loc;
-  if (!loc) { return null; }
+  const { loc } = node;
+  if (!loc) {
+    return null;
+  }
   const comments = [];
-  let minSpaces;
+  let minSpaces = null;
   let token = loc.startToken.prev;
   while (
     token &&
     token.kind === TokenKind.COMMENT &&
-    token.next && token.prev &&
+    token.next &&
+    token.prev &&
     token.line + 1 === token.next.line &&
     token.line !== token.prev.line
   ) {
     const value = String(token.value);
     const spaces = leadingSpaces(value);
-    if (minSpaces === undefined || spaces < minSpaces) {
+    if (minSpaces === null || spaces < minSpaces) {
       minSpaces = spaces;
     }
     comments.push(value);
     token = token.prev;
   }
-  return comments
-    .reverse()
-    .map(comment => comment.slice(minSpaces))
-    .join('\n');
+  return (
+    comments
+      .reverse()
+      .map((comment) => comment.slice(minSpaces))
+      .join('\n')
+  );
 }
 
 // Count the number of spaces on the starting side of a string.

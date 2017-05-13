@@ -1,5 +1,5 @@
 /* @flow */
-const noop = () => {};
+const noop = () => {}; // eslint-disable-line no-empty-function
 const debug = new Proxy(console, {
   _isEnabled: false,
   get(target, key) {
