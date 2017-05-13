@@ -41,8 +41,9 @@ export default class MultilineCharacterStream {
   }
 
   peek(): string | null {
-    return this._sourceText.charAt(this._pos) ?
-      this._sourceText.charAt(this._pos) : null;
+    return this._sourceText.charAt(this._pos)
+      ? this._sourceText.charAt(this._pos)
+      : null;
   }
 
   next(): string {
@@ -102,7 +103,7 @@ export default class MultilineCharacterStream {
 
     switch (typeof pattern) {
       case 'string': {
-        const regex = new RegExp(pattern, (caseFold ? 'i' : ''));
+        const regex = new RegExp(pattern, caseFold ? 'i' : '');
         match = regex.test(this._sourceText.substr(this._pos, pattern.length));
         token = pattern;
         break;
@@ -118,12 +119,7 @@ export default class MultilineCharacterStream {
         break;
     }
 
-    if (
-      match && (
-        typeof pattern === 'string' ||
-        match.index === 0
-      )
-    ) {
+    if (match && (typeof pattern === 'string' || match.index === 0)) {
       if (consume) {
         this._start = this._pos;
         this._pos += token.length;
@@ -147,7 +143,7 @@ export default class MultilineCharacterStream {
     const match = this._sourceText.match(/\s*/);
     let indent = 0;
     if (match && match.index === 0) {
-      const whitespaces = match[0];
+      const [whitespaces] = match;
       let pos = 0;
       while (whitespaces.length > pos) {
         if (whitespaces.charCodeAt(pos) === 9) {

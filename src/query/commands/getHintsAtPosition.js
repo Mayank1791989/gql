@@ -28,7 +28,7 @@ import {
 import getTypeInfo from '../_shared/getTypeInfo';
 import createRelaySchema from '../_shared/createRelaySchema';
 
-export default function getHintsAtPosition(
+export default function getHintsAtPosition( // eslint-disable-line complexity
   _schema: GQLSchema,
   sourceText: string,
   _position: Position,
@@ -47,7 +47,7 @@ export default function getHintsAtPosition(
   const schema = config.isRelay ? createRelaySchema(_schema) : _schema;
   const typeInfo = getTypeInfo(schema, token.state);
 
-  const state = token.state;
+  const { state } = token;
   const { kind, step } = state;
 
   // console.log(typeInfo);
@@ -71,17 +71,17 @@ export default function getHintsAtPosition(
   // Field names
   if (kind === 'SelectionSet' || kind === 'Field' || kind === 'AliasedField') {
     if (typeInfo.parentType) {
-      const fields = typeInfo.parentType.getFields ?
+      const fields = typeInfo.parentType.getFields
         // $FlowDisableNextLine
-        objectValues(typeInfo.parentType.getFields()) :
-        [];
+        ? objectValues(typeInfo.parentType.getFields())
+        : [];
       if (isAbstractType(typeInfo.parentType)) {
         fields.push(TypeNameMetaFieldDef);
       }
       if (typeInfo.parentType === schema.getQueryType()) {
         fields.push(SchemaMetaFieldDef, TypeMetaFieldDef);
       }
-      return fields.map(field => ({
+      return fields.map((field) => ({
         text: field.name,
         type: field.type.toString(),
         description: field.description,
@@ -90,9 +90,9 @@ export default function getHintsAtPosition(
   }
 
   if (kind === 'Arguments' || (kind === 'Argument' && step === 0)) {
-    const argDefs = typeInfo.argDefs;
+    const { argDefs } = typeInfo;
     if (argDefs) {
-      return (argDefs.map(argDef => ({
+      return (argDefs.map((argDef) => ({
         text: argDef.name,
         type: argDef.type.toString(),
         description: argDef.description,
@@ -104,7 +104,7 @@ export default function getHintsAtPosition(
   if (kind === 'ObjectValue' || (kind === 'ObjectField' && step === 0)) {
     if (typeInfo.objectFieldDefs) {
       const objectFields = objectValues(typeInfo.objectFieldDefs);
-      return (objectFields.map(field => ({
+      return (objectFields.map((field) => ({
         text: field.name,
         type: field.type.toString(),
         description: field.description,
@@ -123,7 +123,7 @@ export default function getHintsAtPosition(
     if (namedInputType instanceof GQLEnumType) {
       const valueMap = namedInputType.getValues();
       const values = objectValues(valueMap);
-      return (values.map(value => ({
+      return (values.map((value) => ({
         text: value.name,
         type: namedInputType.toString(),
         description: value.description,
@@ -141,7 +141,7 @@ export default function getHintsAtPosition(
     (kind === 'TypeCondition' && step === 1) ||
     (kind === 'NamedType' && state.prevState.kind === 'TypeCondition')
   ) {
-    let possibleTypes;
+    let possibleTypes = null;
     if (typeInfo.parentType) {
       if (isAbstractType(typeInfo.parentType)) {
         // Collect both the possible Object types as well as the interfaces
@@ -163,7 +163,7 @@ export default function getHintsAtPosition(
       const typeMap = schema.getTypeMap();
       possibleTypes = objectValues(typeMap).filter(isCompositeType);
     }
-    return possibleTypes.map(type => ({
+    return possibleTypes.map((type) => ({
       text: type.name,
       type: typeName[type.constructor.name],
       description: type.description,
@@ -211,7 +211,7 @@ export default function getHintsAtPosition(
   ) {
     const inputTypeMap = schema.getTypeMap();
     const inputTypes = objectValues(inputTypeMap).filter(isInputType);
-    return inputTypes.map(type => ({
+    return inputTypes.map((type) => ({
       text: type.name,
       description: type.description,
     }));
@@ -220,9 +220,9 @@ export default function getHintsAtPosition(
   // Directive names
   if (kind === 'Directive') {
     const directives = schema.getDirectives().filter(
-      directive => canUseDirective(state.prevState.kind, directive),
+      (directive) => canUseDirective(state.prevState.kind, directive),
     );
-    return directives.map(directive => ({
+    return directives.map((directive) => ({
       text: directive.name,
       description: directive.description,
     }));
@@ -232,7 +232,7 @@ export default function getHintsAtPosition(
 }
 
 function canUseDirective(kind, directive) {
-  const locations = directive.locations;
+  const { locations } = directive;
   switch (kind) {
     case 'Query':
       return locations.indexOf('QUERY') !== -1;

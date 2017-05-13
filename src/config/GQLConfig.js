@@ -9,7 +9,7 @@ import path from 'path';
 import _uniq from 'lodash/uniq';
 
 type Options = {
-  cwd?: string
+  cwd?: string,
 };
 
 const CONFIG_FILE_NAME = '.gqlconfig';
@@ -149,7 +149,7 @@ function matchGlob(filePath, globs: Globs): boolean {
   }
 
   // matches any
-  return Boolean(globs.find(glob => minimatch(filePath, glob)));
+  return Boolean(globs.find((glob) => minimatch(filePath, glob)));
 }
 
 function matcher(filePath, match: FileMatchConfig): boolean {

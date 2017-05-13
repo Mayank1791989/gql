@@ -23,7 +23,7 @@ function JSInlineFragment() {
 function eatJSInlineFragment(stream, state) {
   const { jsInlineFragment: frag } = state;
   invariant(frag, 'missing JSInlineFragment');
-  stream.eatWhile(ch => {
+  stream.eatWhile((ch) => {
     if (frag.count === 0) {
       state.jsInlineFragment = null;
       return false;
@@ -42,7 +42,7 @@ function eatJSInlineFragment(stream, state) {
 }
 
 const parserOptions = {
-  eatWhitespace: stream => stream.eatWhile(ch => isIgnored(ch) || ch === ';'),
+  eatWhitespace: (stream) => stream.eatWhile((ch) => isIgnored(ch) || ch === ';'),
   lexRules: {
     JSInlineFragment: /^\$\{/,
     ...LexRules,

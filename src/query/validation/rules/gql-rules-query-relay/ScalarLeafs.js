@@ -17,17 +17,17 @@ export {
 function isRelayPatternDirective(node) {
   if (node.name.value !== 'relay') { return false; }
   return Boolean(
-    node.arguments.find(argument => (
+    node.arguments.find((argument) => (
       argument.name.value === 'pattern' &&
       argument.value.value === true
     )),
   );
 }
 
-function isFragmentPattern(node): bool {
+function isFragmentPattern(node): boolean {
   return Boolean(
     node.directives
-    .find(directive => isRelayPatternDirective(directive)),
+      .find((directive) => isRelayPatternDirective(directive)),
   );
 }
 
@@ -36,7 +36,7 @@ function isFragmentPattern(node): bool {
 // 2) query { viewer } // valid in relay
 function ignore(node, ancestors) {
   const ancestorsReveresed = ancestors.slice(0, ancestors.length).reverse();
-  const found = ancestorsReveresed.find(_node => (
+  const found = ancestorsReveresed.find((_node) => (
     _node.kind === 'OperationDefinition' ||
     (_node.kind === 'FragmentDefinition' && isFragmentPattern(_node))
   ));

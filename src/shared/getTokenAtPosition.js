@@ -22,7 +22,7 @@ export default function getTokenAtPosition(
   const offset = toOffset(sourceText, position);
   const stream = new MultilineCharacterStream(sourceText);
 
-  let style;
+  let style = '';
 
   whileSafe({
     condition: () => stream.getCurrentPosition() < offset,

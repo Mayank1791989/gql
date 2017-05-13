@@ -9,22 +9,14 @@ import { GraphQLSchema } from 'graphql/type';
 import { buildASTSchema } from './buildASTSchema';
 import { buildASTSchema as buildASTGraphQLSchema } from 'graphql/utilities';
 
-
-import {
-  type GQLError,
-  SEVERITY,
-  toGQLError,
-} from '../../shared/GQLError';
+import { type GQLError, SEVERITY, toGQLError } from '../../shared/GQLError';
 
 import { validate } from '../../schema';
 import GQLConfig from '../../config/GQLConfig';
 
 import watch from '../../shared/watch';
 
-import {
-  type ParsedFilesMap,
-  type WatchFile,
-} from '../../shared/types';
+import { type ParsedFilesMap, type WatchFile } from '../../shared/types';
 
 import { type GQLSchema } from '../../shared/GQLTypes';
 import { type DocumentNode } from 'graphql/language/ast';
@@ -64,7 +56,9 @@ export default class GQLSchemaBuilder {
           }
         }
 
-        if (onChange) { onChange(); }
+        if (onChange) {
+          onChange();
+        }
         if (!options.watch) {
           watchClient.end();
         }
@@ -86,23 +80,27 @@ export default class GQLSchemaBuilder {
 
   // private methods
   _updateFiles(files: Array<WatchFile>, config: any) {
-    if (files.length === 0) { return; }
+    if (files.length === 0) {
+      return;
+    }
 
     // console.time('updating files');
     files.forEach(({ name, exists }) => {
       // console.log(name, exists);
       const absPath = path.join(this._config.getDir(), name);
-      if (!exists) {
-        this._parsedFilesMap.delete(absPath);
-      } else {
+      if (exists) {
         this._parsedFilesMap.set(absPath, this._parseFile(absPath));
+      } else {
+        this._parsedFilesMap.delete(absPath);
       }
     });
     // console.timeEnd('updating files');
 
     //  build merged ast
     // console.time('buildAST');
-    const { ast, errors: parseErrors } = this._buildASTFromParsedFiles(this._parsedFilesMap);
+    const { ast, errors: parseErrors } = this._buildASTFromParsedFiles(
+      this._parsedFilesMap,
+    );
     // console.timeEnd('buildAST');
 
     // build GQLSchema from ast
@@ -118,11 +116,7 @@ export default class GQLSchemaBuilder {
 
     this._ast = ast;
     this._schema = schema;
-    this._errors = [
-      ...parseErrors,
-      ...buildErrors,
-      ...validationErrors,
-    ];
+    this._errors = [...parseErrors, ...buildErrors, ...validationErrors];
   }
 
   _parseFile = (absPath: string) => {
@@ -145,13 +139,14 @@ export default class GQLSchemaBuilder {
   _buildASTFromParsedFiles = (parsedFiles: ParsedFilesMap) => {
     const mergedDefinitions = [];
     const errors = [];
-    for (const parsedFile of parsedFiles.values()) { // eslint-disable-line no-restricted-syntax
+    for (const parsedFile of parsedFiles.values()) {
+      // eslint-disable-line no-restricted-syntax
       const { ast, error } = parsedFile;
-      if (!error) {
-        const definitions = ast.definitions;
-        mergedDefinitions.push(...definitions);
-      } else {
+      if (error) {
         errors.push(error);
+      } else {
+        const { definitions } = ast;
+        mergedDefinitions.push(...definitions);
       }
     }
 

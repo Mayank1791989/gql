@@ -4,7 +4,7 @@ import ipc from 'node-ipc';
 
 type Config = $Exact<{
   serverName: string,
-  debug?: bool,
+  debug?: boolean,
 }>;
 
 export default class Client {

@@ -2,7 +2,7 @@
 import GQLConfig from '../GQLConfig';
 import path from 'path';
 
-const fixture = name => path.join(__dirname, 'fixtures', name);
+const fixture = (name) => path.join(__dirname, 'fixtures', name);
 
 test('missing-gqlConfig: Report error if gqlconfig not found', () => {
   expect(() => {
@@ -24,7 +24,7 @@ test('only-schema-gqlconfig: allow only schema', () => {
 
 describe('config.match', () => {
   const gqlConfig = new GQLConfig({ cwd: fixture('valid-gqlconfig') });
-  const genPath = file => fixture(`valid-gqlconfig/${file}`);
+  const genPath = (file) => fixture(`valid-gqlconfig/${file}`);
 
   test('match schema files', () => {
     expect(

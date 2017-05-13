@@ -24,7 +24,7 @@ export default function createValidate(
     };
 
     // remove all 'off' rules
-    const rules = base.rules.filter(rule => config[rule.name] !== 'off');
+    const rules = base.rules.filter((rule) => config[rule.name] !== 'off');
 
     return { config, rules };
   });
@@ -54,7 +54,7 @@ export default function createValidate(
     const _schema: any = schema;
     const typeInfo = new TypeInfo(_schema);
     const context = new ValidationContext(_schema, ast, typeInfo);
-    const visitors = rules.map(rule => rule(makeRuleContext(context, rule, config)));
+    const visitors = rules.map((rule) => rule(makeRuleContext(context, rule, config)));
     visit(ast, visitWithTypeInfo(typeInfo, visitInParallel(visitors)));
     return (context.getErrors(): any);
   };

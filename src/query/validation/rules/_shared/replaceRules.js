@@ -6,7 +6,7 @@ const replaceRules = (allRules: Array<Rule>, rulesToReplace: Array<Rule>) => {
     return acc;
   }, {});
 
-  return allRules.map(rule => map[rule.name] || rule);
+  return allRules.map((rule) => map[rule.name] || rule);
 };
 
 export default replaceRules;

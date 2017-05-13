@@ -7,7 +7,7 @@ import createValidate from '../../shared/createValidate';
 import _memoize from 'lodash/memoize';
 import createRelaySchema from '../_shared/createRelaySchema';
 
-const getDefaultValidateConfig = _memoize(isRelay => (
+const getDefaultValidateConfig = _memoize((isRelay) => (
   { extends: isRelay ? 'gql-rules-query-relay' : 'gql-rules-query' }
 ));
 

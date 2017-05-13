@@ -1,9 +1,6 @@
 /* @flow */
 import { getTokenAtPosition } from '../_shared/getTokenAtPosition';
-import {
-  type Position,
-  type DefLocation,
-} from '../../shared/types';
+import { type Position, type DefLocation } from '../../shared/types';
 import { type GQLSchema } from '../../shared/GQLTypes';
 import getDefLocationForNode from '../../shared/getDefLocationForNode';
 
@@ -20,7 +17,9 @@ function findRefsOfTokenAtPosition(
   const token = getTokenAtPosition(sourceText, position);
   // console.timeEnd('getTokenAtPosition');
   // console.log('token', token);
-  if (!token) { return []; }
+  if (!token) {
+    return [];
+  }
 
   const { state } = token;
 
@@ -30,14 +29,13 @@ function findRefsOfTokenAtPosition(
     (state.kind === 'UnionMember' && state.step === 1) || // union Type = Type1 | Type2<------
     (state.kind === 'Implements' && state.step === 1)
   ) {
-    const name = state.name;
+    const { name } = state;
     const type = schema.getType(name);
     if (type) {
-      const locations = (
-        type.dependents.concat(type.node && type.node.name) // include definition also
-          .map(getDefLocationForNode)
-          .filter(defLocation => Boolean(defLocation))
-      );
+      const locations = type.dependents
+        .concat(type.node && type.node.name) // include definition also
+        .map(getDefLocationForNode)
+        .filter((defLocation) => Boolean(defLocation));
       // 'any' Flow not able to detect we are filtering nul values
       return (locations: any);
     }

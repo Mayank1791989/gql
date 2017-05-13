@@ -1,0 +1,18 @@
+// Place your settings in this file to overwrite default and user settings.
+{
+  "search.exclude": {
+    "**/node_modules": true,
+    "lib/**": true
+  },
+
+  "prettier.eslintIntegration": true,
+  "prettier.bracketSpacing": true,
+  "prettier.semi": true,
+  "prettier.parser": "flow",
+  "prettier.tabWidth": 2,
+  "prettier.singleQuote": true,
+  "prettier.jsxBracketSameLine": false,
+  "prettier.printWidth": 80,
+  "prettier.trailingComma": "all",
+  "prettier.useTabs": false
+}

@@ -16,6 +16,10 @@ test('generate: schemaJSON', (done) => {
       { type: 'schemaJSON' },
     ],
     callback: (err, content) => {
+      if (err) {
+        done.fail(err);
+        return;
+      }
       expect(content).toMatchSnapshot();
       done();
     },

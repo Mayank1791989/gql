@@ -1,8 +1,5 @@
 /* @flow */
-import {
-  isInputType,
-  isOutputType,
-} from 'graphql/type/definition';
+import { isInputType, isOutputType } from 'graphql/type/definition';
 
 import { getTokenAtPosition } from './../_shared/getTokenAtPosition';
 import {
@@ -36,27 +33,28 @@ function getHintsForTokenState(
   state: TokenState,
   token: Token,
 ): Array<GQLHint> {
-  if (!state) { return []; }
+  if (!state) {
+    return [];
+  }
 
   const { kind, step } = state;
   // console.log(kind, step);
 
   if (kind === 'Document' && step === 0) {
-    return [
-      { text: 'type' },
-      { text: 'enum' },
-      { text: 'input' },
-    ];
+    return [{ text: 'type' }, { text: 'enum' }, { text: 'input' }];
   }
 
   /** ****************** type *******************/
   // type name {
   //    field: <---
   // }
-  if (kind === 'FieldDef' && (
-    step === 3 || // case field: <---- cursor here
-    (step === 4 && isAlphabet(token.prevChar) && token.style === 'punctuation') // field: Type!  when cursor on !
-  )) {
+  if (
+    kind === 'FieldDef' &&
+    (step === 3 || // case field: <---- cursor here
+      (step === 4 &&
+        isAlphabet(token.prevChar) &&
+        token.style === 'punctuation')) // field: Type!  when cursor on !
+  ) {
     const typeMap = schema.getTypeMap();
     return Object.keys(typeMap).reduce((acc, key) => {
       if (isOutputType(typeMap[key])) {
@@ -100,8 +98,11 @@ function getHintsForTokenState(
   // }
   if (
     (kind === 'InputValueDef' && step === 2) ||
-    (kind === 'InputValueDef' && step === 3 && isAlphabet(token.prevChar) && token.style === 'punctuation') ||
-    (kind === 'FieldDef' && step === 2 && token.string === ')')  // case name(first: ) // when cursor on closing bracket ')'
+    (kind === 'InputValueDef' &&
+      step === 3 &&
+      isAlphabet(token.prevChar) &&
+      token.style === 'punctuation') ||
+    (kind === 'FieldDef' && step === 2 && token.string === ')') // case name(first: ) // when cursor on closing bracket ')'
   ) {
     const typeMap = schema.getTypeMap();
     return Object.keys(typeMap).reduce((acc, key) => {
@@ -128,11 +129,14 @@ function getHintsForTokenState(
   //    -------^
   // }
 
-  if (kind === 'ListType' && (
-    step === 1 ||
-    ((step === 3 || step === 2) && isAlphabet(token.prevChar) && token.style === 'punctuation')
-  )) {
-    const prevState = state.prevState; // { Kind: Type }
+  if (
+    kind === 'ListType' &&
+    (step === 1 ||
+      ((step === 3 || step === 2) &&
+        isAlphabet(token.prevChar) &&
+        token.style === 'punctuation'))
+  ) {
+    const { prevState } = state; // { Kind: Type }
     return getHintsForTokenState(schema, prevState.prevState, token);
   }
   /** **************  List ****************/
@@ -144,7 +148,11 @@ function getHintsForTokenState(
     (kind === 'NamedType' && step === 0) ||
     (kind === 'NamedType' && step === 1 && isAlphabet(token.prevChar))
   ) {
-    return getHintsForTokenState(schema, state.prevState.prevState.prevState, token);
+    return getHintsForTokenState(
+      schema,
+      state.prevState.prevState.prevState,
+      token,
+    );
   }
   /** **********************************************
 
