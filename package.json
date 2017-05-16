@@ -36,7 +36,7 @@
     "flow-runtime": "0.12.0",
     "graphql": "0.9.6",
     "graphql-language-service-interface": "0.0.11",
-    "graphql-language-service-parser": "0.0.10",
+    "graphql-language-service-parser": "0.0.11",
     "invariant": "2.2.2",
     "json5": "0.5.1",
     "keymirror": "0.1.1",
