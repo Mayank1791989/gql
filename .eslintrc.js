@@ -1,16 +1,24 @@
 /* @flow */
 module.exports = {
-  plugins: [
-    "playlyfe",
-  ],
+  plugins: ['playlyfe'],
 
   extends: [
-    "plugin:playlyfe/js",
-    "plugin:playlyfe/flow",
-    "plugin:playlyfe/testing:jest",
+    'plugin:playlyfe/js',
+    'plugin:playlyfe/flowtype',
+    'plugin:playlyfe/testing:jest',
+    'plugin:playlyfe/prettier',
   ],
 
   env: {
     node: true,
+  },
+
+  rules: {
+    'arrow-paren': 'off',
+    'no-negated-condition': 'off',
+    'arrow-body-style': 'off',
+    complexity: 'off',
+    'playlyfe/flowtype-no-existential-type': 'warn',
+    'no-undefined': 'off',
   },
 };

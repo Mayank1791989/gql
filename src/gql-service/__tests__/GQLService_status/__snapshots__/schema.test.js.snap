@@ -1,0 +1,538 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Report duplicate operation types 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 10,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Must provide only one query type.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report if Query type not ObjectType by type name 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 1,
+        "line": 1,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Query root type must be Object type, it cannot be Query.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report if Query type not ObjectType using schema 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 10,
+        "line": 4,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Query root type must be Object type, it cannot be CustomScalar.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report if missing Query Root Type 1`] = `
+Array [
+  Object {
+    "locations": null,
+    "message": "Query root type must be provided.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid enumType duplicate values 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+      Object {
+        "column": 3,
+        "line": 5,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Enum type Test can include value a only once.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid enumType invalid values 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Enum type Test cannot include value: true.",
+    "severity": "error",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Enum type Test cannot include value: false.",
+    "severity": "error",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 4,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Enum type Test cannot include value: null.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid inputObjectType field type not inputType 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 12,
+        "line": 8,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "The type of PlayerCreateParams.friends must be Input Type but got: [Player!].",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid objectType duplicate fields 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 6,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+      Object {
+        "column": 3,
+        "line": 8,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Field Player.id can only be defined once.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid objectType field arg type not input type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 15,
+        "line": 10,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "The type of Player.image(size:) must be Input Type but got: Viewer!.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid objectType field type not output type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 10,
+        "line": 7,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Type \\"InputValue\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid objectType implemented interface fields args type mismatch 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 15,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/interface.gql",
+      },
+      Object {
+        "column": 15,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Interface field argument User.image(size:) expects type Int! but Player.image(size:) is type String!.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid objectType implemented interface fields type mismatch 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/interface.gql",
+      },
+      Object {
+        "column": 9,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Interface field User.name expects type String! but Player.name is type String.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid objectType implementing non interface type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 31,
+        "line": 9,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Type Player must only implement Interface types, it cannot implement String.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid objectType implements same interface multiple times 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 24,
+        "line": 14,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+      Object {
+        "column": 38,
+        "line": 14,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Type Player can only implement Node once.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid objectType type doesnt implements all interface field args 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/interface.gql",
+      },
+      Object {
+        "column": 3,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Interface field argument User.image(size:) expected but Player.image does not provide it.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid objectType type not implementing all interface fields 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/interface.gql",
+      },
+      Object {
+        "column": 1,
+        "line": 1,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Interface field User.name expected but Player does not provide it.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid objectType type provides additional args for interface fields 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 25,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+      Object {
+        "column": 3,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/interface.gql",
+      },
+    ],
+    "message": "Object field argument Player.image(id:) is of required type Int! but is not also provided by the Interface field User.image.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid unionType duplicate union members 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 16,
+        "line": 1,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+      Object {
+        "column": 32,
+        "line": 1,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Union type Viewer can only include type User once.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report invalid unionType union member must be object type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 23,
+        "line": 1,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Union type Viewer can only include Object types, it cannot include String.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report unknown operation type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 10,
+        "line": 2,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Specified query type \\"Viewer\\" not found.",
+    "severity": "error",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 1,
+        "line": 1,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Query root type must be provided.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report unknown types arg type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 15,
+        "line": 6,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Type \\"xInt\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report unknown types input field type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 5,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Type \\"xString\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report unknown types interface type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 31,
+        "line": 9,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Type \\"xNode\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report unknown types output field type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 5,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Type \\"xString\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report unknown types union type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 25,
+        "line": 9,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Type \\"xPlayer\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Report unused type declaration Report unused type definition 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 1,
+        "line": 5,
+        "path": "$ROOT_DIR/schema/main.gql",
+      },
+    ],
+    "message": "Unused type definition 'X' (NoUnusedTypeDefinition)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`can modify validation rule severity 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 5,
+        "path": "$ROOT_DIR/schema/schema.gql",
+      },
+    ],
+    "message": "Unused type definition 'Hello' (NoUnusedTypeDefinition)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`can turn off validation rules 1`] = `Array []`;
+
+exports[`report if no schema file exist or empty. 1`] = `
+Array [
+  Object {
+    "locations": null,
+    "message": "No schema file found. Make sure schema file glob \\"schema/*.gql\\" matches atleast one file.",
+    "severity": "error",
+  },
+  Object {
+    "locations": null,
+    "message": "Query root type must be provided.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`should report errors in schema 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 19,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/schema.gql",
+      },
+    ],
+    "message": "Type \\"xViewer\\" not found.",
+    "severity": "error",
+  },
+]
+`;

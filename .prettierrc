@@ -1,0 +1,12 @@
+{
+  "bracketSpacing": true,
+  "printWidth": 80,
+  "trailingComma": "all",
+  "singleQuote": true,
+  "jsxBracketSameLine": false,
+  "semi": true,
+  "useTabs": false,
+  "tabWidth": 2,
+  "endOfLine": "lf",
+  "parser": "babel"
+}

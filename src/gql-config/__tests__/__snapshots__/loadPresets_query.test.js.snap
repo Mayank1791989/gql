@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`missing-preset-pkg should throw when preset=./custom-preset 1`] = `"PRESET_PKG_NOT_FOUND: Preset './custom-preset' not found relative to ''"`;
+
+exports[`missing-preset-pkg should throw when preset=@scope/custom 1`] = `"PRESET_PKG_NOT_FOUND: Preset '@scope/gql-query-preset-custom' not found relative to ''"`;
+
+exports[`missing-preset-pkg should throw when preset=custom_node_module 1`] = `"PRESET_PKG_NOT_FOUND: Preset 'gql-query-preset-custom_node_module' not found relative to ''"`;
+
+exports[`missing-preset-pkg should throw when preset=gql-query-preset-custom 1`] = `"PRESET_PKG_NOT_FOUND: Preset 'gql-query-preset-custom' not found relative to ''"`;

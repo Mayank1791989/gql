@@ -1,0 +1,767 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArgumentDefinitionsDirective arg defintion value duplicate fields are not allowed 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 13,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 51,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "There can be only one input field named \\"type\\". (UniqueInputFieldNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value field: "defaultValue" value should be of type defined in field "type" 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 45,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Expected type Boolean!, found {id: \\"tester\\"}. (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value field: "type" is required 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Field \\"type\\" of type \\"String!\\" is required but not provided. (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value field: "type" value should be of input type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 19,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Cannot use non-input type \\"Viewer\\". (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value field: "type" value should be of type String! 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 19,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Expected type String!, found 5. (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value field: "type" value should not be of unknown type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 19,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Unknown type \\"xString\\". Did you mean \\"String\\"? (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value should be of object type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Expected kind 'ObjectValue', found 'IntValue' (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value unknown fields are not allowed 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 31,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Unknown field \\"xdefaultValue\\". Did you mean \\"defaultValue\\"? (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective only allowed on FRAGMENT_DEFINITION 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Directive \\"argumentDefinitions\\" can only be used on 'FRAGMENT_DEFINITION' (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective report unused arg definition 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "\\"name\\" is defined but never used. (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report MissingArgument inside directive 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 24,
+        "line": 5,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Directive \\"@arguments\\" argument \\"large\\" of type \\"Int!\\" is required but not provided. (ProvidedNonNullArguments)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report UnknownArguments inside directive 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 35,
+        "line": 5,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Unknown argument \\"xsize\\" on directive \\"@arguments\\". Did you mean \\"size\\"? (KnownArgumentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report Wrong type argument value passed inside directive 1`] = `Array []`;
+
+exports[`ArgumentsDirective should report if not used and fragment expecting arguments. 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Fragment 'ProfileUser' is expecting arguments. Use @arguments directive to pass arguments. (ArgumentsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report if not used on fragment_spread 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Directive \\"arguments\\" can only be used on 'FRAGMENT_SPREAD'. (ArgumentsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report if used on fragment not expecting arguments. 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 20,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Directive 'arguments' used on fragment 'ProfileUser' which is not expecting arguments (@argumentDefinitions missing on fragment). (ArgumentsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report undefined variables in fragments 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 37,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$size\\" is not defined by fragment 'Test'. Use @argumentDefinitions directive to define variables (NoUndefinedVariables)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report undefined variables in operations 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 41,
+        "line": 5,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$size\\" is not defined by operation 'User'. (NoUndefinedVariables)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ConnectionDirective report if not used on field of type Connection 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "directive @connection can only be used on field of type \`Connection\`. (ConnectionDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ExactlyOneOperation 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 11,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Expected exactly one operation (query, mutation or subscription) (ExactlyOneOperation)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ExecutableDefinitions 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Definition is not executable (Only fragment, mutation, query or subscription is allowed). (ExecutableDefinitions)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: FieldsOnCorrectType 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 4,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Cannot query field \\"tester\\" on type \\"Viewer\\". (FieldsOnCorrectType)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: FragmentsOnCompositeTypes 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Fragment cannot condition on non composite type \\"String\\". (FragmentsOnCompositeTypes)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: KnownArgumentsName directive 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 29,
+        "line": 4,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Unknown argument \\"ifss\\" on directive \\"@include\\". Did you mean \\"if\\"? (KnownArgumentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: KnownArgumentsName field 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 21,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Unknown argument \\"sizes\\" on field \\"image\\" of type \\"User\\". Did you mean \\"size\\"? (KnownArgumentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: KnownDirectives report unknown directives 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Unknown directive \\"some_directive\\". (KnownDirectives)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: KnownFragmentNames report missing fragments 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Unknown fragment \\"SomeUnknownFragment\\". (KnownFragmentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: KnownTypeNames 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 20,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Unknown type \\"XViewer\\". Did you mean \\"Viewer\\"? (KnownTypeNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: NoUndefinedVariables fragments report undefined variables 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 21,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$cond\\" is not defined by fragment 'Test'. Use @argumentDefinitions directive to define variables (NoUndefinedVariables)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: NoUndefinedVariables query 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 23,
+        "line": 4,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$cond1\\" is not defined by operation 'test'. (NoUndefinedVariables)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: NoUnusedVariables 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 14,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$cond1\\" is never used in operation \\"test\\". (NoUnusedVariables)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ProvidedNonNullArguments 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Field \\"image\\" argument \\"size\\" of type \\"Int!\\" is required but not provided. (ProvidedNonNullArguments)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: RequiredDefinitionName 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "name is missing. (RequiredDefinitionName)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ScalarLeafs 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 4,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Field \\"me\\" of type \\"User!\\" must have a selection of subfields. Did you mean \\"me { ... }\\"? (ScalarLeafs)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: UniqueArgumentNames 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 21,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "There can be only one argument named \\"size\\". (UniqueArgumentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: UniqueDirectivesPerLocation 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 10,
+        "line": 4,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 31,
+        "line": 4,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "The directive \\"include\\" can only be used once at this location. (UniqueDirectivesPerLocation)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: UniqueFragmentNames 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 12,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 12,
+        "line": 6,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "There can be only one fragment named \\"Test\\". (UniqueFragmentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: UniqueInputFieldNames 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 4,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 7,
+        "line": 6,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "There can be only one input field named \\"id\\". (UniqueInputFieldNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: UniqueVariableNames 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 15,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 33,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "There can be only one variable named \\"cond1\\". (UniqueVariableNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ValuesOfCorrectType 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 17,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Expected type Int!, found true. (ValuesOfCorrectType)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: VariablesAreInputTypes 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 21,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$size\\" cannot be non-input type \\"Viewer!\\". (VariablesAreInputTypes)",
+    "severity": "error",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 14,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 21,
+        "line": 5,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$size\\" of type \\"Viewer!\\" used in position expecting type \\"Int!\\". (VariablesInAllowedPosition)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: VariablesDefaultValueAllowed 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 28,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$size\\" of type \\"Int!\\" is required and will not use the default value. Perhaps you meant to use type \\"Int\\". (VariablesDefaultValueAllowed)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: VariablesInAllowedPosition fragment: using argumentDefinitions 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 21,
+        "line": 5,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$showID\\" of type \\"String\\" used in position expecting type \\"Boolean!\\". (VariablesInAllowedPosition)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: VariablesInAllowedPosition query 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 14,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+      Object {
+        "column": 21,
+        "line": 5,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$size\\" of type \\"String!\\" used in position expecting type \\"Int!\\". (VariablesInAllowedPosition)",
+    "severity": "error",
+  },
+]
+`;

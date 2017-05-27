@@ -1,8 +1,11 @@
 {
   "name": "@playlyfe/gql",
-  "version": "0.0.0-development",
+  "version": "3.0.0",
   "description": "gql service and tools",
   "main": "lib/index.js",
+  "bin": {
+    "gql": "./lib/gql-cli/cli.js"
+  },
   "publishConfig": {
     "access": "public"
   },
@@ -11,19 +14,19 @@
     "url": "https://github.com/Mayank1791989/gql.git"
   },
   "scripts": {
-    "test": "yarn run check-code && npm run testonly -- --coverage",
-    "testonly": "cross-env NODE_ENV=test jest",
+    "test": "yarn run check-code && yarn run testonly -- --coverage",
+    "testonly": "yarn run clean-test-temp-dir && cross-env NODE_ENV=test jest",
     "check-code": "yarn run lint",
     "flow-check": "flow check",
-    "lint": "eslint src",
-    "flow-typed-update": "flow-typed update",
-    "build": "yarn run clean && babel ./src --out-dir ./lib --ignore '**/__**__/**,**/node_modules/**'",
+    "lint": "jest --config jest-eslint.config.js",
+    "flow-typed-update": "rm -rf flow-typed/npm && flow-typed update && babel-node ./scripts/fix-flow-typed.js",
+    "build": "babel ./src --out-dir ./lib --verbose ---delete-dir-on-start --ignore '**/__**__/**,**/node_modules/**'",
     "report-coverage": "codecov",
     "semantic-release": "semantic-release",
     "clean": "rm -rf lib",
+    "clean-test-temp-dir": "babel-node ./scripts/clear-test-temp-dir",
     "commit": "git-cz",
-    "precommit": "yarn run test",
-    "travis-deploy-once": "travis-deploy-once"
+    "precommit": "yarn run test"
   },
   "author": "Mayank Agarwal <mayank1791989@gmail.com>",
   "license": "MIT",
@@ -32,44 +35,62 @@
     "README.md"
   ],
   "dependencies": {
-    "apollo-codegen": "0.10.13",
-    "babel-runtime": "6.23.0",
+    "@babel/runtime": "7.5.5",
+    "chokidar": "2.0.4",
+    "code-frame": "5.0.0",
     "dentist": "1.0.3",
     "fb-watchman": "2.0.0",
+    "fbemitter": "2.1.1",
     "find-config": "1.0.0",
-    "flow-runtime": "0.14.0",
-    "graphql": "0.9.6",
-    "graphql-language-service-interface": "0.0.11",
-    "graphql-language-service-parser": "0.0.10",
-    "invariant": "2.2.2",
-    "json5": "0.5.1",
-    "keymirror": "0.1.1",
-    "leven": "2.1.0",
-    "lodash": "4.17.11",
+    "flow-runtime": "0.17.0",
+    "glob-parent": "5.0.0",
+    "globby": "10.0.1",
+    "graphql": "0.13.2",
+    "graphql-language-service-parser": "1.2.2",
+    "import-from": "3.0.0",
+    "invariant": "2.2.4",
+    "json5": "2.1.0",
+    "leven": "3.1.0",
+    "lodash": "4.17.15",
+    "log-symbols": "3.0.0",
+    "micromatch": "4.0.2",
     "minimatch": "3.0.4",
-    "node-ipc": "9.0.1",
+    "normalize-path": "3.0.0",
     "parse-glob": "3.0.4",
-    "promise-retry": "1.1.1"
+    "plur": "3.1.1",
+    "promise-retry": "1.1.1",
+    "sane": "2.5.2",
+    "semver": "6.3.0",
+    "uuid": "3.3.2",
+    "yargs": "13.3.0"
   },
   "devDependencies": {
-    "babel-cli": "6.24.1",
-    "babel-jest": "20.0.1",
-    "babel-plugin-flow-runtime": "0.11.1",
-    "babel-polyfill": "6.23.0",
-    "babel-preset-playlyfe": "1.2.0",
-    "codecov": "2.2.0",
-    "commitizen": "2.9.6",
-    "cross-env": "5.0.0",
-    "cz-conventional-changelog": "2.0.0",
-    "eslint": "3.19.0",
-    "eslint-plugin-playlyfe": "3.0.0",
-    "flow-bin": "0.46.0",
-    "flow-typed": "2.1.2",
-    "husky": "0.13.3",
-    "jest": "20.0.1",
+    "@babel/cli": "7.5.5",
+    "@babel/core": "7.5.5",
+    "@babel/node": "7.5.5",
+    "babel-jest": "24.8.0",
+    "babel-plugin-flow-runtime": "0.19.0",
+    "babel-plugin-module-resolver": "3.2.0",
+    "babel-polyfill": "6.26.0",
+    "babel-preset-playlyfe": "4.0.1",
+    "codecov": "3.5.0",
+    "commitizen": "4.0.3",
+    "cross-env": "5.2.0",
+    "cz-conventional-changelog": "3.0.2",
+    "eslint": "5.16.0",
+    "eslint-plugin-playlyfe": "6.5.2",
+    "flow-bin": "0.104.0",
+    "fs-extra": "8.1.0",
+    "has-ansi": "3.0.0",
+    "husky": "3.0.1",
+    "jest": "24.8.0",
+    "jest-runner-eslint": "0.7.4",
+    "jest-watch-typeahead": "0.3.1",
     "memory-fs": "0.4.1",
-    "semantic-release": "^12.2.2",
-    "travis-deploy-once": "^4.3.2"
+    "mkdirp": "0.5.1",
+    "prettier": "1.18.2",
+    "semantic-release": "15.13.18",
+    "strip-ansi": "5.2.0"
   },
   "config": {
     "commitizen": {
@@ -79,8 +100,20 @@
   "jest": {
     "testRegex": "__tests__/.*.test.js$",
     "testEnvironment": "node",
+    "watchPlugins": [
+      "jest-watch-typeahead/filename",
+      "jest-watch-typeahead/testname"
+    ],
+    "snapshotSerializers": [
+      "<rootDir>/scripts/jest-gql-snapshot-serializer"
+    ],
+    "moduleDirectories": [
+      "<rootDir>/node_modules",
+      "<rootDir>/src"
+    ],
+    "cacheDirectory": "<rootDir>/.tmp/jest-cache",
     "roots": [
-      "src/"
+      "<rootDir>/src/"
     ]
   }
 }

@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Directiva validation Should report duplicate arguments 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 33,
+        "line": 6,
+        "path": "$ROOT_DIR/schema/main.graphql",
+      },
+      Object {
+        "column": 62,
+        "line": 6,
+        "path": "$ROOT_DIR/schema/main.graphql",
+      },
+    ],
+    "message": "There can be only one argument named \\"boolArg\\". (UniqueArgumentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Directiva validation Should report if directive argument type is wrong 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 42,
+        "line": 5,
+        "path": "$ROOT_DIR/schema/main.graphql",
+      },
+    ],
+    "message": "Expected type Boolean, found \\"5\\". (ValuesOfCorrectType)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Directiva validation Should report if directive required arguments missing 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 17,
+        "line": 6,
+        "path": "$ROOT_DIR/schema/main.graphql",
+      },
+    ],
+    "message": "Directive \\"@some_directive\\" argument \\"reqArg\\" of type \\"Boolean!\\" is required but not provided. (ProvidedNonNullArguments)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Directiva validation Should report if directive used in wrong location 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 17,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/main.graphql",
+      },
+    ],
+    "message": "Directive \\"some_directive\\" may not be used on FIELD_DEFINITION. (KnownDirectives)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Directiva validation Should report if directive used multiple times in same location 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 17,
+        "line": 6,
+        "path": "$ROOT_DIR/schema/main.graphql",
+      },
+      Object {
+        "column": 47,
+        "line": 6,
+        "path": "$ROOT_DIR/schema/main.graphql",
+      },
+    ],
+    "message": "The directive \\"some_directive\\" can only be used once at this location. (UniqueDirectivesPerLocation)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Directiva validation Should report if unknown directive arguments used 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 33,
+        "line": 5,
+        "path": "$ROOT_DIR/schema/main.graphql",
+      },
+    ],
+    "message": "Unknown argument \\"test\\" on directive \\"@some_directive\\". (KnownArgumentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Directiva validation Should report unknown directives 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 17,
+        "line": 2,
+        "path": "$ROOT_DIR/schema/main.graphql",
+      },
+    ],
+    "message": "Unknown directive \\"some_directive\\". (KnownDirectives)",
+    "severity": "error",
+  },
+]
+`;

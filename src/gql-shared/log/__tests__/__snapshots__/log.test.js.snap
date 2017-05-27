@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`works 1`] = `
+Array [
+  Array [
+    Object {
+      "args": Array [
+        "test",
+        "mayank",
+      ],
+      "level": "debug",
+      "name": "test",
+    },
+  ],
+  Array [
+    Object {
+      "args": Array [
+        "test",
+        "mayank",
+      ],
+      "level": "info",
+      "name": "test",
+    },
+  ],
+  Array [
+    Object {
+      "args": Array [
+        "info message",
+      ],
+      "level": "info",
+      "name": "test",
+    },
+  ],
+  Array [
+    Object {
+      "args": Array [
+        "test: 0ms",
+      ],
+      "level": "debug",
+      "name": "test",
+    },
+  ],
+]
+`;

@@ -1,0 +1,157 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ProvidedRequiredResolvers Directives 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 12,
+        "line": 1,
+        "path": "$ROOT_DIR/schema/directives.gql",
+      },
+    ],
+    "message": "Missing directive resolver (ProvidedRequiredResolvers)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ProvidedRequiredResolvers Mutation extensions 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 6,
+        "path": "$ROOT_DIR/schema/scalars.gql",
+      },
+    ],
+    "message": "Missing field resolver (ProvidedRequiredResolvers)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ProvidedRequiredResolvers Mutations 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 3,
+        "path": "$ROOT_DIR/schema/scalars.gql",
+      },
+    ],
+    "message": "Missing field resolver (ProvidedRequiredResolvers)",
+    "severity": "error",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 15,
+        "line": 2,
+        "path": "$ROOT_DIR/schema/scalars.gql",
+      },
+    ],
+    "message": "Type \\"Test\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ProvidedRequiredResolvers Scalars 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 2,
+        "path": "$ROOT_DIR/schema/scalars.gql",
+      },
+    ],
+    "message": "Missing scalar resolver (ProvidedRequiredResolvers)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`UniqueResolvers Can be disabled for some fields 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 1,
+        "line": 1,
+        "path": "$ROOT_DIR/resolvers/testA.js",
+      },
+      Object {
+        "column": 1,
+        "line": 1,
+        "path": "$ROOT_DIR/resolvers/testB.js",
+      },
+    ],
+    "message": "Multiple resolvers not allowed. (UniqueResolvers)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`UniqueResolvers Can be disabled for some types 1`] = `Array []`;
+
+exports[`UniqueResolvers Multiple files 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 1,
+        "line": 1,
+        "path": "$ROOT_DIR/resolvers/testA.js",
+      },
+      Object {
+        "column": 1,
+        "line": 1,
+        "path": "$ROOT_DIR/resolvers/testB.js",
+      },
+    ],
+    "message": "Multiple resolvers not allowed. (UniqueResolvers)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`UniqueResolvers Single file 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 1,
+        "line": 1,
+        "path": "$ROOT_DIR/resolvers/test.js",
+      },
+      Object {
+        "column": 1,
+        "line": 2,
+        "path": "$ROOT_DIR/resolvers/test.js",
+      },
+    ],
+    "message": "Multiple resolvers not allowed. (UniqueResolvers)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`report error when schema changed schema 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 1,
+        "path": "$ROOT_DIR/schema/scalar.gql",
+      },
+    ],
+    "message": "Missing scalar resolver (ProvidedRequiredResolvers)",
+    "severity": "error",
+  },
+]
+`;

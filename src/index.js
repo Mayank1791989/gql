@@ -1,4 +1,4 @@
 /* @flow */
-import packageJSON from '../package.json';
-export { GQLService } from './GQLService';
-export const { version } = packageJSON;
+export { default as GQLService } from './gql-service';
+import getPackageVersion from 'gql-shared/getPackageVersion';
+export const version = getPackageVersion();

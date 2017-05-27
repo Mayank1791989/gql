@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ObjectTypeExtension report if extending wrong type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 1,
+        "line": 7,
+        "path": "$ROOT_DIR/schema/test.graphql",
+      },
+    ],
+    "message": "Cannot extend non-object type \\"Test\\".",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ObjectTypeExtension report if field already present in type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 6,
+        "path": "$ROOT_DIR/schema/test.graphql",
+      },
+    ],
+    "message": "Field \\"Query.name\\" already exists in the schema. It cannot also be defined in this type extension.",
+    "severity": "error",
+  },
+]
+`;

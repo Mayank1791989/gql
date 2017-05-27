@@ -1,0 +1,49 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Relay.QL tag valid if classic mode enabled 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 20,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Unknown type \\"xUser\\". Did you mean \\"User\\"? (KnownTypeNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`graphql tag is valid 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 20,
+        "line": 2,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Unknown type \\"xUser\\". Did you mean \\"User\\"? (KnownTypeNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`graphql.experimental tag is valid 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 20,
+        "line": 4,
+        "path": "$ROOT_DIR/query/test.js",
+      },
+    ],
+    "message": "Unknown type \\"xUser\\". Did you mean \\"User\\"? (KnownTypeNames)",
+    "severity": "error",
+  },
+]
+`;

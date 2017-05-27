@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Support preset extendSchema report errors if errors in extendSchema 1`] = `
+Array [
+  "Error in preset extendSchema 
+
+  ./custom-preset(3,9)
+
+ ✖ Field \\"Query.id\\" already exists in the schema. It cannot also be defined in this type extension.
+   2 |       extend type Query {
+ > 3 |         id: String! # id already present in main schema
+     |         ^
+   4 |       }
+
+  1  error
+",
+]
+`;
+
+exports[`Support preset extendSchema report errors if extendSchema failed to parse 1`] = `
+Array [
+  "Failed to parse preset './custom-preset' extendSchema
+
+ Syntax Error: Expected @, found Name \\"presetDirective\\"
+
+./custom-preset (2:17)
+1: 
+2:       directive presetDirective on FIELD
+                   ^
+3:     
+",
+]
+`;

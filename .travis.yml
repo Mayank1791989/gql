@@ -1,16 +1,42 @@
+sudo: true
+
 language: node_js
 cache: yarn
-notifications:
-  email: false
+
+os:
+  # - osx
+  - linux
+
+env:
+  # - TEST_USE_WATCHMAN=true
+  # - TEST_USE_WATCHMAN=false
+  # # - TEST_USE_WATCHMAN=false TEST_USE_FS_EVENTS=false
+
 node_js:
+  # - '8'
   - '10'
-  - '8'
-script:
-  - yarn run test
-  - yarn run build
-after_success:
-  - yarn report-coverage
-  - yarn travis-deploy-once "yarn run semantic-release"
-branches:
-  except:
-    - /^v\d+\.\d+\.\d+$/
+
+matrix:
+  exclude:
+    - os: linux
+      env: TEST_USE_WATCHMAN=false TEST_USE_FS_EVENTS=false
+
+before_install: ./travis-$TRAVIS_OS_NAME-install.sh
+
+install: yarn install
+
+script: yarn testonly
+
+# jobs:
+#   include:
+#     - stage: release
+#       if: branch = master
+#       node_js: '8'
+#       os: linux
+#       install: yarn install
+#       script: yarn build
+#       deploy:
+#         provider: script
+#         skip_cleanup: true
+#         script:
+#           - yarn semantic-release

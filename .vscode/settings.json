@@ -1,18 +1,23 @@
-// Place your settings in this file to overwrite default and user settings.
 {
   "search.exclude": {
     "**/node_modules": true,
-    "lib/**": true
+    "lib/**": true,
+    "coverage/**": true
   },
 
-  "prettier.eslintIntegration": true,
-  "prettier.bracketSpacing": true,
-  "prettier.semi": true,
-  "prettier.parser": "flow",
-  "prettier.tabWidth": 2,
-  "prettier.singleQuote": true,
-  "prettier.jsxBracketSameLine": false,
-  "prettier.printWidth": 80,
-  "prettier.trailingComma": "all",
-  "prettier.useTabs": false
+  "files.exclude": {
+    "**/.git": true,
+    "**/.svn": true,
+    "**/.hg": true,
+    "**/CVS": true,
+    "**/.DS_Store": true,
+    "lib/**": true,
+    "coverage/**": true
+  },
+
+  "editor.formatOnSave": true,
+
+  "path-intellisense.mappings": {
+    "gql-utils": "${workspaceRoot}/src/gql-utils"
+  },
 }
