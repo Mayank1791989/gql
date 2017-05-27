@@ -1,0 +1,765 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArgumentDefinitionsDirective arg defintion value duplicate fields are not allowed 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 13,
+        "line": 3,
+        "path": "/tmp/gql-test/54914a5f3ef5814539289954c4de31ce196e270e/query/test.js",
+      },
+      Object {
+        "column": 51,
+        "line": 3,
+        "path": "/tmp/gql-test/54914a5f3ef5814539289954c4de31ce196e270e/query/test.js",
+      },
+    ],
+    "message": "There can be only one input field named \\"type\\". (UniqueInputFieldNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value field: "defaultValue" value should be of type defined in field "type" 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 45,
+        "line": 3,
+        "path": "/tmp/gql-test/f0af44ac254ecc99188ae9549197307ecb5fd369/query/test.js",
+      },
+    ],
+    "message": "Expected type Boolean!, found {id: \\"tester\\"}. (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value field: "type" is required 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 3,
+        "path": "/tmp/gql-test/6ecac7f7140c9628c8969fe16cb38f07adce0613/query/test.js",
+      },
+    ],
+    "message": "Field \\"type\\" of type \\"String!\\" is required but not provided. (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value field: "type" value should be of input type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 19,
+        "line": 3,
+        "path": "/tmp/gql-test/93a34428cdf098fa1b4d954557df84c7f4fd60d1/query/test.js",
+      },
+    ],
+    "message": "Cannot use non-input type \\"Viewer\\". (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value field: "type" value should be of type String! 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 19,
+        "line": 3,
+        "path": "/tmp/gql-test/b20cb1b917d2315519ead3d11b011e4e1e014670/query/test.js",
+      },
+    ],
+    "message": "Expected type String!, found 5. (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value field: "type" value should not be of unknown type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 19,
+        "line": 3,
+        "path": "/tmp/gql-test/206a9ff6110e8f49cfeb909e74b1b2fd8adb18fe/query/test.js",
+      },
+    ],
+    "message": "Unknown type \\"xString\\". Did you mean \\"String\\"? (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value should be of object type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 3,
+        "path": "/tmp/gql-test/9a57f11ea927c070f915a3762454335a41069ded/query/test.js",
+      },
+    ],
+    "message": "Expected kind 'ObjectValue', found 'IntValue' (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective arg defintion value unknown fields are not allowed 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 31,
+        "line": 3,
+        "path": "/tmp/gql-test/5dda9cdfad3231790616a2c27066c857e8f1809d/query/test.js",
+      },
+    ],
+    "message": "Unknown field \\"xdefaultValue\\". Did you mean \\"defaultValue\\"? (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective only allowed on FRAGMENT_DEFINITION 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 3,
+        "path": "/tmp/gql-test/85981474924e8ee7e6d0752685c1e80e10f967b2/query/test.js",
+      },
+    ],
+    "message": "Directive \\"argumentDefinitions\\" can only be used on 'FRAGMENT_DEFINITION' (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentDefinitionsDirective report unused arg definition 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "/tmp/gql-test/bcc660525eafa729840fa768f947d95b0415c709/query/test.js",
+      },
+    ],
+    "message": "\\"name\\" is defined but never used. (ArgumentDefinitionsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report MissingArgument inside directive 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 24,
+        "line": 5,
+        "path": "/tmp/gql-test/949acc9c307b27bb36b0beeb4791df18e22665a3/query/test.js",
+      },
+    ],
+    "message": "Directive \\"@arguments\\" argument \\"large\\" of type \\"Int!\\" is required but not provided. (ProvidedNonNullArguments)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report UnknownArguments inside directive 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 35,
+        "line": 5,
+        "path": "/tmp/gql-test/f6cd433aaaf54caacba8131bf3464032a5f1168a/query/test.js",
+      },
+    ],
+    "message": "Unknown argument \\"xsize\\" on directive \\"@arguments\\". Did you mean \\"size\\"? (KnownArgumentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report if not used and fragment expecting arguments. 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "/tmp/gql-test/5a322a0097f6fa52dfe073cc49f2bde16728c8d1/query/test.js",
+      },
+    ],
+    "message": "Fragment 'ProfileUser' is expecting arguments. Use @arguments directive to pass arguments. (ArgumentsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report if not used on fragment_spread 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 3,
+        "path": "/tmp/gql-test/4b913d6e2fe092837228b0baca5649102281ca32/query/test.js",
+      },
+    ],
+    "message": "Directive \\"arguments\\" can only be used on 'FRAGMENT_SPREAD'. (ArgumentsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report if used on fragment not expecting arguments. 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 20,
+        "line": 3,
+        "path": "/tmp/gql-test/21f03c17acabd7b8fa3fd28f66b9e3ac732a34cc/query/test.js",
+      },
+    ],
+    "message": "Directive 'arguments' used on fragment 'ProfileUser' which is not expecting arguments (@argumentDefinitions missing on fragment). (ArgumentsDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report undefined variables in fragments 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 37,
+        "line": 3,
+        "path": "/tmp/gql-test/83fde9aa0e8cac4a267fbdcad6c4bfd5c3999437/query/test.js",
+      },
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "/tmp/gql-test/83fde9aa0e8cac4a267fbdcad6c4bfd5c3999437/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$size\\" is not defined by fragment 'Test'. Use @argumentDefinitions directive to define variables (NoUndefinedVariables)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ArgumentsDirective should report undefined variables in operations 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 41,
+        "line": 5,
+        "path": "/tmp/gql-test/2d38a1bed551169561186ef7d4063dbfdb921b4a/query/test.js",
+      },
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "/tmp/gql-test/2d38a1bed551169561186ef7d4063dbfdb921b4a/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$size\\" is not defined by operation 'User'. (NoUndefinedVariables)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`ConnectionDirective report if not used on field of type Connection 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 3,
+        "path": "/tmp/gql-test/2fcafd963637b1e84eb1154e5c604f99eaf90f2b/query/test.js",
+      },
+    ],
+    "message": "directive @connection can only be used on field of type \`Connection\`. (ConnectionDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ExactlyOneOperation 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 11,
+        "path": "/tmp/gql-test/8edd43edea323cf73fcadfc81e51bce6798d77a2/query/test.js",
+      },
+    ],
+    "message": "Expected exactly one operation (query, mutation or subscription) (ExactlyOneOperation)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ExecutableDefinitions 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "/tmp/gql-test/3fd8d2a43fd3e61b5f893b8879e03a3c9ea7fcea/query/test.js",
+      },
+    ],
+    "message": "Definition is not executable (Only fragment, mutation, query or subscription is allowed). (ExecutableDefinitions)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: FieldsOnCorrectType 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 4,
+        "path": "/tmp/gql-test/c0329e00ba21dc2e8b74ff4a1acdf1e63c10453f/query/test.js",
+      },
+    ],
+    "message": "Cannot query field \\"tester\\" on type \\"Viewer\\". (FieldsOnCorrectType)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: FragmentsOnCompositeTypes 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 3,
+        "path": "/tmp/gql-test/fdc826449a34c55f17ef4e31ea10b5519e8b7ec6/query/test.js",
+      },
+    ],
+    "message": "Fragment cannot condition on non composite type \\"String\\". (FragmentsOnCompositeTypes)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: KnownArgumentsName directive 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 29,
+        "line": 4,
+        "path": "/tmp/gql-test/4d74f75ea5142c4cd7a3cb4280f216d0fc96a778/query/test.js",
+      },
+    ],
+    "message": "Unknown argument \\"ifss\\" on directive \\"@include\\". Did you mean \\"if\\"? (KnownArgumentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: KnownArgumentsName field 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 21,
+        "line": 3,
+        "path": "/tmp/gql-test/8911f2b6a87581e61a19aff8ccb065d1bec91a51/query/test.js",
+      },
+    ],
+    "message": "Unknown argument \\"sizes\\" on field \\"image\\" of type \\"User\\". Did you mean \\"size\\"? (KnownArgumentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: KnownDirectives report unknown directives 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 3,
+        "path": "/tmp/gql-test/f2c0af6afa94697749e416624300e32545d0e4e6/query/test.js",
+      },
+    ],
+    "message": "Unknown directive \\"some_directive\\". (KnownDirectives)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: KnownFragmentNames report missing fragments 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 3,
+        "path": "/tmp/gql-test/f9806bef85ad05d82fbc34cd249a705f70f4fb50/query/test.js",
+      },
+    ],
+    "message": "Unknown fragment \\"SomeUnknownFragment\\". (KnownFragmentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: KnownTypeNames 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 20,
+        "line": 2,
+        "path": "/tmp/gql-test/0e5c5f6c74389be4c429587fba9811cc0f19ec25/query/test.js",
+      },
+    ],
+    "message": "Unknown type \\"XViewer\\". Did you mean \\"Viewer\\"? (KnownTypeNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: NoUndefinedVariables fragments report undefined variables 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 21,
+        "line": 3,
+        "path": "/tmp/gql-test/e7f3a718cf4d253e923c336d22610ba5605fc0ca/query/test.js",
+      },
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "/tmp/gql-test/e7f3a718cf4d253e923c336d22610ba5605fc0ca/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$cond\\" is not defined by fragment 'Test'. Use @argumentDefinitions directive to define variables (NoUndefinedVariables)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: NoUndefinedVariables query 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 23,
+        "line": 4,
+        "path": "/tmp/gql-test/a3b25be4a5680632388c9472eb15caa226ecc15b/query/test.js",
+      },
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "/tmp/gql-test/a3b25be4a5680632388c9472eb15caa226ecc15b/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$cond1\\" is not defined by operation 'test'. (NoUndefinedVariables)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: NoUnusedVariables 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 14,
+        "line": 2,
+        "path": "/tmp/gql-test/f406634692ed9c6b26442fe05939dad2f49899a3/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$cond1\\" is never used in operation \\"test\\". (NoUnusedVariables)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ProvidedNonNullArguments 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "/tmp/gql-test/c0126d5d0146d74d2f3164537abd7c72ac3b76bb/query/test.js",
+      },
+    ],
+    "message": "Field \\"image\\" argument \\"size\\" of type \\"Int!\\" is required but not provided. (ProvidedNonNullArguments)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: RequiredDefinitionName 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "/tmp/gql-test/1b9b8a78d027667c4799fa81aff6f03846c746a7/query/test.js",
+      },
+    ],
+    "message": "name is missing. (RequiredDefinitionName)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ScalarLeafs 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 4,
+        "path": "/tmp/gql-test/31a575842080acd869696b5a8f285d3a8bf3b3df/query/test.js",
+      },
+    ],
+    "message": "Field \\"me\\" of type \\"User!\\" must have a selection of subfields. Did you mean \\"me { ... }\\"? (ScalarLeafs)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: UniqueArgumentNames 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 3,
+        "path": "/tmp/gql-test/f10e6c9935042ab827beaddbed88a7028fb339cf/query/test.js",
+      },
+      Object {
+        "column": 21,
+        "line": 3,
+        "path": "/tmp/gql-test/f10e6c9935042ab827beaddbed88a7028fb339cf/query/test.js",
+      },
+    ],
+    "message": "There can be only one argument named \\"size\\". (UniqueArgumentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: UniqueDirectivesPerLocation 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 10,
+        "line": 4,
+        "path": "/tmp/gql-test/dcbe6702505a2a8a660ca27609e23a5aa94479b2/query/test.js",
+      },
+      Object {
+        "column": 31,
+        "line": 4,
+        "path": "/tmp/gql-test/dcbe6702505a2a8a660ca27609e23a5aa94479b2/query/test.js",
+      },
+    ],
+    "message": "The directive \\"include\\" can only be used once at this location. (UniqueDirectivesPerLocation)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: UniqueFragmentNames 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 12,
+        "line": 2,
+        "path": "/tmp/gql-test/9745f711a5e07239b4772c927947dc2574c4027c/query/test.js",
+      },
+      Object {
+        "column": 12,
+        "line": 6,
+        "path": "/tmp/gql-test/9745f711a5e07239b4772c927947dc2574c4027c/query/test.js",
+      },
+    ],
+    "message": "There can be only one fragment named \\"Test\\". (UniqueFragmentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: UniqueInputFieldNames 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 4,
+        "path": "/tmp/gql-test/11339a5fe20b2056335f4025fb907d89eab50383/query/test.js",
+      },
+      Object {
+        "column": 7,
+        "line": 6,
+        "path": "/tmp/gql-test/11339a5fe20b2056335f4025fb907d89eab50383/query/test.js",
+      },
+    ],
+    "message": "There can be only one input field named \\"id\\". (UniqueInputFieldNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: UniqueVariableNames 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 15,
+        "line": 2,
+        "path": "/tmp/gql-test/454cfbd893bbf354ddaa391b47612d578ad2d4b2/query/test.js",
+      },
+      Object {
+        "column": 33,
+        "line": 2,
+        "path": "/tmp/gql-test/454cfbd893bbf354ddaa391b47612d578ad2d4b2/query/test.js",
+      },
+    ],
+    "message": "There can be only one variable named \\"cond1\\". (UniqueVariableNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ValuesOfCorrectType 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 17,
+        "line": 3,
+        "path": "/tmp/gql-test/914d709b0875b3bb66cc79a80b40edb680f38a61/query/test.js",
+      },
+    ],
+    "message": "Expected type Int!, found true. (ValuesOfCorrectType)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: VariablesAreInputTypes 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 21,
+        "line": 2,
+        "path": "/tmp/gql-test/5323af98eb6d2ea1ea2224ca0aa4198cf13fa8f5/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$size\\" cannot be non-input type \\"Viewer!\\". (VariablesAreInputTypes)",
+    "severity": "error",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 14,
+        "line": 2,
+        "path": "/tmp/gql-test/5323af98eb6d2ea1ea2224ca0aa4198cf13fa8f5/query/test.js",
+      },
+      Object {
+        "column": 21,
+        "line": 5,
+        "path": "/tmp/gql-test/5323af98eb6d2ea1ea2224ca0aa4198cf13fa8f5/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$size\\" of type \\"Viewer!\\" used in position expecting type \\"Int!\\". (VariablesInAllowedPosition)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: VariablesDefaultValueAllowed 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 28,
+        "line": 2,
+        "path": "/tmp/gql-test/c9c95b89249873f758e395af1d6674f3b3b2e229/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$size\\" of type \\"Int!\\" is required and will not use the default value. Perhaps you meant to use type \\"Int\\". (VariablesDefaultValueAllowed)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: VariablesInAllowedPosition fragment: using argumentDefinitions 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "/tmp/gql-test/6ec60d20628d39038a1a2f08287bb81884ff245f/query/test.js",
+      },
+      Object {
+        "column": 21,
+        "line": 5,
+        "path": "/tmp/gql-test/6ec60d20628d39038a1a2f08287bb81884ff245f/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$showID\\" of type \\"String\\" used in position expecting type \\"Boolean!\\". (VariablesInAllowedPosition)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: VariablesInAllowedPosition query 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 14,
+        "line": 2,
+        "path": "/tmp/gql-test/669cc357749b31ba733d71ecef952dd130cde6d6/query/test.js",
+      },
+      Object {
+        "column": 21,
+        "line": 5,
+        "path": "/tmp/gql-test/669cc357749b31ba733d71ecef952dd130cde6d6/query/test.js",
+      },
+    ],
+    "message": "Variable \\"$size\\" of type \\"String!\\" used in position expecting type \\"Int!\\". (VariablesInAllowedPosition)",
+    "severity": "error",
+  },
+]
+`;

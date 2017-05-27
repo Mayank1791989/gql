@@ -1,0 +1,65 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`invalid-gqlconfig: validate .gqlconfig file content 1`] = `
+"GQL_CONFIG_FILE_INVALID: Error parsing '.gqlconfig' 
+
+GQLConfigFile.schema.files must be one of: Globs | {
+  include: Globs;
+  ignore?: Globs;
+}
+
+Expected: Globs | {
+  include: Globs;
+  ignore?: Globs;
+}
+
+Actual Value: {
+  \\"test\\": \\"js/schema/**/*.js\\"
+}
+
+Actual Type: {
+  test: string;
+}
+"
+`;
+
+exports[`report if any extra key passed in config (to detect typos) 1`] = `
+"GQL_CONFIG_FILE_INVALID: Error parsing '.gqlconfig' 
+
+GQLConfigFile should not contain the key: \\"xquery\\"
+
+Expected: {|
+  schema: SchemaConfig;
+  query?: {
+    files: Array<QueryConfig>;
+  };
+|}
+
+Actual Value: {
+  \\"schema\\": {
+    \\"files\\": \\"js/schema/**/*.js\\"
+  },
+  \\"xquery\\": \\"some_unknown_key\\"
+}
+
+Actual Type: {
+  schema: {
+    files: string;
+  };
+  xquery: string;
+}
+"
+`;
+
+exports[`report invalid version 1`] = `
+"GQL_CONFIG_FILE_INVALID: Error parsing '.gqlconfig' 
+
+GQLConfigFile.version Not a valid semver version.
+
+Expected: *
+
+Actual Value: \\"mayank\\"
+
+Actual Type: string
+"
+`;

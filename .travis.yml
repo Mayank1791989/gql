@@ -4,17 +4,14 @@ cache: yarn
 notifications:
   email: false
 node_js:
-  - '7'
-  - '6'
+  - '9'
+  - '8'
 script:
   - yarn run test
   - yarn run build
 after_success:
-  - 'curl -Lo travis_after_all.py https://git.io/travis_after_all'
-  - python travis_after_all.py
-  - export $(cat .to_export_back) &> /dev/null
-  - yarn run report-coverage
-  - yarn run semantic-release
+  - yarn report-coverage
+  - yarn travis-deploy-once "yarn run semantic-release"
 branches:
   except:
     - /^v\d+\.\d+\.\d+$/

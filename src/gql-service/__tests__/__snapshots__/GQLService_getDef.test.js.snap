@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Query fragmentSpread fragment defined in other file 1`] = `
+Object {
+  "end": Object {
+    "column": 16,
+    "line": 5,
+  },
+  "path": "/tmp/gql-test/7fce17942caea512dfb40e6492186493f6f9e039/relay-modern/test2.js",
+  "start": Object {
+    "column": 15,
+    "line": 3,
+  },
+}
+`;
+
+exports[`Query fragmentSpread fragment defined in same document 1`] = `
+Object {
+  "end": Object {
+    "column": 30,
+    "line": 7,
+  },
+  "path": "/tmp/gql-test/4113b7b251a745abe7a3ff16df3d5abff6119012/relay-modern/test.js",
+  "start": Object {
+    "column": 3,
+    "line": 7,
+  },
+}
+`;
+
+exports[`Query fragmentSpread fragment defined in same file 1`] = `
+Object {
+  "end": Object {
+    "column": 30,
+    "line": 2,
+  },
+  "path": "/tmp/gql-test/5840cf4464ae1b722028e8b68a62595594742647/relay-modern/test.js",
+  "start": Object {
+    "column": 3,
+    "line": 2,
+  },
+}
+`;
+
+exports[`Query: getDef works in query files 1`] = `
+Object {
+  "end": Object {
+    "column": 10,
+    "line": 8,
+  },
+  "path": "/tmp/gql-test/bb63494cd671b99c58779373ad9ef96a71dc250e/schema/schema.gql",
+  "start": Object {
+    "column": 9,
+    "line": 6,
+  },
+}
+`;
+
+exports[`Schema: getDef works in schema files 1`] = `
+Object {
+  "end": Object {
+    "column": 10,
+    "line": 8,
+  },
+  "path": "/tmp/gql-test/4dae3772d2ca36e740891e5aa5ddb39c57c0712b/schema/schema.gql",
+  "start": Object {
+    "column": 9,
+    "line": 6,
+  },
+}
+`;

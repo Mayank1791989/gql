@@ -3,3 +3,4 @@ lib
 coverage
 npm-debug*
 yarn-*
+.tmp

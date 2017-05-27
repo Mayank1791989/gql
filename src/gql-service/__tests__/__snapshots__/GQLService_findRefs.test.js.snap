@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`findRefs should return all references of token at given position 1`] = `
+Array [
+  Object {
+    "end": Object {
+      "column": 8,
+      "line": 8,
+    },
+    "path": "/tmp/gql-test/e8fdbce663998f81111a1a6abdb061fbf9209d64/schema/schema.gql",
+    "start": Object {
+      "column": 7,
+      "line": 6,
+    },
+  },
+  Object {
+    "end": Object {
+      "column": 23,
+      "line": 3,
+    },
+    "path": "/tmp/gql-test/e8fdbce663998f81111a1a6abdb061fbf9209d64/schema/schema.gql",
+    "start": Object {
+      "column": 17,
+      "line": 3,
+    },
+  },
+]
+`;

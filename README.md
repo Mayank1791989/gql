@@ -161,6 +161,7 @@ type Options = {
   onChange?: () => void, // called when something changes
   onInit?: () => void, // called once after initialization
   debug?: boolean, // enable debug logs
+  watchman?: boolean, // (default: true) option to disable watchman
 };
 
 type CommandParams = {

@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`[Rule] Exactly One Definition invalid 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 4,
+        "path": "/tmp/gql-test/2c178f90d07db92c2eaa7e2dd8610735b8491f87/query/test.js",
+      },
+      Object {
+        "column": 3,
+        "line": 9,
+        "path": "/tmp/gql-test/2c178f90d07db92c2eaa7e2dd8610735b8491f87/query/test.js",
+      },
+    ],
+    "message": "Expected exactly one definition. (ExactlyOneDefinition)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`[Rule] ExecutableDefinitions 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "/tmp/gql-test/5c79f83b15a4e324396e3fc7e002a18ae31f5bc2/query/test.js",
+      },
+    ],
+    "message": "Definition is not executable (Only fragment, mutation, query or subscription is allowed). (ExecutableDefinitions)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ArgumentsOfCorrectType report error for wrong type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 17,
+        "line": 3,
+        "path": "/tmp/gql-test/f1e9f40e9c127eb7820c5fc50c215350e3dbbfab/query/test.js",
+      },
+    ],
+    "message": "Expected type Int!, found \\"some_string_value\\". (ValuesOfCorrectType)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ProvidedNonNullArguments allow mutation field without arguments 1`] = `Array []`;
+
+exports[`Rule: ProvidedNonNullArguments report error if field arguments missing 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "/tmp/gql-test/2475cd5106a22dd238e79ca93bdb0138f65761fd/query/test.js",
+      },
+    ],
+    "message": "Field \\"image\\" argument \\"size\\" of type \\"Int!\\" is required but not provided. (ProvidedNonNullArguments)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`allow field without subselection in fragments if @relay(pattern: true) is present 1`] = `Array []`;
+
+exports[`allow mutation without subselection 1`] = `Array []`;
+
+exports[`allow query without subselection 1`] = `Array []`;
+
+exports[`report error for missing subselection in fragments 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "/tmp/gql-test/ac23a5be7f29c150dfb1776aac3f026173924946/query/test.js",
+      },
+    ],
+    "message": "Field \\"me\\" of type \\"User!\\" must have a selection of subfields. Did you mean \\"me { ... }\\"? (ScalarLeafs)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`report if operation name missing 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 2,
+        "path": "/tmp/gql-test/289c472df0d60fed029911c980ee9299c8783736/query/test.js",
+      },
+    ],
+    "message": "query name is missing. (RequiredOperationName)",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`should not report errors for valid query 1`] = `Array []`;

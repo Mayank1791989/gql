@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `"PARSER_PKG_NOT_FOUND: Parser 'gql-query-parser-unknown' not found relative to ''"`;
+
+exports[` 2`] = `"PARSER_PKG_NOT_FOUND: Parser './custom-parser' not found relative to ''"`;
+
+exports[` 3`] = `"PARSER_PKG_NOT_FOUND: Parser '@scope/gql-query-parser-custom-parser' not found relative to ''"`;
+
+exports[` 4`] = `"PARSER_PKG_NOT_FOUND: Parser 'gql-query-parser-custom_node_module_parser' not found relative to ''"`;

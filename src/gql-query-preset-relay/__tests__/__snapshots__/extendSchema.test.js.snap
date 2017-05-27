@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`autocomplete should include relay custom directives 1`] = `
+Array [
+  Object {
+    "description": undefined,
+    "text": "relay",
+    "type": "Directive",
+  },
+]
+`;

@@ -1,0 +1,324 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`add dummy fragment name if missing (allowFragmentsWithoutName) 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "Relay.QL\`",
+    },
+    "text": "
+                
+                             
+        fragment _ on Viewer {
+          image
+        }
+       ",
+  },
+]
+`;
+
+exports[`add dummy fragment name if missing (allowFragmentsWithoutName) and \`on\` in next line 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "Relay.QL\`",
+    },
+    "text": "
+                
+                             
+        fragment
+              _ on Viewer {
+          image
+        }
+       ",
+  },
+]
+`;
+
+exports[`allow template string interpolation at document level 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "gql\`",
+    },
+    "text": "
+        
+      fragment FeedEntry on Entry {
+        commentCount
+        ...VoteButtons
+        ...RepoInfo
+      }
+                                    
+                                 
+     ",
+  },
+]
+`;
+
+exports[`extract embedded queries 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "Relay.QL\`",
+    },
+    "text": "
+                
+                             
+        fragment test on Viewer {
+          image
+        }
+       ",
+  },
+]
+`;
+
+exports[`extract embedded queries multiline tag 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "some multiline tag
+    \`",
+    },
+    "text": "
+                      
+     
+      fragment test on Test {
+        name
+      }
+     ",
+  },
+]
+`;
+
+exports[`extract embedded query without end 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "",
+      "start": "Relay.QL\`",
+    },
+    "text": "
+             
+      fragment test on Viewer {
+        name
+  ",
+  },
+]
+`;
+
+exports[`extract multiple embedded queries 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "Relay.QL\`",
+    },
+    "text": "
+                
+                             
+        fragment test on Viewer {
+          image
+        }
+       ",
+  },
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "Relay.QL\`",
+    },
+    "text": "
+                
+                             
+                                 
+               
+         
+         
+      
+
+                
+                             
+        fragment test on Viewer {
+          image
+        }
+       ",
+  },
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "Relay.QL\`",
+    },
+    "text": "
+                
+                             
+                                 
+               
+         
+         
+      
+
+                
+                             
+                                 
+               
+         
+         
+      
+
+                       
+      fragment test on Viewer {
+        image
+      }
+     ",
+  },
+]
+`;
+
+exports[`plain queries 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "",
+      "start": "",
+    },
+    "text": "
+    fragment test on Viewer {
+      image
+    }
+  ",
+  },
+]
+`;
+
+exports[`replace all irregular whitespace with space 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "Relay.QL\`",
+    },
+    "text": "
+              
+
+             
+      fragment _ on Viewer {
+        me
+      }
+     ",
+  },
+]
+`;
+
+exports[`replace inline js fragment with dummy fragment multiline 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "Relay.QL\`",
+    },
+    "text": "
+                  
+                               
+          fragment _ on Viewer {
+            ...F,,,,,,,,,,,,,,,,,,,,,,,,,,,,, ,
+              ,,,,, ,,,,,,,,,,,,,,,
+              ,,,,, ,,,,,,,,,,,,,,,
+            ,,, name
+          }
+         ",
+  },
+]
+`;
+
+exports[`replace inline js fragment with dummy fragment single line 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "Relay.QL\`",
+    },
+    "text": "
+                  
+                               
+          fragment _ on Viewer {
+            ...F,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, name
+          }
+         ",
+  },
+]
+`;
+
+exports[`should include empty embedded queries 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "gql\`",
+    },
+    "text": "
+                   
+      fragment  test on Viewer {
+        name
+      }
+     ",
+  },
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "gql\`",
+    },
+    "text": "
+                   
+                                
+            
+       
+       
+
+                           
+                   
+     ",
+  },
+  Object {
+    "match": Object {
+      "end": "\`",
+      "start": "gql\`",
+    },
+    "text": "
+                   
+                                
+            
+       
+       
+
+                           
+                   
+       
+
+                   
+      fragment  test on Viewer {
+        name
+      }
+     ",
+  },
+]
+`;
+
+exports[`works with invalid queries 1`] = `
+Array [
+  Object {
+    "match": Object {
+      "end": "",
+      "start": "",
+    },
+    "text": "
+    fragment Viewer {
+      image
+    }
+  ",
+  },
+]
+`;

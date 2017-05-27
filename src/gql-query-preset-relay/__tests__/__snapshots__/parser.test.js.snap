@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`parser: allow fragment interpolation 1`] = `Array []`;
+
+exports[`parser: allow fragments without name 1`] = `Array []`;
+
+exports[`parser: only allow interpolation inside fragments 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 3,
+        "line": 7,
+        "path": "/tmp/gql-test/bc65ad9cdcd9a6e6df5025e3428144df505ce083/query/test.js",
+      },
+    ],
+    "message": "Syntax Error: Unexpected $",
+    "severity": "error",
+  },
+]
+`;

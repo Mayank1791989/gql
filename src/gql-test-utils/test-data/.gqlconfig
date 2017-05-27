@@ -1,0 +1,8 @@
+{
+  schema: {
+    files: "schema/**/*.gql",
+    graphQLOptions: {
+      commentDescriptions: true,
+    },
+  }
+}

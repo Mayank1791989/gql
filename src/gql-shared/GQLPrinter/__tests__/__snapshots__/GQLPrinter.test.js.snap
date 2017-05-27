@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`new style Descriptions commentDescription: false 1`] = `
+"\\"new style comment\\"
+        type Test { id: string }"
+`;
+
+exports[`new style Descriptions commentDescription: true 1`] = `
+"\\" new style comment \\"
+        type Test { id: string }"
+`;
+
+exports[`old style Descriptions commentDescription: false 1`] = `"type Test { id: string }"`;
+
+exports[`old style Descriptions commentDescription: true 1`] = `
+"# old style comment description
+type Test { id: string }"
+`;
