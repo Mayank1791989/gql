@@ -1,0 +1,265 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should validate options 1`] = `
+"INVALID_PARSER_OPTIONS: Error in options passed to 'embedded-query-parser'. 
+
+Options.start must be a string
+
+Expected: string
+
+Actual Value: undefined
+
+Actual Type: void
+
+-------------------------------------------------
+
+Options.end must be a string
+
+Expected: string
+
+Actual Value: undefined
+
+Actual Type: void
+"
+`;
+
+exports[`support multiline tags 1`] = `
+Array [
+  Object {
+    "end": 61,
+    "start": 0,
+    "style": "ws-start",
+    "text": "
+        some random text
+        graphql request
+        \\"\\"\\"",
+  },
+  Object {
+    "end": 72,
+    "start": 61,
+    "style": "ws",
+    "text": "
+          ",
+  },
+  Object {
+    "end": 80,
+    "start": 72,
+    "style": "keyword",
+    "text": "fragment",
+  },
+  Object {
+    "end": 81,
+    "start": 80,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 82,
+    "start": 81,
+    "style": "def",
+    "text": "x",
+  },
+  Object {
+    "end": 83,
+    "start": 82,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 85,
+    "start": 83,
+    "style": "keyword",
+    "text": "on",
+  },
+  Object {
+    "end": 86,
+    "start": 85,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 94,
+    "start": 86,
+    "style": "atom",
+    "text": "SomeType",
+  },
+  Object {
+    "end": 95,
+    "start": 94,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 96,
+    "start": 95,
+    "style": "punctuation",
+    "text": "{",
+  },
+  Object {
+    "end": 109,
+    "start": 96,
+    "style": "ws",
+    "text": "
+            ",
+  },
+  Object {
+    "end": 113,
+    "start": 109,
+    "style": "property",
+    "text": "name",
+  },
+  Object {
+    "end": 124,
+    "start": 113,
+    "style": "ws",
+    "text": "
+          ",
+  },
+  Object {
+    "end": 125,
+    "start": 124,
+    "style": "punctuation",
+    "text": "}",
+  },
+  Object {
+    "end": 134,
+    "start": 125,
+    "style": "ws",
+    "text": "
+        ",
+  },
+  Object {
+    "end": 137,
+    "start": 134,
+    "style": "ws-end",
+    "text": "\\"\\"\\"",
+  },
+  Object {
+    "end": 169,
+    "start": 137,
+    "style": "ws-empty",
+    "text": "
+        some random text
+      ",
+  },
+]
+`;
+
+exports[`support single line tag 1`] = `
+Array [
+  Object {
+    "end": 13,
+    "start": 0,
+    "style": "ws-start",
+    "text": "
+        gql\`",
+  },
+  Object {
+    "end": 24,
+    "start": 13,
+    "style": "ws",
+    "text": "
+          ",
+  },
+  Object {
+    "end": 32,
+    "start": 24,
+    "style": "keyword",
+    "text": "fragment",
+  },
+  Object {
+    "end": 33,
+    "start": 32,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 34,
+    "start": 33,
+    "style": "def",
+    "text": "x",
+  },
+  Object {
+    "end": 35,
+    "start": 34,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 37,
+    "start": 35,
+    "style": "keyword",
+    "text": "on",
+  },
+  Object {
+    "end": 38,
+    "start": 37,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 46,
+    "start": 38,
+    "style": "atom",
+    "text": "SomeType",
+  },
+  Object {
+    "end": 47,
+    "start": 46,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 48,
+    "start": 47,
+    "style": "punctuation",
+    "text": "{",
+  },
+  Object {
+    "end": 61,
+    "start": 48,
+    "style": "ws",
+    "text": "
+            ",
+  },
+  Object {
+    "end": 65,
+    "start": 61,
+    "style": "property",
+    "text": "name",
+  },
+  Object {
+    "end": 76,
+    "start": 65,
+    "style": "ws",
+    "text": "
+          ",
+  },
+  Object {
+    "end": 77,
+    "start": 76,
+    "style": "punctuation",
+    "text": "}",
+  },
+  Object {
+    "end": 86,
+    "start": 77,
+    "style": "ws",
+    "text": "
+        ",
+  },
+  Object {
+    "end": 87,
+    "start": 86,
+    "style": "ws-end",
+    "text": "\`",
+  },
+  Object {
+    "end": 94,
+    "start": 87,
+    "style": "ws-empty",
+    "text": "
+      ",
+  },
+]
+`;

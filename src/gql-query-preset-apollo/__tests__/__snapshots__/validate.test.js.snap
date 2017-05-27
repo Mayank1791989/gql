@@ -1,0 +1,108 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`@client directive should be reported unknown if linkState = false 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 3,
+        "path": "/tmp/gql-test/6a840380829fcafd88f3920394468e3644191c76/query/test.js",
+      },
+    ],
+    "message": "Unknown directive \\"client\\". (KnownDirectives)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: ConnectionDirective report wrong filter key values 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 41,
+        "line": 6,
+        "path": "/tmp/gql-test/a0e9bb49db5a50023a26da0ca1035248adeb4428/query/test.js",
+      },
+    ],
+    "message": "Unkown filter value \\"xoffset\\". Did you mean \\"offset\\"? (ConnectionDirective)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: FieldsOnCorrectType fields with @client directive should be reported unknown if linkState: false 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "/tmp/gql-test/e73b907c318e6273e116a5e968295cc8de06601e/query/test.js",
+      },
+    ],
+    "message": "Cannot query field \\"hello\\" on type \\"Query\\". (FieldsOnCorrectType)",
+    "severity": "error",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 3,
+        "path": "/tmp/gql-test/e73b907c318e6273e116a5e968295cc8de06601e/query/test.js",
+      },
+    ],
+    "message": "Unknown directive \\"client\\". (KnownDirectives)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: FieldsOnCorrectType fields without @client directive should be reported unknown if linkState: false 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "/tmp/gql-test/005b113ce2107f10ffe9ccee1d19e3f515f4a50c/query/test.js",
+      },
+    ],
+    "message": "Cannot query field \\"hello\\" on type \\"Query\\". (FieldsOnCorrectType)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: FieldsOnCorrectType fields without @client directive should be reported unknown if linkState: true 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "/tmp/gql-test/54b539e3f1446d4beb9d4d2e0b767a6921fb5af5/query/test.js",
+      },
+    ],
+    "message": "Cannot query field \\"hello\\" on type \\"Query\\". (FieldsOnCorrectType)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Rule: KnownFragmentNames report missing fragments 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 8,
+        "line": 3,
+        "path": "/tmp/gql-test/047bb8e4a8c9c31430a77c0ff0b02ddda9604e12/query/test.js",
+      },
+    ],
+    "message": "Unknown fragment \\"SomeUnknownFragment\\". (KnownFragmentNames)",
+    "severity": "error",
+  },
+]
+`;

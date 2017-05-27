@@ -1,0 +1,194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`report multiple directive definition 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 10,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Directive \\"test\\" already exists in the schema. It cannot be redefined.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`report multiple schema definition 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 5,
+        "path": "GraphQL request",
+      },
+      Object {
+        "column": 7,
+        "line": 8,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Must provide only one schema definition.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`report multiple type definition 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 9,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Type \\"Query was defined more than once.\\"",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`supports type extension report if extending unknown type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 9,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Cannot extend type \\"xTest\\" because it does not exist in the existing schema.",
+    "severity": "error",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 13,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Cannot extend type \\"xNode\\" because it does not exist in the existing schema.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`supports type extension reports unsupported type extensions 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 11,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "The ScalarTypeExtension kind is not yet supported by extendSchema().",
+    "severity": "warn",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 14,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "The UnionTypeExtension kind is not yet supported by extendSchema().",
+    "severity": "warn",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 17,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "The EnumTypeExtension kind is not yet supported by extendSchema().",
+    "severity": "warn",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 22,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "The InputObjectTypeExtension kind is not yet supported by extendSchema().",
+    "severity": "warn",
+  },
+]
+`;
+
+exports[`unknown types interface type unknown 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 31,
+        "line": 2,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Type \\"xNode\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`unknown types output field type unknown 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 15,
+        "line": 3,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Type \\"xString\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`unknown types output field type unknown 2`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 18,
+        "line": 10,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Type \\"xValue\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`unknown types union type unknown 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 30,
+        "line": 9,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Type \\"xQuery\\" not found.",
+    "severity": "error",
+  },
+]
+`;

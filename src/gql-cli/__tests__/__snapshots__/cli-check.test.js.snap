@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`cli check command 1`] = `
+Object {
+  "code": 1,
+  "stderr": "",
+  "stdout": "  
+
+ ✖ Query root type must be provided.
+
+
+  /tmp/gql-test/bf6ae18915d7e8e58c3f151b86a211324269988b/schema/schema.gql(2,7)
+
+ ⚠ Unused type definition 'Querys' (NoUnusedTypeDefinition)
+   1 | 
+ > 2 |       type Querys {
+     |       ^
+   3 |         viewer: Viewer
+
+  1  error
+  1 warning
+",
+}
+`;

@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`revalidate query files on schema change 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 4,
+        "path": "/tmp/gql-test/d754fff4d57a113e4ea7117fb9888775e4c2821c/query/test.graphql",
+      },
+    ],
+    "message": "Cannot query field \\"id\\" on type \\"Viewer\\". Did you mean \\"xid\\"? (FieldsOnCorrectType)",
+    "severity": "error",
+  },
+]
+`;

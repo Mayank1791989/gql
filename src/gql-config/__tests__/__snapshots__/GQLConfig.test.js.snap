@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`missing-gqlConfig: Report error if gqlconfig not found 1`] = `"Could not find a '.gqlconfig' file. Make sure '.gqlconfig' file exists in project root directory."`;

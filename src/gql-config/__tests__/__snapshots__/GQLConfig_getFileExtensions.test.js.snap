@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getFileExtensions: detect different file extensions 1`] = `
+Array [
+  "gql",
+  "graphql",
+  "js",
+  "jsx",
+  "ts",
+  "go",
+  "py",
+  "java",
+  "rb",
+]
+`;

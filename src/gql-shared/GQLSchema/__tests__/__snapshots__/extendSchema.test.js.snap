@@ -1,0 +1,2310 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`directive can add new directives 1`] = `
+GraphQLDirective {
+  "args": Array [],
+  "astNode": Object {
+    "arguments": Array [],
+    "description": undefined,
+    "kind": "DirectiveDefinition",
+    "loc": Object {
+      "end": 39,
+      "start": 7,
+    },
+    "locations": Array [
+      Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 39,
+          "start": 34,
+        },
+        "value": "FIELD",
+      },
+    ],
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 30,
+        "start": 18,
+      },
+      "value": "newDirective",
+    },
+  },
+  "description": undefined,
+  "locations": Array [
+    "FIELD",
+  ],
+  "name": "newDirective",
+}
+`;
+
+exports[`directive report if directive already present in original schema 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 2,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Directive \\"customDirective\\" already exists in the schema. It cannot be redefined.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`interface include extension in type dependency 1`] = `
+Array [
+  Object {
+    "description": undefined,
+    "directives": Array [],
+    "fields": Array [
+      Object {
+        "arguments": Array [],
+        "description": undefined,
+        "directives": Array [],
+        "kind": "FieldDefinition",
+        "loc": Object {
+          "end": 151,
+          "start": 144,
+        },
+        "name": Object {
+          "kind": "Name",
+          "loc": Object {
+            "end": 146,
+            "start": 144,
+          },
+          "value": "id",
+        },
+        "type": Object {
+          "kind": "NonNullType",
+          "loc": Object {
+            "end": 151,
+            "start": 148,
+          },
+          "type": Object {
+            "kind": "NamedType",
+            "loc": Object {
+              "end": 150,
+              "start": 148,
+            },
+            "name": Object {
+              "kind": "Name",
+              "loc": Object {
+                "end": 150,
+                "start": 148,
+              },
+              "value": "ID",
+            },
+          },
+        },
+      },
+    ],
+    "kind": "InterfaceTypeDefinition",
+    "loc": Object {
+      "end": 153,
+      "start": 125,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 139,
+        "start": 135,
+      },
+      "value": "Node",
+    },
+  },
+  Object {
+    "kind": "NamedType",
+    "loc": Object {
+      "end": 71,
+      "start": 67,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 71,
+        "start": 67,
+      },
+      "value": "Node",
+    },
+  },
+  Object {
+    "kind": "NamedType",
+    "loc": Object {
+      "end": 102,
+      "start": 98,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 102,
+        "start": 98,
+      },
+      "value": "Node",
+    },
+  },
+  Object {
+    "kind": "NamedType",
+    "loc": Object {
+      "end": 182,
+      "start": 178,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 182,
+        "start": 178,
+      },
+      "value": "Node",
+    },
+  },
+  Object {
+    "kind": "NamedType",
+    "loc": Object {
+      "end": 268,
+      "start": 264,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 268,
+        "start": 264,
+      },
+      "value": "Node",
+    },
+  },
+  Object {
+    "kind": "NamedType",
+    "loc": Object {
+      "end": 413,
+      "start": 409,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 413,
+        "start": 409,
+      },
+      "value": "Node",
+    },
+  },
+  Object {
+    "kind": "NamedType",
+    "loc": Object {
+      "end": 545,
+      "start": 541,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 545,
+        "start": 541,
+      },
+      "value": "Node",
+    },
+  },
+  Object {
+    "directives": Array [],
+    "fields": Array [
+      Object {
+        "arguments": Array [],
+        "description": undefined,
+        "directives": Array [],
+        "kind": "FieldDefinition",
+        "loc": Object {
+          "end": 52,
+          "start": 39,
+        },
+        "name": Object {
+          "kind": "Name",
+          "loc": Object {
+            "end": 43,
+            "start": 39,
+          },
+          "value": "test",
+        },
+        "type": Object {
+          "kind": "NonNullType",
+          "loc": Object {
+            "end": 52,
+            "start": 45,
+          },
+          "type": Object {
+            "kind": "NamedType",
+            "loc": Object {
+              "end": 51,
+              "start": 45,
+            },
+            "name": Object {
+              "kind": "Name",
+              "loc": Object {
+                "end": 51,
+                "start": 45,
+              },
+              "value": "String",
+            },
+          },
+        },
+      },
+    ],
+    "kind": "InterfaceTypeExtension",
+    "loc": Object {
+      "end": 60,
+      "start": 7,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 28,
+        "start": 24,
+      },
+      "value": "Node",
+    },
+  },
+]
+`;
+
+exports[`interface report if extending non interface type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 2,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Cannot extend non-interface type \\"Player\\".",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`interface report if field already present in original type 1`] = `
+Object {
+  "id": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 151,
+        "start": 144,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 146,
+          "start": 144,
+        },
+        "value": "id",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 151,
+          "start": 148,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 150,
+            "start": 148,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 150,
+              "start": 148,
+            },
+            "value": "ID",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "id",
+    "resolve": undefined,
+    "type": "ID!",
+  },
+}
+`;
+
+exports[`interface report if field already present in original type 2`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 3,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Field \\"Node.id\\" already exists in the schema. It cannot also be defined in this type extension.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`interface should able to extend interface types 1`] = `
+Object {
+  "id": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 151,
+        "start": 144,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 146,
+          "start": 144,
+        },
+        "value": "id",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 151,
+          "start": 148,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 150,
+            "start": 148,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 150,
+              "start": 148,
+            },
+            "value": "ID",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "id",
+    "resolve": undefined,
+    "type": "ID!",
+  },
+  "name": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 52,
+        "start": 39,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 43,
+          "start": 39,
+        },
+        "value": "name",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 52,
+          "start": 45,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 51,
+            "start": 45,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 51,
+              "start": 45,
+            },
+            "value": "String",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": undefined,
+    "isDeprecated": false,
+    "name": "name",
+    "type": "String!",
+  },
+}
+`;
+
+exports[`interface should able to extend same type multiple times 1`] = `
+Object {
+  "age": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 109,
+        "start": 100,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 103,
+          "start": 100,
+        },
+        "value": "age",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 109,
+          "start": 105,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 108,
+            "start": 105,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 108,
+              "start": 105,
+            },
+            "value": "Int",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": undefined,
+    "isDeprecated": false,
+    "name": "age",
+    "type": "Int!",
+  },
+  "id": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 151,
+        "start": 144,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 146,
+          "start": 144,
+        },
+        "value": "id",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 151,
+          "start": 148,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 150,
+            "start": 148,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 150,
+              "start": 148,
+            },
+            "value": "ID",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "id",
+    "resolve": undefined,
+    "type": "ID!",
+  },
+  "name": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 52,
+        "start": 39,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 43,
+          "start": 39,
+        },
+        "value": "name",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 52,
+          "start": 45,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 51,
+            "start": 45,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 51,
+              "start": 45,
+            },
+            "value": "String",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": undefined,
+    "isDeprecated": false,
+    "name": "name",
+    "type": "String!",
+  },
+}
+`;
+
+exports[`interface should able to extend type with fields using unknown types 1`] = `
+Object {
+  "id": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 151,
+        "start": 144,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 146,
+          "start": 144,
+        },
+        "value": "id",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 151,
+          "start": 148,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 150,
+            "start": 148,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 150,
+              "start": 148,
+            },
+            "value": "ID",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "id",
+    "resolve": undefined,
+    "type": "ID!",
+  },
+  "name": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 53,
+        "start": 39,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 43,
+          "start": 39,
+        },
+        "value": "name",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 53,
+          "start": 45,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 52,
+            "start": 45,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 52,
+              "start": 45,
+            },
+            "value": "xString",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": undefined,
+    "isDeprecated": false,
+    "name": "name",
+    "type": "xString!",
+  },
+}
+`;
+
+exports[`interface should able to extend type with fields using unknown types 2`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 15,
+        "line": 3,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Type \\"xString\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`object type include extension in type dependency 1`] = `
+Array [
+  Object {
+    "description": undefined,
+    "directives": Array [],
+    "fields": Array [
+      Object {
+        "arguments": Array [],
+        "description": undefined,
+        "directives": Array [],
+        "kind": "FieldDefinition",
+        "loc": Object {
+          "end": 194,
+          "start": 187,
+        },
+        "name": Object {
+          "kind": "Name",
+          "loc": Object {
+            "end": 189,
+            "start": 187,
+          },
+          "value": "id",
+        },
+        "type": Object {
+          "kind": "NonNullType",
+          "loc": Object {
+            "end": 194,
+            "start": 191,
+          },
+          "type": Object {
+            "kind": "NamedType",
+            "loc": Object {
+              "end": 193,
+              "start": 191,
+            },
+            "name": Object {
+              "kind": "Name",
+              "loc": Object {
+                "end": 193,
+                "start": 191,
+              },
+              "value": "ID",
+            },
+          },
+        },
+      },
+      Object {
+        "arguments": Array [],
+        "description": undefined,
+        "directives": Array [],
+        "kind": "FieldDefinition",
+        "loc": Object {
+          "end": 210,
+          "start": 197,
+        },
+        "name": Object {
+          "kind": "Name",
+          "loc": Object {
+            "end": 201,
+            "start": 197,
+          },
+          "value": "name",
+        },
+        "type": Object {
+          "kind": "NonNullType",
+          "loc": Object {
+            "end": 210,
+            "start": 203,
+          },
+          "type": Object {
+            "kind": "NamedType",
+            "loc": Object {
+              "end": 209,
+              "start": 203,
+            },
+            "name": Object {
+              "kind": "Name",
+              "loc": Object {
+                "end": 209,
+                "start": 203,
+              },
+              "value": "String",
+            },
+          },
+        },
+      },
+      Object {
+        "arguments": Array [
+          Object {
+            "defaultValue": undefined,
+            "description": undefined,
+            "directives": Array [],
+            "kind": "InputValueDefinition",
+            "loc": Object {
+              "end": 229,
+              "start": 219,
+            },
+            "name": Object {
+              "kind": "Name",
+              "loc": Object {
+                "end": 223,
+                "start": 219,
+              },
+              "value": "size",
+            },
+            "type": Object {
+              "kind": "NonNullType",
+              "loc": Object {
+                "end": 229,
+                "start": 225,
+              },
+              "type": Object {
+                "kind": "NamedType",
+                "loc": Object {
+                  "end": 228,
+                  "start": 225,
+                },
+                "name": Object {
+                  "kind": "Name",
+                  "loc": Object {
+                    "end": 228,
+                    "start": 225,
+                  },
+                  "value": "Int",
+                },
+              },
+            },
+          },
+        ],
+        "description": undefined,
+        "directives": Array [],
+        "kind": "FieldDefinition",
+        "loc": Object {
+          "end": 239,
+          "start": 213,
+        },
+        "name": Object {
+          "kind": "Name",
+          "loc": Object {
+            "end": 218,
+            "start": 213,
+          },
+          "value": "image",
+        },
+        "type": Object {
+          "kind": "NonNullType",
+          "loc": Object {
+            "end": 239,
+            "start": 232,
+          },
+          "type": Object {
+            "kind": "NamedType",
+            "loc": Object {
+              "end": 238,
+              "start": 232,
+            },
+            "name": Object {
+              "kind": "Name",
+              "loc": Object {
+                "end": 238,
+                "start": 232,
+              },
+              "value": "String",
+            },
+          },
+        },
+      },
+    ],
+    "interfaces": Array [
+      Object {
+        "kind": "NamedType",
+        "loc": Object {
+          "end": 182,
+          "start": 178,
+        },
+        "name": Object {
+          "kind": "Name",
+          "loc": Object {
+            "end": 182,
+            "start": 178,
+          },
+          "value": "Node",
+        },
+      },
+    ],
+    "kind": "ObjectTypeDefinition",
+    "loc": Object {
+      "end": 241,
+      "start": 155,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 166,
+        "start": 160,
+      },
+      "value": "Player",
+    },
+  },
+  Object {
+    "kind": "NamedType",
+    "loc": Object {
+      "end": 578,
+      "start": 572,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 578,
+        "start": 572,
+      },
+      "value": "Player",
+    },
+  },
+  Object {
+    "kind": "NamedType",
+    "loc": Object {
+      "end": 326,
+      "start": 320,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 326,
+        "start": 320,
+      },
+      "value": "Player",
+    },
+  },
+  Object {
+    "kind": "NamedType",
+    "loc": Object {
+      "end": 285,
+      "start": 279,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 285,
+        "start": 279,
+      },
+      "value": "Player",
+    },
+  },
+  Object {
+    "directives": Array [],
+    "fields": Array [
+      Object {
+        "arguments": Array [],
+        "description": undefined,
+        "directives": Array [],
+        "kind": "FieldDefinition",
+        "loc": Object {
+          "end": 49,
+          "start": 36,
+        },
+        "name": Object {
+          "kind": "Name",
+          "loc": Object {
+            "end": 40,
+            "start": 36,
+          },
+          "value": "test",
+        },
+        "type": Object {
+          "kind": "NonNullType",
+          "loc": Object {
+            "end": 49,
+            "start": 42,
+          },
+          "type": Object {
+            "kind": "NamedType",
+            "loc": Object {
+              "end": 48,
+              "start": 42,
+            },
+            "name": Object {
+              "kind": "Name",
+              "loc": Object {
+                "end": 48,
+                "start": 42,
+              },
+              "value": "String",
+            },
+          },
+        },
+      },
+    ],
+    "interfaces": Array [],
+    "kind": "ObjectTypeExtension",
+    "loc": Object {
+      "end": 57,
+      "start": 7,
+    },
+    "name": Object {
+      "kind": "Name",
+      "loc": Object {
+        "end": 25,
+        "start": 19,
+      },
+      "value": "Player",
+    },
+  },
+]
+`;
+
+exports[`object type report field already present in original type 1`] = `
+Object {
+  "id": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 194,
+        "start": 187,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 189,
+          "start": 187,
+        },
+        "value": "id",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 194,
+          "start": 191,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 193,
+            "start": 191,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 193,
+              "start": 191,
+            },
+            "value": "ID",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "id",
+    "resolve": undefined,
+    "type": "ID!",
+  },
+  "image": Object {
+    "args": Array [
+      Object {
+        "astNode": Object {
+          "defaultValue": undefined,
+          "description": undefined,
+          "directives": Array [],
+          "kind": "InputValueDefinition",
+          "loc": Object {
+            "end": 229,
+            "start": 219,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 223,
+              "start": 219,
+            },
+            "value": "size",
+          },
+          "type": Object {
+            "kind": "NonNullType",
+            "loc": Object {
+              "end": 229,
+              "start": 225,
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "loc": Object {
+                "end": 228,
+                "start": 225,
+              },
+              "name": Object {
+                "kind": "Name",
+                "loc": Object {
+                  "end": 228,
+                  "start": 225,
+                },
+                "value": "Int",
+              },
+            },
+          },
+        },
+        "defaultValue": undefined,
+        "description": "",
+        "name": "size",
+        "type": "Int!",
+      },
+    ],
+    "astNode": Object {
+      "arguments": Array [
+        Object {
+          "defaultValue": undefined,
+          "description": undefined,
+          "directives": Array [],
+          "kind": "InputValueDefinition",
+          "loc": Object {
+            "end": 229,
+            "start": 219,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 223,
+              "start": 219,
+            },
+            "value": "size",
+          },
+          "type": Object {
+            "kind": "NonNullType",
+            "loc": Object {
+              "end": 229,
+              "start": 225,
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "loc": Object {
+                "end": 228,
+                "start": 225,
+              },
+              "name": Object {
+                "kind": "Name",
+                "loc": Object {
+                  "end": 228,
+                  "start": 225,
+                },
+                "value": "Int",
+              },
+            },
+          },
+        },
+      ],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 239,
+        "start": 213,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 218,
+          "start": 213,
+        },
+        "value": "image",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 239,
+          "start": 232,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 238,
+            "start": 232,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 238,
+              "start": 232,
+            },
+            "value": "String",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "image",
+    "resolve": undefined,
+    "type": "String!",
+  },
+  "name": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 210,
+        "start": 197,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 201,
+          "start": 197,
+        },
+        "value": "name",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 210,
+          "start": 203,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 209,
+            "start": 203,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 209,
+              "start": 203,
+            },
+            "value": "String",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "name",
+    "resolve": undefined,
+    "type": "String!",
+  },
+}
+`;
+
+exports[`object type report field already present in original type 2`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 3,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Field \\"Player.id\\" already exists in the schema. It cannot also be defined in this type extension.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`object type report if extend type not present in schema 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 2,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Cannot extend type \\"SomeUnknownType\\" because it does not exist in the existing schema.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`object type report if using object_type_extension to extend non object type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 7,
+        "line": 2,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Cannot extend non-object type \\"Node\\".",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`object type should able to extend object types 1`] = `
+Object {
+  "id": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 194,
+        "start": 187,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 189,
+          "start": 187,
+        },
+        "value": "id",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 194,
+          "start": 191,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 193,
+            "start": 191,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 193,
+              "start": 191,
+            },
+            "value": "ID",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "id",
+    "resolve": undefined,
+    "type": "ID!",
+  },
+  "image": Object {
+    "args": Array [
+      Object {
+        "astNode": Object {
+          "defaultValue": undefined,
+          "description": undefined,
+          "directives": Array [],
+          "kind": "InputValueDefinition",
+          "loc": Object {
+            "end": 229,
+            "start": 219,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 223,
+              "start": 219,
+            },
+            "value": "size",
+          },
+          "type": Object {
+            "kind": "NonNullType",
+            "loc": Object {
+              "end": 229,
+              "start": 225,
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "loc": Object {
+                "end": 228,
+                "start": 225,
+              },
+              "name": Object {
+                "kind": "Name",
+                "loc": Object {
+                  "end": 228,
+                  "start": 225,
+                },
+                "value": "Int",
+              },
+            },
+          },
+        },
+        "defaultValue": undefined,
+        "description": "",
+        "name": "size",
+        "type": "Int!",
+      },
+    ],
+    "astNode": Object {
+      "arguments": Array [
+        Object {
+          "defaultValue": undefined,
+          "description": undefined,
+          "directives": Array [],
+          "kind": "InputValueDefinition",
+          "loc": Object {
+            "end": 229,
+            "start": 219,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 223,
+              "start": 219,
+            },
+            "value": "size",
+          },
+          "type": Object {
+            "kind": "NonNullType",
+            "loc": Object {
+              "end": 229,
+              "start": 225,
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "loc": Object {
+                "end": 228,
+                "start": 225,
+              },
+              "name": Object {
+                "kind": "Name",
+                "loc": Object {
+                  "end": 228,
+                  "start": 225,
+                },
+                "value": "Int",
+              },
+            },
+          },
+        },
+      ],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 239,
+        "start": 213,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 218,
+          "start": 213,
+        },
+        "value": "image",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 239,
+          "start": 232,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 238,
+            "start": 232,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 238,
+              "start": 232,
+            },
+            "value": "String",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "image",
+    "resolve": undefined,
+    "type": "String!",
+  },
+  "name": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 210,
+        "start": 197,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 201,
+          "start": 197,
+        },
+        "value": "name",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 210,
+          "start": 203,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 209,
+            "start": 203,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 209,
+              "start": 203,
+            },
+            "value": "String",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "name",
+    "resolve": undefined,
+    "type": "String!",
+  },
+  "test": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 49,
+        "start": 36,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 40,
+          "start": 36,
+        },
+        "value": "test",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 49,
+          "start": 42,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 48,
+            "start": 42,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 48,
+              "start": 42,
+            },
+            "value": "String",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": undefined,
+    "isDeprecated": false,
+    "name": "test",
+    "type": "String!",
+  },
+}
+`;
+
+exports[`object type should able to extend same type multiple times 1`] = `
+Object {
+  "id": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 194,
+        "start": 187,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 189,
+          "start": 187,
+        },
+        "value": "id",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 194,
+          "start": 191,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 193,
+            "start": 191,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 193,
+              "start": 191,
+            },
+            "value": "ID",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "id",
+    "resolve": undefined,
+    "type": "ID!",
+  },
+  "image": Object {
+    "args": Array [
+      Object {
+        "astNode": Object {
+          "defaultValue": undefined,
+          "description": undefined,
+          "directives": Array [],
+          "kind": "InputValueDefinition",
+          "loc": Object {
+            "end": 229,
+            "start": 219,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 223,
+              "start": 219,
+            },
+            "value": "size",
+          },
+          "type": Object {
+            "kind": "NonNullType",
+            "loc": Object {
+              "end": 229,
+              "start": 225,
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "loc": Object {
+                "end": 228,
+                "start": 225,
+              },
+              "name": Object {
+                "kind": "Name",
+                "loc": Object {
+                  "end": 228,
+                  "start": 225,
+                },
+                "value": "Int",
+              },
+            },
+          },
+        },
+        "defaultValue": undefined,
+        "description": "",
+        "name": "size",
+        "type": "Int!",
+      },
+    ],
+    "astNode": Object {
+      "arguments": Array [
+        Object {
+          "defaultValue": undefined,
+          "description": undefined,
+          "directives": Array [],
+          "kind": "InputValueDefinition",
+          "loc": Object {
+            "end": 229,
+            "start": 219,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 223,
+              "start": 219,
+            },
+            "value": "size",
+          },
+          "type": Object {
+            "kind": "NonNullType",
+            "loc": Object {
+              "end": 229,
+              "start": 225,
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "loc": Object {
+                "end": 228,
+                "start": 225,
+              },
+              "name": Object {
+                "kind": "Name",
+                "loc": Object {
+                  "end": 228,
+                  "start": 225,
+                },
+                "value": "Int",
+              },
+            },
+          },
+        },
+      ],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 239,
+        "start": 213,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 218,
+          "start": 213,
+        },
+        "value": "image",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 239,
+          "start": 232,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 238,
+            "start": 232,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 238,
+              "start": 232,
+            },
+            "value": "String",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "image",
+    "resolve": undefined,
+    "type": "String!",
+  },
+  "name": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 210,
+        "start": 197,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 201,
+          "start": 197,
+        },
+        "value": "name",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 210,
+          "start": 203,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 209,
+            "start": 203,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 209,
+              "start": 203,
+            },
+            "value": "String",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "name",
+    "resolve": undefined,
+    "type": "String!",
+  },
+  "test": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 49,
+        "start": 36,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 40,
+          "start": 36,
+        },
+        "value": "test",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 49,
+          "start": 42,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 48,
+            "start": 42,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 48,
+              "start": 42,
+            },
+            "value": "String",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": undefined,
+    "isDeprecated": false,
+    "name": "test",
+    "type": "String!",
+  },
+  "test2": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 105,
+        "start": 94,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 99,
+          "start": 94,
+        },
+        "value": "test2",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 105,
+          "start": 101,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 104,
+            "start": 101,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 104,
+              "start": 101,
+            },
+            "value": "Int",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": undefined,
+    "isDeprecated": false,
+    "name": "test2",
+    "type": "Int!",
+  },
+}
+`;
+
+exports[`object type should able to extend type with fields using unknown types 1`] = `
+Object {
+  "id": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 194,
+        "start": 187,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 189,
+          "start": 187,
+        },
+        "value": "id",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 194,
+          "start": 191,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 193,
+            "start": 191,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 193,
+              "start": 191,
+            },
+            "value": "ID",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "id",
+    "resolve": undefined,
+    "type": "ID!",
+  },
+  "image": Object {
+    "args": Array [
+      Object {
+        "astNode": Object {
+          "defaultValue": undefined,
+          "description": undefined,
+          "directives": Array [],
+          "kind": "InputValueDefinition",
+          "loc": Object {
+            "end": 229,
+            "start": 219,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 223,
+              "start": 219,
+            },
+            "value": "size",
+          },
+          "type": Object {
+            "kind": "NonNullType",
+            "loc": Object {
+              "end": 229,
+              "start": 225,
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "loc": Object {
+                "end": 228,
+                "start": 225,
+              },
+              "name": Object {
+                "kind": "Name",
+                "loc": Object {
+                  "end": 228,
+                  "start": 225,
+                },
+                "value": "Int",
+              },
+            },
+          },
+        },
+        "defaultValue": undefined,
+        "description": "",
+        "name": "size",
+        "type": "Int!",
+      },
+    ],
+    "astNode": Object {
+      "arguments": Array [
+        Object {
+          "defaultValue": undefined,
+          "description": undefined,
+          "directives": Array [],
+          "kind": "InputValueDefinition",
+          "loc": Object {
+            "end": 229,
+            "start": 219,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 223,
+              "start": 219,
+            },
+            "value": "size",
+          },
+          "type": Object {
+            "kind": "NonNullType",
+            "loc": Object {
+              "end": 229,
+              "start": 225,
+            },
+            "type": Object {
+              "kind": "NamedType",
+              "loc": Object {
+                "end": 228,
+                "start": 225,
+              },
+              "name": Object {
+                "kind": "Name",
+                "loc": Object {
+                  "end": 228,
+                  "start": 225,
+                },
+                "value": "Int",
+              },
+            },
+          },
+        },
+      ],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 239,
+        "start": 213,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 218,
+          "start": 213,
+        },
+        "value": "image",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 239,
+          "start": 232,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 238,
+            "start": 232,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 238,
+              "start": 232,
+            },
+            "value": "String",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "image",
+    "resolve": undefined,
+    "type": "String!",
+  },
+  "name": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 210,
+        "start": 197,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 201,
+          "start": 197,
+        },
+        "value": "name",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 210,
+          "start": 203,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 209,
+            "start": 203,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 209,
+              "start": 203,
+            },
+            "value": "String",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": "",
+    "isDeprecated": false,
+    "name": "name",
+    "resolve": undefined,
+    "type": "String!",
+  },
+  "test": Object {
+    "args": Array [],
+    "astNode": Object {
+      "arguments": Array [],
+      "description": undefined,
+      "directives": Array [],
+      "kind": "FieldDefinition",
+      "loc": Object {
+        "end": 50,
+        "start": 36,
+      },
+      "name": Object {
+        "kind": "Name",
+        "loc": Object {
+          "end": 40,
+          "start": 36,
+        },
+        "value": "test",
+      },
+      "type": Object {
+        "kind": "NonNullType",
+        "loc": Object {
+          "end": 50,
+          "start": 42,
+        },
+        "type": Object {
+          "kind": "NamedType",
+          "loc": Object {
+            "end": 49,
+            "start": 42,
+          },
+          "name": Object {
+            "kind": "Name",
+            "loc": Object {
+              "end": 49,
+              "start": 42,
+            },
+            "value": "xString",
+          },
+        },
+      },
+    },
+    "deprecationReason": undefined,
+    "description": undefined,
+    "isDeprecated": false,
+    "name": "test",
+    "type": "xString!",
+  },
+}
+`;
+
+exports[`object type should able to extend type with fields using unknown types 2`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 15,
+        "line": 3,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Type \\"xString\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`report if type already exists in original schema 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 2,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "Type \\"Player\\" already exists in the schema. It cannot also be defined in this type definition.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`report if unsupported type extension used 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 2,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "The ScalarTypeExtension kind is not yet supported by extendSchema().",
+    "severity": "warn",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 3,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "The UnionTypeExtension kind is not yet supported by extendSchema().",
+    "severity": "warn",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 4,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "The EnumTypeExtension kind is not yet supported by extendSchema().",
+    "severity": "warn",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 5,
+        "line": 5,
+        "path": "GraphQL request",
+      },
+    ],
+    "message": "The InputObjectTypeExtension kind is not yet supported by extendSchema().",
+    "severity": "warn",
+  },
+]
+`;

@@ -1,0 +1,237 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`option: allowDocumentInterpolation 1`] = `
+Array [
+  Object {
+    "end": 9,
+    "start": 0,
+    "style": "ws",
+    "text": "
+        ",
+  },
+  Object {
+    "end": 17,
+    "start": 9,
+    "style": "keyword",
+    "text": "fragment",
+  },
+  Object {
+    "end": 18,
+    "start": 17,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 19,
+    "start": 18,
+    "style": "def",
+    "text": "x",
+  },
+  Object {
+    "end": 20,
+    "start": 19,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 22,
+    "start": 20,
+    "style": "keyword",
+    "text": "on",
+  },
+  Object {
+    "end": 23,
+    "start": 22,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 31,
+    "start": 23,
+    "style": "atom",
+    "text": "SomeType",
+  },
+  Object {
+    "end": 32,
+    "start": 31,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 33,
+    "start": 32,
+    "style": "punctuation",
+    "text": "{",
+  },
+  Object {
+    "end": 44,
+    "start": 33,
+    "style": "ws",
+    "text": "
+          ",
+  },
+  Object {
+    "end": 48,
+    "start": 44,
+    "style": "property",
+    "text": "name",
+  },
+  Object {
+    "end": 57,
+    "start": 48,
+    "style": "ws",
+    "text": "
+        ",
+  },
+  Object {
+    "end": 58,
+    "start": 57,
+    "style": "punctuation",
+    "text": "}",
+  },
+  Object {
+    "end": 67,
+    "start": 58,
+    "style": "ws",
+    "text": "
+        ",
+  },
+  Object {
+    "end": 69,
+    "start": 67,
+    "style": "",
+    "text": "\${",
+  },
+  Object {
+    "end": 92,
+    "start": 67,
+    "style": "ws-2",
+    "text": "\${some_imported_document}",
+  },
+  Object {
+    "end": 99,
+    "start": 92,
+    "style": "ws",
+    "text": "
+      ",
+  },
+]
+`;
+
+exports[`option: allowFragmentInterpolation 1`] = `
+Array [
+  Object {
+    "end": 9,
+    "start": 0,
+    "style": "ws",
+    "text": "
+        ",
+  },
+  Object {
+    "end": 17,
+    "start": 9,
+    "style": "keyword",
+    "text": "fragment",
+  },
+  Object {
+    "end": 18,
+    "start": 17,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 19,
+    "start": 18,
+    "style": "def",
+    "text": "x",
+  },
+  Object {
+    "end": 20,
+    "start": 19,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 22,
+    "start": 20,
+    "style": "keyword",
+    "text": "on",
+  },
+  Object {
+    "end": 23,
+    "start": 22,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 31,
+    "start": 23,
+    "style": "atom",
+    "text": "SomeType",
+  },
+  Object {
+    "end": 32,
+    "start": 31,
+    "style": "ws",
+    "text": " ",
+  },
+  Object {
+    "end": 33,
+    "start": 32,
+    "style": "punctuation",
+    "text": "{",
+  },
+  Object {
+    "end": 44,
+    "start": 33,
+    "style": "ws",
+    "text": "
+          ",
+  },
+  Object {
+    "end": 48,
+    "start": 44,
+    "style": "property",
+    "text": "name",
+  },
+  Object {
+    "end": 59,
+    "start": 48,
+    "style": "ws",
+    "text": "
+          ",
+  },
+  Object {
+    "end": 61,
+    "start": 59,
+    "style": "",
+    "text": "\${",
+  },
+  Object {
+    "end": 95,
+    "start": 59,
+    "style": "js-frag",
+    "text": "\${Component.getFragment('someType')}",
+  },
+  Object {
+    "end": 104,
+    "start": 95,
+    "style": "ws",
+    "text": "
+        ",
+  },
+  Object {
+    "end": 105,
+    "start": 104,
+    "style": "punctuation",
+    "text": "}",
+  },
+  Object {
+    "end": 112,
+    "start": 105,
+    "style": "ws",
+    "text": "
+      ",
+  },
+]
+`;

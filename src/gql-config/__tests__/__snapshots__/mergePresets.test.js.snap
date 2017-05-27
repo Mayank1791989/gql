@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`extendSchema query preset 1`] = `
+Array [
+  Object {
+    "getSchema": [Function],
+    "presetName": "one",
+  },
+  Object {
+    "getSchema": [Function],
+    "presetName": "three",
+  },
+]
+`;
+
+exports[`extendSchema schema preset 1`] = `
+Array [
+  Object {
+    "getSchema": [Function],
+    "presetName": "one",
+  },
+  Object {
+    "getSchema": [Function],
+    "presetName": "three",
+  },
+]
+`;

@@ -1,0 +1,77 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Validation: throw if preset config invalid 1`] = `
+"PRESET_CONFIG_INVALID: There are errors in preset './custom-preset'
+
+QueryPreset.validate.config must be an object
+
+Expected: {
+  [ruleName: string]: \\"off\\" | \\"warn\\" | \\"error\\";
+}
+
+Actual Value: undefined
+
+Actual Type: void
+"
+`;
+
+exports[`Validation: throw if preset doesnt export function 1`] = `"PRESET_PKG_INVALID: expected preset \\"./custom-preset\\" to export \\"function\\" but found \\"object\\""`;
+
+exports[`custom-preset load preset if it is defined in local file 1`] = `
+Array [
+  Object {
+    "name": "./custom-preset",
+    "parserOptions": Object {},
+    "validate": Object {
+      "config": Object {
+        "someCustomRule": "error",
+      },
+      "rules": Object {
+        "someCustomRule": [Function],
+      },
+    },
+  },
+]
+`;
+
+exports[`custom-preset load preset if it is node_module using full package name 1`] = `
+Array [
+  Object {
+    "name": "gql-query-preset-custom",
+    "parserOptions": Object {},
+    "validate": Object {
+      "config": Object {
+        "someCustomRule": "error",
+      },
+      "rules": Object {
+        "someCustomRule": [Function],
+      },
+    },
+  },
+]
+`;
+
+exports[`custom-preset load preset if it is node_module using short package name 1`] = `
+Array [
+  Object {
+    "name": "gql-query-preset-custom",
+    "parserOptions": Object {},
+    "validate": Object {
+      "config": Object {
+        "someCustomRule": "error",
+      },
+      "rules": Object {
+        "someCustomRule": [Function],
+      },
+    },
+  },
+]
+`;
+
+exports[`missing-preset-pkg should throw when preset=./custom-preset 1`] = `"PRESET_PKG_NOT_FOUND: Preset './custom-preset' not found relative to ''"`;
+
+exports[`missing-preset-pkg should throw when preset=@scope/custom 1`] = `"PRESET_PKG_NOT_FOUND: Preset '@scope/gql-query-preset-custom' not found relative to ''"`;
+
+exports[`missing-preset-pkg should throw when preset=custom_node_module 1`] = `"PRESET_PKG_NOT_FOUND: Preset 'gql-query-preset-custom_node_module' not found relative to ''"`;
+
+exports[`missing-preset-pkg should throw when preset=gql-query-preset-custom 1`] = `"PRESET_PKG_NOT_FOUND: Preset 'gql-query-preset-custom' not found relative to ''"`;

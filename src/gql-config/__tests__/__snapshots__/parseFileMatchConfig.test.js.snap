@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Array<string> 1`] = `
+Object {
+  "glob": Array [
+    "files/**/*.gql",
+    "files2/**/*.gql",
+  ],
+  "ignored": Array [],
+}
+`;
+
+exports[`Object<include: Array<string>, ignore: string> 1`] = `
+Object {
+  "glob": Array [
+    "files/**/*.gql",
+    "files2/**/*gql",
+  ],
+  "ignored": "**/test/**/*.gql",
+}
+`;
+
+exports[`Object<include: Array<string>>: single 1`] = `
+Object {
+  "glob": Array [
+    "files/**/*.gql",
+  ],
+  "ignored": Array [],
+}
+`;
+
+exports[`Object<include: string> 1`] = `
+Object {
+  "glob": "files/**/*.gql",
+  "ignored": Array [],
+}
+`;
+
+exports[`Object<match: Array<string>, ignore: Array<string>> 1`] = `
+Object {
+  "glob": Array [
+    "files/**/*.gql",
+    "files2/**/*gql",
+  ],
+  "ignored": Array [
+    "**/test/**/*.gql",
+  ],
+}
+`;
+
+exports[`Object<match: Array<string>> 1`] = `
+Object {
+  "glob": Array [
+    "files/**/*.gql",
+    "files2/**/*gql",
+  ],
+  "ignored": Array [],
+}
+`;
+
+exports[`string 1`] = `
+Object {
+  "glob": "files/**/*.gql",
+  "ignored": Array [],
+}
+`;

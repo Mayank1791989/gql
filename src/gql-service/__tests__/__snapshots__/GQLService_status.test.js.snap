@@ -1,0 +1,586 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Query report query errors 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 13,
+        "line": 3,
+        "path": "/tmp/gql-test/a3a42c718deeb2f9a1f91a7f3a1453fcd8cd140f/query/query.gql",
+      },
+    ],
+    "message": "Cannot query field \\"xViewer\\" on type \\"Query\\". Did you mean \\"viewer\\"? (FieldsOnCorrectType)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report duplicate operation types 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 11,
+        "path": "/tmp/gql-test/e744e1b681795d072e0c8a94fecd0dc5a2b14a5d/schema/main.gql",
+      },
+    ],
+    "message": "Must provide only one query type.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report if Query type not ObjectType by type name 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 2,
+        "path": "/tmp/gql-test/771e280683361b29fe8711193ad7ab38f3cb5d7c/schema/main.gql",
+      },
+    ],
+    "message": "Query root type must be Object type, it cannot be Query.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report if Query type not ObjectType using schema 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 20,
+        "line": 5,
+        "path": "/tmp/gql-test/8c9fc1cc86f107f3eee6102194a0ea14e4a11785/schema/main.gql",
+      },
+    ],
+    "message": "Query root type must be Object type, it cannot be CustomScalar.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report if missing Query Root Type 1`] = `
+Array [
+  Object {
+    "locations": null,
+    "message": "Query root type must be provided.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid enumType duplicate values 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 13,
+        "line": 3,
+        "path": "/tmp/gql-test/6f676b35b63ae170fb49d04b6c9d3c05b5ef6e80/schema/main.gql",
+      },
+      Object {
+        "column": 13,
+        "line": 6,
+        "path": "/tmp/gql-test/6f676b35b63ae170fb49d04b6c9d3c05b5ef6e80/schema/main.gql",
+      },
+    ],
+    "message": "Enum type Test can include value a only once.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid enumType invalid values 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 13,
+        "line": 3,
+        "path": "/tmp/gql-test/023c887eb74fbe8f17945a2f3d6f177d024b4f5b/schema/main.gql",
+      },
+    ],
+    "message": "Enum type Test cannot include value: true.",
+    "severity": "error",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 13,
+        "line": 4,
+        "path": "/tmp/gql-test/023c887eb74fbe8f17945a2f3d6f177d024b4f5b/schema/main.gql",
+      },
+    ],
+    "message": "Enum type Test cannot include value: false.",
+    "severity": "error",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 13,
+        "line": 5,
+        "path": "/tmp/gql-test/023c887eb74fbe8f17945a2f3d6f177d024b4f5b/schema/main.gql",
+      },
+    ],
+    "message": "Enum type Test cannot include value: null.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid inputObjectType field type not inputType 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 22,
+        "line": 9,
+        "path": "/tmp/gql-test/22e395a0b2f2dab8bfce15e417930e908c2a0fa6/schema/main.gql",
+      },
+    ],
+    "message": "The type of PlayerCreateParams.friends must be Input Type but got: [Player!].",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid objectType duplicate fields 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 13,
+        "line": 7,
+        "path": "/tmp/gql-test/69a20f0c77f4580fb52f6ca2f152f3ea300cd392/schema/main.gql",
+      },
+      Object {
+        "column": 13,
+        "line": 9,
+        "path": "/tmp/gql-test/69a20f0c77f4580fb52f6ca2f152f3ea300cd392/schema/main.gql",
+      },
+    ],
+    "message": "Field Player.id can only be defined once.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid objectType field arg type not input type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 25,
+        "line": 11,
+        "path": "/tmp/gql-test/0faa5cca43dec0cfbefdc2cf8faa59780e26739d/schema/main.gql",
+      },
+    ],
+    "message": "The type of Player.image(size:) must be Input Type but got: Viewer!.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid objectType field type not output type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 20,
+        "line": 8,
+        "path": "/tmp/gql-test/703012f452a812e891731a0404cd0c7017381299/schema/main.gql",
+      },
+    ],
+    "message": "Type \\"InputValue\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid objectType implemented interface fields args type mismatch 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 25,
+        "line": 4,
+        "path": "/tmp/gql-test/840fe66317d455f990723b9264acb61a90a30b7a/schema/interface.gql",
+      },
+      Object {
+        "column": 25,
+        "line": 4,
+        "path": "/tmp/gql-test/840fe66317d455f990723b9264acb61a90a30b7a/schema/main.gql",
+      },
+    ],
+    "message": "Interface field argument User.image(size:) expects type Int! but Player.image(size:) is type String!.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid objectType implemented interface fields type mismatch 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 19,
+        "line": 4,
+        "path": "/tmp/gql-test/f4fdecb979231e1233a730a69236c4cc841d831d/schema/interface.gql",
+      },
+      Object {
+        "column": 19,
+        "line": 4,
+        "path": "/tmp/gql-test/f4fdecb979231e1233a730a69236c4cc841d831d/schema/main.gql",
+      },
+    ],
+    "message": "Interface field User.name expects type String! but Player.name is type String.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid objectType implementing non interface type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 41,
+        "line": 10,
+        "path": "/tmp/gql-test/c2cf05b8245ef5e127d70418d14cd4408df6ccb0/schema/main.gql",
+      },
+    ],
+    "message": "Type Player must only implement Interface types, it cannot implement String.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid objectType implements same interface multiple times 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 34,
+        "line": 15,
+        "path": "/tmp/gql-test/a3c8e4c85d0e74fd916979fdf44cd3d84533684d/schema/main.gql",
+      },
+      Object {
+        "column": 48,
+        "line": 15,
+        "path": "/tmp/gql-test/a3c8e4c85d0e74fd916979fdf44cd3d84533684d/schema/main.gql",
+      },
+    ],
+    "message": "Type Player can only implement Node once.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid objectType type doesnt implements all interface field args 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 19,
+        "line": 4,
+        "path": "/tmp/gql-test/cecc03f09c1ec535bf6c282f42f4582b777f8cde/schema/interface.gql",
+      },
+      Object {
+        "column": 13,
+        "line": 4,
+        "path": "/tmp/gql-test/cecc03f09c1ec535bf6c282f42f4582b777f8cde/schema/main.gql",
+      },
+    ],
+    "message": "Interface field argument User.image(size:) expected but Player.image does not provide it.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid objectType type not implementing all interface fields 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 13,
+        "line": 4,
+        "path": "/tmp/gql-test/671dc8901f0c72d67b240934ff8fe237bde92ed4/schema/interface.gql",
+      },
+      Object {
+        "column": 11,
+        "line": 2,
+        "path": "/tmp/gql-test/671dc8901f0c72d67b240934ff8fe237bde92ed4/schema/main.gql",
+      },
+    ],
+    "message": "Interface field User.name expected but Player does not provide it.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid objectType type provides additional args for interface fields 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 35,
+        "line": 4,
+        "path": "/tmp/gql-test/75b0e1440103e3185ea1b76ee1ddaba2db498e90/schema/main.gql",
+      },
+      Object {
+        "column": 13,
+        "line": 4,
+        "path": "/tmp/gql-test/75b0e1440103e3185ea1b76ee1ddaba2db498e90/schema/interface.gql",
+      },
+    ],
+    "message": "Object field argument Player.image(id:) is of required type Int! but is not also provided by the Interface field User.image.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid unionType duplicate union members 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 26,
+        "line": 2,
+        "path": "/tmp/gql-test/5246c4ed08624f2c46dcbf489d7071667051c89f/schema/main.gql",
+      },
+      Object {
+        "column": 42,
+        "line": 2,
+        "path": "/tmp/gql-test/5246c4ed08624f2c46dcbf489d7071667051c89f/schema/main.gql",
+      },
+    ],
+    "message": "Union type Viewer can only include type User once.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report invalid unionType union member must be object type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 33,
+        "line": 2,
+        "path": "/tmp/gql-test/ddf3df65cfc6d6c050efbb5844a715a4b0fbcf72/schema/main.gql",
+      },
+    ],
+    "message": "Union type Viewer can only include Object types, it cannot include String.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report unknown operation type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 18,
+        "line": 3,
+        "path": "/tmp/gql-test/0d354fcca1c805d322449e1c2c3d6d2913eb0f7f/schema/main.gql",
+      },
+    ],
+    "message": "Specified query type \\"Viewer\\" not found.",
+    "severity": "error",
+  },
+  Object {
+    "locations": Array [
+      Object {
+        "column": 9,
+        "line": 2,
+        "path": "/tmp/gql-test/0d354fcca1c805d322449e1c2c3d6d2913eb0f7f/schema/main.gql",
+      },
+    ],
+    "message": "Query root type must be provided.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report unknown types arg type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 25,
+        "line": 7,
+        "path": "/tmp/gql-test/80cc7658e15dd5147e035ae6153cda29a4b4f10d/schema/main.gql",
+      },
+    ],
+    "message": "Type \\"xInt\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report unknown types input field type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 19,
+        "line": 6,
+        "path": "/tmp/gql-test/59caffbc3dc71def217790214e693e90703dc8f3/schema/main.gql",
+      },
+    ],
+    "message": "Type \\"xString\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report unknown types interface type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 41,
+        "line": 10,
+        "path": "/tmp/gql-test/16f719af40b0e769037d851d899265a4b854a2bd/schema/main.gql",
+      },
+    ],
+    "message": "Type \\"xNode\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report unknown types output field type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 19,
+        "line": 6,
+        "path": "/tmp/gql-test/8a55d91a3e856ea0db8d0df9515926ae26112659/schema/main.gql",
+      },
+    ],
+    "message": "Type \\"xString\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report unknown types union type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 35,
+        "line": 10,
+        "path": "/tmp/gql-test/86704917567cd4c671375b32eab207a77a5980b2/schema/main.gql",
+      },
+    ],
+    "message": "Type \\"xPlayer\\" not found.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Report unused type declaration Report unused type definition 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 6,
+        "path": "/tmp/gql-test/efc34c3a632e5f2ffe04e8fd390c281795a545bd/schema/main.gql",
+      },
+    ],
+    "message": "Unused type definition 'X' (NoUnusedTypeDefinition)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Type Extension ObjectTypeExtension report if extending wrong type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 8,
+        "path": "/tmp/gql-test/ab63eae0f6ecfec2e3c964b8d679fe831dca4fb9/schema/test.graphql",
+      },
+    ],
+    "message": "Cannot extend non-object type \\"Test\\".",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema Type Extension ObjectTypeExtension report if field already present in type 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 13,
+        "line": 7,
+        "path": "/tmp/gql-test/90273693cde197f5ba54060f367bee63bbd8d701/schema/test.graphql",
+      },
+    ],
+    "message": "Field \\"Query.name\\" already exists in the schema. It cannot also be defined in this type extension.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema can modify validation rule severity 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 11,
+        "line": 5,
+        "path": "/tmp/gql-test/82d9d3400e76bf96e604a4ac6757f79e96c4c792/schema/schema.gql",
+      },
+    ],
+    "message": "Unused type definition 'Hello' (NoUnusedTypeDefinition)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema can turn off validation rules 1`] = `Array []`;
+
+exports[`Schema report if no schema file exist or empty. 1`] = `
+Array [
+  Object {
+    "locations": null,
+    "message": "No schema file found. Make sure schema file glob \\"schema/*.gql\\" matches atleast one file.",
+    "severity": "error",
+  },
+  Object {
+    "locations": null,
+    "message": "Query root type must be provided.",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Schema should report errors in schema 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 21,
+        "line": 3,
+        "path": "/tmp/gql-test/ca7b65d03c4b6f03d11204e53a0c1a7e510c5b29/schema/schema.gql",
+      },
+    ],
+    "message": "Type \\"xViewer\\" not found.",
+    "severity": "error",
+  },
+]
+`;
