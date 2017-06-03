@@ -212,3 +212,26 @@ test('replace all irregular whitespace with space', () => {
 
   expect(qd).toMatchSnapshot();
 });
+
+test('allow template string interpolation at document level', () => {
+  // for apollo client which uses interpolation to include child components fragments
+  // see http://dev.apollodata.com/react/fragments.html
+  const text = `
+    gql\`
+      fragment FeedEntry on Entry {
+        commentCount
+        ...VoteButtons
+        ...RepoInfo
+      }
+      \${VoteButtons.fragments.entry}
+      \${RepoInfo.fragments.entry}
+    \`
+  `;
+  const qd = toQueryDocument(
+    new Source(text, 'query.js'),
+    { parser: ['EmbeddedQueryParser', { startTag: 'gql`', endTag: '`' }] },
+  );
+
+  expect(qd).toMatchSnapshot();
+});
+

@@ -42,7 +42,7 @@ export function toQueryDocument(source: Source, config: Config): string {
     condition: () => stream.getCurrentPosition() < source.body.length,
     call: () => {
       const style = parser.token(stream, state);
-      // console.log('current', stream.current(), style);
+      // console.log('current', `[${stream.current()}]`, style);
       if ( // add fragment name is missing
         config.isRelay &&
         state.kind === 'TypeCondition' &&

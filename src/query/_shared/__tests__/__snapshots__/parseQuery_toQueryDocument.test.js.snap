@@ -25,6 +25,20 @@ exports[`add dummy fragment name if missing (relay) and \`on\` in next line 1`] 
   "
 `;
 
+exports[`allow template string interpolation at document level 1`] = `
+"
+        
+      fragment FeedEntry on Entry {
+        commentCount
+        ...VoteButtons
+        ...RepoInfo
+      }
+                                    
+                                 
+     
+  "
+`;
+
 exports[`extract embedded queries 1`] = `
 "
                 
