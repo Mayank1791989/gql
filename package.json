@@ -28,7 +28,7 @@
     "README.md"
   ],
   "dependencies": {
-    "apollo-codegen": "0.10.13",
+    "apollo-codegen": "0.12.8",
     "babel-runtime": "6.23.0",
     "dentist": "1.0.3",
     "fb-watchman": "2.0.0",
