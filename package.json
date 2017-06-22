@@ -61,7 +61,7 @@
     "eslint-plugin-playlyfe": "3.0.0",
     "flow-bin": "0.46.0",
     "flow-typed": "2.1.2",
-    "husky": "0.13.3",
+    "husky": "0.14.0",
     "jest": "20.0.1",
     "memory-fs": "0.4.1",
     "semantic-release": "6.3.6"
