@@ -43,7 +43,7 @@
     "leven": "2.1.0",
     "lodash": "4.17.4",
     "minimatch": "3.0.4",
-    "node-ipc": "9.0.1",
+    "node-ipc": "9.1.0",
     "parse-glob": "3.0.4",
     "promise-retry": "1.1.1"
   },
