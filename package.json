@@ -29,7 +29,7 @@
   ],
   "dependencies": {
     "apollo-codegen": "0.10.13",
-    "babel-runtime": "6.23.0",
+    "babel-runtime": "6.26.0",
     "dentist": "1.0.3",
     "fb-watchman": "2.0.0",
     "find-config": "1.0.0",
