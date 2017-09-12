@@ -5,17 +5,38 @@
 
 # gql
 
-> Graphql sevice which watches project files and provides useful information.
+> Graphql sevice which watches project files and provides:
+
+#### Schema
+- [x] Validation
+- [x] Autocompletion
+- [x] Get Defintion
+- [x] Find References
+- [x] Get Info of symbol at position.
+- [x] Watch files and auto update
+
+#### Query
+- [x] Validation
+- [x] Autocompletion
+- [x] Get Definition
+- [x] Support Embedded queries (Relay.QL, gql, others)
+- [x] Get Info of symbol
+- [ ] Find References
+- [ ] Provide query schema dependency graph.
 
 ## Installation
 
-1. Install node package
+1. Install the node package:
   ```yarn add @playlyfe/gql --dev``` or ```npm install @playlyfe/gql --dev```
 2. Make sure [watchman](https://facebook.github.io/watchman/docs/install.html) is installed.
-3. Create [.gqlconfig](#gqlconfig) file in project root.
+3. Create the [.gqlconfig](#gqlconfig) file in project root.
 
 ## .gqlconfig
-> Configuration file in [json5](http://json5.org/) format.
+The configuration file is specified in the [json5](http://json5.org/) format.
+
+To specify the configuration, you can refer to the configuration definition schema.
+<details>
+<summary>View configuration definition schema</summary>
 
 ```javascript
 type GQLConfig = {
@@ -26,7 +47,7 @@ type GQLConfig = {
   query?: { // query optional
     files: Array<{
       match: FileMatchConfig, // match files
-      parser: QueryParser, 
+      parser: QueryParser,
       isRelay?: boolean,
       validate?: ValidateConfig,
     }>
@@ -48,7 +69,11 @@ type ValidateConfig = {
   },
 };
 ```
+</details>
 
+### Examples
+
+Specifying only schema support (query parsing and related features are disabled):
 ```javascript
 // .gqlconfig (only schema)
 {
@@ -58,6 +83,7 @@ type ValidateConfig = {
 }
 ```
 
+Specifying query and schema support:
 ```javascript
 // .gqlconfig (with query)
 {
@@ -82,7 +108,7 @@ type ValidateConfig = {
         match: { include: 'path/to/code/**/*.js', ignore: '**/tests/**/*.js' },
         parser: [ 'EmbeddedQueryParser', { startTag: 'gql`', endTag: '`' } ],
       },
-      // [Embedded queries] some other tags 
+      // [Embedded queries] some other tags
       {
         match: 'path/to/code/**/*.xyz',
         parser: [ 'EmbeddedQueryParser', { startTag: '"""' endTag: '"""' } ],
@@ -109,35 +135,20 @@ type ValidateConfig = {
 * SublimeText: @TODO
 * cli: @TODO
 
-## Features
-
-#### Schema
-- [x] Validation
-- [x] Autocompletion
-- [x] Get Defintion
-- [x] Find References
-- [x] Get Info of symbol at position.
-- [x] Watch files and auto update
-
-#### Query
-- [x] Validation
-- [x] Autocompletion
-- [x] Get Definition
-- [x] Support Embedded queries (Relay.QL, gql, others)
-- [x] Get Info of symbol
-- [ ] Find References
-- [ ] Provide query schema dependency graph.
-
 ## API
+
+If you're looking to implement the GQL service in a plugin,
+you'll need to call these service APIs:
+
 ```javascript
 class GQLService {
   constructor(options: ?Options)
-  
+
   /*** List of supported commands ***/
-  
+
   // query errors
   status(): Array<GQLError>
-  
+
   // autocomplete suggestion at position
   autocomplete(params: CommandParams): Array<GQLHint>
 
@@ -166,10 +177,10 @@ type Options = {
 type CommandParams = {
   sourceText: string,
   sourcePath: string,
-  position: { 
+  position: {
     line: number, // starts with 1
     column: number, // starts with 1
-  }
+  },
 };
 
 type DefLocation = {
@@ -181,7 +192,7 @@ type DefLocation = {
 type GQLError = {
   message: string,
   severity: 'warn' | 'error',
-  locations: ?Array<{ line: number, column: number, path: AbsolutePath }>
+  locations: ?Array<{ line: number, column: number, path: AbsolutePath }>,
 };
 
 type GQLHint = {
