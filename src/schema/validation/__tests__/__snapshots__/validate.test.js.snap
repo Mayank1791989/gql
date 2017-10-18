@@ -7,7 +7,7 @@ Array [
       Object {
         "column": 5,
         "line": 6,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
     "message": "Unused type definition 'X' (NoUnusedTypeDefinition)",
@@ -18,7 +18,7 @@ Array [
       Object {
         "column": 5,
         "line": 10,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
     "message": "Unused type definition 'B' (NoUnusedTypeDefinition)",

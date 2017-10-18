@@ -27,16 +27,18 @@
     "lib",
     "README.md"
   ],
+  "peerDependencies": {
+    "graphql": "^0.9.0 || ^0.10.1 || ^0.11.0"
+  },
   "dependencies": {
-    "apollo-codegen": "0.10.13",
+    "apollo-codegen": "0.17.0",
     "babel-runtime": "6.23.0",
     "dentist": "1.0.3",
     "fb-watchman": "2.0.0",
     "find-config": "1.0.0",
     "flow-runtime": "0.14.0",
-    "graphql": "0.9.6",
-    "graphql-language-service-interface": "0.0.11",
-    "graphql-language-service-parser": "0.0.10",
+    "graphql-language-service-interface": "1.0.15",
+    "graphql-language-service-parser": "0.1.14",
     "invariant": "2.2.2",
     "json5": "0.5.1",
     "keymirror": "0.1.1",
