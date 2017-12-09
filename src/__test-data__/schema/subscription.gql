@@ -1,0 +1,14 @@
+type Subscription {
+  # Like story subscription
+  LikeStory(input: LikeStorySubscriptionInput): LikeStorySubscriptionPayload
+}
+
+input LikeStorySubscriptionInput {
+  clientSubscriptionId: String
+  id: ID!
+}
+
+type LikeStorySubscriptionPayload {
+  clientSubscriptionId: String
+  doesViewerLike: Boolean
+}

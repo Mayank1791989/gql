@@ -267,3 +267,40 @@ type Query {
   ],
 }
 `;
+
+exports[`subscriptions field: Include both input and output type 1`] = `
+Object {
+  "contents": Array [
+    "# Like story subscription
+(field) LikeStory(input: LikeStorySubscriptionInput): LikeStorySubscriptionPayload",
+    "input LikeStorySubscriptionInput {
+  clientSubscriptionId: String
+  id: ID!
+}",
+    "type LikeStorySubscriptionPayload {
+  clientSubscriptionId: String
+  doesViewerLike: Boolean
+}",
+  ],
+}
+`;
+
+exports[`subscriptions input object fields 1`] = `
+Object {
+  "contents": Array [
+    "(field) id: ID!",
+    "# The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`\\"4\\"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+  ],
+}
+`;
+
+exports[`subscriptions type: include description 1`] = `
+Object {
+  "contents": Array [
+    "type Subscription {
+  # Like story subscription
+  LikeStory(input: LikeStorySubscriptionInput): LikeStorySubscriptionPayload
+}",
+  ],
+}
+`;

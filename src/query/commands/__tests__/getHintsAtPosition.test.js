@@ -291,3 +291,30 @@ describe('show meta field __typename in abstract types', () => {
     ).toMatchSnapshot();
   });
 });
+
+describe('subscription', () => {
+  it('fields', () => {
+    const { sourceText, position } = code(`
+      Relay.QL\`
+        subscription { }
+        --------------^
+      \`;
+    `);
+    expect(
+      getHintsAtPosition(schema, sourceText, position, relayConfig),
+    ).toEqual(hints.PossibleSubscriptions);
+  });
+
+  it('field args', () => {
+    const { sourceText, position } = code(`
+      subscription {
+        LikeStory()
+        ----------^
+      }
+    `);
+    expect(
+      getHintsAtPosition(schema, sourceText, position, queryConfig),
+    ).toMatchSnapshot();
+  });
+});
+

@@ -283,5 +283,48 @@ describe('getDef', () => {
       ).toEqual(null);
     });
   });
-});
 
+  describe('subscriptions', () => {
+    it('subscription keyword', () => {
+      const { sourceText, position } = code(`
+        const a = Relay.QL\`
+          subscription { LikeStory }
+          #--^
+        \`
+      `);
+      expect(
+        getDefinitionAtPosition(schema, sourceText, position, relayQLParser),
+      ).toEqual(defLocations.Subscription);
+    });
+
+    it('field', () => {
+      const { sourceText, position } = code(`
+        const a = Relay.QL\`
+          subscription { LikeStory }
+                #----------^
+        \`
+      `);
+      expect(
+        getDefinitionAtPosition(schema, sourceText, position, relayQLParser),
+      ).toEqual(defLocations.Subscription_LikeStory);
+    });
+
+    it('input object fields', () => {
+      const { sourceText, position } = code(`
+        subscription {
+          LikeStory(
+            input: {
+              id: "some_id",
+          #----^
+            }
+          ) {
+            clientSubscriptionId
+          }
+        }
+      `);
+      expect(
+        getDefinitionAtPosition(schema, sourceText, position, 'QueryParser'),
+      ).toEqual(defLocations.Subscription_LikeStorySubscriptionInput_id);
+    });
+  });
+});

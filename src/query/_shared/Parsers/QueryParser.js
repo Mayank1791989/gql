@@ -61,6 +61,8 @@ const parserOptions = {
           return 'Query';
         case 'mutation':
           return 'Mutation';
+        case 'subscription':
+          return 'Subscription';
         case 'fragment':
           return 'FragmentDefinition';
         default:

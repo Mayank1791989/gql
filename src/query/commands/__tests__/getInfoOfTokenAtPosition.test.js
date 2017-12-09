@@ -228,6 +228,54 @@ describe('mutations', () => {
   });
 });
 
+describe('subscriptions', () => {
+  it('type: include description', () => {
+    const { sourceText, position } = code(`
+      const a = Relay.QL\`
+        subscription {
+     #-----^
+        }
+      \`
+    `);
+    expect(
+      getInfoOfTokenAtPosition(schema, sourceText, position, relayQLParser),
+    ).toMatchSnapshot();
+  });
+
+  it('field: Include both input and output type', () => {
+    const { sourceText, position } = code(`
+      const a = Relay.QL\`
+        subscription {
+          LikeStory
+          #-----^
+        }
+      \`
+    `);
+    expect(
+      getInfoOfTokenAtPosition(schema, sourceText, position, relayQLParser),
+    ).toMatchSnapshot();
+  });
+
+  it('input object fields', () => {
+    const { sourceText, position } = code(`
+      subscription {
+        LikeStory(
+          input: {
+            id: ,
+        #----^
+          }
+        ) {
+          clientSubscriptionId
+        }
+      }
+    `);
+    expect(
+      getInfoOfTokenAtPosition(schema, sourceText, position, { parser: 'QueryParser' }),
+    ).toMatchSnapshot();
+  });
+});
+
+
 describe('query', () => {
   it('query keyword', () => {
     const { sourceText, position } = code(`

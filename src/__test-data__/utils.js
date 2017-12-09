@@ -68,6 +68,27 @@ export function getDefLocations() {
       path: path.resolve('src/__test-data__/schema/mutation.gql'),
     },
 
+    Subscription: {
+      start: { line: 1, column: 1 },
+      end: { line: 4, column: 2 },
+      path: path.resolve('src/__test-data__/schema/subscription.gql'),
+    },
+    Subscription_LikeStory: { // eslint-disable-line camelcase
+      start: { line: 3, column: 3 },
+      end: { line: 3, column: 77 },
+      path: path.resolve('src/__test-data__/schema/subscription.gql'),
+    },
+    Subscription_LikeStorySubscriptionInput: { // eslint-disable-line camelcase
+      start: { line: 6, column: 1 },
+      end: { line: 9, column: 2 },
+      path: path.resolve('src/__test-data__/schema/subscription.gql'),
+    },
+    Subscription_LikeStorySubscriptionInput_id: { // eslint-disable-line camelcase
+      start: { line: 8, column: 3 },
+      end: { line: 8, column: 10 },
+      path: path.resolve('src/__test-data__/schema/subscription.gql'),
+    },
+
     Query: {
       start: { line: 2, column: 1 },
       end: { line: 6, column: 2 },
@@ -213,6 +234,16 @@ export function getHints() {
         text: 'NewPlayer',
         type: 'Object',
       },
+      {
+        description: '',
+        text: 'Subscription',
+        type: 'Object',
+      },
+      {
+        description: '',
+        text: 'LikeStorySubscriptionPayload',
+        type: 'Object',
+      },
     ],
 
     OutputTypes: [
@@ -275,6 +306,16 @@ export function getHints() {
         description: '',
         text: 'CustomScalar',
         type: 'Scalar',
+      },
+      {
+        description: '',
+        text: 'Subscription',
+        type: 'Object',
+      },
+      {
+        description: '',
+        text: 'LikeStorySubscriptionPayload',
+        type: 'Object',
       },
       {
         description: 'The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.',
@@ -354,6 +395,16 @@ export function getHints() {
         text: 'Entity',
         type: 'Union',
       },
+      {
+        description: '',
+        text: 'Subscription',
+        type: 'Object',
+      },
+      {
+        description: '',
+        text: 'LikeStorySubscriptionPayload',
+        type: 'Object',
+      },
     ],
 
     InputTypes: [
@@ -371,6 +422,11 @@ export function getHints() {
         description: '',
         text: 'CustomScalar',
         type: 'Scalar',
+      },
+      {
+        description: '',
+        text: 'LikeStorySubscriptionInput',
+        type: 'Input',
       },
       {
         description: 'The `String` scalar type represents textual data, represented as UTF-8 character sequences. The String type is most often used by GraphQL to represent free-form human-readable text.',
@@ -461,6 +517,14 @@ export function getHints() {
         description: 'Player Create contains all allowed mutations',
         text: 'PlayerCreate',
         type: 'PlayerCreatePayload',
+      },
+    ],
+
+    PossibleSubscriptions: [
+      {
+        description: 'Like story subscription',
+        text: 'LikeStory',
+        type: 'LikeStorySubscriptionPayload',
       },
     ],
 

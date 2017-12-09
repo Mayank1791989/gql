@@ -37,6 +37,7 @@ function getInfoOfTokenAtPosition( // eslint-disable-line complexity
     (kind === 'NamedType' && step === 0) ||
     (kind === 'TypeCondition' && step === 1) || // fragment on TypeName <----
     (kind === 'Mutation' && step === 0) || // ----> mutation { }
+    (kind === 'Subscription' && step === 0) || // ----> subscription {  }
     (kind === 'Query' && step === 0) // ----> query xyz { xyz }
   ) {
     if (typeInfo.type) {
@@ -57,7 +58,7 @@ function getInfoOfTokenAtPosition( // eslint-disable-line complexity
 
     contents.push(fieldDef.print());
 
-    if (typeInfo.parentType && typeInfo.parentType.name === 'Mutation') {
+    if (typeInfo.parentType && (typeInfo.parentType.name === 'Mutation' || typeInfo.parentType.name === 'Subscription')) {
       // include input args type
       fieldDef.args.forEach((arg) => {
         const argType = getNamedType(arg.type);

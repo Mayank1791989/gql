@@ -129,3 +129,13 @@ Array [
   },
 ]
 `;
+
+exports[`subscription field args 1`] = `
+Array [
+  Object {
+    "description": "",
+    "text": "input",
+    "type": "LikeStorySubscriptionInput",
+  },
+]
+`;
