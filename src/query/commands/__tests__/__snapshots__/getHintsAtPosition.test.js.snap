@@ -1,5 +1,15 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`[Bug] should work if position is first character mutation keyword 1`] = `
+Array [
+  Object {
+    "description": "Mutation contains all allowed mutations",
+    "text": "mutation",
+    "type": "Mutation",
+  },
+]
+`;
+
 exports[`Values Object value keys 1`] = `
 Array [
   Object {

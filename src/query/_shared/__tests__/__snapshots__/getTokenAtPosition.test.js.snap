@@ -1,5 +1,81 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`[Bug] should works for start position 1`] = `
+Object {
+  "end": 8,
+  "prevChar": "",
+  "start": 0,
+  "state": Object {
+    "indentLevel": 0,
+    "kind": "FragmentDefinition",
+    "level": 0,
+    "name": null,
+    "needsAdvance": true,
+    "needsSeperator": false,
+    "prevState": Object {
+      "indentLevel": 0,
+      "kind": "Definition",
+      "level": 0,
+      "name": null,
+      "needsSeperator": false,
+      "prevState": Object {
+        "indentLevel": 0,
+        "kind": "Document",
+        "level": 0,
+        "name": null,
+        "needsSeperator": false,
+        "prevState": Object {
+          "kind": null,
+          "level": 0,
+          "name": null,
+          "needsSeperator": false,
+          "prevState": null,
+          "rule": null,
+          "step": 0,
+          "type": null,
+        },
+        "rule": Array [
+          Object {
+            "isList": true,
+            "ofRule": "Definition",
+            "separator": undefined,
+          },
+        ],
+        "step": 0,
+        "type": null,
+      },
+      "rule": [Function],
+      "step": 0,
+      "type": null,
+    },
+    "rule": Array [
+      Object {
+        "match": [Function],
+        "style": "keyword",
+      },
+      Object {
+        "ofRule": Object {
+          "match": [Function],
+          "style": "def",
+          "update": [Function],
+        },
+      },
+      "TypeCondition",
+      Object {
+        "isList": true,
+        "ofRule": "Directive",
+        "separator": undefined,
+      },
+      "SelectionSet",
+    ],
+    "step": 0,
+    "type": null,
+  },
+  "string": "fragment",
+  "style": "keyword",
+}
+`;
+
 exports[`should able to parse Relay.QL queries with interpolation multi line 1`] = `
 Object {
   "end": 82,

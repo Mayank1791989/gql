@@ -100,4 +100,11 @@ describe('should able to parse Relay.QL queries with interpolation', () => {
 
     expect(() => getTokenAtPosition(sourceText, position, relayQLParser)).not.toThrow();
   });
+
+});
+
+it('[Bug] should works for start position', () => {
+  const sourceText = 'fragment';
+  const token = getTokenAtPosition(sourceText, { line: 1, column: 1 }, 'QueryParser');
+  expect(token).toMatchSnapshot();
 });

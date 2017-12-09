@@ -65,6 +65,23 @@ export default function getHintsAtPosition( // eslint-disable-line complexity
     ];
   }
 
+  if (kind === 'Mutation' || kind === 'Subscription' || kind === 'Query') {
+    const { type } = typeInfo;
+    return [{
+      text: token.string,
+      type: type ? type.toString() : '',
+      description: type ? type.description : '',
+    }];
+  }
+
+  if (kind === 'FragmentDefinition') {
+    return [
+      {
+        text: 'fragment',
+      },
+    ];
+  }
+
   // Argument names
   // console.log(kind, step, position);
 

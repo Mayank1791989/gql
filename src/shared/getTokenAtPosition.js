@@ -24,26 +24,31 @@ export default function getTokenAtPosition(
 
   let style = '';
 
-  whileSafe({
-    condition: () => stream.getCurrentPosition() < offset,
-    call: () => {
-      style = parser.token(stream, state);
-      // if (style === 'js-frag') {
-        // console.log(
-        //   `position: ${stream.getCurrentPosition()}`,
-        //   `start: ${stream.getStartOfToken()}`,
-        //   `style: [${style}] token: [${stream.current()}] \n`,
-        //   // 'state: ', state, '\n', printTokenState(state),
-        // );
-      // }
-    },
-    logOnInfiniteLoop: () => {
-      console.log(
-        `style: [${style}] token: [${stream.current()}] \n`,
-        'state: ', state, '\n', printTokenState(state),
-      );
-    },
-  }, sourceText.length);
+  if (offset === 0) {
+    // for first character
+    style = parser.token(stream, state);
+  } else {
+    whileSafe({
+      condition: () => stream.getCurrentPosition() < offset,
+      call: () => {
+        style = parser.token(stream, state);
+        // if (style === 'js-frag') {
+          // console.log(
+          //   `position: ${stream.getCurrentPosition()}`,
+          //   `start: ${stream.getStartOfToken()}`,
+          //   `style: [${style}] token: [${stream.current()}] \n`,
+          //   // 'state: ', state, '\n', printTokenState(state),
+          // );
+        // }
+      },
+      logOnInfiniteLoop: () => {
+        console.log(
+          `style: [${style}] token: [${stream.current()}] \n`,
+          'state: ', state, '\n', printTokenState(state),
+        );
+      },
+    }, sourceText.length);
+  }
 
   invariant(style, 'expected style should have some value');
   invariant(stream, 'expected stream should have some value');

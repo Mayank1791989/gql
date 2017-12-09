@@ -573,6 +573,14 @@ export function getHints() {
         type: 'Role',
       },
     ],
+
+    DocumentLevel: [
+      { text: 'query' },
+      { text: 'mutation' },
+      { text: 'subscription' },
+      { text: 'fragment' },
+      { text: '{' },
+    ],
   };
 }
 

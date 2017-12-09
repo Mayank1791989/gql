@@ -318,3 +318,25 @@ describe('subscription', () => {
   });
 });
 
+describe('[Bug] should work if position is first character', () => {
+  it('whitespace', () => {
+    const sourceText = ' ';
+    expect(
+      getHintsAtPosition(schema, sourceText, { line: 1, column: 1 }, queryConfig),
+    ).toEqual(hints.DocumentLevel);
+  });
+
+  it('mutation keyword', () => {
+    const sourceText = 'mutation';
+    expect(
+      getHintsAtPosition(schema, sourceText, { line: 1, column: 1 }, queryConfig),
+    ).toMatchSnapshot();
+  });
+
+  it('fragment keyword', () => {
+    const sourceText = 'fragment';
+    expect(
+      getHintsAtPosition(schema, sourceText, { line: 1, column: 1 }, queryConfig),
+    ).toEqual([{ text: 'fragment' }]);
+  });
+});
