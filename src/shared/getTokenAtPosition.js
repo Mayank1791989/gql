@@ -15,9 +15,10 @@ import toOffset from './toOffset';
 
 export default function getTokenAtPosition(
   parser: IParser,
-  sourceText: string,
+  _sourceText: string,
   position: Position,
 ): Token {
+  const sourceText = _sourceText ? _sourceText : ' ';
   const state = parser.startState();
   const offset = toOffset(sourceText, position);
   const stream = new MultilineCharacterStream(sourceText);

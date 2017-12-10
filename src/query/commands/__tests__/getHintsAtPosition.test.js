@@ -340,3 +340,10 @@ describe('[Bug] should work if position is first character', () => {
     ).toEqual([{ text: 'fragment' }]);
   });
 });
+
+test('[Bug] should work with empty sourceText', () => {
+  const sourceText = '';
+  expect(
+    getHintsAtPosition(schema, sourceText, { line: 1, column: 1 }, queryConfig),
+  ).toEqual(hints.DocumentLevel);
+});
