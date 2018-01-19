@@ -3,6 +3,9 @@
   "version": "0.0.0-development",
   "description": "gql service and tools",
   "main": "lib/index.js",
+  "publishConfig": {
+    "access": "public"
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/Mayank1791989/gql.git"
