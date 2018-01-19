@@ -1,5 +1,128 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`Directiva validation Should report duplicate arguments 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 39,
+        "line": 8,
+        "path": "GraphQL",
+      },
+      Object {
+        "column": 68,
+        "line": 8,
+        "path": "GraphQL",
+      },
+    ],
+    "message": "There can be only one argument named \\"boolArg\\". (UniqueArgumentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Directiva validation Should report if directive argument type is wrong 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 48,
+        "line": 7,
+        "path": "GraphQL",
+      },
+    ],
+    "message": "Argument \\"boolArg\\" has invalid value \\"5\\".
+Expected type \\"Boolean\\", found \\"5\\". (ArgumentsOfCorrectType)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Directiva validation Should report if directive required arguments missing 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 23,
+        "line": 8,
+        "path": "GraphQL",
+      },
+    ],
+    "message": "Directive \\"@some_directive\\" argument \\"reqArg\\" of type \\"Boolean!\\" is required but not provided. (ProvidedNonNullArguments)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Directiva validation Should report if directive used in wrong location 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 23,
+        "line": 5,
+        "path": "GraphQL",
+      },
+    ],
+    "message": "Directive \\"some_directive\\" may not be used on FIELD_DEFINITION. (KnownDirectives)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Directiva validation Should report if directive used multiple times in same location 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 23,
+        "line": 8,
+        "path": "GraphQL",
+      },
+      Object {
+        "column": 53,
+        "line": 8,
+        "path": "GraphQL",
+      },
+    ],
+    "message": "The directive \\"some_directive\\" can only be used once at this location. (UniqueDirectivesPerLocation)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Directiva validation Should report if unknown directive arguments used 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 39,
+        "line": 7,
+        "path": "GraphQL",
+      },
+    ],
+    "message": "Unknown argument \\"test\\" on directive \\"@some_directive\\". (KnownArgumentNames)",
+    "severity": "error",
+  },
+]
+`;
+
+exports[`Directiva validation Should report unknown directives 1`] = `
+Array [
+  Object {
+    "locations": Array [
+      Object {
+        "column": 21,
+        "line": 3,
+        "path": "GraphQL",
+      },
+    ],
+    "message": "Unknown directive \\"some_directive\\". (KnownDirectives)",
+    "severity": "error",
+  },
+]
+`;
+
 exports[`Report unused type definition 1`] = `
 Array [
   Object {
