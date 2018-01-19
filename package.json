@@ -1,6 +1,6 @@
 {
   "name": "@playlyfe/gql",
-  "version": "2.0.0",
+  "version": "0.0.0-development",
   "description": "gql service and tools",
   "main": "lib/index.js",
   "repository": {
@@ -16,10 +16,11 @@
     "flow-typed-update": "flow-typed update",
     "build": "yarn run clean && babel ./src --out-dir ./lib --ignore '**/__**__/**,**/node_modules/**'",
     "report-coverage": "codecov",
-    "semantic-release": "semantic-release pre && npm publish --access public && semantic-release post",
+    "semantic-release": "semantic-release",
     "clean": "rm -rf lib",
     "commit": "git-cz",
-    "precommit": "yarn run test"
+    "precommit": "yarn run test",
+    "travis-deploy-once": "travis-deploy-once"
   },
   "author": "Mayank Agarwal <mayank1791989@gmail.com>",
   "license": "MIT",
@@ -64,7 +65,8 @@
     "husky": "0.13.3",
     "jest": "20.0.1",
     "memory-fs": "0.4.1",
-    "semantic-release": "6.3.6"
+    "semantic-release": "^12.2.2",
+    "travis-deploy-once": "^4.3.2"
   },
   "config": {
     "commitizen": {
