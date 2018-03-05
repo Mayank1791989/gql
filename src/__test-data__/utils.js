@@ -48,12 +48,12 @@ export function getDefLocations() {
     },
 
     Mutation: {
-      start: { line: 2, column: 1 },
+      start: { line: 1, column: 1 },
       end: { line: 5, column: 2 },
       path: path.resolve('src/__test-data__/schema/mutation.gql'),
     },
     Mutation_PlayerCreate: { // eslint-disable-line camelcase
-      start: { line: 4, column: 3 },
+      start: { line: 3, column: 3 },
       end: { line: 4, column: 63 },
       path: path.resolve('src/__test-data__/schema/mutation.gql'),
     },
@@ -74,7 +74,7 @@ export function getDefLocations() {
       path: path.resolve('src/__test-data__/schema/subscription.gql'),
     },
     Subscription_LikeStory: { // eslint-disable-line camelcase
-      start: { line: 3, column: 3 },
+      start: { line: 2, column: 3 },
       end: { line: 3, column: 77 },
       path: path.resolve('src/__test-data__/schema/subscription.gql'),
     },
@@ -90,7 +90,7 @@ export function getDefLocations() {
     },
 
     Query: {
-      start: { line: 2, column: 1 },
+      start: { line: 1, column: 1 },
       end: { line: 6, column: 2 },
       path: path.resolve('src/__test-data__/schema/query.gql'),
     },
@@ -113,12 +113,12 @@ export function getDefLocations() {
     },
 
     customDirective: {
-      start: { line: 2, column: 1 },
+      start: { line: 1, column: 1 },
       end: { line: 7, column: 25 },
       path: path.resolve('src/__test-data__/schema/directives.gql'),
     },
     customDirective_argIf: { // eslint-disable-line camelcase
-      start: { line: 4, column: 3 },
+      start: { line: 3, column: 3 },
       end: { line: 4, column: 15 },
       path: path.resolve('src/__test-data__/schema/directives.gql'),
     },

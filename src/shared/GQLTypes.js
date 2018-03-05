@@ -126,7 +126,7 @@ export function getNamedType(type: ?GQLType): ?GQLNamedType {
 }
 
 export function printDescription(description: ?string): string {
-  return description ? `# ${description}` : '';
+  return description ? `"${description}"` : '';
 }
 
 function print(node: ?ASTNode, description: ?string, type: ?string): string {

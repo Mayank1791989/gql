@@ -19,40 +19,40 @@ export type Role =
 
 // An enum describing what kind of type a given \`__Type\` is.
 export type __TypeKind =
-  \\"SCALAR\\" | // Indicates this type is a scalar.
-  \\"OBJECT\\" | // Indicates this type is an object. \`fields\` and \`interfaces\` are valid fields.
-  \\"INTERFACE\\" | // Indicates this type is an interface. \`fields\` and \`possibleTypes\` are valid fields.
-  \\"UNION\\" | // Indicates this type is a union. \`possibleTypes\` is a valid field.
   \\"ENUM\\" | // Indicates this type is an enum. \`enumValues\` is a valid field.
   \\"INPUT_OBJECT\\" | // Indicates this type is an input object. \`inputFields\` is a valid field.
+  \\"INTERFACE\\" | // Indicates this type is an interface. \`fields\` and \`possibleTypes\` are valid fields.
   \\"LIST\\" | // Indicates this type is a list. \`ofType\` is a valid field.
-  \\"NON_NULL\\"; // Indicates this type is a non-null. \`ofType\` is a valid field.
+  \\"NON_NULL\\" | // Indicates this type is a non-null. \`ofType\` is a valid field.
+  \\"OBJECT\\" | // Indicates this type is an object. \`fields\` and \`interfaces\` are valid fields.
+  \\"SCALAR\\" | // Indicates this type is a scalar.
+  \\"UNION\\"; // Indicates this type is a union. \`possibleTypes\` is a valid field.
 
 
 // A Directive can be adjacent to many parts of the GraphQL language, a __DirectiveLocation describes one such possible adjacencies.
 export type __DirectiveLocation =
-  \\"QUERY\\" | // Location adjacent to a query operation.
-  \\"MUTATION\\" | // Location adjacent to a mutation operation.
-  \\"SUBSCRIPTION\\" | // Location adjacent to a subscription operation.
+  \\"ARGUMENT_DEFINITION\\" | // Location adjacent to an argument definition.
+  \\"ENUM\\" | // Location adjacent to an enum definition.
+  \\"ENUM_VALUE\\" | // Location adjacent to an enum value definition.
   \\"FIELD\\" | // Location adjacent to a field.
+  \\"FIELD_DEFINITION\\" | // Location adjacent to a field definition.
   \\"FRAGMENT_DEFINITION\\" | // Location adjacent to a fragment definition.
   \\"FRAGMENT_SPREAD\\" | // Location adjacent to a fragment spread.
   \\"INLINE_FRAGMENT\\" | // Location adjacent to an inline fragment.
-  \\"SCHEMA\\" | // Location adjacent to a schema definition.
-  \\"SCALAR\\" | // Location adjacent to a scalar definition.
-  \\"OBJECT\\" | // Location adjacent to an object type definition.
-  \\"FIELD_DEFINITION\\" | // Location adjacent to a field definition.
-  \\"ARGUMENT_DEFINITION\\" | // Location adjacent to an argument definition.
-  \\"INTERFACE\\" | // Location adjacent to an interface definition.
-  \\"UNION\\" | // Location adjacent to a union definition.
-  \\"ENUM\\" | // Location adjacent to an enum definition.
-  \\"ENUM_VALUE\\" | // Location adjacent to an enum value definition.
+  \\"INPUT_FIELD_DEFINITION\\" | // Location adjacent to an input object field definition.
   \\"INPUT_OBJECT\\" | // Location adjacent to an input object type definition.
-  \\"INPUT_FIELD_DEFINITION\\"; // Location adjacent to an input object field definition.
+  \\"INTERFACE\\" | // Location adjacent to an interface definition.
+  \\"MUTATION\\" | // Location adjacent to a mutation operation.
+  \\"OBJECT\\" | // Location adjacent to an object type definition.
+  \\"QUERY\\" | // Location adjacent to a query operation.
+  \\"SCALAR\\" | // Location adjacent to a scalar definition.
+  \\"SCHEMA\\" | // Location adjacent to a schema definition.
+  \\"SUBSCRIPTION\\" | // Location adjacent to a subscription operation.
+  \\"UNION\\"; // Location adjacent to a union definition.
 ",
-  "# some custom directive
+  "\\"\\"\\"some custom directive\\"\\"\\"
 directive @customDirective(
-  # description for arg
+  \\"\\"\\"description for arg\\"\\"\\"
   if: Boolean!
 ) on FIELD | FRAGMENT_DEFINITION
 
@@ -63,9 +63,9 @@ interface Edge {
   node: Node!
 }
 
-# Mutation contains all allowed mutations
+\\"\\"\\"Mutation contains all allowed mutations\\"\\"\\"
 type Mutation {
-  # Player Create contains all allowed mutations
+  \\"\\"\\"Player Create contains all allowed mutations\\"\\"\\"
   PlayerCreate(input: PlayerCreateInput!): PlayerCreatePayload
 }
 
@@ -96,7 +96,7 @@ type PlayerCreatePayload {
   player: Player!
 }
 
-# Query is the root query object
+\\"\\"\\"Query is the root query object\\"\\"\\"
 type Query {
   node(id: String!): Node
   nodes(ids: [String!]): [Node]
@@ -136,11 +136,11 @@ type Viewer {
           \\"fields\\": [
             {
               \\"name\\": \\"node\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [
                 {
                   \\"name\\": \\"id\\",
-                  \\"description\\": \\"\\",
+                  \\"description\\": null,
                   \\"type\\": {
                     \\"kind\\": \\"NON_NULL\\",
                     \\"name\\": null,
@@ -163,11 +163,11 @@ type Viewer {
             },
             {
               \\"name\\": \\"nodes\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [
                 {
                   \\"name\\": \\"ids\\",
-                  \\"description\\": \\"\\",
+                  \\"description\\": null,
                   \\"type\\": {
                     \\"kind\\": \\"LIST\\",
                     \\"name\\": null,
@@ -198,7 +198,7 @@ type Viewer {
             },
             {
               \\"name\\": \\"viewer\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
@@ -231,11 +231,11 @@ type Viewer {
         {
           \\"kind\\": \\"INTERFACE\\",
           \\"name\\": \\"Node\\",
-          \\"description\\": \\"\\",
+          \\"description\\": null,
           \\"fields\\": [
             {
               \\"name\\": \\"id\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
@@ -279,11 +279,11 @@ type Viewer {
         {
           \\"kind\\": \\"OBJECT\\",
           \\"name\\": \\"Viewer\\",
-          \\"description\\": \\"\\",
+          \\"description\\": null,
           \\"fields\\": [
             {
               \\"name\\": \\"me\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
@@ -306,11 +306,11 @@ type Viewer {
         {
           \\"kind\\": \\"OBJECT\\",
           \\"name\\": \\"Player\\",
-          \\"description\\": \\"\\",
+          \\"description\\": null,
           \\"fields\\": [
             {
               \\"name\\": \\"id\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
@@ -326,7 +326,7 @@ type Viewer {
             },
             {
               \\"name\\": \\"name\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
@@ -342,11 +342,11 @@ type Viewer {
             },
             {
               \\"name\\": \\"image\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [
                 {
                   \\"name\\": \\"size\\",
-                  \\"description\\": \\"\\",
+                  \\"description\\": null,
                   \\"type\\": {
                     \\"kind\\": \\"NON_NULL\\",
                     \\"name\\": null,
@@ -404,7 +404,7 @@ type Viewer {
               \\"args\\": [
                 {
                   \\"name\\": \\"input\\",
-                  \\"description\\": \\"\\",
+                  \\"description\\": null,
                   \\"type\\": {
                     \\"kind\\": \\"NON_NULL\\",
                     \\"name\\": null,
@@ -434,12 +434,12 @@ type Viewer {
         {
           \\"kind\\": \\"INPUT_OBJECT\\",
           \\"name\\": \\"PlayerCreateInput\\",
-          \\"description\\": \\"\\",
+          \\"description\\": null,
           \\"fields\\": null,
           \\"inputFields\\": [
             {
               \\"name\\": \\"id\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
                 \\"name\\": null,
@@ -453,7 +453,7 @@ type Viewer {
             },
             {
               \\"name\\": \\"name\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
                 \\"name\\": null,
@@ -467,7 +467,7 @@ type Viewer {
             },
             {
               \\"name\\": \\"role\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
                 \\"name\\": null,
@@ -487,26 +487,26 @@ type Viewer {
         {
           \\"kind\\": \\"ENUM\\",
           \\"name\\": \\"Role\\",
-          \\"description\\": \\"\\",
+          \\"description\\": null,
           \\"fields\\": null,
           \\"inputFields\\": null,
           \\"interfaces\\": null,
           \\"enumValues\\": [
             {
               \\"name\\": \\"roleA\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"isDeprecated\\": false,
               \\"deprecationReason\\": null
             },
             {
               \\"name\\": \\"roleB\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"isDeprecated\\": false,
               \\"deprecationReason\\": null
             },
             {
               \\"name\\": \\"roleC\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"isDeprecated\\": false,
               \\"deprecationReason\\": null
             }
@@ -516,11 +516,11 @@ type Viewer {
         {
           \\"kind\\": \\"OBJECT\\",
           \\"name\\": \\"PlayerCreatePayload\\",
-          \\"description\\": \\"\\",
+          \\"description\\": null,
           \\"fields\\": [
             {
               \\"name\\": \\"player\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
@@ -833,30 +833,6 @@ type Viewer {
           \\"interfaces\\": null,
           \\"enumValues\\": [
             {
-              \\"name\\": \\"SCALAR\\",
-              \\"description\\": \\"Indicates this type is a scalar.\\",
-              \\"isDeprecated\\": false,
-              \\"deprecationReason\\": null
-            },
-            {
-              \\"name\\": \\"OBJECT\\",
-              \\"description\\": \\"Indicates this type is an object. \`fields\` and \`interfaces\` are valid fields.\\",
-              \\"isDeprecated\\": false,
-              \\"deprecationReason\\": null
-            },
-            {
-              \\"name\\": \\"INTERFACE\\",
-              \\"description\\": \\"Indicates this type is an interface. \`fields\` and \`possibleTypes\` are valid fields.\\",
-              \\"isDeprecated\\": false,
-              \\"deprecationReason\\": null
-            },
-            {
-              \\"name\\": \\"UNION\\",
-              \\"description\\": \\"Indicates this type is a union. \`possibleTypes\` is a valid field.\\",
-              \\"isDeprecated\\": false,
-              \\"deprecationReason\\": null
-            },
-            {
               \\"name\\": \\"ENUM\\",
               \\"description\\": \\"Indicates this type is an enum. \`enumValues\` is a valid field.\\",
               \\"isDeprecated\\": false,
@@ -869,6 +845,12 @@ type Viewer {
               \\"deprecationReason\\": null
             },
             {
+              \\"name\\": \\"INTERFACE\\",
+              \\"description\\": \\"Indicates this type is an interface. \`fields\` and \`possibleTypes\` are valid fields.\\",
+              \\"isDeprecated\\": false,
+              \\"deprecationReason\\": null
+            },
+            {
               \\"name\\": \\"LIST\\",
               \\"description\\": \\"Indicates this type is a list. \`ofType\` is a valid field.\\",
               \\"isDeprecated\\": false,
@@ -877,6 +859,24 @@ type Viewer {
             {
               \\"name\\": \\"NON_NULL\\",
               \\"description\\": \\"Indicates this type is a non-null. \`ofType\` is a valid field.\\",
+              \\"isDeprecated\\": false,
+              \\"deprecationReason\\": null
+            },
+            {
+              \\"name\\": \\"OBJECT\\",
+              \\"description\\": \\"Indicates this type is an object. \`fields\` and \`interfaces\` are valid fields.\\",
+              \\"isDeprecated\\": false,
+              \\"deprecationReason\\": null
+            },
+            {
+              \\"name\\": \\"SCALAR\\",
+              \\"description\\": \\"Indicates this type is a scalar.\\",
+              \\"isDeprecated\\": false,
+              \\"deprecationReason\\": null
+            },
+            {
+              \\"name\\": \\"UNION\\",
+              \\"description\\": \\"Indicates this type is a union. \`possibleTypes\` is a valid field.\\",
               \\"isDeprecated\\": false,
               \\"deprecationReason\\": null
             }
@@ -1278,26 +1278,32 @@ type Viewer {
           \\"interfaces\\": null,
           \\"enumValues\\": [
             {
-              \\"name\\": \\"QUERY\\",
-              \\"description\\": \\"Location adjacent to a query operation.\\",
+              \\"name\\": \\"ARGUMENT_DEFINITION\\",
+              \\"description\\": \\"Location adjacent to an argument definition.\\",
               \\"isDeprecated\\": false,
               \\"deprecationReason\\": null
             },
             {
-              \\"name\\": \\"MUTATION\\",
-              \\"description\\": \\"Location adjacent to a mutation operation.\\",
+              \\"name\\": \\"ENUM\\",
+              \\"description\\": \\"Location adjacent to an enum definition.\\",
               \\"isDeprecated\\": false,
               \\"deprecationReason\\": null
             },
             {
-              \\"name\\": \\"SUBSCRIPTION\\",
-              \\"description\\": \\"Location adjacent to a subscription operation.\\",
+              \\"name\\": \\"ENUM_VALUE\\",
+              \\"description\\": \\"Location adjacent to an enum value definition.\\",
               \\"isDeprecated\\": false,
               \\"deprecationReason\\": null
             },
             {
               \\"name\\": \\"FIELD\\",
               \\"description\\": \\"Location adjacent to a field.\\",
+              \\"isDeprecated\\": false,
+              \\"deprecationReason\\": null
+            },
+            {
+              \\"name\\": \\"FIELD_DEFINITION\\",
+              \\"description\\": \\"Location adjacent to a field definition.\\",
               \\"isDeprecated\\": false,
               \\"deprecationReason\\": null
             },
@@ -1320,56 +1326,8 @@ type Viewer {
               \\"deprecationReason\\": null
             },
             {
-              \\"name\\": \\"SCHEMA\\",
-              \\"description\\": \\"Location adjacent to a schema definition.\\",
-              \\"isDeprecated\\": false,
-              \\"deprecationReason\\": null
-            },
-            {
-              \\"name\\": \\"SCALAR\\",
-              \\"description\\": \\"Location adjacent to a scalar definition.\\",
-              \\"isDeprecated\\": false,
-              \\"deprecationReason\\": null
-            },
-            {
-              \\"name\\": \\"OBJECT\\",
-              \\"description\\": \\"Location adjacent to an object type definition.\\",
-              \\"isDeprecated\\": false,
-              \\"deprecationReason\\": null
-            },
-            {
-              \\"name\\": \\"FIELD_DEFINITION\\",
-              \\"description\\": \\"Location adjacent to a field definition.\\",
-              \\"isDeprecated\\": false,
-              \\"deprecationReason\\": null
-            },
-            {
-              \\"name\\": \\"ARGUMENT_DEFINITION\\",
-              \\"description\\": \\"Location adjacent to an argument definition.\\",
-              \\"isDeprecated\\": false,
-              \\"deprecationReason\\": null
-            },
-            {
-              \\"name\\": \\"INTERFACE\\",
-              \\"description\\": \\"Location adjacent to an interface definition.\\",
-              \\"isDeprecated\\": false,
-              \\"deprecationReason\\": null
-            },
-            {
-              \\"name\\": \\"UNION\\",
-              \\"description\\": \\"Location adjacent to a union definition.\\",
-              \\"isDeprecated\\": false,
-              \\"deprecationReason\\": null
-            },
-            {
-              \\"name\\": \\"ENUM\\",
-              \\"description\\": \\"Location adjacent to an enum definition.\\",
-              \\"isDeprecated\\": false,
-              \\"deprecationReason\\": null
-            },
-            {
-              \\"name\\": \\"ENUM_VALUE\\",
-              \\"description\\": \\"Location adjacent to an enum value definition.\\",
+              \\"name\\": \\"INPUT_FIELD_DEFINITION\\",
+              \\"description\\": \\"Location adjacent to an input object field definition.\\",
               \\"isDeprecated\\": false,
               \\"deprecationReason\\": null
             },
@@ -1380,8 +1338,50 @@ type Viewer {
               \\"deprecationReason\\": null
             },
             {
-              \\"name\\": \\"INPUT_FIELD_DEFINITION\\",
-              \\"description\\": \\"Location adjacent to an input object field definition.\\",
+              \\"name\\": \\"INTERFACE\\",
+              \\"description\\": \\"Location adjacent to an interface definition.\\",
+              \\"isDeprecated\\": false,
+              \\"deprecationReason\\": null
+            },
+            {
+              \\"name\\": \\"MUTATION\\",
+              \\"description\\": \\"Location adjacent to a mutation operation.\\",
+              \\"isDeprecated\\": false,
+              \\"deprecationReason\\": null
+            },
+            {
+              \\"name\\": \\"OBJECT\\",
+              \\"description\\": \\"Location adjacent to an object type definition.\\",
+              \\"isDeprecated\\": false,
+              \\"deprecationReason\\": null
+            },
+            {
+              \\"name\\": \\"QUERY\\",
+              \\"description\\": \\"Location adjacent to a query operation.\\",
+              \\"isDeprecated\\": false,
+              \\"deprecationReason\\": null
+            },
+            {
+              \\"name\\": \\"SCALAR\\",
+              \\"description\\": \\"Location adjacent to a scalar definition.\\",
+              \\"isDeprecated\\": false,
+              \\"deprecationReason\\": null
+            },
+            {
+              \\"name\\": \\"SCHEMA\\",
+              \\"description\\": \\"Location adjacent to a schema definition.\\",
+              \\"isDeprecated\\": false,
+              \\"deprecationReason\\": null
+            },
+            {
+              \\"name\\": \\"SUBSCRIPTION\\",
+              \\"description\\": \\"Location adjacent to a subscription operation.\\",
+              \\"isDeprecated\\": false,
+              \\"deprecationReason\\": null
+            },
+            {
+              \\"name\\": \\"UNION\\",
+              \\"description\\": \\"Location adjacent to a union definition.\\",
               \\"isDeprecated\\": false,
               \\"deprecationReason\\": null
             }
@@ -1391,11 +1391,11 @@ type Viewer {
         {
           \\"kind\\": \\"OBJECT\\",
           \\"name\\": \\"Team\\",
-          \\"description\\": \\"\\",
+          \\"description\\": null,
           \\"fields\\": [
             {
               \\"name\\": \\"id\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
@@ -1411,7 +1411,7 @@ type Viewer {
             },
             {
               \\"name\\": \\"name\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
@@ -1440,11 +1440,11 @@ type Viewer {
         {
           \\"kind\\": \\"INTERFACE\\",
           \\"name\\": \\"Edge\\",
-          \\"description\\": \\"\\",
+          \\"description\\": null,
           \\"fields\\": [
             {
               \\"name\\": \\"cursor\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
@@ -1460,7 +1460,7 @@ type Viewer {
             },
             {
               \\"name\\": \\"node\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
@@ -1483,11 +1483,11 @@ type Viewer {
         {
           \\"kind\\": \\"OBJECT\\",
           \\"name\\": \\"NewPlayer\\",
-          \\"description\\": \\"\\",
+          \\"description\\": null,
           \\"fields\\": [
             {
               \\"name\\": \\"role\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"ENUM\\",
@@ -1499,7 +1499,7 @@ type Viewer {
             },
             {
               \\"name\\": \\"value\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"SCALAR\\",
@@ -1511,11 +1511,11 @@ type Viewer {
             },
             {
               \\"name\\": \\"image\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [
                 {
                   \\"name\\": \\"role\\",
-                  \\"description\\": \\"\\",
+                  \\"description\\": null,
                   \\"type\\": {
                     \\"kind\\": \\"ENUM\\",
                     \\"name\\": \\"Role\\",
@@ -1534,7 +1534,7 @@ type Viewer {
             },
             {
               \\"name\\": \\"friend\\",
-              \\"description\\": \\"\\",
+              \\"description\\": null,
               \\"args\\": [],
               \\"type\\": {
                 \\"kind\\": \\"NON_NULL\\",
@@ -1557,7 +1557,7 @@ type Viewer {
         {
           \\"kind\\": \\"SCALAR\\",
           \\"name\\": \\"CustomScalar\\",
-          \\"description\\": \\"\\",
+          \\"description\\": null,
           \\"fields\\": null,
           \\"inputFields\\": null,
           \\"interfaces\\": null,

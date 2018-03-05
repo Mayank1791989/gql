@@ -7,7 +7,6 @@ import find from 'graphql/jsutils/find';
 import invariant from 'graphql/jsutils/invariant';
 import keyValMap from 'graphql/jsutils/keyValMap';
 import { valueFromAST } from 'graphql/utilities/valueFromAST';
-import { TokenKind } from 'graphql/language/lexer';
 import { getArgumentValues } from 'graphql/execution/values';
 
 import {
@@ -24,7 +23,6 @@ import {
 } from 'graphql/language/kinds';
 
 import {
-  type Location,
   type ASTNode,
   type DocumentNode,
   type DirectiveNode,
@@ -75,7 +73,7 @@ import {
   GraphQLNonNull,
   GraphQLInterfaceType,
   GraphQLObjectType,
-} from 'graphql/type/definition';
+} from 'graphql';
 
 import {
   // eslint-disable-line no-duplicate-imports
@@ -533,50 +531,13 @@ function getDeprecationReason(directives: ?Array<DirectiveNode>): ?string {
 }
 
 /**
- * Given an ast node, returns its string description based on a contiguous
- * block full-line of comments preceding it.
+ * Given an ast node, returns its string description
  */
-export function getDescription(node: { loc?: Location }): ?string {
-  const { loc } = node;
-  if (!loc) {
-    return null;
+export function getDescription(node: any): string {
+  if (node.description && node.description.value) {
+    return node.description.value;
   }
-  const comments = [];
-  let minSpaces = null;
-  let token = loc.startToken.prev;
-  while (
-    token &&
-    token.kind === TokenKind.COMMENT &&
-    token.next &&
-    token.prev &&
-    token.line + 1 === token.next.line &&
-    token.line !== token.prev.line
-  ) {
-    const value = String(token.value);
-    const spaces = leadingSpaces(value);
-    if (minSpaces === null || spaces < minSpaces) {
-      minSpaces = spaces;
-    }
-    comments.push(value);
-    token = token.prev;
-  }
-  return (
-    comments
-      .reverse()
-      .map((comment) => comment.slice(minSpaces))
-      .join('\n')
-  );
-}
-
-// Count the number of spaces on the starting side of a string.
-function leadingSpaces(str) {
-  let i = 0;
-  for (; i < str.length; i += 1) {
-    if (str[i] !== ' ') {
-      break;
-    }
-  }
-  return i;
+  return '';
 }
 
 function cannotExecuteSchema() {

@@ -1,6 +1,6 @@
-# some custom directive
+"some custom directive"
 directive @customDirective(
-  # description for arg
+  "description for arg"
   if: Boolean!
 )
   on FIELD

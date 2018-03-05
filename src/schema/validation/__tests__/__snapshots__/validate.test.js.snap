@@ -7,12 +7,12 @@ Array [
       Object {
         "column": 39,
         "line": 8,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
       Object {
         "column": 68,
         "line": 8,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
     "message": "There can be only one argument named \\"boolArg\\". (UniqueArgumentNames)",
@@ -28,11 +28,10 @@ Array [
       Object {
         "column": 48,
         "line": 7,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
-    "message": "Argument \\"boolArg\\" has invalid value \\"5\\".
-Expected type \\"Boolean\\", found \\"5\\". (ArgumentsOfCorrectType)",
+    "message": "Expected type Boolean, found \\"5\\". (ValuesOfCorrectType)",
     "severity": "error",
   },
 ]
@@ -45,7 +44,7 @@ Array [
       Object {
         "column": 23,
         "line": 8,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
     "message": "Directive \\"@some_directive\\" argument \\"reqArg\\" of type \\"Boolean!\\" is required but not provided. (ProvidedNonNullArguments)",
@@ -61,7 +60,7 @@ Array [
       Object {
         "column": 23,
         "line": 5,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
     "message": "Directive \\"some_directive\\" may not be used on FIELD_DEFINITION. (KnownDirectives)",
@@ -77,12 +76,12 @@ Array [
       Object {
         "column": 23,
         "line": 8,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
       Object {
         "column": 53,
         "line": 8,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
     "message": "The directive \\"some_directive\\" can only be used once at this location. (UniqueDirectivesPerLocation)",
@@ -98,7 +97,7 @@ Array [
       Object {
         "column": 39,
         "line": 7,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
     "message": "Unknown argument \\"test\\" on directive \\"@some_directive\\". (KnownArgumentNames)",
@@ -114,7 +113,7 @@ Array [
       Object {
         "column": 21,
         "line": 3,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
     "message": "Unknown directive \\"some_directive\\". (KnownDirectives)",
@@ -130,7 +129,7 @@ Array [
       Object {
         "column": 5,
         "line": 6,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
     "message": "Unused type definition 'X' (NoUnusedTypeDefinition)",
@@ -141,7 +140,7 @@ Array [
       Object {
         "column": 5,
         "line": 10,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
     "message": "Unused type definition 'B' (NoUnusedTypeDefinition)",

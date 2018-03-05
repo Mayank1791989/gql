@@ -1,5 +1,5 @@
 type Subscription {
-  # Like story subscription
+  "Like story subscription"
   LikeStory(input: LikeStorySubscriptionInput): LikeStorySubscriptionPayload
 }
 
