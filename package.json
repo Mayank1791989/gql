@@ -59,7 +59,7 @@
     "babel-preset-playlyfe": "1.2.0",
     "codecov": "2.2.0",
     "commitizen": "2.9.6",
-    "cross-env": "5.0.0",
+    "cross-env": "5.1.4",
     "cz-conventional-changelog": "2.0.0",
     "eslint": "3.19.0",
     "eslint-plugin-playlyfe": "3.0.0",
