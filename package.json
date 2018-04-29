@@ -69,7 +69,7 @@
     "jest": "20.0.1",
     "memory-fs": "0.4.1",
     "semantic-release": "^12.2.2",
-    "travis-deploy-once": "^4.3.2"
+    "travis-deploy-once": "^5.0.0"
   },
   "config": {
     "commitizen": {
