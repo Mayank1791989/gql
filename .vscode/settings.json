@@ -33,6 +33,6 @@
 
   "flow.enabled": true,
   "flow.useLSP": true,
-
-  "eslint.enable": true
+  "javascript.validate.enable": false,
+  "eslint.enable": true,
 }
