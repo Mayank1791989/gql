@@ -2,7 +2,7 @@
 import path from 'path';
 import fs from 'fs';
 
-import { parse, Source, concatAST } from 'graphql';
+import { Source } from 'graphql';
 import GQLWatcher from 'gql-watcher';
 
 import {
@@ -13,9 +13,9 @@ import {
 } from 'gql-shared/types';
 import EventEmitter from 'gql-shared/emitter';
 import { memoize, memoizeSingle } from 'gql-shared/memoize';
-import { type GQLError, prettyPrintGQLErrors } from 'gql-shared/GQLError';
+import { type GQLError } from 'gql-shared/GQLError';
 import GQLBaseService from 'gql-shared/GQLBaseService';
-import { GQLSchema, extendSchema } from 'gql-shared/GQLSchema';
+import { GQLSchema } from 'gql-shared/GQLSchema';
 import GQLConfig from 'gql-config';
 import { type QueryConfigResolved } from 'gql-config/types';
 

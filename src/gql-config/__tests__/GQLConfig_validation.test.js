@@ -54,7 +54,7 @@ test('can be used only for schema', () => {
   }).not.toThrowError();
 });
 
-test.only('report invalid version', () => {
+test('report invalid version', () => {
   expect(() => {
     // eslint-disable-next-line no-unused-vars
     const gqlConfig = new GQLConfig({

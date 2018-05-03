@@ -27,6 +27,7 @@ export function checkFragmentScopesDocument(
   );
 }
 
+// eslint-disable-next-line no-unused-vars
 export function validateFragmentScopes(scopes: Array<FragmentScope>): ?Error {
   // console.log('validate scopes @TODO', scopes);
   // scopes.forEach((scope) => {
