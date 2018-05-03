@@ -47,6 +47,7 @@ export interface IParser {
 export type GQLHint = {|
   text: string,
   type?: string,
+  kind?: string,
   description?: ?string,
 |};
 

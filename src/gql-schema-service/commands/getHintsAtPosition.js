@@ -37,11 +37,12 @@ export default function getHintsAtPosition({
   return getHintsForTokenState(schema, token.state, token);
 }
 
-function convertTypeToHint(type: GraphQLNamedType): GQLHint {
+function convertTypeToHint(type: GraphQLNamedType, kind: string): GQLHint {
   return {
     text: type.name,
     type: typeName[type.constructor.name],
     description: type.description,
+    kind,
   };
 }
 
@@ -62,7 +63,11 @@ function getHintsForTokenState(
   // console.log(kind, step);
 
   if (kind === 'Document' && step === 0) {
-    return [{ text: 'type' }, { text: 'enum' }, { text: 'input' }];
+    return [
+      { text: 'type', kind },
+      { text: 'enum', kind },
+      { text: 'input', kind },
+    ];
   }
 
   /** ****************** type *******************/
@@ -80,7 +85,7 @@ function getHintsForTokenState(
     return Object.keys(typeMap).reduce((acc, key) => {
       const type = typeMap[key];
       if (isOutputType(typeMap[key])) {
-        acc.push(convertTypeToHint(type));
+        acc.push(convertTypeToHint(type, kind));
       }
       return acc;
     }, []);
@@ -91,6 +96,7 @@ function getHintsForTokenState(
       {
         text: 'implements',
         type: 'Implements',
+        kind,
       },
       {
         text: '{',
@@ -103,7 +109,7 @@ function getHintsForTokenState(
     const typeMap = schema.getTypeMap();
     return Object.keys(typeMap).reduce((acc, key) => {
       if (isInterfaceType(typeMap[key])) {
-        acc.push(convertTypeToHint(typeMap[key]));
+        acc.push(convertTypeToHint(typeMap[key], kind));
       }
       return acc;
     }, []);
@@ -130,7 +136,7 @@ function getHintsForTokenState(
     return Object.keys(typeMap).reduce((acc, key) => {
       const type = typeMap[key];
       if (isInputType(typeMap[key])) {
-        acc.push(convertTypeToHint(type));
+        acc.push(convertTypeToHint(type, 'InputValueDef'));
       }
       return acc;
     }, []);
@@ -194,7 +200,7 @@ function getHintsForTokenState(
     const typeMap = schema.getTypeMap();
     return Object.keys(typeMap).reduce((acc, key) => {
       if (typeMap[key] instanceof GraphQLObjectType) {
-        acc.push(convertTypeToHint(typeMap[key]));
+        acc.push(convertTypeToHint(typeMap[key], 'UnionDef'));
       }
       return acc;
     }, []);

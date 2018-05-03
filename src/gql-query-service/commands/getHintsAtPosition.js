@@ -52,10 +52,10 @@ export default function getHintsAtPosition({
   // Definition kinds
   if (kind === 'Document') {
     return [
-      { text: 'query' },
-      { text: 'mutation' },
-      { text: 'subscription' },
-      { text: 'fragment' },
+      { text: 'query', kind },
+      { text: 'mutation', kind },
+      { text: 'subscription', kind },
+      { text: 'fragment', kind },
       { text: '{' },
     ];
   }
@@ -67,6 +67,7 @@ export default function getHintsAtPosition({
         text: token.string,
         type: type ? String(type) : '',
         description: type ? (type: any).description : '',
+        kind,
       },
     ];
   }
@@ -75,6 +76,7 @@ export default function getHintsAtPosition({
     return [
       {
         text: 'fragment',
+        kind,
       },
     ];
   }
@@ -100,6 +102,7 @@ export default function getHintsAtPosition({
         text: field.name,
         type: field.type.toString(),
         description: field.description,
+        kind,
       }));
     }
     return [];
@@ -112,6 +115,7 @@ export default function getHintsAtPosition({
         text: argDef.name,
         type: argDef.type.toString(),
         description: argDef.description,
+        kind: 'Arguments',
       }));
     }
   }
@@ -125,6 +129,7 @@ export default function getHintsAtPosition({
         text: field.name,
         type: field.type.toString(),
         description: field.description,
+        kind: 'ObjectValue',
       }));
     }
   }
@@ -144,6 +149,7 @@ export default function getHintsAtPosition({
         text: value.name,
         type: namedInputType.toString(),
         description: value.description,
+        kind: 'EnumValue',
       }));
     } else if (namedInputType === GraphQLBoolean) {
       return [
@@ -151,11 +157,13 @@ export default function getHintsAtPosition({
           text: 'true',
           type: String(GraphQLBoolean),
           description: 'Not false.',
+          kind: 'ListValue',
         },
         {
           text: 'false',
           type: String(GraphQLBoolean),
           description: 'Not true.',
+          kind: 'ListValue',
         },
       ];
     }
@@ -195,6 +203,7 @@ export default function getHintsAtPosition({
       text: type.name,
       type: typeName[type.constructor.name],
       description: type.description,
+      kind: 'TypeCondition',
     }));
   }
 
@@ -234,6 +243,7 @@ export default function getHintsAtPosition({
       description: `fragment ${frag.name.value} on ${
         frag.typeCondition.name.value
       }`,
+      kind,
     }));
   }
 
@@ -253,6 +263,7 @@ export default function getHintsAtPosition({
       text: type.name,
       type: typeName[type.constructor.name],
       description: type.description,
+      kind: 'ListType',
     }));
   }
 
@@ -272,6 +283,7 @@ export default function getHintsAtPosition({
       text: directive.name,
       type: typeName[directive.constructor.name],
       description: directive.description,
+      kind,
     }));
   }
 
