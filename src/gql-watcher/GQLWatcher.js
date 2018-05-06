@@ -1,13 +1,12 @@
 /* @flow */
 import boolValue from 'gql-shared/boolValue';
 import log from 'gql-shared/log';
-import sane from 'sane';
-import os from 'os';
+import noop from 'gql-shared/noop';
 import { execSync } from 'child_process';
+import { ChokidarWatcher, WatchmanWatcher } from './watcher';
 
 import watch, { type WatchOptions } from './watch';
 import { memoizeSingle } from 'gql-shared/memoize';
-import { type IWatcher } from './types';
 
 const logger = log.getLogger('gql-watcher');
 
@@ -17,45 +16,51 @@ type Options = $ReadOnly<{|
 |}>;
 
 export default class GQLWatcher {
-  _watchers: Array<*> = [];
-  _options: *;
+  _watchers: Map<Object, boolean> = new Map();
+  _options: Options;
 
   constructor(options: Options) {
     this._options = options;
   }
 
-  watch(options: $Rest<WatchOptions, {| Watcher: any, watch: any |}>) {
+  watch(options: $Diff<WatchOptions, $Exact<{ Watcher: any, watch: any }>>) {
     logger.info(`setting watcher for files ${JSON.stringify(options.files)}`);
     const watcher = watch({
       ...options,
       Watcher: this._getWatcher(boolValue(this._options.watchman, true)),
       watch: boolValue(this._options.watch, true),
     });
-    this._watchers.push(watcher);
-    return watcher;
+
+    this._watchers.set(watcher, true);
+
+    return {
+      onReady() {
+        return watcher.onReady();
+      },
+      close: () => {
+        return watcher.close().then(() => {
+          this._watchers.delete(watcher);
+        });
+      },
+    };
   }
 
-  close() {
-    this._watchers.forEach(watcher => {
-      watcher.close();
+  close(): Promise<void> {
+    const closePromises = [];
+    this._watchers.forEach((_, watcher) => {
+      closePromises.push(watcher.close());
     });
+    return Promise.all(closePromises).then(noop);
   }
 
-  _getWatcher = memoizeSingle((useWatchmanIfAvailable: boolean): Class<
-    IWatcher,
-  > => {
+  _getWatcher = memoizeSingle((useWatchmanIfAvailable: boolean) => {
     if (useWatchmanIfAvailable && this._checkWatchmanInstalled()) {
       logger.info('using "watchman" watcher.');
-      return sane.WatchmanWatcher;
+      return WatchmanWatcher;
     }
 
-    if (os.platform() === 'darwin') {
-      logger.info('using "fsevents" watcher.');
-      return sane.FSEventWatcher;
-    }
-
-    logger.info('using "node" watcher.');
-    return sane.NodeWatcher;
+    logger.info('using "chokidar" watcher.');
+    return ChokidarWatcher;
   });
 
   _checkWatchmanInstalled() {

@@ -1,7 +1,7 @@
 /* @flow */
 import os from 'os';
 import objectHash from 'object-hash';
-import { writeFileSync } from 'gql-shared/fs-utils';
+import fs from 'fs-extra';
 import { execSync } from 'child_process';
 import path from 'path';
 
@@ -12,7 +12,7 @@ export function createTempFiles(files: { [file: string]: string }): string {
   const dir = path.join(TEST_TEMP_DIR, objectHash(files));
   Object.keys(files).forEach(file => {
     const content = files[file];
-    writeFileSync(path.join(dir, file), content);
+    fs.outputFileSync(path.join(dir, file), content);
   });
   return dir;
 }

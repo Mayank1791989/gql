@@ -3,7 +3,8 @@ import globby from 'globby';
 import _debounce from 'lodash/debounce';
 import { type FileMatchConfig } from 'gql-config/types';
 import parseFileMatchConfig from 'gql-config/parseFileMatchConfig';
-import { type IWatcher, type WatchFile } from './types';
+import { type WatchFile } from './types';
+import { type IWatcher } from './watcher';
 import boolValue from 'gql-shared/boolValue';
 
 export type WatchOptions = {|
@@ -20,10 +21,15 @@ export default function watch(options: WatchOptions) {
   let watcher = null;
   const onReadyPromise = globby(glob, {
     cwd: options.rootPath,
-    ignore: ignored,
+    // eslint-disable-next-line no-nested-ternary
+    ignore: ignored ? (typeof ignored === 'string' ? [ignored] : ignored) : [],
   })
     .then(matches => {
-      const watchFiles = matches.map(file => ({ name: file, exists: true }));
+      const filesMap: Map<string, boolean> = new Map();
+      const watchFiles = matches.map(file => {
+        filesMap.set(file, true);
+        return { name: file, exists: true };
+      });
       if (!boolValue(options.watch, true)) {
         return watchFiles;
       }
@@ -35,6 +41,7 @@ export default function watch(options: WatchOptions) {
           Watcher: options.Watcher,
           glob,
           ignored,
+          filesMap,
         });
         watcher.on('ready', resolve);
       }).then(() => watchFiles);
@@ -51,10 +58,14 @@ export default function watch(options: WatchOptions) {
       return onReadyPromise;
     },
 
-    close(): void {
-      if (watcher) {
-        watcher.close();
-      }
+    close(): Promise<void> {
+      return new Promise(resolve => {
+        if (watcher) {
+          watcher.close(resolve);
+        } else {
+          resolve();
+        }
+      });
     },
   };
 }
@@ -88,23 +99,62 @@ class WatchEventsBatcher {
   }
 }
 
-function setupWatcher({ rootPath, onChange, glob, ignored, Watcher }) {
+function setupWatcher({
+  rootPath,
+  onChange,
+  glob,
+  ignored,
+  Watcher,
+  filesMap,
+}) {
   const watchEventsBatcher = new WatchEventsBatcher(onChange);
   const watcher = new Watcher(rootPath, {
     glob,
     ignored,
   });
 
-  watcher.on('change', filePath => {
-    watchEventsBatcher.add({ name: filePath, exists: true });
+  watcher.on('change', (filePath, root, stat) => {
+    // console.log('@change', filePath);
+    // Filter out events called on directory
+    // we dont need them
+    if (!stat.isDirectory()) {
+      filesMap.set(filePath, true);
+      watchEventsBatcher.add({ name: filePath, exists: true });
+    }
   });
 
-  watcher.on('add', filePath => {
-    watchEventsBatcher.add({ name: filePath, exists: true });
+  watcher.on('add', (filePath, root, stat) => {
+    // console.log('@add', filePath);
+    // Filter out events called on directory
+    // we dont need them
+    if (!stat.isDirectory()) {
+      filesMap.set(filePath, true);
+      watchEventsBatcher.add({ name: filePath, exists: true });
+    }
   });
 
-  watcher.on('delete', filePath => {
-    watchEventsBatcher.add({ name: filePath, exists: false });
+  watcher.on('delete', deletedFilePath => {
+    // NOTE: sometimes watcher delete event is trigged on dir
+    // instead of individual files inside that directory
+    // below detect and use filesMap to trigger them on files
+    // (this happens in windows)
+    // console.log('@delete', deletedFilePath);
+
+    // Case 1) When trigged on file
+    if (filesMap.has(deletedFilePath)) {
+      filesMap.delete(deletedFilePath);
+      watchEventsBatcher.add({ name: deletedFilePath, exists: false });
+    }
+
+    // Case 2) When triggered on directory
+    // we have to iterate over existing files list and remove all
+    // files starting from "filePath"
+    for (const filePath of filesMap.keys()) {
+      if (filePath.startsWith(deletedFilePath)) {
+        filesMap.delete(filePath);
+        watchEventsBatcher.add({ name: filePath, exists: false });
+      }
+    }
   });
 
   return watcher;

@@ -1,0 +1,303 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`add add dir should not trigger add event 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`add add file in new dir triggers add event 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirB/fileA.js",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`add add file outside watch root should not trigger add event 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`add add file triggers add event 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileX.js",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`delete directory delete outside root should not trigger event 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`delete directory delete should trigger delete event on all files inside deleted dir 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "exists": false,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": false,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": false,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`delete file delete trigger delete event on deleted file 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "exists": false,
+        "name": "watchdir/dirA/fileB.js",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`move (rename) move one dir to other dir should trigger two events delete and add 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "exists": false,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirB/fileB.js",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`move (rename) rename dir should trigger two events delete and add for all files inside dir 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "exists": false,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": false,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": false,
+        "name": "watchdir/dirA/fileD.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirC/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirC/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirC/fileD.js",
+      },
+    ],
+  ],
+]
+`;
+
+exports[`move (rename) rename file should trigger two events delete and add 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "exists": false,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileBB.js",
+      },
+    ],
+  ],
+]
+`;

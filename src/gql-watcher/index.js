@@ -1,3 +1,3 @@
 /* @flow */
 export { default } from './GQLWatcher';
-export type { WatchFile } from './watch';
+export type { WatchFile } from './types';
