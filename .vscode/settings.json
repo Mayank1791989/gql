@@ -33,6 +33,7 @@
 
   "flow.enabled": true,
   "flow.useLSP": true,
+  "flow.pathToFlow": "./node_modules/.bin/flow",
 
   "eslint.enable": true
 }
