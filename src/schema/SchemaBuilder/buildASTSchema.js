@@ -7,24 +7,9 @@ import find from 'graphql/jsutils/find';
 import invariant from 'graphql/jsutils/invariant';
 import keyValMap from 'graphql/jsutils/keyValMap';
 import { valueFromAST } from 'graphql/utilities/valueFromAST';
-import { TokenKind } from 'graphql/language/lexer';
 import { getArgumentValues } from 'graphql/execution/values';
 
 import {
-  LIST_TYPE,
-  NON_NULL_TYPE,
-  SCHEMA_DEFINITION,
-  SCALAR_TYPE_DEFINITION,
-  OBJECT_TYPE_DEFINITION,
-  INTERFACE_TYPE_DEFINITION,
-  ENUM_TYPE_DEFINITION,
-  UNION_TYPE_DEFINITION,
-  INPUT_OBJECT_TYPE_DEFINITION,
-  DIRECTIVE_DEFINITION,
-} from 'graphql/language/kinds';
-
-import {
-  type Location,
   type ASTNode,
   type DocumentNode,
   type DirectiveNode,
@@ -67,6 +52,7 @@ import {
 import {
   type GraphQLOutputType,
   type GraphQLInputType,
+  type DirectiveLocationEnum,
   // eslint-disable-line no-duplicate-imports
   type GraphQLType,
   isOutputType,
@@ -75,12 +61,21 @@ import {
   GraphQLNonNull,
   GraphQLInterfaceType,
   GraphQLObjectType,
-} from 'graphql/type/definition';
+  Kind,
+} from 'graphql';
 
-import {
-  // eslint-disable-line no-duplicate-imports
-  type DirectiveLocationEnum,
-} from 'graphql/type/directives';
+const {
+  LIST_TYPE,
+  NON_NULL_TYPE,
+  SCHEMA_DEFINITION,
+  SCALAR_TYPE_DEFINITION,
+  OBJECT_TYPE_DEFINITION,
+  INTERFACE_TYPE_DEFINITION,
+  ENUM_TYPE_DEFINITION,
+  UNION_TYPE_DEFINITION,
+  INPUT_OBJECT_TYPE_DEFINITION,
+  DIRECTIVE_DEFINITION,
+} = Kind;
 
 // import {
 //   __Schema,
@@ -442,7 +437,7 @@ export function buildASTSchema( // eslint-disable-line complexity
     );
   }
 
-  function makeInputValues(values: Array<InputValueDefinitionNode>) {
+  function makeInputValues(values: $ReadOnlyArray<InputValueDefinitionNode>) {
     return keyValMap(
       values,
       (value) => value.name.value,
@@ -533,50 +528,13 @@ function getDeprecationReason(directives: ?Array<DirectiveNode>): ?string {
 }
 
 /**
- * Given an ast node, returns its string description based on a contiguous
- * block full-line of comments preceding it.
+ * Given an ast node, returns its string description
  */
-export function getDescription(node: { loc?: Location }): ?string {
-  const { loc } = node;
-  if (!loc) {
-    return null;
+export function getDescription(node: any): string {
+  if (node.description && node.description.value) {
+    return node.description.value;
   }
-  const comments = [];
-  let minSpaces = null;
-  let token = loc.startToken.prev;
-  while (
-    token &&
-    token.kind === TokenKind.COMMENT &&
-    token.next &&
-    token.prev &&
-    token.line + 1 === token.next.line &&
-    token.line !== token.prev.line
-  ) {
-    const value = String(token.value);
-    const spaces = leadingSpaces(value);
-    if (minSpaces === null || spaces < minSpaces) {
-      minSpaces = spaces;
-    }
-    comments.push(value);
-    token = token.prev;
-  }
-  return (
-    comments
-      .reverse()
-      .map((comment) => comment.slice(minSpaces))
-      .join('\n')
-  );
-}
-
-// Count the number of spaces on the starting side of a string.
-function leadingSpaces(str) {
-  let i = 0;
-  for (; i < str.length; i += 1) {
-    if (str[i] !== ' ') {
-      break;
-    }
-  }
-  return i;
+  return '';
 }
 
 function cannotExecuteSchema() {

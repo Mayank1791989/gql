@@ -90,8 +90,8 @@ export interface GQLSchema { // eslint-disable-line
   getTypeMap(): { [name: string]: GQLNamedType },
 
   getDirective(name: string): ?GraphQLDirective,
-  getDirectives(): Array<GQLDirective>,
-  getPossibleTypes(type: any): Array<GQLObjectType>,
+  getDirectives(): $ReadOnlyArray<GQLDirective>,
+  getPossibleTypes(type: any): $ReadOnlyArray<GQLObjectType>,
 
   // NOTE: not available in graphql-js (npm) [added in our custom GraphqlSchema]
   // getTypeNode(name: string): ?TypeDefinitionNode;
@@ -126,7 +126,7 @@ export function getNamedType(type: ?GQLType): ?GQLNamedType {
 }
 
 export function printDescription(description: ?string): string {
-  return description ? `# ${description}` : '';
+  return description ? `"${description}"` : '';
 }
 
 function print(node: ?ASTNode, description: ?string, type: ?string): string {

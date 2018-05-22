@@ -1,6 +1,6 @@
-# Mutation contains all allowed mutations
+"Mutation contains all allowed mutations"
 type Mutation {
-  # Player Create contains all allowed mutations
+  "Player Create contains all allowed mutations"
   PlayerCreate(input: PlayerCreateInput!): PlayerCreatePayload
 }
 

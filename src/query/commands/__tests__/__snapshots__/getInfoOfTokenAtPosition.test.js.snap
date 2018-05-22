@@ -3,9 +3,9 @@
 exports[`directives args 1`] = `
 Object {
   "contents": Array [
-    "# Included when true.
+    "\\"Included when true.\\"
 if: Boolean!",
-    "# The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "\\"The \`Boolean\` scalar type represents \`true\` or \`false\`.\\"",
   ],
 }
 `;
@@ -13,9 +13,9 @@ if: Boolean!",
 exports[`directives core: args 1`] = `
 Object {
   "contents": Array [
-    "# Included when true.
+    "\\"Included when true.\\"
 if: Boolean!",
-    "# The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "\\"The \`Boolean\` scalar type represents \`true\` or \`false\`.\\"",
   ],
 }
 `;
@@ -23,9 +23,9 @@ if: Boolean!",
 exports[`directives core: name 1`] = `
 Object {
   "contents": Array [
-    "# Directs the executor to include this field or fragment only when the \`if\` argument is true.
+    "\\"Directs the executor to include this field or fragment only when the \`if\` argument is true.\\"
 directive @include(
-  # Included when true.
+  \\"Included when true.\\"
   if: Boolean!
 )
   on FIELD
@@ -38,9 +38,9 @@ directive @include(
 exports[`directives name info 1`] = `
 Object {
   "contents": Array [
-    "# Directs the executor to include this field or fragment only when the \`if\` argument is true.
+    "\\"Directs the executor to include this field or fragment only when the \`if\` argument is true.\\"
 directive @include(
-  # Included when true.
+  \\"Included when true.\\"
   if: Boolean!
 )
   on FIELD
@@ -53,9 +53,9 @@ directive @include(
 exports[`directives user defined: args 1`] = `
 Object {
   "contents": Array [
-    "# description for arg
+    "\\"description for arg\\"
 if: Boolean!",
-    "# The \`Boolean\` scalar type represents \`true\` or \`false\`.",
+    "\\"The \`Boolean\` scalar type represents \`true\` or \`false\`.\\"",
   ],
 }
 `;
@@ -63,9 +63,10 @@ if: Boolean!",
 exports[`directives user defined: name 1`] = `
 Object {
   "contents": Array [
-    "# some custom directive
+    "\\"some custom directive\\"
+\\"some custom directive\\"
 directive @customDirective(
-  # description for arg
+  \\"description for arg\\"
   if: Boolean!
 )
   on FIELD
@@ -78,7 +79,7 @@ exports[`fragments field arguments 1`] = `
 Object {
   "contents": Array [
     "(argument) size: Int!",
-    "# The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. ",
+    "\\"The \`Int\` scalar type represents non-fractional signed whole numeric values. Int can represent values between -(2^31) and 2^31 - 1. \\"",
   ],
 }
 `;
@@ -109,25 +110,31 @@ Object {
 exports[`meta field __schema 1`] = `
 Object {
   "contents": Array [
-    "# Access the current type schema of this server.
+    "\\"\\"\\"Access the current type schema of this server.\\"\\"\\"
 (meta-field) __schema: __Schema!",
-    "# A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all
-# available types and directives on the server, as well as the entry points for
-# query, mutation, and subscription operations.
+    "\\"\\"\\"
+A GraphQL Schema defines the capabilities of a GraphQL server. It exposes all
+available types and directives on the server, as well as the entry points for
+query, mutation, and subscription operations.
+\\"\\"\\"
 type __Schema {
-  # A list of all types supported by this server.
+  \\"\\"\\"A list of all types supported by this server.\\"\\"\\"
   types: [__Type!]!
 
-  # The type that query operations will be rooted at.
+  \\"\\"\\"The type that query operations will be rooted at.\\"\\"\\"
   queryType: __Type!
 
-  # If this server supports mutation, the type that mutation operations will be rooted at.
+  \\"\\"\\"
+  If this server supports mutation, the type that mutation operations will be rooted at.
+  \\"\\"\\"
   mutationType: __Type
 
-  # If this server support subscription, the type that subscription operations will be rooted at.
+  \\"\\"\\"
+  If this server support subscription, the type that subscription operations will be rooted at.
+  \\"\\"\\"
   subscriptionType: __Type
 
-  # A list of all directives supported by this server.
+  \\"\\"\\"A list of all directives supported by this server.\\"\\"\\"
   directives: [__Directive!]!
 }",
   ],
@@ -137,16 +144,18 @@ type __Schema {
 exports[`meta field __type 1`] = `
 Object {
   "contents": Array [
-    "# Request the type information of a single type.
+    "\\"\\"\\"Request the type information of a single type.\\"\\"\\"
 (meta-field) __type(name: String!): __Type",
-    "# The fundamental unit of any GraphQL Schema is the type. There are many kinds of
-# types in GraphQL as represented by the \`__TypeKind\` enum.
-#
-# Depending on the kind of a type, certain fields describe information about that
-# type. Scalar types provide no information beyond a name and description, while
-# Enum types provide their values. Object and Interface types provide the fields
-# they describe. Abstract types, Union and Interface, provide the Object types
-# possible at runtime. List and NonNull types compose other types.
+    "\\"\\"\\"
+The fundamental unit of any GraphQL Schema is the type. There are many kinds of
+types in GraphQL as represented by the \`__TypeKind\` enum.
+
+Depending on the kind of a type, certain fields describe information about that
+type. Scalar types provide no information beyond a name and description, while
+Enum types provide their values. Object and Interface types provide the fields
+they describe. Abstract types, Union and Interface, provide the Object types
+possible at runtime. List and NonNull types compose other types.
+\\"\\"\\"
 type __Type {
   kind: __TypeKind!
   name: String
@@ -165,11 +174,13 @@ type __Type {
 exports[`meta field __typename when inside Interface Type 1`] = `
 Object {
   "contents": Array [
-    "# The name of the current Object type at runtime.
+    "\\"\\"\\"The name of the current Object type at runtime.\\"\\"\\"
 (meta-field) __typename: String!",
-    "# The \`String\` scalar type represents textual data, represented as UTF-8 character
-# sequences. The String type is most often used by GraphQL to represent free-form
-# human-readable text.
+    "\\"\\"\\"
+The \`String\` scalar type represents textual data, represented as UTF-8 character
+sequences. The String type is most often used by GraphQL to represent free-form
+human-readable text.
+\\"\\"\\"
 scalar String",
   ],
 }
@@ -178,11 +189,13 @@ scalar String",
 exports[`meta field __typename when inside Object Type 1`] = `
 Object {
   "contents": Array [
-    "# The name of the current Object type at runtime.
+    "\\"\\"\\"The name of the current Object type at runtime.\\"\\"\\"
 (meta-field) __typename: String!",
-    "# The \`String\` scalar type represents textual data, represented as UTF-8 character
-# sequences. The String type is most often used by GraphQL to represent free-form
-# human-readable text.
+    "\\"\\"\\"
+The \`String\` scalar type represents textual data, represented as UTF-8 character
+sequences. The String type is most often used by GraphQL to represent free-form
+human-readable text.
+\\"\\"\\"
 scalar String",
   ],
 }
@@ -191,11 +204,13 @@ scalar String",
 exports[`meta field __typename when inside Union Type 1`] = `
 Object {
   "contents": Array [
-    "# The name of the current Object type at runtime.
+    "\\"\\"\\"The name of the current Object type at runtime.\\"\\"\\"
 (meta-field) __typename: String!",
-    "# The \`String\` scalar type represents textual data, represented as UTF-8 character
-# sequences. The String type is most often used by GraphQL to represent free-form
-# human-readable text.
+    "\\"\\"\\"
+The \`String\` scalar type represents textual data, represented as UTF-8 character
+sequences. The String type is most often used by GraphQL to represent free-form
+human-readable text.
+\\"\\"\\"
 scalar String",
   ],
 }
@@ -204,8 +219,9 @@ scalar String",
 exports[`mutations field: Include both input and output type 1`] = `
 Object {
   "contents": Array [
-    "# Player Create contains all allowed mutations
-(field) PlayerCreate(input: PlayerCreateInput!): PlayerCreatePayload",
+    "\\"Player Create contains all allowed mutations\\"
+(field) \\"Player Create contains all allowed mutations\\"
+  PlayerCreate(input: PlayerCreateInput!): PlayerCreatePayload",
     "input PlayerCreateInput {
   id: ID!
   name: String!
@@ -234,9 +250,10 @@ Object {
 exports[`mutations type: include description 1`] = `
 Object {
   "contents": Array [
-    "# Mutation contains all allowed mutations
+    "\\"Mutation contains all allowed mutations\\"
+\\"Mutation contains all allowed mutations\\"
 type Mutation {
-  # Player Create contains all allowed mutations
+  \\"Player Create contains all allowed mutations\\"
   PlayerCreate(input: PlayerCreateInput!): PlayerCreatePayload
 }",
   ],
@@ -258,7 +275,8 @@ Object {
 exports[`query query keyword 1`] = `
 Object {
   "contents": Array [
-    "# Query is the root query object
+    "\\"Query is the root query object\\"
+\\"Query is the root query object\\"
 type Query {
   node(id: String!): Node
   nodes(ids: [String!]): [Node]
@@ -271,8 +289,9 @@ type Query {
 exports[`subscriptions field: Include both input and output type 1`] = `
 Object {
   "contents": Array [
-    "# Like story subscription
-(field) LikeStory(input: LikeStorySubscriptionInput): LikeStorySubscriptionPayload",
+    "\\"Like story subscription\\"
+(field) \\"Like story subscription\\"
+  LikeStory(input: LikeStorySubscriptionInput): LikeStorySubscriptionPayload",
     "input LikeStorySubscriptionInput {
   clientSubscriptionId: String
   id: ID!
@@ -289,7 +308,7 @@ exports[`subscriptions input object fields 1`] = `
 Object {
   "contents": Array [
     "(field) id: ID!",
-    "# The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`\\"4\\"\`) or integer (such as \`4\`) input value will be accepted as an ID.",
+    "\\"The \`ID\` scalar type represents a unique identifier, often used to refetch an object or as key for a cache. The ID type appears in a JSON response as a String; however, it is not intended to be human-readable. When expected as an input type, any string (such as \`\\"4\\"\`) or integer (such as \`4\`) input value will be accepted as an ID.\\"",
   ],
 }
 `;
@@ -298,7 +317,7 @@ exports[`subscriptions type: include description 1`] = `
 Object {
   "contents": Array [
     "type Subscription {
-  # Like story subscription
+  \\"Like story subscription\\"
   LikeStory(input: LikeStorySubscriptionInput): LikeStorySubscriptionPayload
 }",
   ],

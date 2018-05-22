@@ -2,7 +2,7 @@
 import { NoUnusedTypeDefinition } from './NoUnusedTypeDefinition';
 import { KnownDirectives } from 'graphql/validation/rules/KnownDirectives';
 import { KnownArgumentNames } from 'graphql/validation/rules/KnownArgumentNames';
-import { ArgumentsOfCorrectType } from 'graphql/validation/rules/ArgumentsOfCorrectType';
+import { ValuesOfCorrectType } from 'graphql/validation/rules/ValuesOfCorrectType';
 import { ProvidedNonNullArguments } from 'graphql/validation/rules/ProvidedNonNullArguments';
 import { UniqueArgumentNames } from 'graphql/validation/rules/UniqueArgumentNames';
 import { UniqueDirectivesPerLocation } from 'graphql/validation/rules/UniqueDirectivesPerLocation';
@@ -12,7 +12,7 @@ export default {
     NoUnusedTypeDefinition,
     KnownDirectives,
     KnownArgumentNames,
-    ArgumentsOfCorrectType,
+    ValuesOfCorrectType,
     ProvidedNonNullArguments,
     UniqueArgumentNames,
     UniqueDirectivesPerLocation,
@@ -21,7 +21,7 @@ export default {
     NoUnusedTypeDefinition: 'warn',
     KnownDirectives: 'error',
     KnownArgumentNames: 'error',
-    ArgumentsOfCorrectType: 'error',
+    ValuesOfCorrectType: 'error',
     ProvidedNonNullArguments: 'error',
     UniqueArgumentNames: 'error',
     UniqueDirectivesPerLocation: 'error',

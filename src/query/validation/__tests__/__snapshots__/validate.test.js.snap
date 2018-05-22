@@ -7,11 +7,10 @@ Array [
       Object {
         "column": 23,
         "line": 4,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
-    "message": "Argument \\"size\\" has invalid value 
-Expected type \\"Int\\", found \\"some_string_value\\". (ArgumentsOfCorrectType)",
+    "message": "Expected type Int!, found \\"some_string_value\\". (ValuesOfCorrectType)",
     "severity": "error",
   },
 ]
@@ -26,7 +25,7 @@ Array [
       Object {
         "column": 11,
         "line": 4,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
     "message": "Field \\"image\\" argument \\"size\\" of type \\"Int!\\" is required but not provided. (ProvidedNonNullArguments)",
@@ -48,7 +47,7 @@ Array [
       Object {
         "column": 11,
         "line": 4,
-        "path": "GraphQL",
+        "path": "GraphQL request",
       },
     ],
     "message": "Field \\"me\\" of type \\"Player!\\" must have a selection of subfields. Did you mean \\"me { ... }\\"? (ScalarLeafs)",

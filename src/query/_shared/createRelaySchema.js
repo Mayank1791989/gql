@@ -6,7 +6,7 @@ import {
   GraphQLString,
   GraphQLList,
   DirectiveLocation,
-} from 'graphql/type';
+} from 'graphql';
 
 const relayDirective = new GQLDirective(null, {
   name: 'relay',
