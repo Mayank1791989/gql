@@ -43,7 +43,7 @@ export default class _GQLSchema {
   _queryType: ?GQLObjectType;
   _mutationType: ?GQLObjectType;
   _subscriptionType: ?GQLObjectType;
-  _directives: Array<GQLDirective>;
+  _directives: $ReadOnlyArray<GQLDirective>;
   _typeMap: { [typeName: string]: GQLNamedType } = {};
   _implementations: { [interfaceName: string]: Array<GQLObjectType> };
   _possibleTypeMap: ?{
@@ -131,7 +131,7 @@ export default class _GQLSchema {
     return this._nodeMap[name];
   }
 
-  getTypeDependents(name: string): Array<ASTNode> {
+  getTypeDependents(name: string): $ReadOnlyArray<ASTNode> {
     const type = this.getType(name);
     if (type) {
       return type.dependents || [];
@@ -139,7 +139,7 @@ export default class _GQLSchema {
     return [];
   }
 
-  getPossibleTypes(abstractType: any): Array<GQLObjectType> {
+  getPossibleTypes(abstractType: any): $ReadOnlyArray<GQLObjectType> {
     if (abstractType instanceof GQLUnionType) {
       return abstractType.getTypes();
     }
@@ -171,7 +171,7 @@ export default class _GQLSchema {
     return Boolean(possibleTypeMap[abstractType.name][possibleType.name]);
   }
 
-  getDirectives(): Array<GQLDirective> {
+  getDirectives(): $ReadOnlyArray<GQLDirective> {
     return this._directives;
   }
 

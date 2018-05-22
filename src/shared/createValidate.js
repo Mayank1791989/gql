@@ -5,7 +5,7 @@ import { type ValidateConfig } from '../config/GQLConfig';
 import { toGQLError, type GQLError } from './GQLError';
 import { type ValidationRulesPackage } from './types';
 
-import { ValidationContext } from 'graphql/validation/validate';
+import { ValidationContext } from 'graphql/validation';
 import { TypeInfo } from 'graphql/utilities/TypeInfo';
 import { visit, visitInParallel, visitWithTypeInfo } from 'graphql/language/visitor';
 

@@ -10,19 +10,6 @@ import { valueFromAST } from 'graphql/utilities/valueFromAST';
 import { getArgumentValues } from 'graphql/execution/values';
 
 import {
-  LIST_TYPE,
-  NON_NULL_TYPE,
-  SCHEMA_DEFINITION,
-  SCALAR_TYPE_DEFINITION,
-  OBJECT_TYPE_DEFINITION,
-  INTERFACE_TYPE_DEFINITION,
-  ENUM_TYPE_DEFINITION,
-  UNION_TYPE_DEFINITION,
-  INPUT_OBJECT_TYPE_DEFINITION,
-  DIRECTIVE_DEFINITION,
-} from 'graphql/language/kinds';
-
-import {
   type ASTNode,
   type DocumentNode,
   type DirectiveNode,
@@ -65,6 +52,7 @@ import {
 import {
   type GraphQLOutputType,
   type GraphQLInputType,
+  type DirectiveLocationEnum,
   // eslint-disable-line no-duplicate-imports
   type GraphQLType,
   isOutputType,
@@ -73,12 +61,21 @@ import {
   GraphQLNonNull,
   GraphQLInterfaceType,
   GraphQLObjectType,
+  Kind,
 } from 'graphql';
 
-import {
-  // eslint-disable-line no-duplicate-imports
-  type DirectiveLocationEnum,
-} from 'graphql/type/directives';
+const {
+  LIST_TYPE,
+  NON_NULL_TYPE,
+  SCHEMA_DEFINITION,
+  SCALAR_TYPE_DEFINITION,
+  OBJECT_TYPE_DEFINITION,
+  INTERFACE_TYPE_DEFINITION,
+  ENUM_TYPE_DEFINITION,
+  UNION_TYPE_DEFINITION,
+  INPUT_OBJECT_TYPE_DEFINITION,
+  DIRECTIVE_DEFINITION,
+} = Kind;
 
 // import {
 //   __Schema,
@@ -440,7 +437,7 @@ export function buildASTSchema( // eslint-disable-line complexity
     );
   }
 
-  function makeInputValues(values: Array<InputValueDefinitionNode>) {
+  function makeInputValues(values: $ReadOnlyArray<InputValueDefinitionNode>) {
     return keyValMap(
       values,
       (value) => value.name.value,
