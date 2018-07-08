@@ -19,7 +19,7 @@
     "check-code": "yarn run lint",
     "flow-check": "flow check",
     "lint": "eslint src",
-    "flow-typed-update": "rm -rf flow-typed/npm && flow-typed update",
+    "flow-typed-update": "rm -rf flow-typed/npm && flow-typed update && babel-node ./scripts/fix-flow-typed.js",
     "build": "yarn run clean && babel ./src --out-dir ./lib --ignore '**/__**__/**,**/node_modules/**'",
     "report-coverage": "codecov",
     "semantic-release": "semantic-release",
