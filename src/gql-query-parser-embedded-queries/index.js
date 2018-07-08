@@ -26,7 +26,7 @@ function validateOptions(options) {
 }
 
 class EmbeddedQueryParser extends EmbeddedLanguageParser implements IParser {
-  options: *;
+  options: Options;
   constructor(options: Options) {
     validateOptions(options);
     const { start, end, ...queryParserOptions } = options;

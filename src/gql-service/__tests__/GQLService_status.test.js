@@ -396,6 +396,7 @@ describe('Schema', () => {
 
     // Bug in graphql-js validate not causing this error
     // enable test when fixed in graphql-js
+    // eslint-disable-next-line no-restricted-properties
     test.skip('duplicate field args', async () => {
       const errors = await status({
         'schema/main.gql': `
@@ -676,6 +677,7 @@ describe('Schema', () => {
 
   describe('Report invalid inputObjectType', () => {
     // enable when implemented in graphql-js
+    // eslint-disable-next-line no-restricted-properties
     test.skip('duplicate fields', async () => {
       const errors = await status({
         'schema/query.gql': `

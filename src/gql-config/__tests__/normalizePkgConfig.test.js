@@ -1,5 +1,4 @@
 /* @flow */
-
 import { normalizePkgConfig } from '../normalizePkg';
 
 [

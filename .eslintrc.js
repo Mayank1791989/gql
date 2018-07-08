@@ -18,5 +18,6 @@ module.exports = {
     'no-negated-condition': 'off',
     'arrow-body-style': 'off',
     complexity: 'off',
+    'playlyfe/flowtype-no-existential-type': 'warn',
   },
 };

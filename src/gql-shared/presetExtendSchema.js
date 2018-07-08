@@ -36,7 +36,7 @@ export default function presetExtendSchema(
   if (result.extendSchemaErrors.length > 0) {
     throw new Error(
       // eslint-disable-next-line prefer-template
-      `Error in preset extendSchema \n\n` +
+      'Error in preset extendSchema \n\n' +
         prettyPrintGQLErrors(result.extendSchemaErrors, extensionFiles),
     );
   }

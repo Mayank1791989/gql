@@ -180,8 +180,8 @@ test('report if unsupported type extension used', async () => {
   expect(extendSchemaErrors).toMatchSnapshot();
 });
 
-async function runExtendSchema(extendSchemaSource, options): Promise<*> {
+async function runExtendSchema(extendSchemaSource, options) {
   const testSchema = await getSchema();
   const extendSchemaAST = parse(extendSchemaSource, options);
-  return extendSchema(testSchema, extendSchemaAST, options);
+  return Promise.resolve(extendSchema(testSchema, extendSchemaAST, options));
 }

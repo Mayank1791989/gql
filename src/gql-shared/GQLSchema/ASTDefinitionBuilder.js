@@ -1,8 +1,7 @@
 /* @flow */
-
 import keyMap from 'graphql/jsutils/keyMap';
 import keyValMap from 'graphql/jsutils/keyValMap';
-import type { ObjMap } from 'graphql/jsutils/ObjMap';
+import { type ObjMap } from 'graphql/jsutils/ObjMap';
 
 import {
   valueFromAST,

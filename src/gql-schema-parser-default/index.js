@@ -10,7 +10,7 @@ import { type IParser } from 'gql-shared/types';
 
 class SchemaParser implements IParser {
   _parser: any;
-  options: *;
+  options: {};
 
   constructor() {
     this.options = {};

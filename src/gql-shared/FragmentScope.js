@@ -28,7 +28,7 @@ export function checkFragmentScopesDocument(
 }
 
 export function validateFragmentScopes(scopes: Array<FragmentScope>): ?Error {
-  // console.log('validate scopes @TODO', scopes);
+  console.log('validate scopes @TODO', scopes);
   // scopes.forEach((scope) => {
   // });
   // TODOu

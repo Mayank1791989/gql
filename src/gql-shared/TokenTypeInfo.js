@@ -34,7 +34,7 @@ export default class TokenTypeInfo {
   _inputType: ?GraphQLInputType;
   _enumValue: ?GraphQLEnumValue;
 
-  _fieldDef: ?GraphQLField<*, *>;
+  _fieldDef: ?GraphQLField<any, any>;
 
   _objectFields: ?GraphQLInputFieldMap;
   _objectFieldDef: ?GraphQLInputField;
@@ -198,7 +198,7 @@ export default class TokenTypeInfo {
     return this._objectFieldDef;
   }
 
-  getFieldDef(): ?GraphQLField<*, *> {
+  getFieldDef(): ?GraphQLField<any, any> {
     return this._fieldDef;
   }
 

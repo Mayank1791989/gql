@@ -31,59 +31,73 @@ export default class GQLPrinter {
     this._options = options;
   }
 
-  printType = _memoize((typeDefn: GraphQLNamedType): string => {
-    if (typeDefn.astNode) {
-      return printASTNode(
-        typeDefn.astNode,
-        typeDefn.description,
-        this._options,
-      );
-    }
-    return trimRightSpaces(printType(typeDefn, this._options));
-  });
+  printType = _memoize(
+    (typeDefn: GraphQLNamedType): string => {
+      if (typeDefn.astNode) {
+        return printASTNode(
+          typeDefn.astNode,
+          typeDefn.description,
+          this._options,
+        );
+      }
+      return trimRightSpaces(printType(typeDefn, this._options));
+    },
+  );
 
-  printField = _memoize((fieldDefn: GraphQLField<any, any>): string => {
-    if (fieldDefn.astNode) {
-      return printASTNode(
-        fieldDefn.astNode,
-        fieldDefn.description,
-        this._options,
-      );
-    }
-    return trimRightSpaces(printField(fieldDefn, this._options));
-  });
+  printField = _memoize(
+    (fieldDefn: GraphQLField<any, any>): string => {
+      if (fieldDefn.astNode) {
+        return printASTNode(
+          fieldDefn.astNode,
+          fieldDefn.description,
+          this._options,
+        );
+      }
+      return trimRightSpaces(printField(fieldDefn, this._options));
+    },
+  );
 
-  printInputField = _memoize((fieldDefn: GraphQLInputField): string => {
-    if (fieldDefn.astNode) {
-      return printASTNode(
-        fieldDefn.astNode,
-        fieldDefn.description,
-        this._options,
-      );
-    }
-    return '';
-  });
+  printInputField = _memoize(
+    (fieldDefn: GraphQLInputField): string => {
+      if (fieldDefn.astNode) {
+        return printASTNode(
+          fieldDefn.astNode,
+          fieldDefn.description,
+          this._options,
+        );
+      }
+      return '';
+    },
+  );
 
-  printArg = _memoize((argDefn: GraphQLArgument): string => {
-    if (argDefn.astNode) {
-      return printASTNode(argDefn.astNode, argDefn.description, this._options);
-    }
+  printArg = _memoize(
+    (argDefn: GraphQLArgument): string => {
+      if (argDefn.astNode) {
+        return printASTNode(
+          argDefn.astNode,
+          argDefn.description,
+          this._options,
+        );
+      }
 
-    return dedent(printArg(argDefn, this._options));
-  });
+      return dedent(printArg(argDefn, this._options));
+    },
+  );
 
-  printDirective = _memoize((directive: GraphQLDirective): string => {
-    if (directive.astNode) {
-      return printASTNode(
-        directive.astNode,
-        directive.description,
-        this._options,
-      );
-    }
+  printDirective = _memoize(
+    (directive: GraphQLDirective): string => {
+      if (directive.astNode) {
+        return printASTNode(
+          directive.astNode,
+          directive.description,
+          this._options,
+        );
+      }
 
-    // NOTE: for core directives astNode not present have to print type
-    return trimRightSpaces(printDirective(directive, this._options));
-  });
+      // NOTE: for core directives astNode not present have to print type
+      return trimRightSpaces(printDirective(directive, this._options));
+    },
+  );
 
   printASTNode = (astNode: ASTNode): string => {
     return dedent(printASTNode(astNode, null, this._options));

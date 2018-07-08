@@ -131,6 +131,7 @@ describe('query-files', () => {
 
   describe('preset', () => {
     ['relay', 'apollo'].forEach(preset => {
+      // eslint-disable-next-line
       test.skip(`preset: ${preset}`, () => {
         expect(
           new GQLConfig({

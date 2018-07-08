@@ -4,7 +4,7 @@ import yargs from 'yargs';
 import GQLService from 'gql-service';
 import { prettyPrintGQLErrors } from 'gql-shared/GQLError';
 
-// eslint-disable-next-line playlyfe/flowtype-no-unused-expressions
+// eslint-disable-next-line playlyfe/babel-no-unused-expressions, playlyfe/flowtype-no-unused-expressions
 yargs
   .usage('GQL Command-Line Interface.\nUsage: $0 [command]')
   .help('h')

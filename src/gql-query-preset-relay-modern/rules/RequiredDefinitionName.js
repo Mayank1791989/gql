@@ -8,7 +8,7 @@ export function RequiredDefinitionName(context: any): any {
         node.definitions.forEach(definition => {
           if (!definition.name) {
             context.reportError(
-              new GraphQLError(`name is missing.`, [definition]),
+              new GraphQLError('name is missing.', [definition]),
             );
           }
         });

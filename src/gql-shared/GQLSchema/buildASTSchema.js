@@ -3,7 +3,7 @@
 /**
  * NOTE: patched version
  */
-import type { ObjMap } from 'graphql/jsutils/ObjMap';
+import { type ObjMap } from 'graphql/jsutils/ObjMap';
 import {
   type DocumentNode,
   type SchemaDefinitionNode,

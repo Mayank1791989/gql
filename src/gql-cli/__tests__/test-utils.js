@@ -1,5 +1,4 @@
 /* @flow */
-
 import { exec } from 'child_process';
 const CLI_PATH = require.resolve('./cli-es5.js');
 

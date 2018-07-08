@@ -113,7 +113,7 @@ const genOnlineParserOptions = (options: QueryParserOptions) => ({
 
 export default class QueryParser implements IParser {
   _parser: any;
-  options: *;
+  options: {};
 
   constructor(options: ?QueryParserOptions) {
     this.options = options || {};
