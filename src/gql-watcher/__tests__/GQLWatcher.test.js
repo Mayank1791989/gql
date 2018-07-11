@@ -4,6 +4,7 @@ import GQLWatcher from '../GQLWatcher';
 import { createTempFiles } from 'gql-test-utils/file';
 import path from 'path';
 import fs from 'fs-extra';
+import parseBool from 'gql-shared/parseBool';
 
 async function setupWatcher(onChange: Function) {
   const rootPath = createTempFiles({
@@ -17,7 +18,10 @@ async function setupWatcher(onChange: Function) {
     'outsidewatchdir/dirA/fileA.js': 'fileA.js',
   });
 
-  const watcher = new GQLWatcher({ watch: true, watchman: true });
+  const watcher = new GQLWatcher({
+    watch: true,
+    watchman: parseBool(process.env.TEST_USE_WATCHMAN || 'true'),
+  });
   const watchSubscription = watcher.watch({
     rootPath,
     files: 'watchdir/**/*.js',
@@ -33,7 +37,7 @@ async function setupWatcher(onChange: Function) {
   });
 
   await watchSubscription.onReady();
-  return { rootPath, watcher: watchSubscription };
+  return { rootPath, watcher };
 }
 
 describe('add', () => {
@@ -159,7 +163,7 @@ describe('move (rename)', () => {
     await watcher.close();
   });
 
-  test('move one dir to other dir should trigger two events delete and add', async () => {
+  test('move file from one dir to other dir should trigger two events delete and add', async () => {
     const onChangeMock = jest.fn();
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
 
@@ -174,7 +178,7 @@ describe('move (rename)', () => {
     await watcher.close();
   });
 
-  test('rename dir should trigger two events delete and add for all files inside dir', async () => {
+  test.only('rename dir should trigger two events delete and add for all files inside dir', async () => {
     const onChangeMock = jest.fn();
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
 

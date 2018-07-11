@@ -5,6 +5,7 @@ import common from 'sane/src/common';
 import fs from 'fs';
 import sysPath from 'path';
 import { type IWatcher, type IWatcherOptions } from './types';
+import parseBool from 'gql-shared/parseBool';
 
 export default class ChokidarWatcher extends EventsEmitter implements IWatcher {
   _watcher: chokidar.FSWatcher;
@@ -34,6 +35,10 @@ export default class ChokidarWatcher extends EventsEmitter implements IWatcher {
         ignored: opts.ignored,
         ignoreInitial: true,
         cwd: dir,
+        alwaysStat: true,
+        useFsEvents: process.env.TEST_USE_FS_EVENTS
+          ? parseBool(process.env.TEST_USE_FS_EVENTS)
+          : undefined,
       }),
     )
       .on('ready', () => {
@@ -62,6 +67,8 @@ export default class ChokidarWatcher extends EventsEmitter implements IWatcher {
 // Patch watcher to fix missing 'remove' event when dir renamed (only add event is called)
 function withFixForMissingRemoveEvent(watcher) {
   watcher.on('raw', (rawEvent, _, info) => {
+    console.log(rawEvent, _, info);
+
     // watchedPath not present in case of 'fsevents'
     if (!info.watchedPath) {
       // NOTE: patch only required when nodefs used (not fsevents).
