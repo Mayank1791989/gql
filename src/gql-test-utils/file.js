@@ -2,7 +2,6 @@
 import os from 'os';
 import objectHash from 'object-hash';
 import fs from 'fs-extra';
-import { execSync } from 'child_process';
 import path from 'path';
 
 export const TEST_TEMP_DIR = path.join(os.tmpdir(), 'gql-test');
@@ -18,5 +17,5 @@ export function createTempFiles(files: { [file: string]: string }): string {
 }
 
 export function removeTestTempDir() {
-  execSync(`rm -rf ${TEST_TEMP_DIR}`);
+  fs.removeSync(TEST_TEMP_DIR);
 }

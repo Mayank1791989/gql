@@ -45,13 +45,11 @@ describe('add', () => {
     const onChangeMock = jest.fn();
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
     // create file
-    fs.outputFileSync(
+    await fs.outputFile(
       path.join(rootPath, 'watchdir/dirA/fileX.js'),
       'fileX.js',
     );
-
-    // wait for all events called
-    await wait(1000);
+    await waitForFsEvents();
 
     expect(onChangeMock.mock.calls).toMatchSnapshot();
 
@@ -62,13 +60,12 @@ describe('add', () => {
     const onChangeMock = jest.fn();
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
     // create file
-    fs.outputFileSync(
+    await fs.outputFile(
       path.join(rootPath, 'watchdir/dirB/fileA.js'),
       'fileA.js',
     );
-
     // wait for all events called
-    await wait(1000);
+    await waitForFsEvents();
 
     expect(onChangeMock.mock.calls).toMatchSnapshot();
 
@@ -80,13 +77,13 @@ describe('add', () => {
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
 
     // create file
-    fs.outputFileSync(
+    await fs.outputFile(
       path.join(rootPath, 'outsidewatchdir/dirA/fileX.js'),
       'fileX.js',
     );
 
     // wait for all events called
-    await wait(1000);
+    await waitForFsEvents();
 
     expect(onChangeMock.mock.calls).toMatchSnapshot();
 
@@ -98,10 +95,10 @@ describe('add', () => {
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
 
     // create file
-    fs.mkdirp(path.join(rootPath, 'watchdir/dirB'));
+    await fs.mkdirp(path.join(rootPath, 'watchdir/dirB'));
 
     // wait for all fs events called
-    await wait(1000);
+    await waitForFsEvents();
 
     expect(onChangeMock.mock.calls).toMatchSnapshot();
 
@@ -114,8 +111,8 @@ describe('delete', () => {
     const onChangeMock = jest.fn();
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
 
-    fs.removeSync(path.join(rootPath, 'watchdir/dirA/fileB.js'));
-    await wait(1000);
+    await fs.remove(path.join(rootPath, 'watchdir/dirA/fileB.js'));
+    await waitForFsEvents();
 
     expect(onChangeMock.mock.calls).toMatchSnapshot();
 
@@ -126,8 +123,8 @@ describe('delete', () => {
     const onChangeMock = jest.fn();
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
 
-    fs.removeSync(path.join(rootPath, 'watchdir/dirA'));
-    await wait(1000);
+    await fs.remove(path.join(rootPath, 'watchdir/dirA'));
+    await waitForFsEvents();
 
     expect(onChangeMock.mock.calls).toMatchSnapshot();
 
@@ -138,8 +135,8 @@ describe('delete', () => {
     const onChangeMock = jest.fn();
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
 
-    fs.removeSync(path.join(rootPath, 'outsidewatchdir/dirA'));
-    await wait(1000);
+    await fs.remove(path.join(rootPath, 'outsidewatchdir/dirA'));
+    await waitForFsEvents();
 
     expect(onChangeMock.mock.calls).toMatchSnapshot();
 
@@ -152,11 +149,11 @@ describe('move (rename)', () => {
     const onChangeMock = jest.fn();
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
 
-    fs.move(
+    await fs.move(
       path.join(rootPath, 'watchdir/dirA/fileB.js'),
       path.join(rootPath, 'watchdir/dirA/fileBB.js'),
     );
-    await wait(1000);
+    await waitForFsEvents();
 
     expect(onChangeMock.mock.calls).toMatchSnapshot();
 
@@ -167,26 +164,43 @@ describe('move (rename)', () => {
     const onChangeMock = jest.fn();
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
 
-    fs.move(
+    await fs.move(
       path.join(rootPath, 'watchdir/dirA/fileB.js'),
       path.join(rootPath, 'watchdir/dirB/fileB.js'),
     );
-    await wait(1000);
+    await waitForFsEvents();
 
     expect(onChangeMock.mock.calls).toMatchSnapshot();
 
     await watcher.close();
   });
 
-  test.only('rename dir should trigger two events delete and add for all files inside dir', async () => {
+  test('rename dir should trigger two events delete and add for all files inside dir', async () => {
     const onChangeMock = jest.fn();
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
 
-    fs.move(
+    await fs.move(
       path.join(rootPath, 'watchdir/dirA'),
       path.join(rootPath, 'watchdir/dirC'),
     );
-    await wait(1000);
+    await waitForFsEvents();
+
+    // console.log(JSON.stringify(onChangeMock.mock.calls, null, 2));
+    expect(onChangeMock.mock.calls).toMatchSnapshot();
+
+    await watcher.close();
+  });
+
+  // When sync is used fs events emitted are different
+  test('[using sync] rename dir should trigger two events delete and add for all files inside dir', async () => {
+    const onChangeMock = jest.fn();
+    const { rootPath, watcher } = await setupWatcher(onChangeMock);
+
+    fs.moveSync(
+      path.join(rootPath, 'watchdir/dirA'),
+      path.join(rootPath, 'watchdir/dirC'),
+    );
+    await waitForFsEvents();
 
     // console.log(JSON.stringify(onChangeMock.mock.calls, null, 2));
     expect(onChangeMock.mock.calls).toMatchSnapshot();
@@ -194,6 +208,10 @@ describe('move (rename)', () => {
     await watcher.close();
   });
 });
+
+function waitForFsEvents(): Promise<void> {
+  return wait(1000);
+}
 
 function wait(timeInMsec: number): Promise<void> {
   return new Promise(resolve => {

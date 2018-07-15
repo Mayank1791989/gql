@@ -6,6 +6,7 @@ import parseFileMatchConfig from 'gql-config/parseFileMatchConfig';
 import { type WatchFile } from './types';
 import { type IWatcher } from './watcher';
 import boolValue from 'gql-shared/boolValue';
+import normalize from 'normalize-path';
 
 export type WatchOptions = {|
   rootPath: string,
@@ -80,6 +81,23 @@ class WatchEventsBatcher {
     this._listener = listener;
   }
 
+  add(eventOrEvents: WatchFile | Array<WatchFile>) {
+    this._queue.push(
+      ...(Array.isArray(eventOrEvents) ? eventOrEvents : [eventOrEvents]),
+    );
+    this.__dispatchQueue();
+  }
+
+  // will merge|remove duplicate events
+  __normalizeEvents = events => {
+    // NOTE: using map to preserve events order
+    const eventsByNameMap: Map<string, WatchFile> = new Map();
+    events.forEach(event => {
+      eventsByNameMap.set(event.name, event);
+    });
+    return Array.from(eventsByNameMap.values());
+  };
+
   __dispatchQueue = _debounce(() => {
     const events = this._queue;
     this._queue = [];
@@ -88,15 +106,8 @@ class WatchEventsBatcher {
       return;
     }
 
-    this._listener(events);
+    this._listener(this.__normalizeEvents(events));
   }, this._waitTimeForBatching);
-
-  add(eventOrEvents: WatchFile | Array<WatchFile>) {
-    this._queue.push(
-      ...(Array.isArray(eventOrEvents) ? eventOrEvents : [eventOrEvents]),
-    );
-    this.__dispatchQueue();
-  }
 }
 
 function setupWatcher({
@@ -114,22 +125,24 @@ function setupWatcher({
   });
 
   watcher.on('change', (filePath, root, stat) => {
+    const name = normalize(filePath);
     // console.log('@change', filePath);
     // Filter out events called on directory
     // we dont need them
     if (!stat.isDirectory()) {
-      filesMap.set(filePath, true);
-      watchEventsBatcher.add({ name: filePath, exists: true });
+      filesMap.set(name, true);
+      watchEventsBatcher.add({ name, exists: true });
     }
   });
 
   watcher.on('add', (filePath, root, stat) => {
+    const name = normalize(filePath);
     // console.log('@add', filePath);
     // Filter out events called on directory
     // we dont need them
     if (!stat.isDirectory()) {
-      filesMap.set(filePath, true);
-      watchEventsBatcher.add({ name: filePath, exists: true });
+      filesMap.set(name, true);
+      watchEventsBatcher.add({ name, exists: true });
     }
   });
 
@@ -139,18 +152,19 @@ function setupWatcher({
     // below detect and use filesMap to trigger them on files
     // (this happens in windows)
     // console.log('@delete', deletedFilePath);
+    const deletedName = normalize(deletedFilePath);
 
     // Case 1) When trigged on file
-    if (filesMap.has(deletedFilePath)) {
-      filesMap.delete(deletedFilePath);
-      watchEventsBatcher.add({ name: deletedFilePath, exists: false });
+    if (filesMap.has(deletedName)) {
+      filesMap.delete(deletedName);
+      watchEventsBatcher.add({ name: deletedName, exists: false });
     }
 
     // Case 2) When triggered on directory
     // we have to iterate over existing files list and remove all
     // files starting from "filePath"
     for (const filePath of filesMap.keys()) {
-      if (filePath.startsWith(deletedFilePath)) {
+      if (filePath.startsWith(deletedName)) {
         filesMap.delete(filePath);
         watchEventsBatcher.add({ name: filePath, exists: false });
       }

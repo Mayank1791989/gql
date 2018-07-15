@@ -10,7 +10,7 @@ os:
 env:
   - TEST_USE_WATCHMAN=true
   - TEST_USE_WATCHMAN=false
-  # - TEST_USE_WATCHMAN=false TEST_USE_FS_EVENTS=false
+  - TEST_USE_WATCHMAN=false TEST_USE_FS_EVENTS=false
   - TEST_USE_WATCHMAN=false TEST_USE_FS_EVENTS=true
 
 node_js:

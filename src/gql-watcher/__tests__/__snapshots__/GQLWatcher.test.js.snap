@@ -187,6 +187,55 @@ Array [
 ]
 `;
 
+exports[`move (rename) [using sync] rename dir should trigger two events delete and add for all files inside dir 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+  Array [
+    Array [
+      Object {
+        "exists": false,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": false,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": false,
+        "name": "watchdir/dirA/fileD.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirC/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirC/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirC/fileD.js",
+      },
+    ],
+  ],
+]
+`;
+
 exports[`move (rename) move file from one dir to other dir should trigger two events delete and add 1`] = `
 Array [
   Array [

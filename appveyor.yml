@@ -1,0 +1,44 @@
+environment:
+  watchman_download_url: "https://ci.appveyor.com/api/projects/wez/watchman/artifacts/watchman.zip?branch=master&job=Environment:+WATCHMAN_WIN7_COMPAT%3D&pr=false"
+  watchman_zip_path: "%APPVEYOR_BUILD_FOLDER%\\watchman.zip"
+  watchman_path: "%APPVEYOR_BUILD_FOLDER%\\watchman"
+
+  matrix:
+    - nodejs_version: 8
+      TEST_USE_WATCHMAN: true
+    - nodejs_version: 8
+      TEST_USE_WATCHMAN: false
+    # - nodejs_version: 9
+    #   TEST_USE_WATCHMAN: true
+    # - nodejs_version: 9
+    #   TEST_USE_WATCHMAN: false
+
+branches:
+  except:
+    - /greenkeeper/ # greenkeeper branches
+
+build: off
+
+install:
+  # install nodejs
+  - ps: Install-Product node $env:nodejs_version
+  # install watchman
+  - ps: |
+      $url=$env:watchman_download_url
+      $zipPath=$env:watchman_zip_path
+      $folderPath=$env:watchman_path
+      # download zip
+      (New-Object System.Net.WebClient).DownloadFile($url, $zipPath)
+      # extract zip
+      Expand-Archive $zipPath -DestinationPath $folderPath
+      # remove zip
+      Remove-Item -Path $zipPath
+  - set PATH=%watchman_path%;%PATH%
+  - set CI=true
+  - yarn install
+
+test_script:
+  - node --version
+  - yarn --version
+  - watchman --version
+  - yarn testonly --testPathPattern=GQLWatcher

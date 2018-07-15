@@ -57,6 +57,7 @@
     "log-symbols": "2.2.0",
     "micromatch": "3.1.10",
     "minimatch": "3.0.4",
+    "normalize-path": "3.0.0",
     "parse-glob": "3.0.4",
     "plur": "3.0.1",
     "promise-retry": "1.1.1",

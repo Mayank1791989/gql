@@ -66,23 +66,27 @@ export default class ChokidarWatcher extends EventsEmitter implements IWatcher {
 
 // Patch watcher to fix missing 'remove' event when dir renamed (only add event is called)
 function withFixForMissingRemoveEvent(watcher) {
-  watcher.on('raw', (rawEvent, _, info) => {
-    console.log(rawEvent, _, info);
-
+  watcher.on('raw', (rawEvent, file, info) => {
     // watchedPath not present in case of 'fsevents'
     if (!info.watchedPath) {
       // NOTE: patch only required when nodefs used (not fsevents).
       return;
     }
 
-    if (rawEvent === 'rename' && watcher._watched[info.watchedPath]) {
-      fs.stat(info.watchedPath, err => {
-        if (err && err.code === 'ENOENT') {
-          // if dir not exist
-          const directory = sysPath.dirname(info.watchedPath);
-          const item = sysPath.basename(info.watchedPath);
-          // remove watcher
-          watcher._remove(directory, item);
+    if (rawEvent === 'rename') {
+      // sometime event called on path with file and sometime with path and invalid file
+      const filePath = sysPath.join(info.watchedPath, file);
+      [filePath, info.watchedPath].forEach(itemPath => {
+        if (watcher._watched[itemPath]) {
+          fs.exists(itemPath, exists => {
+            if (!exists) {
+              // if dir not exist
+              const directory = sysPath.dirname(itemPath);
+              const item = sysPath.basename(itemPath);
+              // remove watcher
+              watcher._remove(directory, item);
+            }
+          });
         }
       });
     }
