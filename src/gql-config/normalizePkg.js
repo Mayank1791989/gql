@@ -1,6 +1,7 @@
 /* @flow */
 import path from 'path';
 import { type PkgConfig } from './types';
+import normalizePath from 'normalize-path';
 
 export function normalizePkgConfig(prefix: string, pkgConfig: PkgConfig) {
   let pkgName = null;
@@ -20,14 +21,16 @@ export function normalizePkgConfig(prefix: string, pkgConfig: PkgConfig) {
 }
 
 export function normalizePkgName(prefix: string, pkg: string) {
+  const normalizedPkg = normalizePath(pkg);
+
   if (path.isAbsolute(pkg) || isRelative(pkg)) {
-    return pkg;
+    return normalizedPkg;
   }
 
-  const parsed = parsePkg(pkg);
+  const parsed = parsePkg(normalizedPkg);
 
   if (parsed.name.startsWith(prefix)) {
-    return pkg;
+    return normalizedPkg;
   }
 
   // need to add prefix
@@ -58,9 +61,5 @@ function isRelative(p: string): boolean {
   // 1) ./ or .\
   // 2) ../ or ..\
   // 3) ~/ (linux)
-  return (
-    p.startsWith(`.${path.sep}`) ||
-    p.startsWith(`..${path.sep}`) ||
-    p.startsWith('~/')
-  );
+  return p.startsWith('./') || p.startsWith('../') || p.startsWith('~/');
 }

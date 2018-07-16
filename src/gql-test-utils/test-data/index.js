@@ -6,6 +6,7 @@ import { type GQLHint, type GQLLocation } from 'gql-shared/types';
 import { dedent } from 'dentist';
 import fs from 'fs-extra';
 import _memoize from 'lodash/memoize';
+import normalizePath from 'normalize-path';
 
 export async function getSchema(): Promise<GQLSchema> {
   const gqlService = new GQLService({
@@ -23,7 +24,7 @@ export const getSchemaFiles = _memoize(() => {
   const schemaDir = path.join(__dirname, 'schema');
   const filePaths = fs.readdirSync(schemaDir);
   return filePaths.reduce((acc, filePath) => {
-    acc[path.join('schema', filePath)] = fs.readFileSync(
+    acc[normalizePath(path.join('schema', filePath))] = fs.readFileSync(
       path.join(schemaDir, filePath),
       {
         encoding: 'utf8',
