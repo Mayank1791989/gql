@@ -9,7 +9,7 @@ Object {
  ✖ Query root type must be provided.
 
 
-  /tmp/gql-test/bf6ae18915d7e8e58c3f151b86a211324269988b/schema/schema.gql(2,7)
+  $TEST_TEMP_DIR/bf6ae18915d7e8e58c3f151b86a211324269988b/schema/schema.gql(2,7)
 
  ⚠ Unused type definition 'Querys' (NoUnusedTypeDefinition)
    1 | 

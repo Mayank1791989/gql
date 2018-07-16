@@ -4,15 +4,15 @@ exports[`Support preset extendSchema report errors if errors in extendSchema 1`]
 Array [
   "Error in preset extendSchema 
 
-  [4m./custom-preset(3,9)[24m
+  ./custom-preset(3,9)
 
- [31m✖[39m Field \\"Query.id\\" already exists in the schema. It cannot also be defined in this type extension.
-[2m   2 |       extend type Query {[22m
-[2m > 3 |         id: String! # id already present in main schema[22m
-[2m     |         ^[22m
-[2m   4 |       }[22m
+ ✖ Field \\"Query.id\\" already exists in the schema. It cannot also be defined in this type extension.
+   2 |       extend type Query {
+ > 3 |         id: String! # id already present in main schema
+     |         ^
+   4 |       }
 
-  [31m1  error[39m
+  1  error
 ",
 ]
 `;
