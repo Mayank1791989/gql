@@ -105,6 +105,9 @@
       "jest-watch-typeahead/filename",
       "jest-watch-typeahead/testname"
     ],
+    "snapshotSerializers": [
+      "<rootDir>/scripts/jest-gql-snapshot-serializer"
+    ],
     "moduleDirectories": [
       "<rootDir>/node_modules",
       "<rootDir>/src"

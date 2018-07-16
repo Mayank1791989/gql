@@ -41,4 +41,4 @@ test_script:
   - node --version
   - yarn --version
   - watchman --version
-  - yarn testonly --testPathPattern=GQLWatcher
+  - yarn testonly

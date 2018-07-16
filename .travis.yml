@@ -30,18 +30,18 @@ before_install: ./travis-$TRAVIS_OS_NAME-install.sh
 
 install: yarn install
 
-script: TEST_USE_WATCHMAN=$TEST_USE_WATCHMAN TEST_USE_FS_EVENTS=$TEST_USE_FS_EVENTS yarn testonly --testPathPattern=GQLWatcher
+script: yarn testonly
 
-jobs:
-  include:
-    - stage: release
-      if: branch = master
-      node_js: '8'
-      os: linux
-      install: yarn install
-      script: yarn build
-      deploy:
-        provider: script
-        skip_cleanup: true
-        script:
-          - yarn semantic-release
+# jobs:
+#   include:
+#     - stage: release
+#       if: branch = master
+#       node_js: '8'
+#       os: linux
+#       install: yarn install
+#       script: yarn build
+#       deploy:
+#         provider: script
+#         skip_cleanup: true
+#         script:
+#           - yarn semantic-release

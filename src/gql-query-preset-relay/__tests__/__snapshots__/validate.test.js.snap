@@ -7,12 +7,12 @@ Array [
       Object {
         "column": 3,
         "line": 4,
-        "path": "/tmp/gql-test/2c178f90d07db92c2eaa7e2dd8610735b8491f87/query/test.js",
+        "path": "$TEST_TEMP_DIR/2c178f90d07db92c2eaa7e2dd8610735b8491f87/query/test.js",
       },
       Object {
         "column": 3,
         "line": 9,
-        "path": "/tmp/gql-test/2c178f90d07db92c2eaa7e2dd8610735b8491f87/query/test.js",
+        "path": "$TEST_TEMP_DIR/2c178f90d07db92c2eaa7e2dd8610735b8491f87/query/test.js",
       },
     ],
     "message": "Expected exactly one definition. (ExactlyOneDefinition)",
@@ -28,7 +28,7 @@ Array [
       Object {
         "column": 3,
         "line": 2,
-        "path": "/tmp/gql-test/5c79f83b15a4e324396e3fc7e002a18ae31f5bc2/query/test.js",
+        "path": "$TEST_TEMP_DIR/5c79f83b15a4e324396e3fc7e002a18ae31f5bc2/query/test.js",
       },
     ],
     "message": "Definition is not executable (Only fragment, mutation, query or subscription is allowed). (ExecutableDefinitions)",
@@ -44,7 +44,7 @@ Array [
       Object {
         "column": 17,
         "line": 3,
-        "path": "/tmp/gql-test/f1e9f40e9c127eb7820c5fc50c215350e3dbbfab/query/test.js",
+        "path": "$TEST_TEMP_DIR/f1e9f40e9c127eb7820c5fc50c215350e3dbbfab/query/test.js",
       },
     ],
     "message": "Expected type Int!, found \\"some_string_value\\". (ValuesOfCorrectType)",
@@ -62,7 +62,7 @@ Array [
       Object {
         "column": 5,
         "line": 3,
-        "path": "/tmp/gql-test/2475cd5106a22dd238e79ca93bdb0138f65761fd/query/test.js",
+        "path": "$TEST_TEMP_DIR/2475cd5106a22dd238e79ca93bdb0138f65761fd/query/test.js",
       },
     ],
     "message": "Field \\"image\\" argument \\"size\\" of type \\"Int!\\" is required but not provided. (ProvidedNonNullArguments)",
@@ -84,7 +84,7 @@ Array [
       Object {
         "column": 5,
         "line": 3,
-        "path": "/tmp/gql-test/ac23a5be7f29c150dfb1776aac3f026173924946/query/test.js",
+        "path": "$TEST_TEMP_DIR/ac23a5be7f29c150dfb1776aac3f026173924946/query/test.js",
       },
     ],
     "message": "Field \\"me\\" of type \\"User!\\" must have a selection of subfields. Did you mean \\"me { ... }\\"? (ScalarLeafs)",
@@ -100,7 +100,7 @@ Array [
       Object {
         "column": 3,
         "line": 2,
-        "path": "/tmp/gql-test/289c472df0d60fed029911c980ee9299c8783736/query/test.js",
+        "path": "$TEST_TEMP_DIR/289c472df0d60fed029911c980ee9299c8783736/query/test.js",
       },
     ],
     "message": "query name is missing. (RequiredOperationName)",

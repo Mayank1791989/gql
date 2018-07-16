@@ -6,7 +6,7 @@ Object {
     "column": 16,
     "line": 5,
   },
-  "path": "/tmp/gql-test/7fce17942caea512dfb40e6492186493f6f9e039/relay-modern/test2.js",
+  "path": "$TEST_TEMP_DIR/7fce17942caea512dfb40e6492186493f6f9e039/relay-modern/test2.js",
   "start": Object {
     "column": 15,
     "line": 3,
@@ -20,7 +20,7 @@ Object {
     "column": 30,
     "line": 7,
   },
-  "path": "/tmp/gql-test/4113b7b251a745abe7a3ff16df3d5abff6119012/relay-modern/test.js",
+  "path": "$TEST_TEMP_DIR/4113b7b251a745abe7a3ff16df3d5abff6119012/relay-modern/test.js",
   "start": Object {
     "column": 3,
     "line": 7,
@@ -34,7 +34,7 @@ Object {
     "column": 30,
     "line": 2,
   },
-  "path": "/tmp/gql-test/5840cf4464ae1b722028e8b68a62595594742647/relay-modern/test.js",
+  "path": "$TEST_TEMP_DIR/5840cf4464ae1b722028e8b68a62595594742647/relay-modern/test.js",
   "start": Object {
     "column": 3,
     "line": 2,
@@ -48,7 +48,7 @@ Object {
     "column": 10,
     "line": 8,
   },
-  "path": "/tmp/gql-test/bb63494cd671b99c58779373ad9ef96a71dc250e/schema/schema.gql",
+  "path": "$TEST_TEMP_DIR/bb63494cd671b99c58779373ad9ef96a71dc250e/schema/schema.gql",
   "start": Object {
     "column": 9,
     "line": 6,
@@ -62,7 +62,7 @@ Object {
     "column": 10,
     "line": 8,
   },
-  "path": "/tmp/gql-test/4dae3772d2ca36e740891e5aa5ddb39c57c0712b/schema/schema.gql",
+  "path": "$TEST_TEMP_DIR/4dae3772d2ca36e740891e5aa5ddb39c57c0712b/schema/schema.gql",
   "start": Object {
     "column": 9,
     "line": 6,

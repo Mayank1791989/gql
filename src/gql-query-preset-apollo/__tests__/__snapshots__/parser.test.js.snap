@@ -7,7 +7,7 @@ Array [
       Object {
         "column": 7,
         "line": 5,
-        "path": "/tmp/gql-test/c614b95bce323f92db32eef70ebb20f6ab294968/query/test.js",
+        "path": "$TEST_TEMP_DIR/c614b95bce323f92db32eef70ebb20f6ab294968/query/test.js",
       },
     ],
     "message": "Syntax Error: Expected Name, found $",
@@ -23,7 +23,7 @@ Array [
       Object {
         "column": 12,
         "line": 2,
-        "path": "/tmp/gql-test/ec729319ad1f4bbecdee4fdd340a0161637cd17f/query/test.js",
+        "path": "$TEST_TEMP_DIR/ec729319ad1f4bbecdee4fdd340a0161637cd17f/query/test.js",
       },
     ],
     "message": "Syntax Error: Unexpected Name \\"on\\"",

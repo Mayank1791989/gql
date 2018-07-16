@@ -11,7 +11,7 @@ Array [
       Object {
         "column": 3,
         "line": 7,
-        "path": "/tmp/gql-test/bc65ad9cdcd9a6e6df5025e3428144df505ce083/query/test.js",
+        "path": "$TEST_TEMP_DIR/bc65ad9cdcd9a6e6df5025e3428144df505ce083/query/test.js",
       },
     ],
     "message": "Syntax Error: Unexpected $",

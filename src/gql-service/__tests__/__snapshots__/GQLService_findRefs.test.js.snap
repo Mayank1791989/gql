@@ -7,7 +7,7 @@ Array [
       "column": 8,
       "line": 8,
     },
-    "path": "/tmp/gql-test/e8fdbce663998f81111a1a6abdb061fbf9209d64/schema/schema.gql",
+    "path": "$TEST_TEMP_DIR/e8fdbce663998f81111a1a6abdb061fbf9209d64/schema/schema.gql",
     "start": Object {
       "column": 7,
       "line": 6,
@@ -18,7 +18,7 @@ Array [
       "column": 23,
       "line": 3,
     },
-    "path": "/tmp/gql-test/e8fdbce663998f81111a1a6abdb061fbf9209d64/schema/schema.gql",
+    "path": "$TEST_TEMP_DIR/e8fdbce663998f81111a1a6abdb061fbf9209d64/schema/schema.gql",
     "start": Object {
       "column": 17,
       "line": 3,

@@ -7,7 +7,7 @@ Array [
       Object {
         "column": 20,
         "line": 2,
-        "path": "/tmp/gql-test/4b84265c74781e89237122dd0d134f58aaec5a6e/query/test.js",
+        "path": "$TEST_TEMP_DIR/4b84265c74781e89237122dd0d134f58aaec5a6e/query/test.js",
       },
     ],
     "message": "Unknown type \\"xUser\\". Did you mean \\"User\\"? (KnownTypeNames)",
@@ -23,7 +23,7 @@ Array [
       Object {
         "column": 20,
         "line": 2,
-        "path": "/tmp/gql-test/5dd90217ecec8865f26f7e0df6ba8acc779f5524/query/test.js",
+        "path": "$TEST_TEMP_DIR/5dd90217ecec8865f26f7e0df6ba8acc779f5524/query/test.js",
       },
     ],
     "message": "Unknown type \\"xUser\\". Did you mean \\"User\\"? (KnownTypeNames)",
@@ -39,7 +39,7 @@ Array [
       Object {
         "column": 20,
         "line": 4,
-        "path": "/tmp/gql-test/f00e69aae0918f377a11128da1dcb1b945a2efc9/query/test.js",
+        "path": "$TEST_TEMP_DIR/f00e69aae0918f377a11128da1dcb1b945a2efc9/query/test.js",
       },
     ],
     "message": "Unknown type \\"xUser\\". Did you mean \\"User\\"? (KnownTypeNames)",
