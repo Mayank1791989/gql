@@ -62,7 +62,7 @@
     "cross-env": "5.0.0",
     "cz-conventional-changelog": "2.0.0",
     "eslint": "3.19.0",
-    "eslint-plugin-playlyfe": "3.0.0",
+    "eslint-plugin-playlyfe": "4.2.0",
     "flow-bin": "0.46.0",
     "flow-typed": "2.1.2",
     "husky": "0.13.3",
