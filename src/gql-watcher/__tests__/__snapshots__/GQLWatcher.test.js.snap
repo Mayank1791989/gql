@@ -269,6 +269,27 @@ Array [
 ]
 `;
 
+exports[`move (rename) moved operation outside watch should not trigger any event 1`] = `
+Array [
+  Array [
+    Array [
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileB.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileC.js",
+      },
+      Object {
+        "exists": true,
+        "name": "watchdir/dirA/fileD.js",
+      },
+    ],
+  ],
+]
+`;
+
 exports[`move (rename) rename dir should trigger two events delete and add for all files inside dir 1`] = `
 Array [
   Array [

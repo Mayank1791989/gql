@@ -171,7 +171,7 @@ describe('move (rename)', () => {
     await watcher.close();
   });
 
-  test.only('rename dir should trigger two events delete and add for all files inside dir', async () => {
+  test('rename dir should trigger two events delete and add for all files inside dir', async () => {
     const onChangeMock = jest.fn();
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
 
@@ -199,6 +199,21 @@ describe('move (rename)', () => {
     await waitForFsEvents();
 
     // console.log(JSON.stringify(onChangeMock.mock.calls, null, 2));
+    expect(onChangeMock.mock.calls).toMatchSnapshot();
+
+    await watcher.close();
+  });
+
+  test('moved operation outside watch should not trigger any event', async () => {
+    const onChangeMock = jest.fn();
+    const { rootPath, watcher } = await setupWatcher(onChangeMock);
+
+    await fs.move(
+      path.join(rootPath, 'outsidewatchdir/dirA'),
+      path.join(rootPath, 'outsidewatchdir/dirB'),
+    );
+    await waitForFsEvents();
+
     expect(onChangeMock.mock.calls).toMatchSnapshot();
 
     await watcher.close();
