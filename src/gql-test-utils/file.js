@@ -4,7 +4,12 @@ import objectHash from 'object-hash';
 import fs from 'fs-extra';
 import path from 'path';
 
-export const TEST_TEMP_DIR = path.join(os.tmpdir(), 'gql-test');
+export const TEST_TEMP_DIR = path.join(
+  // NOTE: os.tmpdir doesnt return realpath
+  // so causing issues on osx ci server
+  fs.realpathSync(os.tmpdir()),
+  'gql-test',
+);
 
 export function createTempFiles(files: { [file: string]: string }): string {
   // deterministic dirName [as this path used in test cases output (see generated snapshot)]
