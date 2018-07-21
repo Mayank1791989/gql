@@ -66,10 +66,6 @@ export default class GQLWatcher {
       return WatchmanWatcher;
     }
 
-    if (parseBool(process.env.TEST_USE_FS_EVENTS || 'false')) {
-      return sane.FSEventsWatcher;
-    }
-
     logger.info('using "chokidar" watcher.');
     return ChokidarWatcher;
   });

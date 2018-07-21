@@ -67,6 +67,8 @@ export default class ChokidarWatcher extends EventsEmitter implements IWatcher {
 // Patch watcher to fix missing 'remove' event when dir renamed (only add event is called)
 function withFixForMissingRemoveEvent(watcher) {
   watcher.on('raw', (rawEvent, file, info) => {
+    console.log('rawEvent', rawEvent, file, info);
+
     // watchedPath not present in case of 'fsevents'
     if (!info.watchedPath) {
       // NOTE: patch only required when nodefs used (not fsevents).

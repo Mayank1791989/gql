@@ -171,7 +171,7 @@ describe('move (rename)', () => {
     await watcher.close();
   });
 
-  test('rename dir should trigger two events delete and add for all files inside dir', async () => {
+  test.only('rename dir should trigger two events delete and add for all files inside dir', async () => {
     const onChangeMock = jest.fn();
     const { rootPath, watcher } = await setupWatcher(onChangeMock);
 
