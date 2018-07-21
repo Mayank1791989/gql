@@ -8,7 +8,7 @@ export function runCLICommand(
 ): Promise<{ err: ?{ code: number }, stdout: string, stderr: string }> {
   return new Promise(resolve => {
     exec(
-      `node ${CLI_PATH} check`,
+      `node ${CLI_PATH} ${command}`,
       {
         encoding: 'utf8',
         ...options,

@@ -4,7 +4,6 @@ import GQLWatcher from '../GQLWatcher';
 import { createTempFiles } from 'gql-test-utils/file';
 import path from 'path';
 import fs from 'fs-extra';
-import parseBool from 'gql-shared/parseBool';
 
 async function setupWatcher(onChange: Function) {
   const rootPath = createTempFiles({
@@ -18,10 +17,7 @@ async function setupWatcher(onChange: Function) {
     'outsidewatchdir/dirA/fileA.js': 'fileA.js',
   });
 
-  const watcher = new GQLWatcher({
-    watch: true,
-    watchman: parseBool(process.env.TEST_USE_WATCHMAN || 'true'),
-  });
+  const watcher = new GQLWatcher({ watch: true });
   const watchSubscription = watcher.watch({
     rootPath,
     files: 'watchdir/**/*.js',

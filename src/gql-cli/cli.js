@@ -25,7 +25,14 @@ yargs
     },
     handler: () => {
       try {
-        const gqlService = new GQLService({ configDir: process.cwd() });
+        const gqlService = new GQLService({
+          configDir: process.cwd(),
+          watch: false,
+        });
+        gqlService.onError(err => {
+          process.stdout.write(err.message);
+          process.exit(1);
+        });
         gqlService.start().then(
           () => {
             const errors = gqlService.status();

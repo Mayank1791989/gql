@@ -1,5 +1,6 @@
 /* @flow */
 import boolValue from 'gql-shared/boolValue';
+import parseBool from 'gql-shared/parseBool';
 import log from 'gql-shared/log';
 import noop from 'gql-shared/noop';
 import { execSync } from 'child_process';
@@ -27,7 +28,12 @@ export default class GQLWatcher {
     logger.info(`setting watcher for files ${JSON.stringify(options.files)}`);
     const watcher = watch({
       ...options,
-      Watcher: this._getWatcher(boolValue(this._options.watchman, true)),
+      Watcher: this._getWatcher(
+        boolValue(
+          this._options.watchman,
+          parseBool(process.env.TEST_USE_WATCHMAN || 'true'),
+        ),
+      ),
       watch: boolValue(this._options.watch, true),
     });
 
