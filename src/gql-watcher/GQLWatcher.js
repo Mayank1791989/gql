@@ -5,6 +5,7 @@ import log from 'gql-shared/log';
 import noop from 'gql-shared/noop';
 import { execSync } from 'child_process';
 import { ChokidarWatcher, WatchmanWatcher } from './watcher';
+import sane from 'sane';
 
 import watch, { type WatchOptions } from './watch';
 import { memoizeSingle } from 'gql-shared/memoize';
@@ -63,6 +64,10 @@ export default class GQLWatcher {
     if (useWatchmanIfAvailable && this._checkWatchmanInstalled()) {
       logger.info('using "watchman" watcher.');
       return WatchmanWatcher;
+    }
+
+    if (parseBool(process.env.TEST_USE_FS_EVENTS || 'false')) {
+      return sane.FSEventsWatcher;
     }
 
     logger.info('using "chokidar" watcher.');
