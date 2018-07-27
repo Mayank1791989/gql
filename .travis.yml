@@ -1,7 +1,7 @@
 sudo: true
 
 language: node_js
-# cache: yarn
+cache: yarn
 
 os:
   - osx

@@ -19,6 +19,9 @@ branches:
 
 build: off
 
+cache:
+  - '%LOCALAPPDATA%/Yarn'
+
 install:
   # install nodejs
   - ps: Install-Product node $env:nodejs_version
