@@ -10,8 +10,7 @@ os:
 env:
   - TEST_USE_WATCHMAN=true
   - TEST_USE_WATCHMAN=false
-  - TEST_USE_WATCHMAN=false TEST_USE_FS_EVENTS=false
-  - TEST_USE_WATCHMAN=false TEST_USE_FS_EVENTS=true
+  # - TEST_USE_WATCHMAN=false TEST_USE_FS_EVENTS=false
 
 node_js:
   - '8'
@@ -21,10 +20,6 @@ matrix:
   exclude:
     - os: linux
       env: TEST_USE_WATCHMAN=false TEST_USE_FS_EVENTS=false
-    - os: linux
-      env: TEST_USE_WATCHMAN=false TEST_USE_FS_EVENTS=true
-    - os: osx
-      env: TEST_USE_WATCHMAN=false
 
 before_install: ./travis-$TRAVIS_OS_NAME-install.sh
 
