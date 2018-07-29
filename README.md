@@ -1,7 +1,6 @@
 [![Travis](https://img.shields.io/travis/Mayank1791989/gql.svg?style=flat-square)](https://travis-ci.org/Mayank1791989/gql)
 [![Codecov](https://img.shields.io/codecov/c/github/Mayank1791989/gql.svg?style=flat-square)](https://codecov.io/gh/Mayank1791989/gql)
 [![npm](https://img.shields.io/npm/v/@playlyfe/gql.svg?style=flat-square)](https://www.npmjs.com/package/@playlyfe/gql)
-[![Greenkeeper badge](https://badges.greenkeeper.io/Mayank1791989/gql.svg)](https://greenkeeper.io/)
 
 # gql
 
@@ -26,7 +25,7 @@ type GQLConfig = {
   query?: { // query optional
     files: Array<{
       match: FileMatchConfig, // match files
-      parser: QueryParser, 
+      parser: QueryParser,
       isRelay?: boolean,
       validate?: ValidateConfig,
     }>
@@ -82,7 +81,7 @@ type ValidateConfig = {
         match: { include: 'path/to/code/**/*.js', ignore: '**/tests/**/*.js' },
         parser: [ 'EmbeddedQueryParser', { startTag: 'gql`', endTag: '`' } ],
       },
-      // [Embedded queries] some other tags 
+      // [Embedded queries] some other tags
       {
         match: 'path/to/code/**/*.xyz',
         parser: [ 'EmbeddedQueryParser', { startTag: '"""' endTag: '"""' } ],
@@ -132,12 +131,12 @@ type ValidateConfig = {
 ```javascript
 class GQLService {
   constructor(options: ?Options)
-  
+
   /*** List of supported commands ***/
-  
+
   // query errors
   status(): Array<GQLError>
-  
+
   // autocomplete suggestion at position
   autocomplete(params: CommandParams): Array<GQLHint>
 
@@ -167,7 +166,7 @@ type Options = {
 type CommandParams = {
   sourceText: string,
   sourcePath: string,
-  position: { 
+  position: {
     line: number, // starts with 1
     column: number, // starts with 1
   }
