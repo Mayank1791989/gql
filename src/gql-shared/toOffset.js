@@ -1,18 +1,17 @@
 /* @flow */
 import { type GQLPosition } from './types';
-import splitLines from './splitLines';
+import { forEachLine } from './text';
 
 export default function toOffset(
   sourceText: string,
   position: GQLPosition,
 ): number {
   let offset = 0;
-  splitLines(sourceText).find((line, index) => {
-    if (position.line === index + 1) {
-      offset += position.column;
+  forEachLine(sourceText, line => {
+    if (position.line === line.number) {
+      offset = line.offset + position.column;
       return true; // to break
     }
-    offset += line.length + 1; // 1 for end of line
     return false;
   });
   return offset;

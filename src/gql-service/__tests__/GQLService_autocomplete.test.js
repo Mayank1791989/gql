@@ -4,6 +4,7 @@ import GQLService from '../GQLService';
 import { getSchemaFiles, getHints, sortHints } from 'gql-test-utils/test-data';
 import { createTempFiles } from 'gql-test-utils/file';
 import path from 'path';
+import { replaceLineEndings, LINE_ENDING } from 'gql-shared/text';
 
 describe('Schema: autocomplete', () => {
   it('works in schema files', async () => {
@@ -761,6 +762,27 @@ describe('Query', () => {
       });
       expect(hints).toEqual([{ text: 'fragment' }]);
     });
+  });
+
+  test('[Bug] works correctly when sourceText contains CRLF', async () => {
+    const hints = await autocomplete({
+      sourcePath: 'relay/test.js',
+      ...code(
+        replaceLineEndings(
+          `
+          const a = Relay.QL\`
+            fragment test on Node {
+              id
+              ...on   #
+              ------^
+            }
+          \`;
+        `,
+          LINE_ENDING.crlf,
+        ),
+      ),
+    });
+    expect(hints).toEqual(allHints.TypesImplementsNode);
   });
 
   test('[Bug] should work with empty sourceText', async () => {

@@ -1,20 +1,21 @@
 /* @flow */
 import { dedent } from 'dentist';
-import splitLines from 'gql-shared/splitLines';
+import { forEachLine } from 'gql-shared/text';
 
 export default function code(text: string) {
   const sourceText = dedent(text);
-  const lines = splitLines(sourceText);
   let position = null;
-  lines.forEach((line, index) => {
-    const match = line.match(/--\^/);
+  forEachLine(sourceText, line => {
+    const match = line.text.match(/--\^/);
     if (match) {
       position = {
         // $FlowDisableNextLine
         column: match.index + 3,
-        line: index,
+        line: line.number - 1,
       };
+      return true;
     }
+    return false;
   });
 
   if (!position) {

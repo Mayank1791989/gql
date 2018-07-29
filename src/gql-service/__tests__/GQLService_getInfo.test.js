@@ -4,6 +4,7 @@ import path from 'path';
 import { getSchemaFiles, getAllInfo } from 'gql-test-utils/test-data';
 import { createTempFiles } from 'gql-test-utils/file';
 import { type GQLPosition } from 'gql-shared/types';
+import { LINE_ENDING, replaceLineEndings } from 'gql-shared/text';
 import GQLService from '../GQLService';
 
 describe('Schema: getDef', () => {
@@ -644,6 +645,26 @@ describe('Query', () => {
       expect(info).toMatchSnapshot();
     });
   });
+});
+
+test('[Bug] works when text contains CRLF', async () => {
+  const info = await getInfo({
+    sourcePath: 'relay/test.js',
+    ...code(
+      replaceLineEndings(
+        `
+          const a = Relay.QL\`
+            fragment test on Player {
+              image(size
+                #----^
+            }
+          \`
+        `,
+        LINE_ENDING.crlf,
+      ),
+    ),
+  });
+  expect(info).toEqual(allInfo.PlayerImageSizeArg);
 });
 
 async function getInfo(opts: {
