@@ -209,6 +209,7 @@ Object {
       ],
     },
   },
+  "version": undefined,
 }
 `;
 
@@ -288,6 +289,7 @@ Object {
       ],
     },
   },
+  "version": undefined,
 }
 `;
 
@@ -526,6 +528,7 @@ Object {
       ],
     },
   },
+  "version": undefined,
 }
 `;
 
@@ -580,6 +583,7 @@ Object {
       ],
     },
   },
+  "version": undefined,
 }
 `;
 
@@ -604,6 +608,7 @@ Object {
       ],
     },
   },
+  "version": undefined,
 }
 `;
 
@@ -656,5 +661,6 @@ Object {
       ],
     },
   },
+  "version": undefined,
 }
 `;

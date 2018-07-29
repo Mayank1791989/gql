@@ -7,6 +7,8 @@ import getConfigForFile, {
   type SchemaFileConfig,
   type QueryFileConfig,
 } from './getConfigForFile';
+import getPackageVersion from 'gql-shared/getPackageVersion';
+import semver from 'semver';
 
 import _memoize from 'lodash/memoize';
 
@@ -29,7 +31,7 @@ class GQLConfig {
       readConfigFile(result.path),
       result.dir,
     );
-    // console.log(JSON.stringify(this._configFileResolved, null, 2));
+    this._assertVersion(this._configFileResolved.version);
   }
 
   // return directory containing config file
@@ -96,6 +98,16 @@ class GQLConfig {
       options.commentDescriptions = graphQLOptions.commentDescriptions;
     }
     return options;
+  }
+
+  _assertVersion(version: ?SemverVersion) {
+    const packageVersion = getPackageVersion();
+    // if version is provided than it should satifies the current package version
+    if (version && !semver.satisfies(packageVersion, version)) {
+      throw new Error(
+        `Wrong version of gql. The config specifies version ${version} but gql version is ${packageVersion}`,
+      );
+    }
   }
 }
 

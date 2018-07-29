@@ -16,9 +16,13 @@ type IQueryContext = any;
 
 type SemverVersion = string;
 (reify: Type<SemverVersion>).addConstraint((input: string) => {
-  if (!semver.valid(input)) {
+  try {
+    // eslint-disable-next-line no-new
+    new semver.Range(input);
+  } catch (err) {
     return 'Not a valid semver version.';
   }
+
   return null;
 });
 
@@ -51,6 +55,7 @@ export type GQLConfigFileResolved = {|
   query?: {
     files: Array<QueryConfigResolved>,
   },
+  version: ?SemverVersion,
 |};
 
 export type SchemaConfigResolved = {|

@@ -23,6 +23,8 @@ Actual Type: {
 "
 `;
 
+exports[`report error if gql version doesnt satisfies config version 1`] = `"Wrong version of gql. The config specifies version ^3.0.0 but gql version is 2.6.0"`;
+
 exports[`report if any extra key passed in config (to detect typos) 1`] = `
 "GQL_CONFIG_FILE_INVALID: Error parsing '.gqlconfig' 
 
@@ -33,6 +35,7 @@ Expected: {|
   query?: {
     files: Array<QueryConfig>;
   };
+  version?: SemverVersion;
 |}
 
 Actual Value: {
@@ -58,7 +61,7 @@ GQLConfigFile.version Not a valid semver version.
 
 Expected: *
 
-Actual Value: \\"mayank\\"
+Actual Value: \\"this_is_not_semver_version\\"
 
 Actual Type: string
 "

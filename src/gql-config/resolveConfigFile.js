@@ -57,6 +57,7 @@ export default function resolveConfigFile(
   if (!config.query) {
     return {
       schema: schemaConfigResolved,
+      version: config.version,
     };
   }
 
@@ -106,6 +107,7 @@ export default function resolveConfigFile(
         };
       }),
     },
+    version: config.version,
   };
 }
 
