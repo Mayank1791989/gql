@@ -29,6 +29,7 @@ import presetExtendSchema from 'gql-shared/presetExtendSchema';
 // commands
 import findRefsOfTokenAtPosition from './commands/findRefsOfTokenAtPosition';
 import getDefinitionAtPosition from './commands/getDefinitionAtPosition';
+import getLenses from './commands/getLenses';
 import getHintsAtPosition from './commands/getHintsAtPosition';
 import getInfoOfTokenAtPosition from './commands/getInfoOfTokenAtPosition';
 
@@ -39,6 +40,7 @@ import GQLConfig from 'gql-config';
 import { type SchemaConfigResolved } from 'gql-config/types';
 import { type WatchFile } from 'gql-watcher';
 import invariant from 'invariant';
+import { type FileMatchConfig } from '../gql-config/types';
 
 type Options = {|
   config: GQLConfig,
@@ -46,9 +48,12 @@ type Options = {|
 |};
 
 type CommandParams = {
+  filePath: string,
   fileContent: string,
-  fileOptions: SchemaConfigResolved,
+  fileOptions?: SchemaConfigResolved,
   position: GQLPosition,
+  resolversGlob?: FileMatchConfig,
+  resolversBaseDir?: string,
 };
 
 type ParsedSchemaFile = $ReadOnly<{
@@ -115,10 +120,25 @@ export default class GQLSchemaService extends GQLBaseService {
   getDefinitionAtPosition(params: CommandParams): ?GQLLocation {
     return this._catchThrownErrors(() => {
       return getDefinitionAtPosition({
-        parser: createParser(params.fileOptions.parser),
+        parser: params.fileOptions
+          ? createParser(params.fileOptions.parser)
+          : null,
         schema: this.getSchema(),
         sourceText: params.fileContent,
         position: params.position,
+        filePath: params.filePath,
+        resolversGlob: params.resolversGlob,
+        resolversBaseDir: params.resolversBaseDir,
+      });
+    }, null);
+  }
+
+  getLenses(params: CommandParams): ?GQLLocation {
+    return this._catchThrownErrors(() => {
+      return getLenses({
+        schema: this.getSchema(),
+        filePath: params.filePath,
+        type: params.filePath.endsWith('graphql') ? 'schema' : 'resolver',
       });
     }, null);
   }

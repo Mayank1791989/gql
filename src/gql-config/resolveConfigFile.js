@@ -37,76 +37,79 @@ export default function resolveConfigFile(
     configFilePath,
   );
 
-  const schemaConfigResolved = {
-    files: config.schema.files,
-    validate: resolveValidateConfig(schemaConfig.validate),
-    extendSchema: schemaConfig.extendSchema,
-    parser: [
-      SchemaParserClass,
-      {
-        // NOTE: preset should come first
-        ...schemaConfig.parserOptions,
-        ...schemaParserOptions,
-      },
-    ],
-    ...(config.schema.graphQLOptions
-      ? { graphQLOptions: config.schema.graphQLOptions }
-      : {}),
-  };
-
-  if (!config.query) {
-    return {
-      schema: schemaConfigResolved,
-      version: config.version,
-    };
-  }
-
   return {
-    schema: schemaConfigResolved,
-    query: {
-      files: config.query.files.map(({ match, parser, presets, validate }) => {
-        // load presets packages
-        const queryPresets = loadQueryPresets(presets, configFilePath);
-        const queryPresetInline = {
-          name: 'inline',
-          parser,
-          validate,
-        };
-        // merge presets to generate config
-        const presetConfig = mergeQueryPresets([
-          ...queryPresets,
-          queryPresetInline,
-        ]);
-
-        const [ParserClass, parserOptions] = loadQueryParser(
-          // NOTE: settings in .gqlconfig overrides preset
-          presetConfig.parser,
-          configFilePath,
-        );
-
-        return {
-          match,
-          validate: resolveValidateConfig(
-            presetConfig.validate,
-            presetConfig.__overrides
-              ? presetConfig.__overrides.ValidationContext
-              : null,
-          ),
-          extendSchema: presetConfig.extendSchema,
-          fragmentScopes: normalizeFragmentScopes(presetConfig.fragmentScopes),
-          parser: [
-            ParserClass,
-            {
-              ...presetConfig.parserOptions,
-              ...parserOptions,
-            },
-          ],
-          QueryContext: presetConfig.__overrides
-            ? presetConfig.__overrides.QueryContext
-            : null,
-        };
-      }),
+    schema: {
+      files: config.schema.files,
+      validate: resolveValidateConfig(schemaConfig.validate),
+      extendSchema: schemaConfig.extendSchema,
+      parser: [
+        SchemaParserClass,
+        {
+          // NOTE: preset should come first
+          ...schemaConfig.parserOptions,
+          ...schemaParserOptions,
+        },
+      ],
+      ...(config.schema.graphQLOptions
+        ? { graphQLOptions: config.schema.graphQLOptions }
+        : {}),
     },
+    ...(config.query && {
+      query: {
+        files: config.query.files.map(
+          ({ match, parser, presets, validate }) => {
+            // load presets packages
+            const queryPresets = loadQueryPresets(presets, configFilePath);
+            const queryPresetInline = {
+              name: 'inline',
+              parser,
+              validate,
+            };
+            // merge presets to generate config
+            const presetConfig = mergeQueryPresets([
+              ...queryPresets,
+              queryPresetInline,
+            ]);
+
+            const [ParserClass, parserOptions] = loadQueryParser(
+              // NOTE: settings in .gqlconfig overrides preset
+              presetConfig.parser,
+              configFilePath,
+            );
+
+            return {
+              match,
+              validate: resolveValidateConfig(
+                presetConfig.validate,
+                presetConfig.__overrides
+                  ? presetConfig.__overrides.ValidationContext
+                  : null,
+              ),
+              extendSchema: presetConfig.extendSchema,
+              fragmentScopes: normalizeFragmentScopes(
+                presetConfig.fragmentScopes,
+              ),
+              parser: [
+                ParserClass,
+                {
+                  ...presetConfig.parserOptions,
+                  ...parserOptions,
+                },
+              ],
+              QueryContext: presetConfig.__overrides
+                ? presetConfig.__overrides.QueryContext
+                : null,
+            };
+          },
+        ),
+      },
+    }),
+    ...(config.resolver && {
+      resolver: {
+        files: config.resolver.files,
+        baseDir: config.resolver.baseDir,
+      },
+    }),
     version: config.version,
   };
 }
