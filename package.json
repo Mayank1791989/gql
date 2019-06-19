@@ -61,7 +61,7 @@
     "commitizen": "2.9.6",
     "cross-env": "5.0.0",
     "cz-conventional-changelog": "2.0.0",
-    "eslint": "3.19.0",
+    "eslint": "4.18.2",
     "eslint-plugin-playlyfe": "3.0.0",
     "flow-bin": "0.46.0",
     "flow-typed": "2.1.2",
