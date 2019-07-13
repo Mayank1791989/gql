@@ -3,7 +3,7 @@ cache: yarn
 notifications:
   email: false
 node_js:
-  - '9'
+  - '10'
   - '8'
 script:
   - yarn run test
