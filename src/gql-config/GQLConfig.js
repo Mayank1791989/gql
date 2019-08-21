@@ -59,6 +59,11 @@ class GQLConfig {
     return this._configFileResolved.query;
   }
 
+  // return resolver config
+  getResolverConfig(): $PropertyType<GQLConfigFileResolved, 'resolver'> {
+    return this._configFileResolved.resolver;
+  }
+
   // returns config for given file path
   // file can be schema file or any query file
   getFileConfig(filePath: string): SchemaFileConfig | QueryFileConfig | null {

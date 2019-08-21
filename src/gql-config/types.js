@@ -31,6 +31,7 @@ export type GQLConfigFile = {|
   query?: {
     files: Array<QueryConfig>,
   },
+  resolver?: ResolverConfig,
   version?: SemverVersion,
 |};
 
@@ -50,11 +51,17 @@ export type QueryConfig = {|
   fragmentScopes?: Array<FragmentScope>,
 |};
 
+export type ResolverConfig = {|
+  files: FileMatchConfig,
+  baseDir: string,
+|};
+
 export type GQLConfigFileResolved = {|
   schema: SchemaConfigResolved,
   query?: {
     files: Array<QueryConfigResolved>,
   },
+  resolver?: ResolverConfigResolved,
   version: ?SemverVersion,
 |};
 
@@ -73,6 +80,11 @@ export type QueryConfigResolved = {|
   extendSchema: Array<{ presetName: string, getSchema: () => string }>,
   fragmentScopes: Array<FragmentScope>,
   QueryContext?: ?IQueryContext,
+|};
+
+export type ResolverConfigResolved = {|
+  files: FileMatchConfig,
+  baseDir: string,
 |};
 
 export type GraphQLOptions = {|

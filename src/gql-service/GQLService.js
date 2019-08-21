@@ -17,6 +17,8 @@ import {
 } from 'gql-shared/types';
 
 import { type GQLError } from 'gql-shared/GQLError';
+import getResolverLocation from 'gql-schema-service/commands/getResolverLocation';
+import getSchemaLocation from 'gql-schema-service/commands/getSchemaLocation';
 
 type Options = $ReadOnly<{|
   configDir?: string,
@@ -32,7 +34,16 @@ type CommandParams = $ReadOnly<{|
   position: GQLPosition,
 |}>;
 
+type GetResolverOrSchemaParams = $ReadOnly<{|
+  fieldType: string,
+  fieldName: string,
+|}>;
+
 export type { Options as GQLServiceOptions };
+
+export function isGql(sourcePath: string) {
+  return !(sourcePath.endsWith('ts') || sourcePath.endsWith('ts'));
+}
 
 export default class GQLService extends GQLBaseService {
   _schemaService: GQLSchemaService;
@@ -154,8 +165,92 @@ export default class GQLService extends GQLBaseService {
     }, []);
   }
 
-  getDef(params: CommandParams): ?GQLLocation {
+  getLenses(params: CommandParams): ?GQLLocation {
+    return this._catchThrownErrors(async () => {
+      logger.debug('getLenses request');
+      logger.time('getLenses response');
+      if (!this._isRunning) {
+        return null;
+      }
+
+      let defLenses = null;
+
+      if (isGql(params.sourcePath)) {
+        logger.time('getFileConfig');
+        const fileConfig = this._config.getFileConfig(params.sourcePath);
+        logger.timeEnd('getFileConfig');
+        logger.debug('FileType detected:', fileConfig && fileConfig.type);
+
+        logger.time('getLenses');
+
+        if (fileConfig && fileConfig.type === 'schema') {
+          defLenses = await this._schemaService.getLenses({
+            filePath: params.sourcePath,
+          });
+        }
+      } else {
+        logger.time('getLenses');
+        defLenses = await this._schemaService.getLenses({
+          filePath: params.sourcePath,
+        });
+      }
+
+      logger.timeEnd('getLenses');
+      logger.timeEnd('getLenses response');
+      return defLenses;
+    }, null);
+  }
+
+  getResolverLocation(params: GetResolverOrSchemaParams): ?GQLLocation {
+    return this._catchThrownErrors(async () => {
+      logger.debug('getResolverLocation request');
+      logger.time('getResolverLocation response');
+      if (!this._isRunning) {
+        return null;
+      }
+
+      logger.time('getResolverLocation');
+
+      const schema = this._schemaService.getSchema();
+      const resolverLocation = await getResolverLocation(
+        params.fieldType,
+        params.fieldName,
+        schema,
+        this._config.getResolverConfig().files,
+        this._config.getResolverConfig().baseDir,
+      );
+
+      logger.timeEnd('getResolverLocation');
+      logger.timeEnd('getResolverLocation response');
+      return resolverLocation;
+    }, null);
+  }
+
+  getSchemaLocation(params: GetResolverOrSchemaParams): ?GQLLocation {
     return this._catchThrownErrors(() => {
+      logger.debug('getSchemaLocation request');
+      logger.time('getSchemaLocation response');
+      if (!this._isRunning) {
+        return null;
+      }
+
+      logger.time('getSchemaLocation');
+
+      const schema = this._schemaService.getSchema();
+      const schemaLocation = getSchemaLocation(
+        params.fieldType,
+        params.fieldName,
+        schema,
+      );
+
+      logger.timeEnd('getSchemaLocation');
+      logger.timeEnd('getSchemaLocation response');
+      return schemaLocation;
+    }, null);
+  }
+
+  getDef(params: CommandParams): ?GQLLocation {
+    return this._catchThrownErrors(async () => {
       logger.debug('getDef request');
       logger.time('getDef response');
       if (!this._isRunning) {
@@ -163,25 +258,38 @@ export default class GQLService extends GQLBaseService {
       }
 
       let defLocation = null;
-      logger.time('getFileConfig');
-      const fileConfig = this._config.getFileConfig(params.sourcePath);
-      logger.timeEnd('getFileConfig');
-      logger.debug('FileType detected:', fileConfig && fileConfig.type);
 
-      logger.time('getDef');
-      if (fileConfig && fileConfig.type === 'schema') {
-        defLocation = this._schemaService.getDefinitionAtPosition({
-          fileContent: params.sourceText,
-          fileOptions: fileConfig.opts,
-          position: params.position,
-        });
-      }
+      if (isGql(params.sourcePath)) {
+        logger.time('getFileConfig');
+        const fileConfig = this._config.getFileConfig(params.sourcePath);
+        logger.timeEnd('getFileConfig');
+        logger.debug('FileType detected:', fileConfig && fileConfig.type);
 
-      if (this._queryService && fileConfig && fileConfig.type === 'query') {
-        defLocation = this._queryService.getDefinitionAtPosition({
+        logger.time('getDef');
+        if (fileConfig && fileConfig.type === 'schema') {
+          defLocation = await this._schemaService.getDefinitionAtPosition({
+            fileContent: params.sourceText,
+            filePath: params.sourcePath,
+            fileOptions: fileConfig.opts,
+            position: params.position,
+            resolversGlob: this._config.getResolverConfig().files,
+            resolversBaseDir: this._config.getResolverConfig().baseDir,
+          });
+        }
+
+        if (this._queryService && fileConfig && fileConfig.type === 'query') {
+          defLocation = await this._queryService.getDefinitionAtPosition({
+            fileContent: params.sourceText,
+            filePath: params.sourcePath,
+            fileOptions: fileConfig.opts,
+            position: params.position,
+          });
+        }
+      } else {
+        logger.time('getDef');
+        defLocation = await this._schemaService.getDefinitionAtPosition({
           fileContent: params.sourceText,
           filePath: params.sourcePath,
-          fileOptions: fileConfig.opts,
           position: params.position,
         });
       }

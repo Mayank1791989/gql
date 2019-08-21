@@ -4,3 +4,4 @@ coverage
 npm-debug*
 yarn-*
 .tmp
+.idea
