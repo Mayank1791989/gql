@@ -68,7 +68,7 @@
     "husky": "0.13.3",
     "jest": "20.0.1",
     "memory-fs": "0.4.1",
-    "semantic-release": "^12.2.2",
+    "semantic-release": "^17.2.3",
     "travis-deploy-once": "^4.3.2"
   },
   "config": {
