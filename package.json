@@ -57,7 +57,7 @@
     "babel-plugin-flow-runtime": "0.11.1",
     "babel-polyfill": "6.23.0",
     "babel-preset-playlyfe": "1.2.0",
-    "codecov": "2.2.0",
+    "codecov": "3.8.3",
     "commitizen": "2.9.6",
     "cross-env": "5.0.0",
     "cz-conventional-changelog": "2.0.0",
