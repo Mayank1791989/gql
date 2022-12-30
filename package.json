@@ -42,7 +42,7 @@
     "graphql-language-service-interface": "0.0.11",
     "graphql-language-service-parser": "0.0.10",
     "invariant": "2.2.2",
-    "json5": "0.5.1",
+    "json5": "2.2.2",
     "keymirror": "0.1.1",
     "leven": "2.1.0",
     "lodash": "4.17.15",
