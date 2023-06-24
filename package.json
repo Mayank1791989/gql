@@ -45,7 +45,7 @@
     "json5": "0.5.1",
     "keymirror": "0.1.1",
     "leven": "2.1.0",
-    "lodash": "4.17.15",
+    "lodash": "4.17.20",
     "minimatch": "3.0.4",
     "node-ipc": "9.0.1",
     "parse-glob": "3.0.4",
